@@ -88,3 +88,4 @@ analyze:
   needs:
     - job: find_secrets
     - job: run_unit_tests
+      optional: true
