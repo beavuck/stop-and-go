@@ -8,7 +8,7 @@ stages:
 ########~~~~-- Variables & defaults --~~~~########
 
 variables:
-  IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/gradle:jdk21-alpine"
+  IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/alvrme/alpine-android:android-36-jdk21"
 
 default:
   image: $IMAGE
@@ -39,14 +39,14 @@ include:
       job_name: "update"
       stage_config: "update"
       branch_name: "chore/update-dependencies"
-      command: "gradle wrapper --gradle-version latest && gradle useLatestVersions"
+      command: "./gradlew wrapper --gradle-version latest && ./gradlew useLatestVersions"
       commit_message: "⚙️ Update dependencies automatically"
       image: "$IMAGE"
       script_to_install_deps: "apk add --no-cache bash curl jq git"
       consecutive_command_commits_allowed: true
 
 find_secrets:
-  rules: 
+  rules:
     - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
 
@@ -56,11 +56,9 @@ update:
 
 ########~~~~-- Jobs --~~~~########
 
-
 run_unit_tests:
-  image: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/gradle:9-jdk21"
   stage: test
-  script: gradle test
+  script: ./gradlew test
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
     - if: "$CI_COMMIT_TAG"
@@ -70,17 +68,23 @@ run_unit_tests:
 
 analyze:
   stage: test
+  image:
+    name: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/sonarsource/sonar-scanner-cli:latest"
+    entrypoint: [""]
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths: [.sonar/cache]
   variables:
     SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
     GIT_DEPTH: "0"
-  cache:
-    key: "${CI_JOB_NAME}"
-    paths:
-      - .sonar/cache
-  script: gradle sonarqube
+  script:
+    - git config --global --add safe.directory "/builds/$CI_PROJECT_PATH"
+    - LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+    - if [ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]; then PROJECT_VERSION=$LATEST_TAG; else PROJECT_VERSION=$LATEST_TAG-$CI_MERGE_REQUEST_ID; fi
+    - sonar-scanner -Dsonar.projectVersion=$PROJECT_VERSION -Dsonar.projectKey="beavuck-services_stop-and-go" -Dsonar.organization="beavuck-services" -Dsonar.coverage.exclusions="app/**"
   rules:
     - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
   needs:
     - job: find_secrets
-      optional: true
+    - job: run_unit_tests

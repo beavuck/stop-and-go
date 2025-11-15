@@ -5,7 +5,6 @@ plugins {
     id("org.jetbrains.kotlin.android") version "2.2.21"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
     id("com.github.ben-manes.versions") version "0.53.0"
-    id("org.sonarqube") version "7.0.1.6134"
 }
 
 android {
@@ -51,13 +50,5 @@ dependencies {
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
-}
-
-sonar {
-    properties {
-        property("sonar.projectKey", "beavuck-services_stop-and-go")
-        property("sonar.organization", "beavuck-services")
-
-    }
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
