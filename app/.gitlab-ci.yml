@@ -1,0 +1,86 @@
+########~~~~-- Stages --~~~~########
+
+stages:
+  - secure
+  - test
+  - update
+
+########~~~~-- Variables & defaults --~~~~########
+
+variables:
+  IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/gradle:jdk21-alpine"
+
+default:
+  image: $IMAGE
+  interruptible: true
+
+########~~~~-- Workflows --~~~~########
+
+workflow:
+  auto_cancel:
+    on_new_commit: interruptible
+    on_job_failure: all
+  rules:
+    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
+    - if: "$CI_COMMIT_TAG"
+    - if: "$CI_PIPELINE_SOURCE == 'schedule'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
+
+########~~~~-- Includes --~~~~########
+
+include:
+  - component: "$CI_SERVER_FQDN/beavuck-services/ci-cd-catalog/secret-finder/secret-finder@main"
+    inputs:
+      job_name: "find_secrets"
+      stage_config: "secure"
+
+  - component: "$CI_SERVER_FQDN/beavuck-services/ci-cd-catalog/command-runner/command-runner@main"
+    inputs:
+      job_name: "update"
+      stage_config: "update"
+      branch_name: "chore/update-dependencies"
+      command: "gradle wrapper --gradle-version latest && gradle useLatestVersions"
+      commit_message: "⚙️ Update dependencies automatically"
+      image: "$IMAGE"
+      script_to_install_deps: "apk add --no-cache bash curl jq git"
+      consecutive_command_commits_allowed: true
+
+find_secrets:
+  rules: 
+    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
+
+update:
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'schedule' && $IS_UPDATE == 'true'"
+
+########~~~~-- Jobs --~~~~########
+
+
+run_unit_tests:
+  image: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/gradle:9-jdk21"
+  stage: test
+  script: gradle test
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - job: find_secrets
+      optional: true
+
+analyze:
+  stage: test
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+    GIT_DEPTH: "0"
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script: gradle sonarqube
+  rules:
+    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
+  needs:
+    - job: find_secrets
+      optional: true
