@@ -1,3 +1,5 @@
+// build.gradle.kts
+
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -5,14 +7,22 @@ plugins {
     id("org.jetbrains.kotlin.android") version "2.2.21"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
     id("com.github.ben-manes.versions") version "0.53.0"
+    jacoco
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
 }
 
 android {
-    namespace = "com.example.stop_and_go"
+    val packagePath = "com.beavuck.stop_and_go"
+    namespace = packagePath
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.stop_and_go"
+        applicationId = packagePath
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -23,7 +33,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -39,6 +49,9 @@ android {
             jvmTarget = JvmTarget.JVM_21
         }
     }
+    buildTypes.configureEach {
+        enableUnitTestCoverage = true
+    }
 }
 
 dependencies {
@@ -52,3 +65,5 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
 }
+
+apply(from = "gradle/jacoco.gradle.kts")

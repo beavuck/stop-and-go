@@ -9,6 +9,7 @@ stages:
 
 variables:
   IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/alvrme/alpine-android:android-36-jdk21"
+  JACOCO_PATH: "app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
 
 default:
   image: $IMAGE
@@ -58,8 +59,17 @@ update:
 
 run_unit_tests:
   stage: test
-  script: ./gradlew test
+  script: ./gradlew test jacocoTestReport
+  artifacts:
+    reports:
+      coverage_report:
+        coverage_format: jacoco
+        path: $JACOCO_PATH
+    paths:
+      - app/build/reports/jacoco/
+    expire_in: 1 week
   rules:
+    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
     - if: "$CI_COMMIT_TAG"
   needs:
@@ -81,11 +91,17 @@ analyze:
     - git config --global --add safe.directory "/builds/$CI_PROJECT_PATH"
     - LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
     - if [ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]; then PROJECT_VERSION=$LATEST_TAG; else PROJECT_VERSION=$LATEST_TAG-$CI_MERGE_REQUEST_ID; fi
-    - sonar-scanner -Dsonar.projectVersion=$PROJECT_VERSION -Dsonar.projectKey="beavuck-services_stop-and-go" -Dsonar.organization="beavuck-services" -Dsonar.coverage.exclusions="app/**"
+    - sonar-scanner
+      -Dsonar.projectVersion=$PROJECT_VERSION
+      -Dsonar.projectKey="beavuck-services_stop-and-go"
+      -Dsonar.organization="beavuck-services"
+      -Dsonar.coverage.exclusions="app/src/androidTest/**,app/src/test/**,app/src/main/res/**,app/src/main/java/com/beavuck/stop_and_go/activities/**,app/src/main/AndroidManifest.xml"
+      -Dsonar.sources="app/src/main/java"
+      -Dsonar.coverage.jacoco.xmlReportPaths="$JACOCO_PATH"
   rules:
     - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
   needs:
     - job: find_secrets
     - job: run_unit_tests
-      optional: true
+      artifacts: true
