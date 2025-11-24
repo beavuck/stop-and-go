@@ -18,6 +18,9 @@ repository.
   modules.
 - Write unit tests for all core logic. Use instrumented tests for Android-specific functionality.
 - Follow Kotlin coding conventions and Android best practices.
+- Perform minimal changes necessary to implement features or fix bugs. Avoid large refactorings
+  unless asked for.
+- Keep documentation up to date. Update README.md and other docs as needed when making changes.
 
 ## Project Overview
 
@@ -50,6 +53,7 @@ using the Android SDK.
 ```
 
 Coverage reports are generated in:
+
 - HTML: `app/build/reports/jacoco/jacocoTestReport/html/index.html`
 - XML: `app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml`
 
@@ -85,9 +89,20 @@ The app follows a simple state management architecture with three main classes:
         - `advanceToNextPhase()` - Toggles between phases, applies growth when completing cycles
         - `reset()` - Resets to initial state
 
-4. **MainActivity** (`MainActivity.kt`) - UI entry point
-    - Standard Android activity with edge-to-edge display
-    - Currently minimal implementation (WIP)
+4. **MainActivity** (`MainActivity.kt`) - UI and timer management
+    - Full-screen timer display with phase colors
+    - CountDownTimer for phase timing
+    - Gesture detection: single tap (pause/resume), long press (settings)
+    - State persistence via StateRepository (survives rotation, backgrounding)
+
+5. **SettingsActivity** (`SettingsActivity.kt`) - Configuration UI
+    - Input fields for all timer settings
+    - Save button (FAB) - saves config and clears state (resets timer)
+    - Reset button (FAB) - clears state without changing config
+
+6. **Repositories** - Data persistence
+    - `ConfigRepository` - User settings (durations, colors, growth rates)
+    - `StateRepository` - Runtime state (current phase, cycle count, remaining time)
 
 ### Phase Lifecycle
 
@@ -124,10 +139,12 @@ CI runs on `alvrme/alpine-android:android-36-jdk21` Docker image.
 ## Testing
 
 The project has comprehensive test coverage:
+
 - **Unit Tests** (`app/src/test/`): Test core business logic (TimerConfig, PhaseManager)
 - **Instrumented Tests** (`app/src/androidTest/`): Test Android UI components (MainActivity)
 
 All core logic is tested. MainActivity has instrumented tests covering:
+
 - Activity lifecycle and initialization
 - Initial UI state (views, colors, labels)
 - Timer countdown functionality
@@ -137,3 +154,11 @@ All core logic is tested. MainActivity has instrumented tests covering:
 
 - [x] Implement view (basic)
 - [x] Write tests for existing untested code (to prepare to switch to TDD)
+- [x] Accept user input for values (durations, colors, growth rates)
+- [x] Persist app state across android application lifecycle
+- [x] Reset timer and cycle count
+- [x] Pause/resume functionality
+- [x] Keep screen awake during active timer
+- [ ] Allow randomness (within ranges) for durations and growth rates
+- [ ] Sound/vibration notifications on phase change
+- [ ] Color picker UI for easier color selection

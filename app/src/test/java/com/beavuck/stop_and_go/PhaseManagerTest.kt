@@ -1,7 +1,10 @@
 package com.beavuck.stop_and_go
 
+import com.beavuck.stop_and_go.model.AppState
 import com.beavuck.stop_and_go.model.PhaseManager
 import com.beavuck.stop_and_go.model.TimerConfig
+import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_GO_DURATION
+import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_STOP_DURATION
 import com.beavuck.stop_and_go.model.TimerConstants.INITIAL_CYCLE_COUNT
 import com.beavuck.stop_and_go.model.TimerConstants.MAX_DURATION_SECONDS
 import com.beavuck.stop_and_go.model.TimerConstants.MIN_DURATION_SECONDS
@@ -202,5 +205,61 @@ class PhaseManagerTest {
         assertTrue(phaseManager.isGo())
         val phase = phaseManager.getCurrentPhase()
         assertTrue(phase.isGo)
+    }
+
+    @Test
+    fun getState_returnsCurrentState() {
+        phaseManager.advanceToNextPhase()
+        phaseManager.advanceToNextPhase()
+
+        val state = phaseManager.getState()
+
+        assertEquals(1, state.cycleCount)
+        assertTrue(state.isGo)
+        assertEquals(DEFAULT_GO_DURATION, state.currentGoDuration)
+        assertEquals(DEFAULT_STOP_DURATION, state.currentStopDuration)
+        assertEquals(DEFAULT_GO_DURATION, state.baseGoDuration)
+        assertEquals(DEFAULT_STOP_DURATION, state.baseStopDuration)
+    }
+
+    @Test
+    fun getState_includesGrowthAppliedDurations() {
+        val config = TimerConfig(
+            goDuration = 100,
+            stopDuration = 50,
+            goDurationGrowth = 1.5f,
+            stopDurationGrowth = 2.0f
+        )
+        val manager = PhaseManager(config)
+
+        manager.advanceToNextPhase()
+        manager.advanceToNextPhase()
+
+        val state = manager.getState()
+
+        assertEquals(150, state.currentGoDuration)
+        assertEquals(100, state.currentStopDuration)
+        assertEquals(100, state.baseGoDuration)
+        assertEquals(50, state.baseStopDuration)
+    }
+
+    @Test
+    fun restoreState_restoresAllValues() {
+        val state = AppState(
+            cycleCount = 3,
+            isGo = false,
+            currentGoDuration = 90,
+            currentStopDuration = 30,
+            secondsRemaining = 0,
+            baseGoDuration = 60,
+            baseStopDuration = 15
+        )
+
+        phaseManager.restoreState(state)
+
+        assertEquals(3, phaseManager.cycleCount)
+        assertFalse(phaseManager.isGo())
+        val phase = phaseManager.getCurrentPhase()
+        assertEquals(30, phase.durationSeconds)
     }
 }

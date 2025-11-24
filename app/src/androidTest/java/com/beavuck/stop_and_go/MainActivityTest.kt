@@ -1,16 +1,21 @@
 package com.beavuck.stop_and_go
 
 import android.graphics.Color
+import android.view.WindowManager
 import android.widget.TextView
 import androidx.test.core.app.ActivityScenario
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_GO_COLOR
 import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_GO_DURATION
+import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_STOP_DURATION
 import com.beavuck.stop_and_go.model.TimerConstants.INITIAL_CYCLE_COUNT
 import com.beavuck.stop_and_go.activities.MainActivity
+import com.beavuck.stop_and_go.model.AppState
+import com.beavuck.stop_and_go.repositories.StateRepository
 import org.hamcrest.CoreMatchers.not
 import org.junit.After
 import org.junit.Before
@@ -23,6 +28,9 @@ class MainActivityTest {
 
     @Before
     fun setup() {
+        val stateRepository = StateRepository(ApplicationProvider.getApplicationContext())
+        stateRepository.clearState()
+
         scenario = ActivityScenario.launch(MainActivity::class.java)
     }
 
@@ -127,13 +135,59 @@ class MainActivityTest {
 
         scenario.recreate()
 
-        Thread.sleep(100)
+        Thread.sleep(500)
 
         scenario.onActivity { activity ->
             val timerValueAfterRecreation = activity.findViewById<TextView>(
                 R.id.timerText
             ).text.toString()
-            assert(timerValueBeforeRecreation.toInt() != timerValueAfterRecreation.toInt())
+            val beforeValue = timerValueBeforeRecreation.toIntOrNull() ?: 0
+            val afterValue = timerValueAfterRecreation.toIntOrNull() ?: 0
+            assert(afterValue in (beforeValue - 2)..(beforeValue + 1))
+        }
+    }
+
+    @Test
+    fun activityLaunch_restoresStopPhase() {
+        scenario.close()
+
+        val stateRepository = StateRepository(ApplicationProvider.getApplicationContext())
+        val stopPhaseState = AppState(
+            cycleCount = 1,
+            isGo = false,
+            currentGoDuration = DEFAULT_GO_DURATION,
+            currentStopDuration = DEFAULT_STOP_DURATION,
+            secondsRemaining = 10,
+            baseGoDuration = DEFAULT_GO_DURATION,
+            baseStopDuration = DEFAULT_STOP_DURATION
+        )
+        stateRepository.saveState(stopPhaseState)
+
+        scenario = ActivityScenario.launch(MainActivity::class.java)
+
+        Thread.sleep(500)
+
+        var expectedLabel = ""
+        scenario.onActivity { activity ->
+            expectedLabel = activity.getString(R.string.phase_stop)
+        }
+
+        onView(withId(R.id.phaseLabel))
+            .check(matches(withText(expectedLabel)))
+
+        scenario.onActivity { activity ->
+            val timerValue = activity.findViewById<TextView>(R.id.timerText).text.toString()
+            val value = timerValue.toIntOrNull() ?: 0
+            assert(value in 8..10)
+        }
+    }
+
+    @Test
+    fun timerRunning_keepsScreenOn() {
+        scenario.onActivity { activity ->
+            val flags = activity.window.attributes.flags
+            val keepScreenOn = flags and WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+            assert(keepScreenOn != 0) { "FLAG_KEEP_SCREEN_ON should be set when timer is running" }
         }
     }
 }

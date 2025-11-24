@@ -44,4 +44,23 @@ class PhaseManager(private val config: TimerConfig) {
     }
 
     fun isGo(): Boolean = isCurrentlyGo
+
+    fun getState(): AppState {
+        return AppState(
+            cycleCount = _cycleCount,
+            isGo = isCurrentlyGo,
+            currentGoDuration = currentGoDuration,
+            currentStopDuration = currentStopDuration,
+            secondsRemaining = 0,
+            baseGoDuration = config.goDuration,
+            baseStopDuration = config.stopDuration
+        )
+    }
+
+    fun restoreState(state: AppState) {
+        _cycleCount = state.cycleCount
+        isCurrentlyGo = state.isGo
+        currentGoDuration = state.currentGoDuration
+        currentStopDuration = state.currentStopDuration
+    }
 }

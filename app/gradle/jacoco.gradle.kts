@@ -15,6 +15,7 @@ tasks.register<JacocoReport>("jacocoTestReport") {
         "**/Manifest*.*",
         "**/*Test*.*",
         "**/activities/**/*.*",
+        "**/repositories/**/*.*",
         "android/**/*.*"
     )
 

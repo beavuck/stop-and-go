@@ -3,4 +3,21 @@
     <string name="phase_go">GO</string>
     <string name="phase_stop">STOP</string>
     <string name="cycle_count">Cycle: %d</string>
+    <string name="go_duration">Go Duration (seconds)</string>
+    <string name="go_duration_hint">1–3600</string>
+    <string name="stop_duration">Stop Duration (seconds)</string>
+    <string name="stop_duration_hint">1–3600</string>
+    <string name="go_growth">Go Growth Multiplier</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+    <string name="stop_growth">Stop Growth Multiplier</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+    <string name="go_color">Go Color (hex)</string>
+    <string name="go_color_hint">#20b05c</string>
+    <string name="stop_color">Stop Color (hex)</string>
+    <string name="stop_color_hint">#992639</string>
+    <string name="save_settings">Save Settings</string>
+    <string name="settings">Settings</string>
+    <string name="settings_saved">Settings saved successfully</string>
+    <string name="invalid_input">Invalid input</string>
+    <string name="reset_timer">Reset Timer</string>
 </resources>
