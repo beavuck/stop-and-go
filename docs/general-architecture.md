@@ -14,6 +14,11 @@ classDiagram
         +saveSettings()
     }
 
+    %% Dialogs
+    class ColorPickerDialog {
+        +onCreateDialog()
+    }
+
     %% Core Model
     class PhaseManager {
         +getCurrentPhase()
@@ -45,6 +50,7 @@ classDiagram
     MainActivity ..> SettingsActivity : opens
 
     SettingsActivity --> ConfigRepository : saves config
+    SettingsActivity ..> ColorPickerDialog : shows
 
     PhaseManager --> TimerConfig : configured by
     PhaseManager --> PhaseState : produces
@@ -63,6 +69,7 @@ classDiagram
 |-----------|------|
 | **MainActivity** | Timer display, countdown execution, lifecycle handling |
 | **SettingsActivity** | User input for configuration |
+| **ColorPickerDialog** | RGB color selection with live preview |
 | **PhaseManager** | Phase state machine, growth calculation |
 | **TimerConfig** | User preferences (immutable) |
 | **AppState** | Runtime state snapshot for persistence |

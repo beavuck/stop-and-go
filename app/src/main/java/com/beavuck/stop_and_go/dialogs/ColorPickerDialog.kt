@@ -87,7 +87,7 @@ class ColorPickerDialog : DialogFragment() {
     private fun parseColor(hex: String): Int {
         return try {
             hex.trim().toColorInt()
-        } catch (e: IllegalArgumentException) {
+        } catch (_: IllegalArgumentException) {
             Color.BLACK
         }
     }

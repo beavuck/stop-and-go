@@ -5,6 +5,8 @@ com.beavuck.stop_and_go/
 ├── activities/
 │   ├── MainActivity.kt      # Timer display and execution
 │   └── SettingsActivity.kt  # Configuration UI
+├── dialogs/
+│   └── ColorPickerDialog.kt # RGB color picker dialog
 ├── model/
 │   ├── TimerConstants.kt    # Limits and defaults
 │   ├── TimerConfig.kt       # User configuration (immutable)
@@ -23,6 +25,9 @@ Pure Kotlin with no Android dependencies (except for constants). All business lo
 
 ### `activities/`
 Android UI components. These orchestrate the model classes and handle lifecycle events. Tested with instrumented tests.
+
+### `dialogs/`
+DialogFragment components for reusable UI dialogs. Uses Fragment Result API for communication with activities.
 
 ### `repositories/`
 Data access layer. Abstracts SharedPreferences behind clean interfaces. Each repository handles one type of data (config or state).

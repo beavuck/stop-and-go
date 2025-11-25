@@ -20,7 +20,7 @@ repository.
 - Follow Kotlin coding conventions and Android best practices.
 - Perform minimal changes necessary to implement features or fix bugs. Avoid large refactorings
   unless asked for.
-- Keep documentation up to date. Update README.md and other docs as needed when making changes.
+- Keep documentation up to date. Update README.md and files stored in ./docs/ as needed when making changes.
 
 ## Project Overview
 

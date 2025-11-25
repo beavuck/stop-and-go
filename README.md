@@ -92,6 +92,6 @@ Instrumented tests:
 
 ## Roadmap
 
-- [ ] Keep screen awake during active timer
+- [x] Keep screen awake during active timer
 - [ ] Sound/vibration notifications on phase change
 - [ ] Randomness (within ranges) for durations and growth rates
