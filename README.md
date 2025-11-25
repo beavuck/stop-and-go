@@ -32,6 +32,7 @@ The screen alternates between:
 ## Features
 
 - Full-screen color display with customizable hex colors
+- Visual color picker with RGB sliders for easy color selection
 - Independent duration control for each phase (1-3600 seconds)
 - Growth multipliers that adjust durations after each cycle
 - Cycle counter to track completed intervals
@@ -67,6 +68,10 @@ After each complete cycle (go → stop → go), durations multiply by their grow
 - **Go Color**: Hex code (default: `#20b05c`)
 - **Stop Color**: Hex code (default: `#992639`)
 
+Colors can be configured in two ways:
+- **Manual entry**: Type hex color codes directly (e.g., `#FF5733`)
+- **Color picker**: Click the color preview button to open an RGB slider picker with live preview
+
 ## Building
 
 ```bash
@@ -89,4 +94,4 @@ Instrumented tests:
 
 - [ ] Keep screen awake during active timer
 - [ ] Sound/vibration notifications on phase change
-- [ ] Color picker UI for easier color selection
+- [ ] Randomness (within ranges) for durations and growth rates

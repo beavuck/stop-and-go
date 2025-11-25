@@ -1,16 +1,22 @@
 package com.beavuck.stop_and_go.activities
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import androidx.core.graphics.toColorInt
 import com.beavuck.stop_and_go.R
+import com.beavuck.stop_and_go.dialogs.ColorPickerDialog
 import com.beavuck.stop_and_go.model.TimerConfig
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class SettingsActivity : AppCompatActivity() {
     private lateinit var configRepository: ConfigRepository
@@ -22,6 +28,8 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var stopGrowthInput: EditText
     private lateinit var goColorInput: EditText
     private lateinit var stopColorInput: EditText
+    private lateinit var goColorPickerButton: Button
+    private lateinit var stopColorPickerButton: Button
     private lateinit var saveButton: FloatingActionButton
     private lateinit var resetButton: FloatingActionButton
 
@@ -32,9 +40,30 @@ class SettingsActivity : AppCompatActivity() {
         configRepository = ConfigRepository(this)
         stateRepository = StateRepository(this)
 
+        setupFragmentResultListeners()
         bindViews()
         loadCurrentConfig()
         setupButtons()
+        setupColorPickers()
+    }
+
+    private fun setupFragmentResultListeners() {
+        supportFragmentManager.setFragmentResultListener(REQUEST_KEY_GO_COLOR, this) { _, bundle ->
+            val color = bundle.getString(ColorPickerDialog.RESULT_COLOR)
+            if (color != null) {
+                goColorInput.setText(color)
+            }
+        }
+
+        supportFragmentManager.setFragmentResultListener(
+            REQUEST_KEY_STOP_COLOR,
+            this
+        ) { _, bundle ->
+            val color = bundle.getString(ColorPickerDialog.RESULT_COLOR)
+            if (color != null) {
+                stopColorInput.setText(color)
+            }
+        }
     }
 
     private fun bindViews() {
@@ -44,6 +73,8 @@ class SettingsActivity : AppCompatActivity() {
         stopGrowthInput = findViewById(R.id.stop_growth_input)
         goColorInput = findViewById(R.id.go_color_input)
         stopColorInput = findViewById(R.id.stop_color_input)
+        goColorPickerButton = findViewById(R.id.go_color_picker_button)
+        stopColorPickerButton = findViewById(R.id.stop_color_picker_button)
         saveButton = findViewById(R.id.save_button)
         resetButton = findViewById(R.id.reset_button)
     }
@@ -51,6 +82,47 @@ class SettingsActivity : AppCompatActivity() {
     private fun setupButtons() {
         saveButton.setOnClickListener { saveSettings() }
         resetButton.setOnClickListener { resetTimer() }
+    }
+
+    private fun setupColorPickers() {
+        goColorPickerButton.setOnClickListener {
+            ColorPickerDialog.newInstance(goColorInput.text.toString(), REQUEST_KEY_GO_COLOR)
+                .show(supportFragmentManager, "goColorPicker")
+        }
+
+        stopColorPickerButton.setOnClickListener {
+            ColorPickerDialog.newInstance(stopColorInput.text.toString(), REQUEST_KEY_STOP_COLOR)
+                .show(supportFragmentManager, "stopColorPicker")
+        }
+
+        goColorInput.addTextChangedListener(createColorTextWatcher(goColorPickerButton))
+        stopColorInput.addTextChangedListener(createColorTextWatcher(stopColorPickerButton))
+
+        updateButtonColor(goColorPickerButton, goColorInput.text.toString())
+        updateButtonColor(stopColorPickerButton, stopColorInput.text.toString())
+    }
+
+    private fun createColorTextWatcher(button: Button) = object : TextWatcher {
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            // No action needed
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            // No action needed
+        }
+
+        override fun afterTextChanged(s: Editable?) {
+            updateButtonColor(button, s?.toString() ?: "")
+        }
+    }
+
+    private fun updateButtonColor(button: Button, colorHex: String) {
+        try {
+            val color = colorHex.trim().toColorInt()
+            button.setBackgroundColor(color)
+        } catch (_: IllegalArgumentException) {
+            button.setBackgroundColor(Color.GRAY)
+        }
     }
 
     private fun resetTimer() {
@@ -130,5 +202,10 @@ class SettingsActivity : AppCompatActivity() {
             val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
+    }
+
+    companion object {
+        private const val REQUEST_KEY_GO_COLOR = "go_color_picker"
+        private const val REQUEST_KEY_STOP_COLOR = "stop_color_picker"
     }
 }

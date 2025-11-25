@@ -131,12 +131,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 android:autofillHints=""
                 android:hint="@string/go_color_hint"
                 android:inputType="text"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/go_color_picker_button"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/go_color_label" />
+
+            <Button
+                android:id="@+id/go_color_picker_button"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:contentDescription="@string/pick_color"
+                app:layout_constraintBottom_toBottomOf="@id/go_color_input"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/go_color_input" />
 
             <TextView
                 android:id="@+id/stop_color_label"
@@ -147,19 +157,29 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/go_color_input" />
+                app:layout_constraintTop_toBottomOf="@id/go_color_picker_button" />
 
             <EditText
                 android:id="@+id/stop_color_input"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 android:autofillHints=""
                 android:hint="@string/stop_color_hint"
                 android:inputType="text"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/stop_color_picker_button"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/stop_color_label" />
+
+            <Button
+                android:id="@+id/stop_color_picker_button"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:contentDescription="@string/pick_color"
+                app:layout_constraintBottom_toBottomOf="@id/stop_color_input"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/stop_color_input" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

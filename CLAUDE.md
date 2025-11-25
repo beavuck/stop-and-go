@@ -97,10 +97,18 @@ The app follows a simple state management architecture with three main classes:
 
 5. **SettingsActivity** (`SettingsActivity.kt`) - Configuration UI
     - Input fields for all timer settings
+    - Color preview buttons with live visual feedback
+    - Fragment result listeners for color picker integration
     - Save button (FAB) - saves config and clears state (resets timer)
     - Reset button (FAB) - clears state without changing config
 
-6. **Repositories** - Data persistence
+6. **ColorPickerDialog** (`ColorPickerDialog.kt`) - Color selection UI
+    - DialogFragment with RGB sliders for color selection
+    - Live color preview with hex value display
+    - Survives configuration changes (rotation) via saved instance state
+    - Returns selected color via Fragment Result API
+
+7. **Repositories** - Data persistence
     - `ConfigRepository` - User settings (durations, colors, growth rates)
     - `StateRepository` - Runtime state (current phase, cycle count, remaining time)
 
@@ -123,6 +131,7 @@ The phase cycle works as follows:
 - **Key Dependencies**:
     - AndroidX Core KTX
     - AppCompat
+    - Fragment KTX
     - Material Components
     - ConstraintLayout
 
@@ -159,6 +168,6 @@ All core logic is tested. MainActivity has instrumented tests covering:
 - [x] Reset timer and cycle count
 - [x] Pause/resume functionality
 - [x] Keep screen awake during active timer
+- [x] Color picker UI for easier color selection
 - [ ] Allow randomness (within ranges) for durations and growth rates
 - [ ] Sound/vibration notifications on phase change
-- [ ] Color picker UI for easier color selection

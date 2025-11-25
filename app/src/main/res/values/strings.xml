@@ -11,13 +11,22 @@
     <string name="go_growth_hint">0.01–100.0</string>
     <string name="stop_growth">Stop Growth Multiplier</string>
     <string name="stop_growth_hint">0.01–100.0</string>
-    <string name="go_color">Go Color (hex)</string>
-    <string name="go_color_hint">#20b05c</string>
-    <string name="stop_color">Stop Color (hex)</string>
-    <string name="stop_color_hint">#992639</string>
+    <string name="go_color">Go Color</string>
+    <string name="go_color_hint" translatable="false">#20b05c</string>
+    <string name="stop_color">Stop Color</string>
+    <string name="stop_color_hint" translatable="false">#992639</string>
     <string name="save_settings">Save Settings</string>
     <string name="settings">Settings</string>
     <string name="settings_saved">Settings saved successfully</string>
     <string name="invalid_input">Invalid input</string>
     <string name="reset_timer">Reset Timer</string>
+    <string name="pick_color">Pick Color</string>
+    <string name="hint_hex_value_display" translatable="false">#000000</string>
+    <string name="color_preview">Color Preview</string>
+    <string name="red_label">Red</string>
+    <string name="green_label">Green</string>
+    <string name="blue_label">Blue</string>
+    <string name="color_picker_title">Choose Color</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 </resources>
