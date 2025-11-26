@@ -12,6 +12,9 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
 import com.beavuck.stop_and_go.R
+import com.beavuck.stop_and_go.model.TimerConstants.COLOR_MASK
+import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_COLOR
+import com.beavuck.stop_and_go.model.TimerConstants.HEX_COLOR_FORMAT
 
 class ColorPickerDialog : DialogFragment() {
 
@@ -21,12 +24,8 @@ class ColorPickerDialog : DialogFragment() {
         val context = requireContext()
         val view = layoutInflater.inflate(R.layout.dialog_color_picker, null)
 
-        val initialColor = arguments?.getString(ARG_INITIAL_COLOR) ?: "#000000"
-        currentColor = if (savedInstanceState != null) {
-            savedInstanceState.getInt(STATE_CURRENT_COLOR)
-        } else {
-            parseColor(initialColor)
-        }
+        val initialColor = arguments?.getString(ARG_INITIAL_COLOR) ?: DEFAULT_COLOR
+        currentColor = savedInstanceState?.getInt(STATE_CURRENT_COLOR) ?: parseColor(initialColor)
 
         val colorPreview = view.findViewById<View>(R.id.color_preview)
         val hexDisplay = view.findViewById<TextView>(R.id.hex_value_display)
@@ -40,28 +39,18 @@ class ColorPickerDialog : DialogFragment() {
 
         updatePreview(colorPreview, hexDisplay, currentColor)
 
-        val seekBarListener = object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                currentColor = Color.rgb(
-                    redSeekBar.progress,
-                    greenSeekBar.progress,
-                    blueSeekBar.progress
-                )
-                updatePreview(colorPreview, hexDisplay, currentColor)
-            }
-
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                // No action needed
-            }
-
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                // No action needed
-            }
+        val seekBarListener = createColorChangeListener(
+            redSeekBar,
+            greenSeekBar,
+            blueSeekBar,
+            colorPreview,
+            hexDisplay
+        )
+        listOf(redSeekBar, greenSeekBar, blueSeekBar).forEach {
+            it.setOnSeekBarChangeListener(
+                seekBarListener
+            )
         }
-
-        redSeekBar.setOnSeekBarChangeListener(seekBarListener)
-        greenSeekBar.setOnSeekBarChangeListener(seekBarListener)
-        blueSeekBar.setOnSeekBarChangeListener(seekBarListener)
 
         return AlertDialog.Builder(context)
             .setTitle(R.string.color_picker_title)
@@ -79,6 +68,26 @@ class ColorPickerDialog : DialogFragment() {
         outState.putInt(STATE_CURRENT_COLOR, currentColor)
     }
 
+    private fun createColorChangeListener(
+        redSeekBar: SeekBar,
+        greenSeekBar: SeekBar,
+        blueSeekBar: SeekBar,
+        colorPreview: View,
+        hexDisplay: TextView
+    ) = object : SeekBar.OnSeekBarChangeListener {
+        override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+            currentColor =
+                Color.rgb(redSeekBar.progress, greenSeekBar.progress, blueSeekBar.progress)
+            updatePreview(colorPreview, hexDisplay, currentColor)
+        }
+
+        override fun onStartTrackingTouch(seekBar: SeekBar?) {/*no op*/
+        }
+
+        override fun onStopTrackingTouch(seekBar: SeekBar?) {/*no op*/
+        }
+    }
+
     private fun updatePreview(preview: View, hexDisplay: TextView, color: Int) {
         preview.setBackgroundColor(color)
         hexDisplay.text = colorToHex(color)
@@ -93,7 +102,7 @@ class ColorPickerDialog : DialogFragment() {
     }
 
     private fun colorToHex(color: Int): String {
-        return String.format("#%06X", 0xFFFFFF and color)
+        return String.format(HEX_COLOR_FORMAT, COLOR_MASK and color)
     }
 
     companion object {

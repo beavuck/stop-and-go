@@ -40,29 +40,21 @@ class SettingsActivity : AppCompatActivity() {
         configRepository = ConfigRepository(this)
         stateRepository = StateRepository(this)
 
-        setupFragmentResultListeners()
         bindViews()
+        setupFragmentResultListeners()
         loadCurrentConfig()
         setupButtons()
         setupColorPickers()
     }
 
     private fun setupFragmentResultListeners() {
-        supportFragmentManager.setFragmentResultListener(REQUEST_KEY_GO_COLOR, this) { _, bundle ->
-            val color = bundle.getString(ColorPickerDialog.RESULT_COLOR)
-            if (color != null) {
-                goColorInput.setText(color)
-            }
-        }
+        setColorPickerResultListener(REQUEST_KEY_GO_COLOR, goColorInput)
+        setColorPickerResultListener(REQUEST_KEY_STOP_COLOR, stopColorInput)
+    }
 
-        supportFragmentManager.setFragmentResultListener(
-            REQUEST_KEY_STOP_COLOR,
-            this
-        ) { _, bundle ->
-            val color = bundle.getString(ColorPickerDialog.RESULT_COLOR)
-            if (color != null) {
-                stopColorInput.setText(color)
-            }
+    private fun setColorPickerResultListener(requestKey: String, targetInput: EditText) {
+        supportFragmentManager.setFragmentResultListener(requestKey, this) { _, bundle ->
+            bundle.getString(ColorPickerDialog.RESULT_COLOR)?.let { targetInput.setText(it) }
         }
     }
 
@@ -85,32 +77,37 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun setupColorPickers() {
-        goColorPickerButton.setOnClickListener {
-            ColorPickerDialog.newInstance(goColorInput.text.toString(), REQUEST_KEY_GO_COLOR)
-                .show(supportFragmentManager, "goColorPicker")
+        setupColorPicker(
+            goColorInput,
+            goColorPickerButton,
+            REQUEST_KEY_GO_COLOR,
+            DIALOG_TAG_GO_COLOR
+        )
+        setupColorPicker(
+            stopColorInput,
+            stopColorPickerButton,
+            REQUEST_KEY_STOP_COLOR,
+            DIALOG_TAG_STOP_COLOR
+        )
+    }
+
+    private fun setupColorPicker(
+        input: EditText,
+        button: Button,
+        requestKey: String,
+        dialogTag: String
+    ) {
+        button.setOnClickListener {
+            ColorPickerDialog.newInstance(input.text.toString(), requestKey)
+                .show(supportFragmentManager, dialogTag)
         }
-
-        stopColorPickerButton.setOnClickListener {
-            ColorPickerDialog.newInstance(stopColorInput.text.toString(), REQUEST_KEY_STOP_COLOR)
-                .show(supportFragmentManager, "stopColorPicker")
-        }
-
-        goColorInput.addTextChangedListener(createColorTextWatcher(goColorPickerButton))
-        stopColorInput.addTextChangedListener(createColorTextWatcher(stopColorPickerButton))
-
-        updateButtonColor(goColorPickerButton, goColorInput.text.toString())
-        updateButtonColor(stopColorPickerButton, stopColorInput.text.toString())
+        input.addTextChangedListener(createColorTextWatcher(button))
+        updateButtonColor(button, input.text.toString())
     }
 
     private fun createColorTextWatcher(button: Button) = object : TextWatcher {
-        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            // No action needed
-        }
-
-        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            // No action needed
-        }
-
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {/*no-op*/}
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {/*no-op*/}
         override fun afterTextChanged(s: Editable?) {
             updateButtonColor(button, s?.toString() ?: "")
         }
@@ -207,5 +204,7 @@ class SettingsActivity : AppCompatActivity() {
     companion object {
         private const val REQUEST_KEY_GO_COLOR = "go_color_picker"
         private const val REQUEST_KEY_STOP_COLOR = "stop_color_picker"
+        private const val DIALOG_TAG_GO_COLOR = "goColorPicker"
+        private const val DIALOG_TAG_STOP_COLOR = "stopColorPicker"
     }
 }

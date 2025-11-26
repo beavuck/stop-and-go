@@ -1,10 +1,14 @@
 package com.beavuck.stop_and_go.model
 
+import com.beavuck.stop_and_go.model.TimerConstants.INITIAL_CYCLE_COUNT
+import com.beavuck.stop_and_go.model.TimerConstants.MAX_DURATION_SECONDS
+import com.beavuck.stop_and_go.model.TimerConstants.MIN_DURATION_SECONDS
+
 class PhaseManager(private val config: TimerConfig) {
     private var currentGoDuration: Int = config.goDuration
     private var currentStopDuration: Int = config.stopDuration
     private var isCurrentlyGo: Boolean = true
-    private var _cycleCount: Int = TimerConstants.INITIAL_CYCLE_COUNT
+    private var _cycleCount: Int = INITIAL_CYCLE_COUNT
     val cycleCount: Int
         get() = _cycleCount
 
@@ -34,12 +38,12 @@ class PhaseManager(private val config: TimerConfig) {
 
     private fun applyGrowth(duration: Int, growth: Float): Int = (duration * growth)
         .toInt()
-        .coerceIn(TimerConstants.MIN_DURATION_SECONDS, TimerConstants.MAX_DURATION_SECONDS)
+        .coerceIn(MIN_DURATION_SECONDS, MAX_DURATION_SECONDS)
 
     fun reset() {
         currentGoDuration = config.goDuration
         currentStopDuration = config.stopDuration
-        _cycleCount = TimerConstants.INITIAL_CYCLE_COUNT
+        _cycleCount = INITIAL_CYCLE_COUNT
         isCurrentlyGo = true
     }
 

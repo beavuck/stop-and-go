@@ -29,4 +29,10 @@
     <string name="color_picker_title">Choose Color</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="notification_channel_go_name">Go Phase</string>
+    <string name="notification_channel_go_description">Notifications for Go phase changes</string>
+    <string name="notification_channel_stop_name">Stop Phase</string>
+    <string name="notification_channel_stop_description">Notifications for Stop phase changes</string>
+    <string name="notification_go_title">GO Phase Started</string>
+    <string name="notification_stop_title">STOP Phase Started</string>
 </resources>

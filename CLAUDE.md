@@ -20,7 +20,8 @@ repository.
 - Follow Kotlin coding conventions and Android best practices.
 - Perform minimal changes necessary to implement features or fix bugs. Avoid large refactorings
   unless asked for.
-- Keep documentation up to date. Update README.md and files stored in ./docs/ as needed when making changes.
+- Keep documentation up to date. Update README.md and files stored in ./docs/ as needed when making
+  changes.
 
 ## Project Overview
 
@@ -108,7 +109,12 @@ The app follows a simple state management architecture with three main classes:
     - Survives configuration changes (rotation) via saved instance state
     - Returns selected color via Fragment Result API
 
-7. **Repositories** - Data persistence
+7. **PhaseNotificationManager** (`PhaseNotificationManager.kt`) - Notification handling
+    - Creates notification channels for Go and Stop phases
+    - Triggers sound/vibration on phase changes
+    - Channels customizable via Settings > Notifications
+
+8. **Repositories** - Data persistence
     - `ConfigRepository` - User settings (durations, colors, growth rates)
     - `StateRepository` - Runtime state (current phase, cycle count, remaining time)
 
@@ -169,5 +175,4 @@ All core logic is tested. MainActivity has instrumented tests covering:
 - [x] Pause/resume functionality
 - [x] Keep screen awake during active timer
 - [x] Color picker UI for easier color selection
-- [ ] Allow randomness (within ranges) for durations and growth rates
-- [ ] Sound/vibration notifications on phase change
+- [x] Sound/vibration notifications on phase change

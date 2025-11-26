@@ -80,10 +80,10 @@ analyze:
   stage: test
   image:
     name: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/sonarsource/sonar-scanner-cli:latest"
-    entrypoint: [""]
+    entrypoint: [ "" ]
   cache:
     key: "${CI_JOB_NAME}"
-    paths: [.sonar/cache]
+    paths: [ .sonar/cache ]
   variables:
     SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
     GIT_DEPTH: "0"
@@ -95,7 +95,7 @@ analyze:
       -Dsonar.projectVersion=$PROJECT_VERSION
       -Dsonar.projectKey="beavuck-services_stop-and-go"
       -Dsonar.organization="beavuck-services"
-      -Dsonar.coverage.exclusions="app/src/androidTest/**,app/src/test/**,app/src/main/res/**,app/src/main/java/com/beavuck/stop_and_go/activities/**,app/src/main/java/com/beavuck/stop_and_go/repositories/**,app/src/main/java/com/beavuck/stop_and_go/dialogs/**,app/src/main/AndroidManifest.xml"
+      -Dsonar.coverage.exclusions="app/src/androidTest/**,app/src/test/**,app/src/main/res/**,app/src/main/java/com/beavuck/stop_and_go/activities/**,app/src/main/java/com/beavuck/stop_and_go/repositories/**,app/src/main/java/com/beavuck/stop_and_go/dialogs/**,app/src/main/java/com/beavuck/stop_and_go/notifications/**,app/src/main/AndroidManifest.xml"
       -Dsonar.sources="app/src/main/java"
       -Dsonar.coverage.jacoco.xmlReportPaths="$JACOCO_PATH"
   rules:

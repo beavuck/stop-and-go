@@ -1,6 +1,9 @@
 package com.beavuck.stop_and_go.activities
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.GestureDetector
@@ -8,20 +11,26 @@ import android.view.MotionEvent
 import android.view.WindowManager
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.graphics.toColorInt
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.model.PhaseManager
 import com.beavuck.stop_and_go.model.PhaseState
+import com.beavuck.stop_and_go.model.TimerConstants.MILLIS_PER_SECOND
+import com.beavuck.stop_and_go.model.TimerConstants.TIMER_DISPLAY_OFFSET
+import com.beavuck.stop_and_go.notifications.PhaseNotificationManager
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
 
 class MainActivity : AppCompatActivity() {
     private lateinit var phaseManager: PhaseManager
     private lateinit var stateRepository: StateRepository
+    private lateinit var notificationManager: PhaseNotificationManager
     private lateinit var gestureDetector: GestureDetector
     private var currentTimer: CountDownTimer? = null
     private var secondsRemaining: Int = 0
@@ -31,6 +40,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var timerText: TextView
     private lateinit var cycleCountText: TextView
     private lateinit var phaseLabelText: TextView
+
+    private val notificationPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        if (!isGranted && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            // Permission denied => do nothing
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,9 +59,23 @@ class MainActivity : AppCompatActivity() {
         setupGestureDetection()
 
         stateRepository = StateRepository(this)
+        notificationManager = PhaseNotificationManager(this)
+        notificationManager.createNotificationChannels()
+        requestNotificationPermissionIfNeeded()
         initializePhaseManager()
         restoreSavedState()
         startCurrentPhase()
+    }
+
+    private fun requestNotificationPermissionIfNeeded() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
+            && ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+        }
     }
 
     private fun bindViews() {
@@ -76,15 +107,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun togglePause() {
+        isPaused = !isPaused
         if (isPaused) {
-            isPaused = false
-            startTimer(secondsRemaining)
-            setKeepScreenOn(true)
-        } else {
-            isPaused = true
             currentTimer?.cancel()
-            setKeepScreenOn(false)
+        } else {
+            startTimer(secondsRemaining)
         }
+        setKeepScreenOn(!isPaused)
     }
 
     private fun setKeepScreenOn(keepOn: Boolean) {
@@ -122,10 +151,21 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(this, SettingsActivity::class.java))
     }
 
-    private fun startCurrentPhase() {
+    private fun startCurrentPhase(notify: Boolean = false) {
         val phase = phaseManager.getCurrentPhase()
         updateUI(phase)
+        if (notify) {
+            notifyPhaseChange(phase)
+        }
         startTimer(getTimerDuration(phase))
+    }
+
+    private fun notifyPhaseChange(phase: PhaseState) {
+        if (phase.isGo) {
+            notificationManager.notifyGoPhase()
+        } else {
+            notificationManager.notifyStopPhase()
+        }
     }
 
     private fun getTimerDuration(phase: PhaseState): Int {
@@ -144,9 +184,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun createTimer(durationSeconds: Int): CountDownTimer {
-        return object : CountDownTimer(durationSeconds * 1000L, 1000L) {
+        return object : CountDownTimer(
+            durationSeconds * MILLIS_PER_SECOND,
+            MILLIS_PER_SECOND
+        ) {
             override fun onTick(millisUntilFinished: Long) {
-                val remaining = (millisUntilFinished / 1000).toInt() + 1
+                val remaining =
+                    (millisUntilFinished / MILLIS_PER_SECOND).toInt() + TIMER_DISPLAY_OFFSET
                 timerText.text = remaining.toString()
                 this@MainActivity.secondsRemaining = remaining
             }
@@ -154,7 +198,7 @@ class MainActivity : AppCompatActivity() {
             override fun onFinish() {
                 this@MainActivity.secondsRemaining = 0
                 phaseManager.advanceToNextPhase()
-                startCurrentPhase()
+                startCurrentPhase(notify = true)
             }
         }
     }
