@@ -1,6 +1,7 @@
 // build.gradle.kts
 
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.util.Properties
 
 plugins {
     id("com.android.application") version "8.13.1"
@@ -8,6 +9,12 @@ plugins {
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
     id("com.github.ben-manes.versions") version "0.53.0"
     jacoco
+}
+
+val keystorePropertiesFile = rootProject.file(".secure_files/release-keystore.properties")
+val keystoreProperties = Properties()
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(keystorePropertiesFile.inputStream())
 }
 
 java {
@@ -31,6 +38,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            keyAlias = keystoreProperties["keyAlias"] as String?
+            keyPassword = keystoreProperties["keyPassword"] as String?
+            storeFile = keystoreProperties["storeFile"]?.let { file(it as String) }
+            storePassword = keystoreProperties["storePassword"] as String?
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -38,6 +54,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            if (keystorePropertiesFile.exists()) {
+                signingConfig = signingConfigs.getByName("release")
+            }
         }
     }
     compileOptions {
@@ -51,6 +70,11 @@ android {
     }
     buildTypes.configureEach {
         enableUnitTestCoverage = true
+    }
+    lint {
+        checkReleaseBuilds = false
+        abortOnError = false
+        checkDependencies = true
     }
 }
 

@@ -4,12 +4,16 @@ stages:
   - secure
   - test
   - update
+  - build
+  - beta
+  - release
 
 ########~~~~-- Variables & defaults --~~~~########
 
 variables:
-  IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/alvrme/alpine-android:android-36-jdk21"
+  IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/alvrme/alpine-android:android-35-jdk21"
   JACOCO_PATH: "app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
+  ANDROID_API_IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/fabernovel/android:api-35-v1.10.1"
 
 default:
   image: $IMAGE
@@ -104,4 +108,53 @@ analyze:
   needs:
     - job: find_secrets
     - job: run_unit_tests
+      artifacts: true
+
+build:
+  image: $ANDROID_API_IMAGE
+  stage: build
+  variables:
+    GITLAB_CI_VERSION: "1.78.3"
+  script:
+    - apt update -y && apt install -y curl
+    - wget https://gitlab.com/gitlab-org/cli/-/releases/v$GITLAB_CI_VERSION/downloads/glab_${GITLAB_CI_VERSION}_linux_amd64.deb
+    - apt install ./glab_${GITLAB_CI_VERSION}_linux_amd64.deb
+    - glab auth login --hostname $CI_SERVER_FQDN --job-token $CI_JOB_TOKEN
+    - glab securefile download --all --output-dir .secure_files/
+    - fastlane build
+  artifacts:
+    paths:
+      - app/build/outputs/bundle/release/app-release.aab
+      - app/build/outputs/apk/release/app-release.apk
+    expire_in: 1 week
+  rules:
+    - if: "$CI_COMMIT_TAG"
+    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
+  needs:
+    - job: find_secrets
+      optional: true
+    - job: run_unit_tests
+      optional: true
+
+beta:
+  image: $ANDROID_API_IMAGE
+  stage: beta
+  script:
+    - fastlane beta
+  rules:
+    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
+  needs:
+    - job: build
+      artifacts: true
+
+release:
+  image: $ANDROID_API_IMAGE
+  stage: release
+  script:
+    - fastlane update_version
+    - fastlane release
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - job: build
       artifacts: true
