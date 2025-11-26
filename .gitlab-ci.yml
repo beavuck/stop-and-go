@@ -115,13 +115,21 @@ build:
   stage: build
   variables:
     GITLAB_CI_VERSION: "1.78.3"
+  cache:
+    key: gems-cache
+    paths:
+      - vendor/bundle
   script:
-    - apt update -y && apt install -y curl
+    - apt update -y && apt install -y curl ruby-full build-essential
+    - gem install bundler -N
+    - bundle config set --local path 'vendor/bundle'
+    - bundle install
     - wget https://gitlab.com/gitlab-org/cli/-/releases/v$GITLAB_CI_VERSION/downloads/glab_${GITLAB_CI_VERSION}_linux_amd64.deb
     - apt install ./glab_${GITLAB_CI_VERSION}_linux_amd64.deb
     - glab auth login --hostname $CI_SERVER_FQDN --job-token $CI_JOB_TOKEN
     - glab securefile download --all --output-dir .secure_files/
-    - fastlane build
+    - if [ -n "$CI_COMMIT_TAG" ]; then bundle exec fastlane update_version; fi
+    - bundle exec fastlane build
   artifacts:
     paths:
       - app/build/outputs/bundle/release/app-release.aab
@@ -139,8 +147,16 @@ build:
 beta:
   image: $ANDROID_API_IMAGE
   stage: beta
+  cache:
+    key: gems-cache
+    paths:
+      - vendor/bundle
   script:
-    - fastlane beta
+    - apt update -y && apt install -y ruby-full build-essential
+    - gem install bundler -N
+    - bundle config set --local path 'vendor/bundle'
+    - bundle install
+    - bundle exec fastlane beta
   rules:
     - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
   needs:
@@ -150,9 +166,16 @@ beta:
 release:
   image: $ANDROID_API_IMAGE
   stage: release
+  cache:
+    key: gems-cache
+    paths:
+      - vendor/bundle
   script:
-    - fastlane update_version
-    - fastlane release
+    - apt update -y && apt install -y ruby-full build-essential
+    - gem install bundler -N
+    - bundle config set --local path 'vendor/bundle'
+    - bundle install
+    - bundle exec fastlane release
   rules:
     - if: "$CI_COMMIT_TAG"
   needs:

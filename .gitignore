@@ -47,6 +47,10 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
+vendor/bundle
+.bundle
+# Secure files (downloaded in CI)
+.secure_files/
 # Version control
 vcs.xml
 # lint
