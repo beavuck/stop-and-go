@@ -5,9 +5,6 @@ lane :update_version do
     tag = ENV['CI_COMMIT_TAG']
     if tag
         version_name = tag.gsub(/^v/, '')
-        increment_version_code(
-            gradle_file_path: "app/build.gradle.kts"
-        )
         android_set_version_name(
             version_name: version_name,
             gradle_file: "app/build.gradle.kts"
