@@ -1,6 +1,5 @@
 package com.beavuck.stop_and_go.activities
 
-import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,20 +7,24 @@ import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ScrollView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.toColorInt
 import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.dialogs.ColorPickerDialog
+import com.beavuck.stop_and_go.dialogs.LanguagePickerDialog
 import com.beavuck.stop_and_go.model.TimerConfig
+import com.beavuck.stop_and_go.model.TimerConstants.APPROX_KEYBOARD_HEIGHT
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
+import com.beavuck.stop_and_go.utils.ColorUtils
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class SettingsActivity : AppCompatActivity() {
+
+class SettingsActivity : LocalizedActivity() {
     private lateinit var configRepository: ConfigRepository
     private lateinit var stateRepository: StateRepository
 
+    private lateinit var scrollView: ScrollView
     private lateinit var goDurationInput: EditText
     private lateinit var stopDurationInput: EditText
     private lateinit var goGrowthInput: EditText
@@ -30,6 +33,7 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var stopColorInput: EditText
     private lateinit var goColorPickerButton: Button
     private lateinit var stopColorPickerButton: Button
+    private lateinit var languageButton: FloatingActionButton
     private lateinit var saveButton: FloatingActionButton
     private lateinit var resetButton: FloatingActionButton
 
@@ -59,6 +63,7 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun bindViews() {
+        scrollView = findViewById(R.id.settings_scroll_view)
         goDurationInput = findViewById(R.id.go_duration_input)
         stopDurationInput = findViewById(R.id.stop_duration_input)
         goGrowthInput = findViewById(R.id.go_growth_input)
@@ -67,13 +72,42 @@ class SettingsActivity : AppCompatActivity() {
         stopColorInput = findViewById(R.id.stop_color_input)
         goColorPickerButton = findViewById(R.id.go_color_picker_button)
         stopColorPickerButton = findViewById(R.id.stop_color_picker_button)
+        languageButton = findViewById(R.id.language_button)
         saveButton = findViewById(R.id.save_button)
         resetButton = findViewById(R.id.reset_button)
+
+        setupAutoScroll()
+    }
+
+    private fun setupAutoScroll() {
+        val editTexts = listOf(
+            goDurationInput, stopDurationInput,
+            goGrowthInput, stopGrowthInput,
+            goColorInput, stopColorInput
+        )
+
+        editTexts.forEach { editText ->
+            editText.setOnFocusChangeListener { view, hasFocus ->
+                if (hasFocus) {
+                    scrollView.post {
+                        val location = IntArray(2)
+                        view.getLocationInWindow(location)
+                        val y = location[1]
+                        scrollView.smoothScrollTo(0, y - APPROX_KEYBOARD_HEIGHT)
+                    }
+                }
+            }
+        }
     }
 
     private fun setupButtons() {
+        languageButton.setOnClickListener { openLanguageDialog() }
         saveButton.setOnClickListener { saveSettings() }
         resetButton.setOnClickListener { resetTimer() }
+    }
+
+    private fun openLanguageDialog() {
+        LanguagePickerDialog.newInstance().show(supportFragmentManager, "languagePicker")
     }
 
     private fun setupColorPickers() {
@@ -98,7 +132,12 @@ class SettingsActivity : AppCompatActivity() {
         dialogTag: String
     ) {
         button.setOnClickListener {
-            ColorPickerDialog.newInstance(input.text.toString(), requestKey)
+            val colorValue = input.text.toString().trim()
+            val colorToUse = colorValue.ifEmpty {
+                val config = configRepository.loadConfig()
+                if (requestKey == REQUEST_KEY_GO_COLOR) config.goColor else config.stopColor
+            }
+            ColorPickerDialog.newInstance(colorToUse, requestKey)
                 .show(supportFragmentManager, dialogTag)
         }
         input.addTextChangedListener(createColorTextWatcher(button))
@@ -106,20 +145,27 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun createColorTextWatcher(button: Button) = object : TextWatcher {
-        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {/*no-op*/}
-        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {/*no-op*/}
+        override fun beforeTextChanged(
+            s: CharSequence?,
+            start: Int,
+            count: Int,
+            after: Int
+        ) {
+            /*no-op*/
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            /*no-op*/
+        }
+
         override fun afterTextChanged(s: Editable?) {
             updateButtonColor(button, s?.toString() ?: "")
         }
     }
 
     private fun updateButtonColor(button: Button, colorHex: String) {
-        try {
-            val color = colorHex.trim().toColorInt()
-            button.setBackgroundColor(color)
-        } catch (_: IllegalArgumentException) {
-            button.setBackgroundColor(Color.GRAY)
-        }
+        val color = ColorUtils.parseColorSafely(colorHex)
+        button.setBackgroundColor(color)
     }
 
     private fun resetTimer() {
@@ -157,9 +203,16 @@ class SettingsActivity : AppCompatActivity() {
         val stopDuration = stopDurationInput.text.toString().toIntOrNull()
         val goGrowth = goGrowthInput.text.toString().toFloatOrNull()
         val stopGrowth = stopGrowthInput.text.toString().toFloatOrNull()
+        val goColor = goColorInput.text.toString().trim()
+        val stopColor = stopColorInput.text.toString().trim()
 
         if (goDuration == null || stopDuration == null || goGrowth == null || stopGrowth == null) {
             showError()
+            return null
+        }
+
+        if (goColor.isEmpty() || stopColor.isEmpty()) {
+            showError(getString(R.string.invalid_input))
             return null
         }
 
@@ -168,8 +221,8 @@ class SettingsActivity : AppCompatActivity() {
             stopDuration = stopDuration,
             goDurationGrowth = goGrowth,
             stopDurationGrowth = stopGrowth,
-            goColor = goColorInput.text.toString().trim(),
-            stopColor = stopColorInput.text.toString().trim()
+            goColor = goColor,
+            stopColor = stopColor
         )
     }
 

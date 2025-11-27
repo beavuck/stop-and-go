@@ -1,0 +1,33 @@
+<resources>
+    <string name="phase_go">انطلق</string>
+    <string name="phase_stop">توقف</string>
+    <string name="cycle_count">الدورة: %d</string>
+    <string name="go_duration">مدة الانطلاق (بالثواني)</string>
+    <string name="stop_duration">مدة التوقف (بالثواني)</string>
+    <string name="go_growth">معامل نمو الانطلاق</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+    <string name="stop_growth">معامل نمو التوقف</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+    <string name="go_color">لون الانطلاق</string>
+    <string name="stop_color">لون التوقف</string>
+    <string name="save_settings">حفظ الإعدادات</string>
+    <string name="settings">الإعدادات</string>
+    <string name="settings_saved">تم حفظ الإعدادات بنجاح</string>
+    <string name="invalid_input">إدخال غير صالح</string>
+    <string name="reset_timer">إعادة تعيين المؤقت</string>
+    <string name="pick_color">اختر لونًا</string>
+    <string name="color_preview">معاينة اللون</string>
+    <string name="red_label">أحمر</string>
+    <string name="green_label">أخضر</string>
+    <string name="blue_label">أزرق</string>
+    <string name="color_picker_title">اختر لونًا</string>
+    <string name="ok">موافق</string>
+    <string name="cancel">إلغاء</string>
+    <string name="notification_channel_go_name">مرحلة الانطلاق</string>
+    <string name="notification_channel_go_description">إشعارات لتغييرات مرحلة الانطلاق</string>
+    <string name="notification_channel_stop_name">مرحلة التوقف</string>
+    <string name="notification_channel_stop_description">إشعارات لتغييرات مرحلة التوقف</string>
+    <string name="notification_go_title">بدأت مرحلة الانطلاق</string>
+    <string name="notification_stop_title">بدأت مرحلة التوقف</string>
+    <string name="language">اللغة</string>
+</resources>

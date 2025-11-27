@@ -15,9 +15,11 @@ import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_STOP_DURATION
 import com.beavuck.stop_and_go.model.TimerConstants.INITIAL_CYCLE_COUNT
 import com.beavuck.stop_and_go.activities.MainActivity
 import com.beavuck.stop_and_go.model.AppState
+import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
 import org.hamcrest.CoreMatchers.not
 import org.junit.After
+import org.junit.Assert.assertNotEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -188,6 +190,60 @@ class MainActivityTest {
             val flags = activity.window.attributes.flags
             val keepScreenOn = flags and WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
             assert(keepScreenOn != 0) { "FLAG_KEEP_SCREEN_ON should be set when timer is running" }
+        }
+    }
+
+    @Test
+    fun localeChange_recreatesActivity() {
+        val configRepository = ConfigRepository(ApplicationProvider.getApplicationContext())
+
+        var activityHashBeforeChange = 0
+        scenario.onActivity { activity ->
+            activityHashBeforeChange = System.identityHashCode(activity)
+        }
+
+        configRepository.saveLocale("fr")
+
+        scenario.onActivity { activity ->
+            activity.runOnUiThread {
+                activity.onResume()
+            }
+        }
+
+        Thread.sleep(500)
+
+        scenario.onActivity { activity ->
+            val activityHashAfterChange = System.identityHashCode(activity)
+            assertNotEquals(activityHashBeforeChange, activityHashAfterChange)
+        }
+    }
+
+    @Test
+    fun localeChange_preservesTimerState() {
+        val configRepository = ConfigRepository(ApplicationProvider.getApplicationContext())
+
+        Thread.sleep(1500)
+
+        var timerValueBeforeChange = ""
+        scenario.onActivity { activity ->
+            timerValueBeforeChange = activity.findViewById<TextView>(R.id.timerText).text.toString()
+        }
+
+        configRepository.saveLocale("es")
+
+        scenario.onActivity { activity ->
+            activity.runOnUiThread {
+                activity.onResume()
+            }
+        }
+
+        Thread.sleep(1000)
+
+        scenario.onActivity { activity ->
+            val timerValueAfterChange = activity.findViewById<TextView>(R.id.timerText).text.toString()
+            val beforeValue = timerValueBeforeChange.toIntOrNull() ?: 0
+            val afterValue = timerValueAfterChange.toIntOrNull() ?: 0
+            assert(afterValue in (beforeValue - 3)..(beforeValue + 1))
         }
     }
 }

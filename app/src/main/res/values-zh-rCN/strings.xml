@@ -1,0 +1,33 @@
+<resources>
+    <string name="phase_go">开始</string>
+    <string name="phase_stop">停止</string>
+    <string name="cycle_count">循环：%d</string>
+    <string name="go_duration">开始时长（秒）</string>
+    <string name="stop_duration">停止时长（秒）</string>
+    <string name="go_growth">开始增长倍数</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+    <string name="stop_growth">停止增长倍数</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+    <string name="go_color">开始颜色</string>
+    <string name="stop_color">停止颜色</string>
+    <string name="save_settings">保存设置</string>
+    <string name="settings">设置</string>
+    <string name="settings_saved">设置已成功保存</string>
+    <string name="invalid_input">输入无效</string>
+    <string name="reset_timer">重置计时器</string>
+    <string name="pick_color">选择颜色</string>
+    <string name="color_preview">颜色预览</string>
+    <string name="red_label">红色</string>
+    <string name="green_label">绿色</string>
+    <string name="blue_label">蓝色</string>
+    <string name="color_picker_title">选择颜色</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="notification_channel_go_name">开始阶段</string>
+    <string name="notification_channel_go_description">开始阶段变化的通知</string>
+    <string name="notification_channel_stop_name">停止阶段</string>
+    <string name="notification_channel_stop_description">停止阶段变化的通知</string>
+    <string name="notification_go_title">开始阶段已启动</string>
+    <string name="notification_stop_title">停止阶段已启动</string>
+    <string name="language">语言</string>
+</resources>

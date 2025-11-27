@@ -32,6 +32,17 @@ class ConfigRepository(context: Context) {
         )
     }
 
+    fun saveLocale(localeTag: String) {
+        sharedPreferences.edit().apply {
+            putString(KEY_LOCALE, localeTag)
+            apply()
+        }
+    }
+
+    fun loadLocale(): String? {
+        return sharedPreferences.getString(KEY_LOCALE, null)
+    }
+
     companion object {
         private const val PREFS_NAME = "stop_and_go_prefs"
         private const val KEY_GO_DURATION = "go_duration"
@@ -40,5 +51,6 @@ class ConfigRepository(context: Context) {
         private const val KEY_STOP_GROWTH = "stop_growth"
         private const val KEY_GO_COLOR = "go_color"
         private const val KEY_STOP_COLOR = "stop_color"
+        private const val KEY_LOCALE = "locale"
     }
 }

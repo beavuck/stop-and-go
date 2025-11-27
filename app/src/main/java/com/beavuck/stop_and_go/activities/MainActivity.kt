@@ -12,7 +12,6 @@ import android.view.WindowManager
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.toColorInt
@@ -26,8 +25,9 @@ import com.beavuck.stop_and_go.model.TimerConstants.TIMER_DISPLAY_OFFSET
 import com.beavuck.stop_and_go.notifications.PhaseNotificationManager
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
+import java.text.NumberFormat
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : LocalizedActivity() {
     private lateinit var phaseManager: PhaseManager
     private lateinit var stateRepository: StateRepository
     private lateinit var notificationManager: PhaseNotificationManager
@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     private var currentTimer: CountDownTimer? = null
     private var secondsRemaining: Int = 0
     private var isPaused: Boolean = false
+    private var currentLocaleTag: String? = null
 
     private lateinit var mainLayout: ConstraintLayout
     private lateinit var timerText: TextView
@@ -53,6 +54,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
+        currentLocaleTag = ConfigRepository(this).loadLocale()
 
         bindViews()
         setupEdgeToEdge()
@@ -191,7 +194,7 @@ class MainActivity : AppCompatActivity() {
             override fun onTick(millisUntilFinished: Long) {
                 val remaining =
                     (millisUntilFinished / MILLIS_PER_SECOND).toInt() + TIMER_DISPLAY_OFFSET
-                timerText.text = remaining.toString()
+                timerText.text = formatNumber(remaining)
                 this@MainActivity.secondsRemaining = remaining
             }
 
@@ -203,10 +206,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun formatNumber(number: Int): String {
+        return NumberFormat.getIntegerInstance(resources.configuration.locales[0]).format(number)
+    }
+
     private fun updateUI(phase: PhaseState) {
         mainLayout.setBackgroundColor(phase.color.toColorInt())
         phaseLabelText.text = getPhaseLabel(phase)
-        timerText.text = phase.durationSeconds.toString()
+        timerText.text = formatNumber(phase.durationSeconds)
         cycleCountText.text = getString(R.string.cycle_count, phaseManager.cycleCount + 1)
     }
 
@@ -219,8 +226,16 @@ class MainActivity : AppCompatActivity() {
         stateRepository.saveState(state)
     }
 
-    override fun onResume() {
+    public override fun onResume() {
         super.onResume()
+
+        val savedLocale = ConfigRepository(this).loadLocale()
+        if (currentLocaleTag != savedLocale) {
+            currentLocaleTag = savedLocale
+            recreate()
+            return
+        }
+
         initializePhaseManager()
         restoreSavedState()
         startCurrentPhase()

@@ -184,4 +184,60 @@ class ConfigRepositoryTest {
         assertEquals("#333333", loadedConfig.goColor)
         assertEquals("#444444", loadedConfig.stopColor)
     }
+
+    @Test
+    fun loadLocale_withNoSavedData_returnsNull() {
+        val locale = repository.loadLocale()
+        assertEquals(null, locale)
+    }
+
+    @Test
+    fun saveLocale_persistsLocaleTag() {
+        repository.saveLocale("fr")
+        val loadedLocale = repository.loadLocale()
+        assertEquals("fr", loadedLocale)
+    }
+
+    @Test
+    fun saveLocale_withEmptyString_persists() {
+        repository.saveLocale("")
+        val loadedLocale = repository.loadLocale()
+        assertEquals("", loadedLocale)
+    }
+
+    @Test
+    fun saveLocale_overwritesPreviousLocale() {
+        repository.saveLocale("en")
+        repository.saveLocale("es")
+        val loadedLocale = repository.loadLocale()
+        assertEquals("es", loadedLocale)
+    }
+
+    @Test
+    fun saveLocale_withChineseLocale_persists() {
+        repository.saveLocale("zh-CN")
+        val loadedLocale = repository.loadLocale()
+        assertEquals("zh-CN", loadedLocale)
+    }
+
+    @Test
+    fun newRepositoryInstance_loadsPersistedLocale() {
+        repository.saveLocale("ar")
+        val newRepository = ConfigRepository(context)
+        val loadedLocale = newRepository.loadLocale()
+        assertEquals("ar", loadedLocale)
+    }
+
+    @Test
+    fun saveLocale_independentOfConfig() {
+        val config = TimerConfig(goDuration = 100, stopDuration = 50)
+        repository.saveConfig(config)
+        repository.saveLocale("fr")
+
+        val loadedConfig = repository.loadConfig()
+        val loadedLocale = repository.loadLocale()
+
+        assertEquals(100, loadedConfig.goDuration)
+        assertEquals("fr", loadedLocale)
+    }
 }

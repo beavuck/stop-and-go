@@ -1,0 +1,33 @@
+<resources>
+    <string name="phase_go">ADELANTE</string>
+    <string name="phase_stop">ALTO</string>
+    <string name="cycle_count">Ciclo: %d</string>
+    <string name="go_duration">Duración de inicio (segundos)</string>
+    <string name="stop_duration">Duración de parada (segundos)</string>
+    <string name="go_growth">Multiplicador de crecimiento (inicio)</string>
+    <string name="go_growth_hint">0,01–100,0</string>
+    <string name="stop_growth">Multiplicador de crecimiento (parada)</string>
+    <string name="stop_growth_hint">0,01–100,0</string>
+    <string name="go_color">Color de inicio</string>
+    <string name="stop_color">Color de parada</string>
+    <string name="save_settings">Guardar configuración</string>
+    <string name="settings">Configuración</string>
+    <string name="settings_saved">Configuración guardada correctamente</string>
+    <string name="invalid_input">Entrada no válida</string>
+    <string name="reset_timer">Restablecer temporizador</string>
+    <string name="pick_color">Elegir color</string>
+    <string name="color_preview">Vista previa del color</string>
+    <string name="red_label">Rojo</string>
+    <string name="green_label">Verde</string>
+    <string name="blue_label">Azul</string>
+    <string name="color_picker_title">Elegir color</string>
+    <string name="ok">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="notification_channel_go_name">Fase de inicio</string>
+    <string name="notification_channel_go_description">Notificaciones para cambios de fase de inicio</string>
+    <string name="notification_channel_stop_name">Fase de parada</string>
+    <string name="notification_channel_stop_description">Notificaciones para cambios de fase de parada</string>
+    <string name="notification_go_title">Fase ADELANTE iniciada</string>
+    <string name="notification_stop_title">Fase ALTO iniciada</string>
+    <string name="language">Idioma</string>
+</resources>

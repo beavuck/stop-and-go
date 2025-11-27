@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Stop and Go</string>
+    <string name="app_name" translatable="false">Stop and Go</string>
     <string name="phase_go">GO</string>
     <string name="phase_stop">STOP</string>
     <string name="cycle_count">Cycle: %d</string>
     <string name="go_duration">Go Duration (seconds)</string>
-    <string name="go_duration_hint">1–3600</string>
+    <string name="go_duration_hint" translatable="false">1–3600</string>
     <string name="stop_duration">Stop Duration (seconds)</string>
-    <string name="stop_duration_hint">1–3600</string>
+    <string name="stop_duration_hint" translatable="false">1–3600</string>
     <string name="go_growth">Go Growth Multiplier</string>
     <string name="go_growth_hint">0.01–100.0</string>
     <string name="stop_growth">Stop Growth Multiplier</string>
@@ -35,4 +35,10 @@
     <string name="notification_channel_stop_description">Notifications for Stop phase changes</string>
     <string name="notification_go_title">GO Phase Started</string>
     <string name="notification_stop_title">STOP Phase Started</string>
+    <string name="language">Language</string>
+    <string name="language_english" translatable="false">English</string>
+    <string name="language_french" translatable="false">Français</string>
+    <string name="language_arabic" translatable="false">العربية</string>
+    <string name="language_chinese_simplified" translatable="false">简体中文</string>
+    <string name="language_spanish" translatable="false">Español</string>
 </resources>

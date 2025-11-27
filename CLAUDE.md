@@ -176,3 +176,6 @@ All core logic is tested. MainActivity has instrumented tests covering:
 - [x] Keep screen awake during active timer
 - [x] Color picker UI for easier color selection
 - [x] Sound/vibration notifications on phase change
+- [ ] Translation into major languages
+- [ ] Allow user to choose language (from settings)
+- [ ] Create a release note for this app's first launch
