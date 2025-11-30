@@ -25,6 +25,7 @@ import com.beavuck.stop_and_go.model.TimerConstants.TIMER_DISPLAY_OFFSET
 import com.beavuck.stop_and_go.notifications.PhaseNotificationManager
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
+import com.beavuck.stop_and_go.utils.ColorUtils
 import com.beavuck.stop_and_go.utils.DebugUtils.maybeSetStrictMode
 import java.text.NumberFormat
 
@@ -214,7 +215,14 @@ class MainActivity : LocalizedActivity() {
     }
 
     private fun updateUI(phase: PhaseState) {
-        mainLayout.setBackgroundColor(phase.color.toColorInt())
+        val backgroundColor = phase.color.toColorInt()
+        val textColor = ColorUtils.getContrastingTextColor(backgroundColor)
+
+        mainLayout.setBackgroundColor(backgroundColor)
+        timerText.setTextColor(textColor)
+        phaseLabelText.setTextColor(textColor)
+        cycleCountText.setTextColor(textColor)
+
         phaseLabelText.text = getPhaseLabel(phase)
         timerText.text = formatNumber(phase.durationSeconds)
         cycleCountText.text = getString(R.string.cycle_count, phaseManager.cycleCount + 1)

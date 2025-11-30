@@ -5,6 +5,10 @@ import androidx.core.graphics.toColorInt
 
 object ColorUtils {
 
+    private const val LIGHT_TEXT_COLOR = 0xFFE0E0E0.toInt()
+    private const val DARK_TEXT_COLOR = 0xFF202020.toInt()
+    private const val LUMINANCE_THRESHOLD = 0.5f
+
     fun parseColorSafely(colorHex: String, defaultColor: Int = Color.GRAY): Int {
         return try {
             val trimmed = colorHex.trim()
@@ -27,5 +31,13 @@ object ColorUtils {
         } catch (_: Exception) {
             false
         }
+    }
+
+    fun getContrastingTextColor(backgroundColor: Int): Int {
+        val luminance = Color.luminance(backgroundColor)
+        return if (luminance > LUMINANCE_THRESHOLD)
+            DARK_TEXT_COLOR
+        else
+            LIGHT_TEXT_COLOR
     }
 }

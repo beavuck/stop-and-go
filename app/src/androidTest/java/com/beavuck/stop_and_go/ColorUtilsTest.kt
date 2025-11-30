@@ -3,9 +3,7 @@ package com.beavuck.stop_and_go
 import android.graphics.Color
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.beavuck.stop_and_go.utils.ColorUtils
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -97,5 +95,58 @@ class ColorUtilsTest {
     @Test
     fun isValidColorHex_withWhitespaceAroundValid_trimsAndValidates() {
         assertTrue(ColorUtils.isValidColorHex("  #FF0000  "))
+    }
+
+    @Test
+    fun getContrastingTextColor_withWhiteBackground_returnsDarkText() {
+        val result = ColorUtils.getContrastingTextColor(Color.WHITE)
+        assertTrue(Color.luminance(result) < 0.5)
+    }
+
+    @Test
+    fun getContrastingTextColor_withBlackBackground_returnsLightText() {
+        val result = ColorUtils.getContrastingTextColor(Color.BLACK)
+        assertTrue(Color.luminance(result) > 0.5)
+    }
+
+    @Test
+    fun getContrastingTextColor_withLightBackground_returnsDarkText() {
+        val lightColor = Color.rgb(200, 200, 200)
+        val result = ColorUtils.getContrastingTextColor(lightColor)
+        assertTrue(Color.luminance(result) < 0.5)
+    }
+
+    @Test
+    fun getContrastingTextColor_withDarkBackground_returnsLightText() {
+        val darkColor = Color.rgb(50, 50, 50)
+        val result = ColorUtils.getContrastingTextColor(darkColor)
+        assertTrue(Color.luminance(result) > 0.5)
+    }
+
+    @Test
+    fun getContrastingTextColor_withBrightRedBackground_returnsDarkText() {
+        val result = ColorUtils.getContrastingTextColor(Color.RED)
+        assertTrue(Color.luminance(result) < 0.5)
+    }
+
+    @Test
+    fun getContrastingTextColor_withDarkBlueBackground_returnsLightText() {
+        val darkBlue = Color.rgb(0, 0, 139)
+        val result = ColorUtils.getContrastingTextColor(darkBlue)
+        assertTrue(Color.luminance(result) > 0.5)
+    }
+
+    @Test
+    fun getContrastingTextColor_withDefaultGoColor_returnsLightText() {
+        val goColor = Color.parseColor("#20b05c")
+        val result = ColorUtils.getContrastingTextColor(goColor)
+        assertTrue(Color.luminance(result) > 0.5)
+    }
+
+    @Test
+    fun getContrastingTextColor_withDefaultStopColor_returnsLightText() {
+        val stopColor = Color.parseColor("#992639")
+        val result = ColorUtils.getContrastingTextColor(stopColor)
+        assertTrue(Color.luminance(result) > 0.5)
     }
 }
