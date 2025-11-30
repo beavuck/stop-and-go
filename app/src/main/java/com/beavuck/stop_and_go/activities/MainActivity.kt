@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.toColorInt
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.model.PhaseManager
 import com.beavuck.stop_and_go.model.PhaseState
@@ -64,6 +65,7 @@ class MainActivity : LocalizedActivity() {
         bindViews()
         setupEdgeToEdge()
         setupGestureDetection()
+        setupAccessibility()
 
         stateRepository = StateRepository(this)
         notificationManager = PhaseNotificationManager(this)
@@ -113,12 +115,37 @@ class MainActivity : LocalizedActivity() {
         })
     }
 
+    private fun setupAccessibility() {
+        ViewCompat.setAccessibilityDelegate(mainLayout, object : androidx.core.view.AccessibilityDelegateCompat() {
+            override fun onInitializeAccessibilityNodeInfo(host: android.view.View, info: AccessibilityNodeInfoCompat) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+
+                val pauseResumeAction = AccessibilityNodeInfoCompat.AccessibilityActionCompat(
+                    AccessibilityNodeInfoCompat.ACTION_CLICK,
+                    if (isPaused) getString(R.string.timer_resumed) else getString(R.string.timer_paused)
+                )
+                info.addAction(pauseResumeAction)
+
+                val settingsAction = AccessibilityNodeInfoCompat.AccessibilityActionCompat(
+                    AccessibilityNodeInfoCompat.ACTION_LONG_CLICK,
+                    getString(R.string.settings)
+                )
+                info.addAction(settingsAction)
+            }
+        })
+
+        mainLayout.isClickable = true
+        mainLayout.isFocusable = true
+    }
+
     private fun togglePause() {
         isPaused = !isPaused
         if (isPaused) {
             currentTimer?.cancel()
+            ViewCompat.setStateDescription(mainLayout, getString(R.string.timer_paused))
         } else {
             startTimer(secondsRemaining)
+            ViewCompat.setStateDescription(mainLayout, getString(R.string.timer_resumed))
         }
         setKeepScreenOn(!isPaused)
     }
@@ -163,6 +190,7 @@ class MainActivity : LocalizedActivity() {
         updateUI(phase)
         if (notify) {
             notifyPhaseChange(phase)
+            announcePhaseChange(phase)
         }
         startTimer(getTimerDuration(phase))
     }
@@ -173,6 +201,12 @@ class MainActivity : LocalizedActivity() {
         } else {
             notificationManager.notifyStopPhase()
         }
+    }
+
+    private fun announcePhaseChange(phase: PhaseState) {
+        val phaseLabel = getPhaseLabel(phase)
+        val message = getString(R.string.phase_changed, phaseLabel, phase.durationSeconds)
+        ViewCompat.setStateDescription(phaseLabelText, message)
     }
 
     private fun getTimerDuration(phase: PhaseState): Int {

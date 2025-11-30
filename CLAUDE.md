@@ -20,6 +20,8 @@ repository.
 - Follow Kotlin coding conventions and Android best practices.
 - Perform minimal changes necessary to implement features or fix bugs. Avoid large refactorings
   unless asked for.
+- Never suppress any warnings -- let a human do so if they deem it necessary.
+- Ensure you use no deprecated methods, APIs, or libraries.
 - Keep documentation up to date. Update README.md and files stored in ./docs/ as needed when making
   changes.
 
@@ -164,18 +166,3 @@ All core logic is tested. MainActivity has instrumented tests covering:
 - Initial UI state (views, colors, labels)
 - Timer countdown functionality
 - Activity recreation
-
-## To do
-
-- [x] Implement view (basic)
-- [x] Write tests for existing untested code (to prepare to switch to TDD)
-- [x] Accept user input for values (durations, colors, growth rates)
-- [x] Persist app state across android application lifecycle
-- [x] Reset timer and cycle count
-- [x] Pause/resume functionality
-- [x] Keep screen awake during active timer
-- [x] Color picker UI for easier color selection
-- [x] Sound/vibration notifications on phase change
-- [ ] Translation into major languages
-- [ ] Allow user to choose language (from settings)
-- [ ] Create a release note for this app's first launch

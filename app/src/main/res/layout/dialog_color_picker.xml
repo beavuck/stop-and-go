@@ -13,7 +13,9 @@
             android:id="@+id/color_preview"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/color_preview"
+            android:importantForAccessibility="no" />
 
         <TextView
             android:id="@+id/hex_value_display"
@@ -36,7 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:max="255" />
+            android:max="255"
+            android:contentDescription="@string/red_slider" />
 
         <TextView
             android:layout_width="match_parent"
@@ -49,7 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:max="255" />
+            android:max="255"
+            android:contentDescription="@string/green_slider" />
 
         <TextView
             android:layout_width="match_parent"
@@ -61,7 +65,8 @@
             android:id="@+id/blue_seekbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:max="255" />
+            android:max="255"
+            android:contentDescription="@string/blue_slider" />
 
     </LinearLayout>
 

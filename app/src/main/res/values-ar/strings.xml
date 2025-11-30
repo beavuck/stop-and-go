@@ -30,4 +30,11 @@
     <string name="notification_go_title">بدأت مرحلة الانطلاق</string>
     <string name="notification_stop_title">بدأت مرحلة التوقف</string>
     <string name="language">اللغة</string>
+    <string name="timer_screen">شاشة المؤقت. انقر مرة واحدة للإيقاف المؤقت أو الاستئناف. اضغط مطولاً لفتح الإعدادات.</string>
+    <string name="timer_paused">المؤقت متوقف مؤقتًا</string>
+    <string name="timer_resumed">المؤقت مستأنف</string>
+    <string name="phase_changed">بدأت مرحلة %1$s. %2$d ثانية متبقية.</string>
+    <string name="red_slider">شريط تمرير المكون الأحمر</string>
+    <string name="green_slider">شريط تمرير المكون الأخضر</string>
+    <string name="blue_slider">شريط تمرير المكون الأزرق</string>
 </resources>

@@ -41,4 +41,11 @@
     <string name="language_arabic" translatable="false">العربية</string>
     <string name="language_chinese_simplified" translatable="false">简体中文</string>
     <string name="language_spanish" translatable="false">Español</string>
+    <string name="timer_screen">Timer screen. Single tap to pause or resume. Long press to open settings.</string>
+    <string name="timer_paused">Timer paused</string>
+    <string name="timer_resumed">Timer resumed</string>
+    <string name="phase_changed">%1$s phase started. %2$d seconds remaining.</string>
+    <string name="red_slider">Red color component slider</string>
+    <string name="green_slider">Green color component slider</string>
+    <string name="blue_slider">Blue color component slider</string>
 </resources>

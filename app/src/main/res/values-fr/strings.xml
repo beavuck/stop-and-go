@@ -30,4 +30,11 @@
     <string name="notification_go_title">Phase ALLEZ commencée</string>
     <string name="notification_stop_title">Phase ARRÊT commencée</string>
     <string name="language">Langue</string>
+    <string name="timer_screen">Écran du minuteur. Appuyez une fois pour mettre en pause ou reprendre. Appuyez longuement pour ouvrir les paramètres.</string>
+    <string name="timer_paused">Minuteur en pause</string>
+    <string name="timer_resumed">Minuteur repris</string>
+    <string name="phase_changed">Phase %1$s commencée. %2$d secondes restantes.</string>
+    <string name="red_slider">Curseur du composant rouge</string>
+    <string name="green_slider">Curseur du composant vert</string>
+    <string name="blue_slider">Curseur du composant bleu</string>
 </resources>

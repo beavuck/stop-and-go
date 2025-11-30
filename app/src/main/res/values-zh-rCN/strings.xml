@@ -30,4 +30,11 @@
     <string name="notification_go_title">开始阶段已启动</string>
     <string name="notification_stop_title">停止阶段已启动</string>
     <string name="language">语言</string>
+    <string name="timer_screen">计时器屏幕。单击一次以暂停或恢复。长按以打开设置。</string>
+    <string name="timer_paused">计时器已暂停</string>
+    <string name="timer_resumed">计时器已恢复</string>
+    <string name="phase_changed">%1$s阶段已开始。剩余%2$d秒。</string>
+    <string name="red_slider">红色分量滑块</string>
+    <string name="green_slider">绿色分量滑块</string>
+    <string name="blue_slider">蓝色分量滑块</string>
 </resources>
