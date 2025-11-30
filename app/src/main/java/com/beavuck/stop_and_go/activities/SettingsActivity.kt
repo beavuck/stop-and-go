@@ -13,10 +13,12 @@ import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.dialogs.ColorPickerDialog
 import com.beavuck.stop_and_go.dialogs.LanguagePickerDialog
 import com.beavuck.stop_and_go.model.TimerConfig
+import com.beavuck.stop_and_go.model.TimerConstants
 import com.beavuck.stop_and_go.model.TimerConstants.APPROX_KEYBOARD_HEIGHT
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
 import com.beavuck.stop_and_go.utils.ColorUtils
+import com.beavuck.stop_and_go.utils.DebugUtils.maybeSetStrictMode
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
@@ -38,7 +40,9 @@ class SettingsActivity : LocalizedActivity() {
     private lateinit var resetButton: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        maybeSetStrictMode()
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_settings)
 
         configRepository = ConfigRepository(this)
@@ -185,7 +189,7 @@ class SettingsActivity : LocalizedActivity() {
     }
 
     private fun saveSettings() {
-        val config = parseConfigFromInputs() ?: return
+        val config = parseConfigFromInputs()
 
         try {
             config.validate()
@@ -198,7 +202,7 @@ class SettingsActivity : LocalizedActivity() {
         }
     }
 
-    private fun parseConfigFromInputs(): TimerConfig? {
+    private fun parseConfigFromInputs(): TimerConfig {
         val goDuration = goDurationInput.text.toString().toIntOrNull()
         val stopDuration = stopDurationInput.text.toString().toIntOrNull()
         val goGrowth = goGrowthInput.text.toString().toFloatOrNull()
@@ -206,23 +210,13 @@ class SettingsActivity : LocalizedActivity() {
         val goColor = goColorInput.text.toString().trim()
         val stopColor = stopColorInput.text.toString().trim()
 
-        if (goDuration == null || stopDuration == null || goGrowth == null || stopGrowth == null) {
-            showError()
-            return null
-        }
-
-        if (goColor.isEmpty() || stopColor.isEmpty()) {
-            showError(getString(R.string.invalid_input))
-            return null
-        }
-
         return TimerConfig(
-            goDuration = goDuration,
-            stopDuration = stopDuration,
-            goDurationGrowth = goGrowth,
-            stopDurationGrowth = stopGrowth,
-            goColor = goColor,
-            stopColor = stopColor
+            goDuration = goDuration ?: TimerConstants.DEFAULT_GO_DURATION,
+            stopDuration = stopDuration ?: TimerConstants.DEFAULT_STOP_DURATION,
+            goDurationGrowth = goGrowth ?: TimerConstants.DEFAULT_GROWTH_MULTIPLIER,
+            stopDurationGrowth = stopGrowth ?: TimerConstants.DEFAULT_GROWTH_MULTIPLIER,
+            goColor = goColor.ifEmpty { TimerConstants.DEFAULT_GO_COLOR },
+            stopColor = stopColor.ifEmpty { TimerConstants.DEFAULT_STOP_COLOR }
         )
     }
 

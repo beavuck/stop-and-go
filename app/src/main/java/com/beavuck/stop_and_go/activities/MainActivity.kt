@@ -25,6 +25,7 @@ import com.beavuck.stop_and_go.model.TimerConstants.TIMER_DISPLAY_OFFSET
 import com.beavuck.stop_and_go.notifications.PhaseNotificationManager
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
+import com.beavuck.stop_and_go.utils.DebugUtils.maybeSetStrictMode
 import java.text.NumberFormat
 
 class MainActivity : LocalizedActivity() {
@@ -51,8 +52,10 @@ class MainActivity : LocalizedActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        maybeSetStrictMode()
+        super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
 
         currentLocaleTag = ConfigRepository(this).loadLocale()

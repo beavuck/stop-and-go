@@ -34,6 +34,7 @@ android {
             // Disable language splits, because app offers a language selection option of its own
         }
     }
+
     defaultConfig {
         applicationId = packagePath
         minSdk = 24
@@ -65,18 +66,26 @@ android {
             }
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
+
     kotlin {
         compilerOptions {
             jvmTarget = JvmTarget.JVM_21
         }
     }
+
     buildTypes.configureEach {
         enableUnitTestCoverage = true
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
     lint {
         checkReleaseBuilds = false
         abortOnError = false

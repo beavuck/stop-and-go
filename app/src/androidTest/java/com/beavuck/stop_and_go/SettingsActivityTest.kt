@@ -166,4 +166,52 @@ class SettingsActivityTest {
             onView(withId(R.id.stop_growth_input)).check(matches(withText("0.5")))
         }
     }
+
+    @Test
+    fun saveButton_withEmptyFields_usesDefaultValues() {
+        ActivityScenario.launch(SettingsActivity::class.java).use { scenario ->
+            onView(withId(R.id.go_duration_input)).perform(clearText())
+            onView(withId(R.id.stop_duration_input)).perform(clearText())
+            onView(withId(R.id.go_growth_input)).perform(clearText())
+            onView(withId(R.id.stop_growth_input)).perform(clearText())
+            onView(withId(R.id.go_color_input)).perform(clearText())
+            onView(withId(R.id.stop_color_input)).perform(clearText())
+
+            onView(withId(R.id.save_button)).perform(click())
+
+            scenario.onActivity {
+                val savedConfig = configRepository.loadConfig()
+                assertEquals(DEFAULT_GO_DURATION, savedConfig.goDuration)
+                assertEquals(DEFAULT_STOP_DURATION, savedConfig.stopDuration)
+                assertEquals(DEFAULT_GROWTH_MULTIPLIER, savedConfig.goDurationGrowth, 0.001f)
+                assertEquals(DEFAULT_GROWTH_MULTIPLIER, savedConfig.stopDurationGrowth, 0.001f)
+                assertEquals(DEFAULT_GO_COLOR, savedConfig.goColor)
+                assertEquals(DEFAULT_STOP_COLOR, savedConfig.stopColor)
+            }
+        }
+    }
+
+    @Test
+    fun saveButton_withPartiallyEmptyFields_usesDefaultsForEmptyFields() {
+        ActivityScenario.launch(SettingsActivity::class.java).use { scenario ->
+            onView(withId(R.id.go_duration_input)).perform(replaceText("100"))
+            onView(withId(R.id.stop_duration_input)).perform(clearText())
+            onView(withId(R.id.go_growth_input)).perform(clearText())
+            onView(withId(R.id.stop_growth_input)).perform(replaceText("1.5"))
+            onView(withId(R.id.go_color_input)).perform(replaceText("#FF0000"))
+            onView(withId(R.id.stop_color_input)).perform(clearText())
+
+            onView(withId(R.id.save_button)).perform(click())
+
+            scenario.onActivity {
+                val savedConfig = configRepository.loadConfig()
+                assertEquals(100, savedConfig.goDuration)
+                assertEquals(DEFAULT_STOP_DURATION, savedConfig.stopDuration)
+                assertEquals(DEFAULT_GROWTH_MULTIPLIER, savedConfig.goDurationGrowth, 0.001f)
+                assertEquals(1.5f, savedConfig.stopDurationGrowth, 0.001f)
+                assertEquals("#FF0000", savedConfig.goColor)
+                assertEquals(DEFAULT_STOP_COLOR, savedConfig.stopColor)
+            }
+        }
+    }
 }

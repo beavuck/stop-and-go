@@ -24,4 +24,5 @@ abstract class LocalizedActivity : AppCompatActivity() {
         config.setLocale(locale)
         return context.createConfigurationContext(config)
     }
+
 }
