@@ -24,5 +24,5 @@ object TimerConstants {
     val GO_VIBRATION_PATTERN = longArrayOf(0, 200, 100, 200)
     val STOP_VIBRATION_PATTERN = longArrayOf(0, 768)
 
-    val APPROX_KEYBOARD_HEIGHT = 384
+    const val APPROX_KEYBOARD_HEIGHT = 384
 }

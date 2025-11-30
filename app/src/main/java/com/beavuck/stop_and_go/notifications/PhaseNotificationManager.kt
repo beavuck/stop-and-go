@@ -86,7 +86,7 @@ class PhaseNotificationManager(private val context: Context) {
             .setContentTitle(context.getString(titleResId))
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
-            .setTimeoutAfter(2000)
+            .setTimeoutAfter(1337)
             .build()
 
         notificationManager.notify(notificationId, notification)
