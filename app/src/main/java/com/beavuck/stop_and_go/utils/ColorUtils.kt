@@ -2,6 +2,8 @@ package com.beavuck.stop_and_go.utils
 
 import android.graphics.Color
 import androidx.core.graphics.toColorInt
+import com.beavuck.stop_and_go.model.TimerConstants.COLOR_MASK
+import com.beavuck.stop_and_go.model.TimerConstants.HEX_COLOR_FORMAT
 
 object ColorUtils {
 
@@ -17,7 +19,7 @@ object ColorUtils {
             } else {
                 trimmed.toColorInt()
             }
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             defaultColor
         }
     }
@@ -39,5 +41,9 @@ object ColorUtils {
             DARK_TEXT_COLOR
         else
             LIGHT_TEXT_COLOR
+    }
+
+    fun colorToHex(color: Int): String {
+        return String.format(HEX_COLOR_FORMAT, COLOR_MASK and color)
     }
 }

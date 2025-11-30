@@ -37,4 +37,8 @@
     <string name="red_slider">红色分量滑块</string>
     <string name="green_slider">绿色分量滑块</string>
     <string name="blue_slider">蓝色分量滑块</string>
+    <string name="notification_permission_rationale_title">启用阶段切换通知</string>
+    <string name="notification_permission_rationale_message">Stop and Go 可以在计时器在开始和停止阶段之间切换时通知您。这有助于您保持专注，而无需不断查看屏幕。</string>
+    <string name="enable">启用</string>
+    <string name="not_now">暂不启用</string>
 </resources>

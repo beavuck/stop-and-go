@@ -5,37 +5,39 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.os.CountDownTimer
-import android.view.GestureDetector
 import android.view.MotionEvent
-import android.view.WindowManager
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.toColorInt
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
+import com.beavuck.stop_and_go.BuildConfig
 import com.beavuck.stop_and_go.R
+import com.beavuck.stop_and_go.accessibility.AccessibilityHelper
+import com.beavuck.stop_and_go.gestures.TimerGestureHandler
 import com.beavuck.stop_and_go.model.PhaseManager
 import com.beavuck.stop_and_go.model.PhaseState
-import com.beavuck.stop_and_go.model.TimerConstants.MILLIS_PER_SECOND
-import com.beavuck.stop_and_go.model.TimerConstants.TIMER_DISPLAY_OFFSET
 import com.beavuck.stop_and_go.notifications.PhaseNotificationManager
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
-import com.beavuck.stop_and_go.utils.ColorUtils
+import com.beavuck.stop_and_go.timer.TimerController
+import com.beavuck.stop_and_go.ui.TimerUIUpdater
 import com.beavuck.stop_and_go.utils.DebugUtils.maybeSetStrictMode
-import java.text.NumberFormat
+import com.beavuck.stop_and_go.utils.ScreenManager
 
 class MainActivity : LocalizedActivity() {
     private lateinit var phaseManager: PhaseManager
     private lateinit var stateRepository: StateRepository
     private lateinit var notificationManager: PhaseNotificationManager
-    private lateinit var gestureDetector: GestureDetector
-    private var currentTimer: CountDownTimer? = null
+    private lateinit var timerController: TimerController
+    private lateinit var uiUpdater: TimerUIUpdater
+    private lateinit var accessibilityHelper: AccessibilityHelper
+    private lateinit var gestureHandler: TimerGestureHandler
+    private lateinit var screenManager: ScreenManager
+
     private var secondsRemaining: Int = 0
     private var isPaused: Boolean = false
     private var currentLocaleTag: String? = null
@@ -47,11 +49,7 @@ class MainActivity : LocalizedActivity() {
 
     private val notificationPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
-    ) { isGranted ->
-        if (!isGranted && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            // Permission denied => do nothing
-        }
-    }
+    ) { }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
@@ -62,10 +60,9 @@ class MainActivity : LocalizedActivity() {
 
         currentLocaleTag = ConfigRepository(this).loadLocale()
 
-        bindViews()
-        setupEdgeToEdge()
-        setupGestureDetection()
-        setupAccessibility()
+        initializeViews()
+        initializeHelpers()
+        setupUI()
 
         stateRepository = StateRepository(this)
         notificationManager = PhaseNotificationManager(this)
@@ -76,22 +73,31 @@ class MainActivity : LocalizedActivity() {
         startCurrentPhase()
     }
 
-    private fun requestNotificationPermissionIfNeeded() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
-            && ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.POST_NOTIFICATIONS
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-        }
-    }
-
-    private fun bindViews() {
+    private fun initializeViews() {
         mainLayout = findViewById(R.id.main)
         timerText = findViewById(R.id.timerText)
         cycleCountText = findViewById(R.id.cycleCount)
         phaseLabelText = findViewById(R.id.phaseLabel)
+    }
+
+    private fun initializeHelpers() {
+        timerController = TimerController(
+            onTick = ::handleTimerTick,
+            onFinish = ::handleTimerFinish
+        )
+        uiUpdater = TimerUIUpdater(this, mainLayout, timerText, phaseLabelText, cycleCountText)
+        accessibilityHelper = AccessibilityHelper(this, mainLayout, phaseLabelText)
+        gestureHandler = TimerGestureHandler(
+            context = this,
+            onSingleTap = ::togglePause,
+            onLongPress = ::openSettings
+        )
+        screenManager = ScreenManager(this)
+    }
+
+    private fun setupUI() {
+        setupEdgeToEdge()
+        accessibilityHelper.setupAccessibilityActions { isPaused }
     }
 
     private fun setupEdgeToEdge() {
@@ -102,64 +108,43 @@ class MainActivity : LocalizedActivity() {
         }
     }
 
-    private fun setupGestureDetection() {
-        gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
-            override fun onSingleTapUp(e: MotionEvent): Boolean {
-                togglePause()
-                return true
-            }
-
-            override fun onLongPress(e: MotionEvent) {
-                openSettings()
-            }
-        })
+    private fun requestNotificationPermissionIfNeeded() {
+        if (!BuildConfig.DEBUG
+            && ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            showNotificationPermissionRationale()
+        }
     }
 
-    private fun setupAccessibility() {
-        ViewCompat.setAccessibilityDelegate(mainLayout, object : androidx.core.view.AccessibilityDelegateCompat() {
-            override fun onInitializeAccessibilityNodeInfo(host: android.view.View, info: AccessibilityNodeInfoCompat) {
-                super.onInitializeAccessibilityNodeInfo(host, info)
-
-                val pauseResumeAction = AccessibilityNodeInfoCompat.AccessibilityActionCompat(
-                    AccessibilityNodeInfoCompat.ACTION_CLICK,
-                    if (isPaused) getString(R.string.timer_resumed) else getString(R.string.timer_paused)
-                )
-                info.addAction(pauseResumeAction)
-
-                val settingsAction = AccessibilityNodeInfoCompat.AccessibilityActionCompat(
-                    AccessibilityNodeInfoCompat.ACTION_LONG_CLICK,
-                    getString(R.string.settings)
-                )
-                info.addAction(settingsAction)
+    private fun showNotificationPermissionRationale() {
+        AlertDialog.Builder(this)
+            .setTitle(R.string.notification_permission_rationale_title)
+            .setMessage(R.string.notification_permission_rationale_message)
+            .setPositiveButton(R.string.enable) { _, _ ->
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                }
             }
-        })
-
-        mainLayout.isClickable = true
-        mainLayout.isFocusable = true
+            .setNegativeButton(R.string.not_now, null)
+            .show()
     }
 
     private fun togglePause() {
         isPaused = !isPaused
         if (isPaused) {
-            currentTimer?.cancel()
-            ViewCompat.setStateDescription(mainLayout, getString(R.string.timer_paused))
+            timerController.cancel()
         } else {
-            startTimer(secondsRemaining)
-            ViewCompat.setStateDescription(mainLayout, getString(R.string.timer_resumed))
+            timerController.start(secondsRemaining)
         }
-        setKeepScreenOn(!isPaused)
-    }
-
-    private fun setKeepScreenOn(keepOn: Boolean) {
-        if (keepOn) {
-            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        } else {
-            window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        }
+        accessibilityHelper.announcePauseState(isPaused)
+        screenManager.setKeepScreenOn(!isPaused)
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        gestureDetector.onTouchEvent(event)
+        gestureHandler.gestureDetector.onTouchEvent(event)
         return super.dispatchTouchEvent(event)
     }
 
@@ -181,18 +166,20 @@ class MainActivity : LocalizedActivity() {
 
     private fun openSettings() {
         saveCurrentState()
-        currentTimer?.cancel()
+        timerController.cancel()
         startActivity(Intent(this, SettingsActivity::class.java))
     }
 
     private fun startCurrentPhase(notify: Boolean = false) {
         val phase = phaseManager.getCurrentPhase()
-        updateUI(phase)
+        val locale = resources.configuration.locales[0]
+        uiUpdater.updatePhase(phase, phaseManager.cycleCount, locale)
         if (notify) {
             notifyPhaseChange(phase)
-            announcePhaseChange(phase)
+            accessibilityHelper.announcePhaseChange(phase)
         }
-        startTimer(getTimerDuration(phase))
+        timerController.start(getTimerDuration(phase))
+        screenManager.setKeepScreenOn(true)
     }
 
     private fun notifyPhaseChange(phase: PhaseState) {
@@ -201,12 +188,6 @@ class MainActivity : LocalizedActivity() {
         } else {
             notificationManager.notifyStopPhase()
         }
-    }
-
-    private fun announcePhaseChange(phase: PhaseState) {
-        val phaseLabel = getPhaseLabel(phase)
-        val message = getString(R.string.phase_changed, phaseLabel, phase.durationSeconds)
-        ViewCompat.setStateDescription(phaseLabelText, message)
     }
 
     private fun getTimerDuration(phase: PhaseState): Int {
@@ -218,52 +199,16 @@ class MainActivity : LocalizedActivity() {
         return phase.durationSeconds
     }
 
-    private fun startTimer(durationSeconds: Int) {
-        currentTimer?.cancel()
-        currentTimer = createTimer(durationSeconds).start()
-        setKeepScreenOn(true)
+    private fun handleTimerTick(remaining: Int) {
+        val locale = resources.configuration.locales[0]
+        uiUpdater.updateTimerDisplay(remaining, locale)
+        secondsRemaining = remaining
     }
 
-    private fun createTimer(durationSeconds: Int): CountDownTimer {
-        return object : CountDownTimer(
-            durationSeconds * MILLIS_PER_SECOND,
-            MILLIS_PER_SECOND
-        ) {
-            override fun onTick(millisUntilFinished: Long) {
-                val remaining =
-                    (millisUntilFinished / MILLIS_PER_SECOND).toInt() + TIMER_DISPLAY_OFFSET
-                timerText.text = formatNumber(remaining)
-                this@MainActivity.secondsRemaining = remaining
-            }
-
-            override fun onFinish() {
-                this@MainActivity.secondsRemaining = 0
-                phaseManager.advanceToNextPhase()
-                startCurrentPhase(notify = true)
-            }
-        }
-    }
-
-    private fun formatNumber(number: Int): String {
-        return NumberFormat.getIntegerInstance(resources.configuration.locales[0]).format(number)
-    }
-
-    private fun updateUI(phase: PhaseState) {
-        val backgroundColor = phase.color.toColorInt()
-        val textColor = ColorUtils.getContrastingTextColor(backgroundColor)
-
-        mainLayout.setBackgroundColor(backgroundColor)
-        timerText.setTextColor(textColor)
-        phaseLabelText.setTextColor(textColor)
-        cycleCountText.setTextColor(textColor)
-
-        phaseLabelText.text = getPhaseLabel(phase)
-        timerText.text = formatNumber(phase.durationSeconds)
-        cycleCountText.text = getString(R.string.cycle_count, phaseManager.cycleCount + 1)
-    }
-
-    private fun getPhaseLabel(phase: PhaseState): String {
-        return if (phase.isGo) getString(R.string.phase_go) else getString(R.string.phase_stop)
+    private fun handleTimerFinish() {
+        secondsRemaining = 0
+        phaseManager.advanceToNextPhase()
+        startCurrentPhase(notify = true)
     }
 
     private fun saveCurrentState() {
@@ -285,18 +230,18 @@ class MainActivity : LocalizedActivity() {
         restoreSavedState()
         startCurrentPhase()
         if (!isPaused) {
-            setKeepScreenOn(true)
+            screenManager.setKeepScreenOn(true)
         }
     }
 
     override fun onPause() {
         super.onPause()
         saveCurrentState()
-        setKeepScreenOn(false)
+        screenManager.setKeepScreenOn(false)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        currentTimer?.cancel()
+        timerController.cancel()
     }
 }

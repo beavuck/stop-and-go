@@ -48,4 +48,8 @@
     <string name="red_slider">Red color component slider</string>
     <string name="green_slider">Green color component slider</string>
     <string name="blue_slider">Blue color component slider</string>
+    <string name="notification_permission_rationale_title">Enable Phase Change Notifications</string>
+    <string name="notification_permission_rationale_message">Stop and Go can notify you when the timer switches between GO and STOP phases. This helps you stay focused without constantly watching the screen.</string>
+    <string name="enable">Enable</string>
+    <string name="not_now">Not Now</string>
 </resources>

@@ -37,4 +37,8 @@
     <string name="red_slider">Control deslizante del componente rojo</string>
     <string name="green_slider">Control deslizante del componente verde</string>
     <string name="blue_slider">Control deslizante del componente azul</string>
+    <string name="notification_permission_rationale_title">Activar notificaciones de cambio de fase</string>
+    <string name="notification_permission_rationale_message">Stop and Go puede notificarte cuando el temporizador cambia entre las fases ADELANTE y ALTO. Esto te ayuda a mantenerte concentrado sin mirar constantemente la pantalla.</string>
+    <string name="enable">Activar</string>
+    <string name="not_now">Ahora no</string>
 </resources>

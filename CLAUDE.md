@@ -42,12 +42,6 @@ using the Android SDK.
 ### Run Tests
 
 ```bash
-# All tests
-./gradlew test
-
-# Unit tests only
-./gradlew test
-
 # Instrumented tests (requires emulator/device)
 ./gradlew connectedAndroidTest
 

@@ -7,14 +7,12 @@ import android.view.View
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.core.graphics.toColorInt
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
 import com.beavuck.stop_and_go.R
-import com.beavuck.stop_and_go.model.TimerConstants.COLOR_MASK
 import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_COLOR
-import com.beavuck.stop_and_go.model.TimerConstants.HEX_COLOR_FORMAT
+import com.beavuck.stop_and_go.utils.ColorUtils
 
 class ColorPickerDialog : DialogFragment() {
 
@@ -25,7 +23,8 @@ class ColorPickerDialog : DialogFragment() {
         val view = layoutInflater.inflate(R.layout.dialog_color_picker, null)
 
         val initialColor = arguments?.getString(ARG_INITIAL_COLOR) ?: DEFAULT_COLOR
-        currentColor = savedInstanceState?.getInt(STATE_CURRENT_COLOR) ?: parseColor(initialColor)
+        currentColor = savedInstanceState?.getInt(STATE_CURRENT_COLOR)
+            ?: ColorUtils.parseColorSafely(initialColor, Color.BLACK)
 
         val colorPreview = view.findViewById<View>(R.id.color_preview)
         val hexDisplay = view.findViewById<TextView>(R.id.hex_value_display)
@@ -57,7 +56,10 @@ class ColorPickerDialog : DialogFragment() {
             .setView(view)
             .setPositiveButton(R.string.ok) { _, _ ->
                 val requestKey = arguments?.getString(ARG_REQUEST_KEY) ?: REQUEST_KEY
-                setFragmentResult(requestKey, bundleOf(RESULT_COLOR to colorToHex(currentColor)))
+                setFragmentResult(
+                    requestKey,
+                    bundleOf(RESULT_COLOR to ColorUtils.colorToHex(currentColor))
+                )
             }
             .setNegativeButton(R.string.cancel, null)
             .create()
@@ -90,19 +92,7 @@ class ColorPickerDialog : DialogFragment() {
 
     private fun updatePreview(preview: View, hexDisplay: TextView, color: Int) {
         preview.setBackgroundColor(color)
-        hexDisplay.text = colorToHex(color)
-    }
-
-    private fun parseColor(hex: String): Int {
-        return try {
-            hex.trim().toColorInt()
-        } catch (_: IllegalArgumentException) {
-            Color.BLACK
-        }
-    }
-
-    private fun colorToHex(color: Int): String {
-        return String.format(HEX_COLOR_FORMAT, COLOR_MASK and color)
+        hexDisplay.text = ColorUtils.colorToHex(color)
     }
 
     companion object {

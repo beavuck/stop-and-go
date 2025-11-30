@@ -37,4 +37,8 @@
     <string name="red_slider">Curseur du composant rouge</string>
     <string name="green_slider">Curseur du composant vert</string>
     <string name="blue_slider">Curseur du composant bleu</string>
+    <string name="notification_permission_rationale_title">Activer les notifications de changement de phase</string>
+    <string name="notification_permission_rationale_message">Stop and Go peut vous notifier lorsque le minuteur passe entre les phases ALLEZ et ARRÊT. Cela vous aide à rester concentré sans regarder constamment l\'écran.</string>
+    <string name="enable">Activer</string>
+    <string name="not_now">Pas maintenant</string>
 </resources>

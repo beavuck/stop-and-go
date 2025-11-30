@@ -37,4 +37,8 @@
     <string name="red_slider">شريط تمرير المكون الأحمر</string>
     <string name="green_slider">شريط تمرير المكون الأخضر</string>
     <string name="blue_slider">شريط تمرير المكون الأزرق</string>
+    <string name="notification_permission_rationale_title">تمكين إشعارات تغيير المرحلة</string>
+    <string name="notification_permission_rationale_message">يمكن لتطبيق Stop and Go إشعارك عندما يتبدل المؤقت بين مرحلتي الانطلاق والتوقف. يساعدك هذا على التركيز دون النظر باستمرار إلى الشاشة.</string>
+    <string name="enable">تمكين</string>
+    <string name="not_now">ليس الآن</string>
 </resources>

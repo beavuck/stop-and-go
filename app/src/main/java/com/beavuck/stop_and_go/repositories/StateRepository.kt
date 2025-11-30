@@ -2,8 +2,8 @@ package com.beavuck.stop_and_go.repositories
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.beavuck.stop_and_go.model.AppState
 import androidx.core.content.edit
+import com.beavuck.stop_and_go.model.AppState
 
 class StateRepository(context: Context) {
     private val sharedPreferences: SharedPreferences =

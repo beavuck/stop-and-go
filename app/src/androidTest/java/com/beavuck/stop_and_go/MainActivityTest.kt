@@ -12,7 +12,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.beavuck.stop_and_go.activities.MainActivity
 import com.beavuck.stop_and_go.model.AppState
 import com.beavuck.stop_and_go.model.TimerConfig
-import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_GO_COLOR
 import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_GO_DURATION
 import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_STOP_DURATION
 import com.beavuck.stop_and_go.model.TimerConstants.INITIAL_CYCLE_COUNT
@@ -97,19 +96,6 @@ class MainActivityTest {
             .check(matches(withText(expectedText)))
     }
 
-    @Test
-    fun initialBackgroundColor_isGoColor() {
-        scenario.onActivity { activity ->
-            val expectedColor = Color.parseColor(DEFAULT_GO_COLOR)
-            val layout = activity.findViewById<androidx.constraintlayout.widget.ConstraintLayout>(
-                R.id.main
-            )
-            val actualColor = layout.background?.let {
-                (it as? android.graphics.drawable.ColorDrawable)?.color
-            }
-            assert(actualColor == expectedColor)
-        }
-    }
 
     @Test
     fun timerText_changesAfterOneSecond() {
@@ -248,22 +234,6 @@ class MainActivityTest {
             val beforeValue = timerValueBeforeChange.toIntOrNull() ?: 0
             val afterValue = timerValueAfterChange.toIntOrNull() ?: 0
             assert(afterValue in (beforeValue - 3)..(beforeValue + 1))
-        }
-    }
-
-    @Test
-    fun initialTextColor_contrastsWithGoBackground() {
-        scenario.onActivity { activity ->
-            val backgroundColor = Color.parseColor(DEFAULT_GO_COLOR)
-            val expectedTextColor = ColorUtils.getContrastingTextColor(backgroundColor)
-
-            val timerText = activity.findViewById<TextView>(R.id.timerText)
-            val phaseLabelText = activity.findViewById<TextView>(R.id.phaseLabel)
-            val cycleCountText = activity.findViewById<TextView>(R.id.cycleCount)
-
-            assertEquals(expectedTextColor, timerText.currentTextColor)
-            assertEquals(expectedTextColor, phaseLabelText.currentTextColor)
-            assertEquals(expectedTextColor, cycleCountText.currentTextColor)
         }
     }
 

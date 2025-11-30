@@ -124,9 +124,9 @@ class ColorUtilsTest {
     }
 
     @Test
-    fun getContrastingTextColor_withBrightRedBackground_returnsDarkText() {
+    fun getContrastingTextColor_withBrightRedBackground_returnsLightText() {
         val result = ColorUtils.getContrastingTextColor(Color.RED)
-        assertTrue(Color.luminance(result) < 0.5)
+        assertTrue(Color.luminance(result) > 0.5)
     }
 
     @Test

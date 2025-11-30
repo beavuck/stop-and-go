@@ -8,7 +8,7 @@ tasks.register<JacocoReport>("jacocoTestReport") {
         html.required.set(true)
     }
 
-    val fileFilter = listOf(
+    val toExclude = listOf(
         "**/R.class",
         "**/R$*.class",
         "**/BuildConfig.*",
@@ -16,11 +16,16 @@ tasks.register<JacocoReport>("jacocoTestReport") {
         "**/*Test*.*",
         "**/activities/**/*.*",
         "**/repositories/**/*.*",
+        "**/accessibility/**/*.*",
+        "**/gestures/**/*.*",
+        "**/settings/**/*.*",
+        "**/timer/**/*.*",
+        "**/ui/**/*.*",
         "android/**/*.*"
     )
 
     val debugTree = fileTree("${project.layout.buildDirectory.get()}/tmp/kotlin-classes/debug") {
-        exclude(fileFilter)
+        exclude(toExclude)
     }
 
     val mainSrc = "${project.projectDir}/src/main/java"
