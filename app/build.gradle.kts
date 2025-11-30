@@ -28,6 +28,12 @@ android {
     namespace = packagePath
     compileSdk = 36
 
+    bundle {
+        language {
+            enableSplit = false
+            // Disable language splits, because app offers a language selection option of its own
+        }
+    }
     defaultConfig {
         applicationId = packagePath
         minSdk = 24
