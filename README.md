@@ -1,6 +1,6 @@
 # Stop and Go
 
-A minimalist Android interval timer that alternates between two colored phases with configurable durations and growth rates.
+A minimalist Android interval timer that alternates between two phases — with configurable colors, durations, and growth rates.
 
 ## 📊 Status
 
@@ -42,6 +42,9 @@ The screen alternates between:
 - State persists across app lifecycle (rotation, backgrounding)
 - No accounts, no backend, no network required
 
+## Privacy
+See PRIVACY.md
+
 ## Controls
 
 - **Single tap**: Pause/resume timer
@@ -69,23 +72,6 @@ After each complete cycle (go → stop → go), durations multiply by their grow
 - **Stop Color**: Hex code (default: `#992639`)
 
 Colors can be configured in two ways:
-- **Manual entry**: Type hex color codes directly (e.g., `#FF5733`)
+- **Manual entry**: Type color names or hex color codes directly (e.g., `navy`, or `#000080`)
 - **Color picker**: Click the color preview button to open an RGB slider picker with live preview
 
-## Building
-
-```bash
-./gradlew build
-```
-
-## Running Tests
-
-Unit tests:
-```bash
-./gradlew test
-```
-
-Instrumented tests:
-```bash
-./gradlew connectedAndroidTest
-```
