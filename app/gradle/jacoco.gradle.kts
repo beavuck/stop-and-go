@@ -20,7 +20,13 @@ tasks.register<JacocoReport>("jacocoTestReport") {
         "**/gestures/**/*.*",
         "**/settings/**/*.*",
         "**/timer/**/*.*",
+        "**/notifications/**/*.*",
+        "**/dialogs/**/*.*",
         "**/ui/**/*.*",
+        "**/model/TimerConstants.*",
+        "**/utils/ScreenManager.*",
+        "**/utils/DebugUtils.*",
+        "**/utils/ColorUtils.*",
         "android/**/*.*"
     )
 

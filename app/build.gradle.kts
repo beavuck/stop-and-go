@@ -102,7 +102,10 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.2.1")
 
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.3.0")
+    testImplementation("org.mockito:mockito-core:5.20.0")
+    testImplementation("androidx.test:core-ktx:1.7.0")
+    testImplementation("androidx.test.ext:junit-ktx:1.3.0")
+    testImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
 }
 
