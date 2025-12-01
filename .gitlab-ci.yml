@@ -55,8 +55,8 @@ include:
       job_name: "increment_major"
       stage_config: "update"
       branch_name: "chore/update-version"
-      command: "chmod +x scripts/increment-version.sh && ./scripts/increment-version.sh major"
-      commit_message: "🔖 Update version number"
+      command: "./scripts/increment-version.sh major"
+      commit_message: "🔖 Increment major version"
       image: "$IMAGE"
       script_to_install_deps: "apk add --no-cache bash curl jq git"
       consecutive_command_commits_allowed: no
@@ -66,8 +66,8 @@ include:
       job_name: "increment_minor"
       stage_config: "update"
       branch_name: "chore/update-version"
-      command: "chmod +x scripts/increment-version.sh && ./scripts/increment-version.sh minor"
-      commit_message: "🔖 Update version number"
+      command: "./scripts/increment-version.sh minor"
+      commit_message: "🔖 Increment minor version"
       image: "$IMAGE"
       script_to_install_deps: "apk add --no-cache bash curl jq git"
       consecutive_command_commits_allowed: no
@@ -77,8 +77,8 @@ include:
       job_name: "increment_patch"
       stage_config: "update"
       branch_name: "chore/update-version"
-      command: "chmod +x scripts/increment-version.sh && ./scripts/increment-version.sh patch"
-      commit_message: "🔖 Update version number"
+      command: "./scripts/increment-version.sh patch"
+      commit_message: "🔖 Increment patch version"
       image: "$IMAGE"
       script_to_install_deps: "apk add --no-cache bash curl jq git"
       consecutive_command_commits_allowed: no

@@ -82,8 +82,8 @@ class MainActivity : LocalizedActivity() {
 
     private fun initializeHelpers() {
         timerController = TimerController(
-            onTick = ::handleTimerTick,
-            onFinish = ::handleTimerFinish
+            onTickCallback = ::handleTimerTick,
+            onFinishCallback = ::handleTimerFinish
         )
         uiUpdater = TimerUIUpdater(this, mainLayout, timerText, phaseLabelText, cycleCountText)
         accessibilityHelper = AccessibilityHelper(this, mainLayout, phaseLabelText)

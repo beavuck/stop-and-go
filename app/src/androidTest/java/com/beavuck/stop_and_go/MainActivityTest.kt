@@ -288,4 +288,37 @@ class MainActivityTest {
             assert(Color.luminance(expectedTextColor) > 0.5)
         }
     }
+
+    @Test
+    fun timerFinish_transitionsFromGoToStop() {
+        scenario.close()
+
+        val stateRepository = StateRepository(ApplicationProvider.getApplicationContext())
+        stateRepository.clearState()
+
+        val shortConfig = TimerConfig(goDuration = 2, stopDuration = 2)
+        val configRepository = ConfigRepository(ApplicationProvider.getApplicationContext())
+        configRepository.saveConfig(shortConfig)
+
+        scenario = ActivityScenario.launch(MainActivity::class.java)
+
+        var initialPhaseLabel = ""
+        scenario.onActivity { activity ->
+            initialPhaseLabel = activity.getString(R.string.phase_go)
+        }
+
+        onView(withId(R.id.phaseLabel))
+            .check(matches(withText(initialPhaseLabel)))
+
+        Thread.sleep(3000)
+
+        var stopPhaseLabel = ""
+        var actualPhaseLabelText = ""
+        scenario.onActivity { activity ->
+            stopPhaseLabel = activity.getString(R.string.phase_stop)
+            actualPhaseLabelText = activity.findViewById<TextView>(R.id.phaseLabel).text.toString()
+        }
+
+        assertEquals("Phase label should transition to Stop", stopPhaseLabel, actualPhaseLabelText)
+    }
 }

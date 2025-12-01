@@ -5,8 +5,8 @@ import com.beavuck.stop_and_go.model.TimerConstants.MILLIS_PER_SECOND
 import com.beavuck.stop_and_go.model.TimerConstants.TIMER_DISPLAY_OFFSET
 
 class TimerController(
-    private val onTick: (secondsRemaining: Int) -> Unit,
-    private val onFinish: () -> Unit
+    private val onTickCallback: (secondsRemaining: Int) -> Unit,
+    private val onFinishCallback: () -> Unit
 ) {
     private var currentTimer: CountDownTimer? = null
 
@@ -26,14 +26,15 @@ class TimerController(
             MILLIS_PER_SECOND
         ) {
             override fun onTick(millisUntilFinished: Long) {
-                val remaining =
-                    (millisUntilFinished / MILLIS_PER_SECOND).toInt() + TIMER_DISPLAY_OFFSET
-                onTick(remaining)
+                val remaining = toSeconds(millisUntilFinished).toInt() + TIMER_DISPLAY_OFFSET
+                onTickCallback(remaining)
             }
 
             override fun onFinish() {
-                onFinish()
+                onFinishCallback()
             }
         }
     }
+
+    private fun toSeconds(millisUntilFinished: Long): Long = (millisUntilFinished / MILLIS_PER_SECOND)
 }
