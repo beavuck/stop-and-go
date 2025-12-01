@@ -39,8 +39,8 @@ android {
         applicationId = packagePath
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 1 // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
+        versionName = "1.0.0" // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -57,6 +57,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

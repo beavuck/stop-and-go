@@ -5,7 +5,7 @@ stages:
   - test
   - update
   - build
-  - beta
+  - internal
   - release
 
 ########~~~~-- Variables & defaults --~~~~########
@@ -50,14 +50,59 @@ include:
       script_to_install_deps: "apk add --no-cache bash curl jq git"
       consecutive_command_commits_allowed: true
 
+  - component: "$CI_SERVER_FQDN/beavuck-services/ci-cd-catalog/command-runner/command-runner@main"
+    inputs:
+      job_name: "increment_major"
+      stage_config: "update"
+      branch_name: "chore/update-version"
+      command: "chmod +x scripts/increment-version.sh && ./scripts/increment-version.sh major"
+      commit_message: "🔖 Update version number"
+      image: "$IMAGE"
+      script_to_install_deps: "apk add --no-cache bash curl jq git"
+      consecutive_command_commits_allowed: no
+
+  - component: "$CI_SERVER_FQDN/beavuck-services/ci-cd-catalog/command-runner/command-runner@main"
+    inputs:
+      job_name: "increment_minor"
+      stage_config: "update"
+      branch_name: "chore/update-version"
+      command: "chmod +x scripts/increment-version.sh && ./scripts/increment-version.sh minor"
+      commit_message: "🔖 Update version number"
+      image: "$IMAGE"
+      script_to_install_deps: "apk add --no-cache bash curl jq git"
+      consecutive_command_commits_allowed: no
+
+  - component: "$CI_SERVER_FQDN/beavuck-services/ci-cd-catalog/command-runner/command-runner@main"
+    inputs:
+      job_name: "increment_patch"
+      stage_config: "update"
+      branch_name: "chore/update-version"
+      command: "chmod +x scripts/increment-version.sh && ./scripts/increment-version.sh patch"
+      commit_message: "🔖 Update version number"
+      image: "$IMAGE"
+      script_to_install_deps: "apk add --no-cache bash curl jq git"
+      consecutive_command_commits_allowed: no
+
 find_secrets:
   rules:
-    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
+    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != 'schedule'"
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
 
 update:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'schedule' && $IS_UPDATE == 'true'"
+
+increment_major:
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'schedule' && $IS_INCREMENT_MAJOR == 'true'"
+
+increment_minor:
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'schedule' && $IS_INCREMENT_MINOR == 'true'"
+
+increment_patch:
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'schedule' && $IS_INCREMENT_PATCH == 'true'"
 
 ########~~~~-- Jobs --~~~~########
 
@@ -73,7 +118,7 @@ run_unit_tests:
       - app/build/reports/jacoco/
     expire_in: 1 week
   rules:
-    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
+    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != 'schedule'"
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
     - if: "$CI_COMMIT_TAG"
   needs:
@@ -103,7 +148,7 @@ analyze:
       -Dsonar.sources="app/src/main/java"
       -Dsonar.coverage.jacoco.xmlReportPaths="$JACOCO_PATH"
   rules:
-    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
+    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != 'schedule'"
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
   needs:
     - job: find_secrets
@@ -128,7 +173,6 @@ build:
     - apt install ./glab_${GITLAB_CI_VERSION}_linux_amd64.deb
     - glab auth login --hostname $CI_SERVER_FQDN --job-token $CI_JOB_TOKEN
     - glab securefile download --all --output-dir .secure_files/
-    - if [ -n "$CI_COMMIT_TAG" ]; then bundle exec fastlane update_version; fi
     - bundle exec fastlane build
   artifacts:
     paths:
@@ -137,16 +181,16 @@ build:
     expire_in: 1 week
   rules:
     - if: "$CI_COMMIT_TAG"
-    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
+    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != 'schedule'"
   needs:
     - job: find_secrets
       optional: true
     - job: run_unit_tests
       optional: true
 
-beta:
+internal:
   image: $ANDROID_API_IMAGE
-  stage: beta
+  stage: internal
   cache:
     key: gems-cache
     paths:
@@ -156,9 +200,9 @@ beta:
     - gem install bundler -N
     - bundle config set --local path 'vendor/bundle'
     - bundle install
-    - bundle exec fastlane beta
+    - bundle exec fastlane internal
   rules:
-    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
+    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != 'schedule'"
       when: manual
   needs:
     - job: build
