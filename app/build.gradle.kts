@@ -39,8 +39,10 @@ android {
         applicationId = packagePath
         minSdk = 24
         targetSdk = 36
-        versionCode = 1 // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionName = "1.0.0" // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
+        // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
+        versionCode = 2
+        // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
