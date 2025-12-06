@@ -14,6 +14,7 @@ variables:
   IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/alvrme/alpine-android:android-35-jdk21"
   JACOCO_PATH: "app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
   ANDROID_API_IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/fabernovel/android:api-35-v1.10.1"
+  GITLAB_CI_VERSION: "1.79.0"
 
 default:
   image: $IMAGE
@@ -158,8 +159,6 @@ analyze:
 build:
   image: $ANDROID_API_IMAGE
   stage: build
-  variables:
-    GITLAB_CI_VERSION: "1.78.3"
   cache:
     key: gems-cache
     paths:
@@ -196,10 +195,14 @@ internal:
     paths:
       - vendor/bundle
   script:
-    - apt update -y && apt install -y ruby-full build-essential
+    - apt update -y && apt install -y curl ruby-full build-essential
     - gem install bundler -N
     - bundle config set --local path 'vendor/bundle'
     - bundle install
+    - wget https://gitlab.com/gitlab-org/cli/-/releases/v$GITLAB_CI_VERSION/downloads/glab_${GITLAB_CI_VERSION}_linux_amd64.deb
+    - apt install ./glab_${GITLAB_CI_VERSION}_linux_amd64.deb
+    - glab auth login --hostname $CI_SERVER_FQDN --job-token $CI_JOB_TOKEN
+    - glab securefile download --all --output-dir .secure_files/
     - bundle exec fastlane internal
   rules:
     - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != 'schedule'"
@@ -216,10 +219,14 @@ release:
     paths:
       - vendor/bundle
   script:
-    - apt update -y && apt install -y ruby-full build-essential
+    - apt update -y && apt install -y curl ruby-full build-essential
     - gem install bundler -N
     - bundle config set --local path 'vendor/bundle'
     - bundle install
+    - wget https://gitlab.com/gitlab-org/cli/-/releases/v$GITLAB_CI_VERSION/downloads/glab_${GITLAB_CI_VERSION}_linux_amd64.deb
+    - apt install ./glab_${GITLAB_CI_VERSION}_linux_amd64.deb
+    - glab auth login --hostname $CI_SERVER_FQDN --job-token $CI_JOB_TOKEN
+    - glab securefile download --all --output-dir .secure_files/
     - bundle exec fastlane release
   rules:
     - if: "$CI_COMMIT_TAG"
