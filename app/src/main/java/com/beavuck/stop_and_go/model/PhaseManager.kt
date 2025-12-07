@@ -50,6 +50,10 @@ class PhaseManager(private val config: TimerConfig) {
 
     fun isGo(): Boolean = isCurrentlyGo
 
+    fun getGoLabel(): String = config.goLabel
+
+    fun getStopLabel(): String = config.stopLabel
+
     fun getState(): AppState {
         return AppState(
             cycleCount = _cycleCount,

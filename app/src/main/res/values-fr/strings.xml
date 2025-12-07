@@ -10,6 +10,7 @@
     <string name="stop_growth_hint">0,01–100,0</string>
     <string name="go_color">Couleur de départ</string>
     <string name="stop_color">Couleur d\'arrêt</string>
+    <string name="stop_label_hint">Laissez vide pour utiliser la valeur par défaut.</string>
     <string name="save_settings">Enregistrer les paramètres</string>
     <string name="settings">Paramètres</string>
     <string name="settings_saved">Paramètres enregistrés avec succès</string>
@@ -47,4 +48,13 @@
     <string name="notification_permission_rationale_message">Stop and Go peut vous notifier lorsque le minuteur passe entre les phases ALLEZ et ARRÊT. Cela vous aide à rester concentré sans regarder constamment l\'écran.</string>
     <string name="enable">Activer</string>
     <string name="not_now">Pas maintenant</string>
+    <string name="go_label">Libellé "Go" (optionnel)</string>
+    <string name="go_label_hint">Laissez vide pour utiliser la valeur par défaut.</string>
+    <string name="stop_label">Libellé "Stop" (optionnel)</string>
+    <string name="error_go_duration_range">La durée de "Go" doit être comprise entre %1$d et %2$d secondes</string>
+    <string name="error_stop_duration_range">La durée de "Stop" doit être comprise entre %1$d et %2$d secondes</string>
+    <string name="error_go_growth_range">Le multiplicateur de croissance de "Go" doit être compris entre %1$.2f et %2$.2f</string>
+    <string name="error_stop_growth_range">Le multiplicateur de croissance de "Stop" doit être compris entre %1$.2f et %2$.2f</string>
+    <string name="error_go_label_length">L\'étiquette "Go" ne doit pas dépasser %d caractères</string>
+    <string name="error_stop_label_length">L\'étiquette "Stop" ne doit pas dépasser %d caractères</string>
 </resources>

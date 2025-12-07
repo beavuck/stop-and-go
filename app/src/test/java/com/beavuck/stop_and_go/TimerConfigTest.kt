@@ -123,4 +123,74 @@ class TimerConfigTest {
 
         config.validate()
     }
+
+    @Test
+    fun defaultConfig_hasEmptyLabels() {
+        val config = TimerConfig()
+
+        assertEquals("", config.goLabel)
+        assertEquals("", config.stopLabel)
+    }
+
+    @Test
+    fun config_withCustomLabels_succeeds() {
+        val config = TimerConfig(
+            goLabel = "Run",
+            stopLabel = "Walk"
+        )
+
+        assertEquals("Run", config.goLabel)
+        assertEquals("Walk", config.stopLabel)
+    }
+
+    @Test
+    fun validate_withValidLabels_succeeds() {
+        val config = TimerConfig(
+            goLabel = "Sprint",
+            stopLabel = "Rest"
+        )
+
+        val validated = config.validate()
+
+        assertEquals(config, validated)
+    }
+
+    @Test
+    fun validate_withEmptyLabels_succeeds() {
+        val config = TimerConfig(
+            goLabel = "",
+            stopLabel = ""
+        )
+
+        val validated = config.validate()
+
+        assertEquals(config, validated)
+    }
+
+    @Test
+    fun validate_withMaxLengthLabels_succeeds() {
+        val maxLabel = "a".repeat(32)
+        val config = TimerConfig(
+            goLabel = maxLabel,
+            stopLabel = maxLabel
+        )
+
+        val validated = config.validate()
+
+        assertEquals(config, validated)
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun validate_withGoLabelTooLong_throws() {
+        val config = TimerConfig(goLabel = "a".repeat(33))
+
+        config.validate()
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun validate_withStopLabelTooLong_throws() {
+        val config = TimerConfig(stopLabel = "a".repeat(33))
+
+        config.validate()
+    }
 }

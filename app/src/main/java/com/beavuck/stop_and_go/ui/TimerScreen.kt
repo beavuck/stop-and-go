@@ -149,6 +149,8 @@ fun TimerScreen(
         cycleCount = cycleCount,
         locale = locale,
         isPaused = isPaused,
+        goLabel = phaseManager.getGoLabel(),
+        stopLabel = phaseManager.getStopLabel(),
         onTap = ::togglePause,
         onLongPress = onNavigateToSettings,
         onTripleTap = ::resetTimer,

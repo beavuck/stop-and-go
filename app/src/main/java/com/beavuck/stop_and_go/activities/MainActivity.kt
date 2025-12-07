@@ -85,7 +85,7 @@ class MainActivity : LocalizedActivity() {
     }
 
     private fun initializePhaseManager() {
-        val config = ConfigRepository(this).loadConfig().validate()
+        val config = ConfigRepository(this).loadConfig().validate(this)
         phaseManager = PhaseManager(config)
     }
 

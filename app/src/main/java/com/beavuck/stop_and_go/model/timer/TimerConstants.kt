@@ -12,6 +12,8 @@ object TimerConstants {
     const val DEFAULT_GO_COLOR = "#20b05c"
     const val DEFAULT_STOP_COLOR = "#992639"
 
+    const val MAX_LABEL_LENGTH = 32
+
     const val INITIAL_CYCLE_COUNT = 0
 
     const val MILLIS_PER_SECOND = 1000L

@@ -10,6 +10,8 @@
     <string name="stop_growth_hint">0,01–100,0</string>
     <string name="go_color">Color de inicio</string>
     <string name="stop_color">Color de parada</string>
+    <string name="stop_label">Etiqueta de "Stop" (opcional)</string>
+    <string name="stop_label_hint">Déjalo en blanco para usar el valor predeterminado.</string>
     <string name="save_settings">Guardar configuración</string>
     <string name="settings">Configuración</string>
     <string name="settings_saved">Configuración guardada correctamente</string>
@@ -47,4 +49,12 @@
     <string name="notification_permission_rationale_message">Stop and Go puede notificarte cuando el temporizador cambia entre las fases ADELANTE y ALTO. Esto te ayuda a mantenerte concentrado sin mirar constantemente la pantalla.</string>
     <string name="enable">Activar</string>
     <string name="not_now">Ahora no</string>
+    <string name="go_label">Etiqueta de "Go" (opcional)</string>
+    <string name="go_label_hint">Déjalo en blanco para usar el valor predeterminado.</string>
+    <string name="error_go_duration_range">La duración de "Go" debe estar entre %1$d y %2$d segundos</string>
+    <string name="error_stop_duration_range">La duración de "Stop" debe estar entre %1$d y %2$d segundos</string>
+    <string name="error_go_growth_range">El multiplicador de crecimiento de "Go" debe estar entre %1$.2f y %2$.2f</string>
+    <string name="error_stop_growth_range">El multiplicador de crecimiento de "Stop" debe estar entre %1$.2f y %2$.2f</string>
+    <string name="error_go_label_length">La etiqueta de "Go" no debe superar %d caracteres</string>
+    <string name="error_stop_label_length">La etiqueta de "Stop" no debe superar %d caracteres</string>
 </resources>

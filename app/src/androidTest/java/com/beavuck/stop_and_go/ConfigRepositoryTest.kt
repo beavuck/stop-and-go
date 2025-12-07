@@ -240,4 +240,69 @@ class ConfigRepositoryTest {
         assertEquals(100, loadedConfig.goDuration)
         assertEquals("fr", loadedLocale)
     }
+
+    @Test
+    fun loadConfig_withNoSavedLabels_returnsEmptyLabels() {
+        val config = repository.loadConfig()
+
+        assertEquals("", config.goLabel)
+        assertEquals("", config.stopLabel)
+    }
+
+    @Test
+    fun saveConfig_withCustomLabels_persistsLabels() {
+        val config = TimerConfig(
+            goLabel = "Sprint",
+            stopLabel = "Walk"
+        )
+
+        repository.saveConfig(config)
+        val loadedConfig = repository.loadConfig()
+
+        assertEquals("Sprint", loadedConfig.goLabel)
+        assertEquals("Walk", loadedConfig.stopLabel)
+    }
+
+    @Test
+    fun saveConfig_withEmptyLabels_persistsEmptyLabels() {
+        val config = TimerConfig(
+            goLabel = "",
+            stopLabel = ""
+        )
+
+        repository.saveConfig(config)
+        val loadedConfig = repository.loadConfig()
+
+        assertEquals("", loadedConfig.goLabel)
+        assertEquals("", loadedConfig.stopLabel)
+    }
+
+    @Test
+    fun saveConfig_withLongLabels_persistsLongLabels() {
+        val longLabel = "a".repeat(32)
+        val config = TimerConfig(
+            goLabel = longLabel,
+            stopLabel = longLabel
+        )
+
+        repository.saveConfig(config)
+        val loadedConfig = repository.loadConfig()
+
+        assertEquals(longLabel, loadedConfig.goLabel)
+        assertEquals(longLabel, loadedConfig.stopLabel)
+    }
+
+    @Test
+    fun saveConfig_overwritesPreviousLabels() {
+        val config1 = TimerConfig(goLabel = "First", stopLabel = "Second")
+        repository.saveConfig(config1)
+
+        val config2 = TimerConfig(goLabel = "Third", stopLabel = "Fourth")
+        repository.saveConfig(config2)
+
+        val loadedConfig = repository.loadConfig()
+
+        assertEquals("Third", loadedConfig.goLabel)
+        assertEquals("Fourth", loadedConfig.stopLabel)
+    }
 }

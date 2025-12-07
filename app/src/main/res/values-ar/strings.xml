@@ -10,6 +10,8 @@
     <string name="stop_growth_hint">0.01–100.0</string>
     <string name="go_color">لون الانطلاق</string>
     <string name="stop_color">لون التوقف</string>
+    <string name="stop_label">تسمية "توقف" (اختياري)</string>
+    <string name="stop_label_hint">اتركه فارغًا لاستخدام الإعداد الافتراضي.</string>
     <string name="save_settings">حفظ الإعدادات</string>
     <string name="settings">الإعدادات</string>
     <string name="settings_saved">تم حفظ الإعدادات بنجاح</string>
@@ -50,4 +52,12 @@
     <string name="notification_permission_rationale_message">يمكن لتطبيق Stop and Go إشعارك عندما يتبدل المؤقت بين مرحلتي الانطلاق والتوقف. يساعدك هذا على التركيز دون النظر باستمرار إلى الشاشة.</string>
     <string name="enable">تمكين</string>
     <string name="not_now">ليس الآن</string>
+    <string name="go_label">تسمية "اذهب" (اختياري)</string>
+    <string name="go_label_hint">اتركه فارغًا لاستخدام الإعداد الافتراضي.</string>
+    <string name="error_go_duration_range">يجب أن تكون مدة "Go" بين %1$d و %2$d ثانية</string>
+    <string name="error_stop_duration_range">يجب أن تكون مدة "Stop" بين %1$d و %2$d ثانية</string>
+    <string name="error_go_growth_range">يجب أن يكون معامل نمو "Go" بين %1$.2f و %2$.2f</string>
+    <string name="error_stop_growth_range">يجب أن يكون معامل نمو "Stop" بين %1$.2f و %2$.2f</string>
+    <string name="error_go_label_length">يجب ألا يتجاوز اسم "Go" %d حرفًا</string>
+    <string name="error_stop_label_length">يجب ألا يتجاوز اسم "Stop" %d حرفًا</string>
 </resources>

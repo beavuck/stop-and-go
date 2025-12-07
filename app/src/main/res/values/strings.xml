@@ -15,6 +15,10 @@
     <string name="go_color_hint" translatable="false">#20b05c</string>
     <string name="stop_color">Stop Color</string>
     <string name="stop_color_hint" translatable="false">#992639</string>
+    <string name="go_label">"Go" Label (optional)</string>
+    <string name="go_label_hint">Leave empty to use default</string>
+    <string name="stop_label">"Stop" Label (optional)</string>
+    <string name="stop_label_hint">Leave empty to use default</string>
     <string name="save_settings">Save Settings</string>
     <string name="settings">Settings</string>
     <string name="settings_saved">Settings saved successfully</string>
@@ -57,4 +61,10 @@
     <string name="notification_permission_rationale_message">Stop and Go can notify you when the timer switches between GO and STOP phases. This helps you stay focused without constantly watching the screen.</string>
     <string name="enable">Enable</string>
     <string name="not_now">Not Now</string>
+    <string name="error_go_duration_range">"Go" duration must be between %1$d and %2$d seconds</string>
+    <string name="error_stop_duration_range">"Stop" duration must be between %1$d and %2$d seconds</string>
+    <string name="error_go_growth_range">"Go" growth multiplier must be between %1$.2f and %2$.2f</string>
+    <string name="error_stop_growth_range">"Stop" growth multiplier must be between %1$.2f and %2$.2f</string>
+    <string name="error_go_label_length">"Go" label must not exceed %d characters</string>
+    <string name="error_stop_label_length">"Stop" label must not exceed %d characters</string>
 </resources>

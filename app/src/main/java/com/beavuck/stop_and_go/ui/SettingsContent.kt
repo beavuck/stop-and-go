@@ -53,6 +53,8 @@ fun SettingsContent(
     var stopGrowth by rememberSaveable { mutableStateOf(currentConfig.stopDurationGrowth.toString()) }
     var goColor by rememberSaveable { mutableStateOf(currentConfig.goColor) }
     var stopColor by rememberSaveable { mutableStateOf(currentConfig.stopColor) }
+    var goLabel by rememberSaveable { mutableStateOf(currentConfig.goLabel) }
+    var stopLabel by rememberSaveable { mutableStateOf(currentConfig.stopLabel) }
 
     var showGoColorPicker by rememberSaveable { mutableStateOf(false) }
     var showStopColorPicker by rememberSaveable { mutableStateOf(false) }
@@ -68,10 +70,12 @@ fun SettingsContent(
                 .let { if (it) goColor else currentConfig.goColor },
             stopColor = ColorUtils.isValidColorString(stopColor)
                 .let { if (it) stopColor else currentConfig.stopColor },
+            goLabel = goLabel.trim(),
+            stopLabel = stopLabel.trim(),
         )
 
         try {
-            config.validate()
+            config.validate(context)
             configRepository.saveConfig(config)
             stateRepository.clearState()
             Toast.makeText(context, settingsSavedMessage, Toast.LENGTH_SHORT).show()
@@ -139,40 +143,44 @@ fun SettingsContent(
                 .imePadding(),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            SettingsTextField(
+            SettingsField(
                 label = stringResource(R.string.go_duration),
                 value = goDuration,
                 onValueChange = { goDuration = it },
                 onDone = ::saveSettings,
                 testTag = "goDurationInput",
                 supportingText = stringResource(R.string.go_duration_hint),
+                keyboardType = KeyboardType.Number,
             )
 
-            SettingsTextField(
+            SettingsField(
                 label = stringResource(R.string.stop_duration),
                 value = stopDuration,
                 onValueChange = { stopDuration = it },
                 onDone = ::saveSettings,
                 testTag = "stopDurationInput",
                 supportingText = stringResource(R.string.stop_duration_hint),
+                keyboardType = KeyboardType.Number,
             )
 
-            SettingsTextField(
+            SettingsField(
                 label = stringResource(R.string.go_growth),
                 value = goGrowth,
                 onValueChange = { goGrowth = it },
                 onDone = ::saveSettings,
                 testTag = "goGrowthInput",
                 supportingText = stringResource(R.string.go_growth_hint),
+                keyboardType = KeyboardType.Number,
             )
 
-            SettingsTextField(
+            SettingsField(
                 label = stringResource(R.string.stop_growth),
                 value = stopGrowth,
                 onValueChange = { stopGrowth = it },
                 onDone = ::saveSettings,
                 testTag = "stopGrowthInput",
                 supportingText = stringResource(R.string.stop_growth_hint),
+                keyboardType = KeyboardType.Number,
             )
 
             ColorInputField(
@@ -195,6 +203,24 @@ fun SettingsContent(
                 testTag = "stopColorInput",
                 buttonTestTag = "stopColorButton",
                 supportingText = stringResource(R.string.stop_color_hint),
+            )
+
+            SettingsField(
+                label = stringResource(R.string.go_label),
+                value = goLabel,
+                onValueChange = { goLabel = it },
+                onDone = ::saveSettings,
+                testTag = "goLabelInput",
+                supportingText = stringResource(R.string.go_label_hint),
+            )
+
+            SettingsField(
+                label = stringResource(R.string.stop_label),
+                value = stopLabel,
+                onValueChange = { stopLabel = it },
+                onDone = ::saveSettings,
+                testTag = "stopLabelInput",
+                supportingText = stringResource(R.string.stop_label_hint),
             )
         }
     }
@@ -234,13 +260,14 @@ fun SettingsContent(
 }
 
 @Composable
-private fun SettingsTextField(
+private fun SettingsField(
     label: String,
     value: String,
     onValueChange: (String) -> Unit,
     onDone: () -> Unit,
     testTag: String,
     supportingText: String? = null,
+    keyboardType: KeyboardType = KeyboardType.Text,
 ) {
     OutlinedTextField(
         value = value,
@@ -248,8 +275,8 @@ private fun SettingsTextField(
         label = { Text(label) },
         supportingText = supportingText?.let { { Text(it) } },
         keyboardOptions = KeyboardOptions(
-            keyboardType = KeyboardType.Number,
-            imeAction = ImeAction.Done
+            keyboardType = keyboardType,
+            imeAction = ImeAction.Done,
         ),
         keyboardActions = KeyboardActions(
             onDone = { onDone() }

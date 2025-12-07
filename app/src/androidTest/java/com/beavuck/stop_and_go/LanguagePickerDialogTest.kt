@@ -30,6 +30,7 @@ class LanguagePickerDialogTest {
 
         SupportedLocale.entries.forEach { locale ->
             composeTestRule.onNodeWithText(locale.getDisplayName(context))
+                .performScrollTo()
                 .assertIsDisplayed()
         }
     }
@@ -47,6 +48,7 @@ class LanguagePickerDialogTest {
         }
 
         composeTestRule.onNodeWithTag("locale_${currentLocale.code}")
+            .performScrollTo()
             .assertIsSelected()
     }
 
@@ -63,6 +65,7 @@ class LanguagePickerDialogTest {
 
         val targetLocale = SupportedLocale.SPANISH
         composeTestRule.onNodeWithTag("locale_${targetLocale.code}")
+            .performScrollTo()
             .performClick()
 
         assert(selectedLocaleCode == targetLocale.code)
@@ -80,7 +83,8 @@ class LanguagePickerDialogTest {
             )
         }
 
-        composeTestRule.onNodeWithTag("cancelButton").performClick()
+        composeTestRule.onNodeWithTag("cancelButton")
+            .performClick()
 
         assert(dismissCalled)
         assert(localeSelected == null)

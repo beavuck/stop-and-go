@@ -19,6 +19,8 @@ class ConfigRepository(context: Context) {
             putFloat(KEY_STOP_GROWTH, config.stopDurationGrowth)
             putString(KEY_GO_COLOR, config.goColor)
             putString(KEY_STOP_COLOR, config.stopColor)
+            putString(KEY_GO_LABEL, config.goLabel)
+            putString(KEY_STOP_LABEL, config.stopLabel)
             apply()
         }
     }
@@ -28,20 +30,16 @@ class ConfigRepository(context: Context) {
         return TimerConfig(
             goDuration = sharedPreferences.getInt(KEY_GO_DURATION, defaultConfig.goDuration),
             stopDuration = sharedPreferences.getInt(KEY_STOP_DURATION, defaultConfig.stopDuration),
-            goDurationGrowth = sharedPreferences.getFloat(
-                KEY_GO_GROWTH,
-                defaultConfig.goDurationGrowth
-            ),
-            stopDurationGrowth = sharedPreferences.getFloat(
-                KEY_STOP_GROWTH,
-                defaultConfig.stopDurationGrowth
-            ),
-            goColor = sharedPreferences.getString(KEY_GO_COLOR, defaultConfig.goColor)
-                ?: defaultConfig.goColor,
-            stopColor = sharedPreferences.getString(KEY_STOP_COLOR, defaultConfig.stopColor)
-                ?: defaultConfig.stopColor
+            goDurationGrowth = sharedPreferences.getFloat(KEY_GO_GROWTH, defaultConfig.goDurationGrowth),
+            stopDurationGrowth = sharedPreferences.getFloat(KEY_STOP_GROWTH, defaultConfig.stopDurationGrowth),
+            goColor = getStringFromSharedPrefs(KEY_GO_COLOR, defaultConfig.goColor),
+            stopColor = getStringFromSharedPrefs(KEY_STOP_COLOR, defaultConfig.stopColor),
+            goLabel = getStringFromSharedPrefs(KEY_GO_LABEL, defaultConfig.goLabel),
+            stopLabel = getStringFromSharedPrefs(KEY_STOP_LABEL, defaultConfig.stopLabel)
         )
     }
+    private fun getStringFromSharedPrefs(key: String, default: String): String =
+        sharedPreferences.getString(key, default) ?: default
 
     fun saveLocale(localeTag: String) {
         sharedPreferences.edit().apply {
@@ -62,6 +60,8 @@ class ConfigRepository(context: Context) {
         private const val KEY_STOP_GROWTH = "stop_growth"
         private const val KEY_GO_COLOR = "go_color"
         private const val KEY_STOP_COLOR = "stop_color"
+        private const val KEY_GO_LABEL = "go_label"
+        private const val KEY_STOP_LABEL = "stop_label"
         private const val KEY_LOCALE = "locale"
     }
 }

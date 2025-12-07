@@ -25,9 +25,9 @@ class ColorPickerDialogTest {
             )
         }
 
-        composeTestRule.onNodeWithTag("redSlider").assertIsDisplayed()
-        composeTestRule.onNodeWithTag("greenSlider").assertIsDisplayed()
-        composeTestRule.onNodeWithTag("blueSlider").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("redSlider").performScrollTo().assertIsDisplayed()
+        composeTestRule.onNodeWithTag("greenSlider").performScrollTo().assertIsDisplayed()
+        composeTestRule.onNodeWithTag("blueSlider").performScrollTo().assertIsDisplayed()
     }
 
     @Test
@@ -40,7 +40,7 @@ class ColorPickerDialogTest {
             )
         }
 
-        composeTestRule.onNodeWithTag("colorPreview").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("colorPreview").performScrollTo().assertIsDisplayed()
     }
 
     @Test
@@ -55,8 +55,8 @@ class ColorPickerDialogTest {
             )
         }
 
-        composeTestRule.onNodeWithTag("hexDisplay").assertIsDisplayed()
-        composeTestRule.onNodeWithText(initialColor.uppercase()).assertIsDisplayed()
+        composeTestRule.onNodeWithTag("hexDisplay").performScrollTo().assertIsDisplayed()
+        composeTestRule.onNodeWithText(initialColor).performScrollTo().assertIsDisplayed()
     }
 
     @Test
@@ -69,7 +69,9 @@ class ColorPickerDialogTest {
             )
         }
 
-        composeTestRule.onNodeWithTag("redSlider").performTouchInput { swipeRight() }
+        composeTestRule.onNodeWithTag("redSlider")
+            .performScrollTo()
+            .performTouchInput { swipeRight() }
 
         composeTestRule.waitForIdle()
     }
@@ -121,6 +123,6 @@ class ColorPickerDialogTest {
             )
         }
 
-        composeTestRule.onNodeWithText("#AABBCC").assertIsDisplayed()
+        composeTestRule.onNodeWithText("#AABBCC").performScrollTo().assertIsDisplayed()
     }
 }

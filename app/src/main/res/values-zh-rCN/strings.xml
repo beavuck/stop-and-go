@@ -10,6 +10,8 @@
     <string name="stop_growth_hint">0.01–100.0</string>
     <string name="go_color">开始颜色</string>
     <string name="stop_color">停止颜色</string>
+    <string name="stop_label">"停止"标签（可选）</string>
+    <string name="stop_label_hint">留空使用默认值。</string>
     <string name="save_settings">保存设置</string>
     <string name="settings">设置</string>
     <string name="settings_saved">设置已成功保存</string>
@@ -45,4 +47,12 @@
     <string name="notification_permission_rationale_message">Stop and Go 可以在计时器在开始和停止阶段之间切换时通知您。这有助于您保持专注，而无需不断查看屏幕。</string>
     <string name="enable">启用</string>
     <string name="not_now">暂不启用</string>
+    <string name="go_label">"开始"标签（可选）</string>
+    <string name="go_label_hint">留空使用默认值。</string>
+    <string name="error_go_duration_range">"Go" 的时长必须在 %1$d 到 %2$d 秒之间</string>
+    <string name="error_stop_duration_range">"Stop" 的时长必须在 %1$d 到 %2$d 秒之间</string>
+    <string name="error_go_growth_range">"Go" 的增长倍数必须在 %1$.2f 到 %2$.2f 之间</string>
+    <string name="error_stop_growth_range">"Stop" 的增长倍数必须在 %1$.2f 到 %2$.2f 之间</string>
+    <string name="error_go_label_length">"Go" 标签不能超过 %d 个字符</string>
+    <string name="error_stop_label_length">"Stop" 标签不能超过 %d 个字符</string>
 </resources>

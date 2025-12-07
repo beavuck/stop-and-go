@@ -47,3 +47,4 @@ app/release/output.json
 .kotlin/**
 .secure_files/**
 Gemfile.lock
+/vendor/

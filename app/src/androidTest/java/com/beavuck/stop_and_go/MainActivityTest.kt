@@ -466,4 +466,68 @@ class MainActivityTest {
 
         composeTestRule.onNodeWithTag("pauseOverlay").assertExists()
     }
+
+    @Test
+    fun customGoLabel_isDisplayed_whenConfigured() {
+        composeTestRule.activityRule.scenario.close()
+
+        val customConfig = TimerConfig(
+            goLabel = "Sprint",
+            stopLabel = "Rest"
+        )
+        configRepository.saveConfig(customConfig)
+
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("phaseLabel")
+            .assertTextEquals("Sprint")
+    }
+
+    @Test
+    fun customStopLabel_isDisplayed_whenConfigured() {
+        composeTestRule.activityRule.scenario.close()
+
+        val customConfig = TimerConfig(
+            goDuration = 2,
+            stopDuration = 2,
+            goLabel = "Run",
+            stopLabel = "Walk"
+        )
+        configRepository.saveConfig(customConfig)
+        stateRepository.clearState()
+
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+
+        Thread.sleep(3000)
+
+        composeTestRule.onNodeWithTag("phaseLabel")
+            .assertTextEquals("Walk")
+    }
+
+    @Test
+    fun defaultGoLabel_isDisplayed_whenNoCustomLabel() {
+        val expectedLabel = context.getString(R.string.phase_go)
+        composeTestRule.onNodeWithTag("phaseLabel")
+            .assertTextEquals(expectedLabel)
+    }
+
+    @Test
+    fun emptyLabels_fallBackToDefaultLabels() {
+        composeTestRule.activityRule.scenario.close()
+
+        val config = TimerConfig(
+            goLabel = "",
+            stopLabel = ""
+        )
+        configRepository.saveConfig(config)
+
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+
+        val expectedLabel = context.getString(R.string.phase_go)
+        composeTestRule.onNodeWithTag("phaseLabel")
+            .assertTextEquals(expectedLabel)
+    }
 }

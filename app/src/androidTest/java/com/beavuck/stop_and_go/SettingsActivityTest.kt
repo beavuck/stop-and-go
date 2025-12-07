@@ -45,16 +45,6 @@ class SettingsActivityTest {
     }
 
     @Test
-    fun settingsScreen_displaysAllInputFields() {
-        composeTestRule.onNodeWithTag("goDurationInput").assertIsDisplayed()
-        composeTestRule.onNodeWithTag("stopDurationInput").assertIsDisplayed()
-        composeTestRule.onNodeWithTag("goGrowthInput").assertIsDisplayed()
-        composeTestRule.onNodeWithTag("stopGrowthInput").assertIsDisplayed()
-        composeTestRule.onNodeWithTag("goColorInput").assertIsDisplayed()
-        composeTestRule.onNodeWithTag("stopColorInput").assertIsDisplayed()
-    }
-
-    @Test
     fun settingsScreen_displaysActionButtons() {
         composeTestRule.onNodeWithTag("saveButton").assertIsDisplayed()
         composeTestRule.onNodeWithTag("resetButton").assertIsDisplayed()
@@ -62,11 +52,23 @@ class SettingsActivityTest {
     }
 
     @Test
+    fun settingsScreen_displaysAllSettingInputs() {
+        composeTestRule.onNodeWithTag("goDurationInput").performScrollTo().assertIsDisplayed()
+        composeTestRule.onNodeWithTag("goGrowthInput").performScrollTo().assertIsDisplayed()
+        composeTestRule.onNodeWithTag("stopDurationInput").performScrollTo().assertIsDisplayed()
+        composeTestRule.onNodeWithTag("stopGrowthInput").performScrollTo().assertIsDisplayed()
+        composeTestRule.onNodeWithTag("goColorInput").performScrollTo().assertIsDisplayed()
+        composeTestRule.onNodeWithTag("stopColorInput").performScrollTo().assertIsDisplayed()
+        composeTestRule.onNodeWithTag("goLabelInput").performScrollTo().assertIsDisplayed()
+        composeTestRule.onNodeWithTag("stopLabelInput").performScrollTo().assertIsDisplayed()
+    }
+
+    @Test
     fun settingsScreen_colorButtons_openColorPicker() {
-        composeTestRule.onNodeWithTag("goColorButton").performClick()
+        composeTestRule.onNodeWithTag("goColorButton").performScrollTo().performClick()
         composeTestRule.waitForIdle()
 
-        composeTestRule.onNodeWithTag("colorPreview").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("colorPreview").performScrollTo().assertIsDisplayed()
     }
 
     @Test
@@ -74,14 +76,14 @@ class SettingsActivityTest {
         composeTestRule.onNodeWithTag("languageButton").performClick()
         composeTestRule.waitForIdle()
 
-        composeTestRule.onNodeWithTag("locale_en").assertIsDisplayed()
-        composeTestRule.onNodeWithTag("locale_ar").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("locale_en").performScrollTo().assertIsDisplayed()
+        composeTestRule.onNodeWithTag("locale_ar").performScrollTo().assertIsDisplayed()
     }
 
     @Test
     fun saveButton_withValidInput_savesConfigAndClearsState() {
-        composeTestRule.onNodeWithTag("goDurationInput").performTextClearance()
-        composeTestRule.onNodeWithTag("goDurationInput").performTextInput("120")
+        composeTestRule.onNodeWithTag("goDurationInput").performScrollTo().performTextClearance()
+        composeTestRule.onNodeWithTag("goDurationInput").performScrollTo().performTextInput("120")
 
         composeTestRule.onNodeWithTag("saveButton").performClick()
         composeTestRule.waitForIdle()
@@ -117,36 +119,36 @@ class SettingsActivityTest {
         composeTestRule.activityRule.scenario.recreate()
         composeTestRule.waitForIdle()
 
-        composeTestRule.onNodeWithTag("goDurationInput")
+        composeTestRule.onNodeWithTag("goDurationInput").performScrollTo()
             .assertTextContains(TimerConstants.DEFAULT_GO_DURATION.toString())
-        composeTestRule.onNodeWithTag("stopDurationInput")
+        composeTestRule.onNodeWithTag("stopDurationInput").performScrollTo()
             .assertTextContains(TimerConstants.DEFAULT_STOP_DURATION.toString())
     }
 
     @Test
     fun colorPicker_selectColor_updatesInput() {
-        composeTestRule.onNodeWithTag("goColorButton").performClick()
+        composeTestRule.onNodeWithTag("goColorButton").performScrollTo().performClick()
         composeTestRule.waitForIdle()
 
         composeTestRule.onNodeWithTag("confirmButton").performClick()
         composeTestRule.waitForIdle()
 
-        composeTestRule.onNodeWithTag("goColorInput").assertExists()
+        composeTestRule.onNodeWithTag("goColorInput").performScrollTo().assertExists()
     }
 
     @Test
     fun settingsScreen_inputsAcceptUserInput() {
-        composeTestRule.onNodeWithTag("goDurationInput").performTextClearance()
-        composeTestRule.onNodeWithTag("goDurationInput").performTextInput("300")
+        composeTestRule.onNodeWithTag("goDurationInput").performScrollTo().performTextClearance()
+        composeTestRule.onNodeWithTag("goDurationInput").performScrollTo().performTextInput("300")
 
-        composeTestRule.onNodeWithTag("goDurationInput")
+        composeTestRule.onNodeWithTag("goDurationInput").performScrollTo()
             .assertTextContains("300")
     }
 
     @Test
     fun saveButton_withInvalidColorHex_showsErrorAndDoesNotSave() {
-        composeTestRule.onNodeWithTag("goColorInput").performTextClearance()
-        composeTestRule.onNodeWithTag("goColorInput").performTextInput("#pppppp")
+        composeTestRule.onNodeWithTag("goColorInput").performScrollTo().performTextClearance()
+        composeTestRule.onNodeWithTag("goColorInput").performScrollTo().performTextInput("#pppppp")
 
         composeTestRule.onNodeWithTag("saveButton").performClick()
         composeTestRule.waitForIdle()
@@ -167,7 +169,7 @@ class SettingsActivityTest {
         composeTestRule.onNodeWithTag("languageButton").performClick()
         composeTestRule.waitForIdle()
 
-        composeTestRule.onNodeWithTag("locale_fr").performClick()
+        composeTestRule.onNodeWithTag("locale_fr").performScrollTo().performClick()
         composeTestRule.waitForIdle()
 
         val frenchLabel = getLocalizedString(R.string.go_duration, SupportedLocale.FRENCH.code)
@@ -175,6 +177,20 @@ class SettingsActivityTest {
 
         composeTestRule.onNode(hasText(englishLabel)).assertDoesNotExist()
     }
+
+    @Test
+    fun saveButton_withCustomLabels_savesLabelsToConfig() {
+        composeTestRule.onNodeWithTag("goLabelInput").performScrollTo().performTextInput("Sprint")
+        composeTestRule.onNodeWithTag("stopLabelInput").performScrollTo().performTextInput("Rest")
+
+        composeTestRule.onNodeWithTag("saveButton").performClick()
+        composeTestRule.waitForIdle()
+
+        val savedConfig = configRepository.loadConfig()
+        assertEquals("Sprint", savedConfig.goLabel)
+        assertEquals("Rest", savedConfig.stopLabel)
+    }
+
 
     private fun getLocalizedString(stringRes: Int, localeCode: String): String {
         val locale = java.util.Locale.forLanguageTag(localeCode)
