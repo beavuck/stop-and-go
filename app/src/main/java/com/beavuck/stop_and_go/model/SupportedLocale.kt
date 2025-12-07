@@ -3,8 +3,9 @@ package com.beavuck.stop_and_go.model
 import android.content.Context
 import com.beavuck.stop_and_go.R
 
-val DEFAULT = SupportedLocale.ENGLISH
+val DEFAULT_LOCALE = SupportedLocale.ENGLISH
 
+@Suppress("unused", "RedundantSuppression")
 enum class SupportedLocale(val code: String, private val nameResId: Int) {
     ENGLISH("en", R.string.language_english),
     FRENCH("fr", R.string.language_french),
@@ -18,7 +19,7 @@ enum class SupportedLocale(val code: String, private val nameResId: Int) {
 
     companion object {
         fun fromCode(code: String?): SupportedLocale {
-            return entries.find { it.code == code } ?: DEFAULT
+            return entries.find { it.code == code } ?: DEFAULT_LOCALE
         }
 
         fun getAllDisplayNames(context: Context): Array<String> {

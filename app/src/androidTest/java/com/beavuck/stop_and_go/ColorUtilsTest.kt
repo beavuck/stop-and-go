@@ -2,7 +2,8 @@ package com.beavuck.stop_and_go
 
 import android.graphics.Color
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.beavuck.stop_and_go.utils.ColorUtils
+import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
+import com.beavuck.stop_and_go.utils.instrumented.ColorUtils.DEFAULT_COLOR
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -17,8 +18,20 @@ class ColorUtilsTest {
     }
 
     @Test
+    fun parseColorSafely_withHexLikeImpossibleHex_returnsDefaultColor() {
+        val result = ColorUtils.parseColorSafely("#GGHHII")
+        assertEquals(DEFAULT_COLOR, result)
+    }
+
+    @Test
     fun parseColorSafely_withValidHexColorGreen_returnsCorrectColor() {
         val result = ColorUtils.parseColorSafely("#00FF00")
+        assertEquals(Color.GREEN, result)
+    }
+
+    @Test
+    fun parseColorSafely_withValidWordColorGreen_returnsCorrectColor() {
+        val result = ColorUtils.parseColorSafely("green")
         assertEquals(Color.GREEN, result)
     }
 
@@ -31,19 +44,19 @@ class ColorUtilsTest {
     @Test
     fun parseColorSafely_withEmptyString_returnsDefaultColor() {
         val result = ColorUtils.parseColorSafely("")
-        assertEquals(Color.GRAY, result)
+        assertEquals(DEFAULT_COLOR, result)
     }
 
     @Test
     fun parseColorSafely_withWhitespace_returnsDefaultColor() {
         val result = ColorUtils.parseColorSafely("   ")
-        assertEquals(Color.GRAY, result)
+        assertEquals(DEFAULT_COLOR, result)
     }
 
     @Test
     fun parseColorSafely_withInvalidString_returnsDefaultColor() {
         val result = ColorUtils.parseColorSafely("invalid")
-        assertEquals(Color.GRAY, result)
+        assertEquals(DEFAULT_COLOR, result)
     }
 
     @Test
@@ -61,40 +74,40 @@ class ColorUtilsTest {
 
     @Test
     fun isValidColorHex_withValidColor_returnsTrue() {
-        assertTrue(ColorUtils.isValidColorHex("#FF0000"))
-        assertTrue(ColorUtils.isValidColorHex("#00FF00"))
-        assertTrue(ColorUtils.isValidColorHex("#0000FF"))
-        assertTrue(ColorUtils.isValidColorHex("#ABCDEF"))
-        assertTrue(ColorUtils.isValidColorHex("#123456"))
+        assertTrue(ColorUtils.isValidColorString("#FF0000"))
+        assertTrue(ColorUtils.isValidColorString("#00FF00"))
+        assertTrue(ColorUtils.isValidColorString("#0000FF"))
+        assertTrue(ColorUtils.isValidColorString("#ABCDEF"))
+        assertTrue(ColorUtils.isValidColorString("#123456"))
     }
 
     @Test
     fun isValidColorHex_withValidWordColor_returnsTrue() {
-        assertTrue(ColorUtils.isValidColorHex("red"))
-        assertTrue(ColorUtils.isValidColorHex("green"))
-        assertTrue(ColorUtils.isValidColorHex("blue"))
+        assertTrue(ColorUtils.isValidColorString("red"))
+        assertTrue(ColorUtils.isValidColorString("green"))
+        assertTrue(ColorUtils.isValidColorString("blue"))
     }
 
 
     @Test
-    fun isValidColorHex_withEmptyString_returnsFalse() {
-        assertFalse(ColorUtils.isValidColorHex(""))
+    fun isValidColorString_withEmptyString_returnsFalse() {
+        assertFalse(ColorUtils.isValidColorString(""))
     }
 
     @Test
-    fun isValidColorHex_withWhitespace_returnsFalse() {
-        assertFalse(ColorUtils.isValidColorHex("   "))
+    fun isValidColorString_withWhitespace_returnsFalse() {
+        assertFalse(ColorUtils.isValidColorString("   "))
     }
 
     @Test
-    fun isValidColorHex_withInvalidString_returnsFalse() {
-        assertFalse(ColorUtils.isValidColorHex("invalid"))
-        assertFalse(ColorUtils.isValidColorHex("123"))
+    fun isValidColorString_withInvalidString_returnsFalse() {
+        assertFalse(ColorUtils.isValidColorString("invalid"))
+        assertFalse(ColorUtils.isValidColorString("123"))
     }
 
     @Test
     fun isValidColorHex_withWhitespaceAroundValid_trimsAndValidates() {
-        assertTrue(ColorUtils.isValidColorHex("  #FF0000  "))
+        assertTrue(ColorUtils.isValidColorString("  #FF0000  "))
     }
 
     @Test

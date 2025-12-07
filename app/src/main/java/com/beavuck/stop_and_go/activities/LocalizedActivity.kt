@@ -1,5 +1,6 @@
 package com.beavuck.stop_and_go.activities
 
+import android.annotation.SuppressLint
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import com.beavuck.stop_and_go.repositories.ConfigRepository
@@ -11,6 +12,7 @@ abstract class LocalizedActivity : AppCompatActivity() {
         super.attachBaseContext(applyLocale(newBase))
     }
 
+    @SuppressLint("AppBundleLocaleChanges") // language split is disabled in the bundle config
     private fun applyLocale(context: Context): Context {
         val configRepository = ConfigRepository(context)
         val savedLocale = configRepository.loadLocale()

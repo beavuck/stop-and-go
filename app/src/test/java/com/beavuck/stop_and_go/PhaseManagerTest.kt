@@ -2,12 +2,12 @@ package com.beavuck.stop_and_go
 
 import com.beavuck.stop_and_go.model.AppState
 import com.beavuck.stop_and_go.model.PhaseManager
-import com.beavuck.stop_and_go.model.TimerConfig
-import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_GO_DURATION
-import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_STOP_DURATION
-import com.beavuck.stop_and_go.model.TimerConstants.INITIAL_CYCLE_COUNT
-import com.beavuck.stop_and_go.model.TimerConstants.MAX_DURATION_SECONDS
-import com.beavuck.stop_and_go.model.TimerConstants.MIN_DURATION_SECONDS
+import com.beavuck.stop_and_go.model.timer.TimerConfig
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_DURATION
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_STOP_DURATION
+import com.beavuck.stop_and_go.model.timer.TimerConstants.INITIAL_CYCLE_COUNT
+import com.beavuck.stop_and_go.model.timer.TimerConstants.MAX_DURATION_SECONDS
+import com.beavuck.stop_and_go.model.timer.TimerConstants.MIN_DURATION_SECONDS
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test

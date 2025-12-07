@@ -3,7 +3,7 @@ package com.beavuck.stop_and_go
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.beavuck.stop_and_go.model.DEFAULT
+import com.beavuck.stop_and_go.model.DEFAULT_LOCALE
 import com.beavuck.stop_and_go.model.SupportedLocale
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
@@ -22,14 +22,14 @@ class SupportedLocaleTest {
 
     @Test
     fun fromCode_withNull_returnsDefault() {
-        assertEquals(DEFAULT, SupportedLocale.fromCode(null))
+        assertEquals(DEFAULT_LOCALE, SupportedLocale.fromCode(null))
     }
 
     @Test
     fun fromCode_withInvalidCode_returnsDefault() {
-        assertEquals(DEFAULT, SupportedLocale.fromCode("invalid"))
-        assertEquals(DEFAULT, SupportedLocale.fromCode("de"))
-        assertEquals(DEFAULT, SupportedLocale.fromCode("xyz"))
+        assertEquals(DEFAULT_LOCALE, SupportedLocale.fromCode("invalid"))
+        assertEquals(DEFAULT_LOCALE, SupportedLocale.fromCode("de"))
+        assertEquals(DEFAULT_LOCALE, SupportedLocale.fromCode("xyz"))
     }
 
     @Test

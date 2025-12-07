@@ -1,8 +1,9 @@
 package com.beavuck.stop_and_go.model
 
-import com.beavuck.stop_and_go.model.TimerConstants.INITIAL_CYCLE_COUNT
-import com.beavuck.stop_and_go.model.TimerConstants.MAX_DURATION_SECONDS
-import com.beavuck.stop_and_go.model.TimerConstants.MIN_DURATION_SECONDS
+import com.beavuck.stop_and_go.model.timer.TimerConfig
+import com.beavuck.stop_and_go.model.timer.TimerConstants.INITIAL_CYCLE_COUNT
+import com.beavuck.stop_and_go.model.timer.TimerConstants.MAX_DURATION_SECONDS
+import com.beavuck.stop_and_go.model.timer.TimerConstants.MIN_DURATION_SECONDS
 
 class PhaseManager(private val config: TimerConfig) {
     private var currentGoDuration: Int = config.goDuration

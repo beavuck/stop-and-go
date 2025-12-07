@@ -40,8 +40,20 @@ class StateRepository(context: Context) {
 
     fun clearState() {
         sharedPreferences.edit { clear() }
+        setResetPending()
     }
 
+    fun setResetPending(pending: Boolean = true) {
+        sharedPreferences.edit {
+            putBoolean(KEY_RESET_PENDING, pending)
+        }
+    }
+
+    fun isResetPending(): Boolean {
+        return sharedPreferences.getBoolean(KEY_RESET_PENDING, false)
+    }
+
+    @Suppress("unused", "RedundantSuppression")
     companion object {
         private const val PREFS_NAME = "stop_and_go_state"
         private const val KEY_CYCLE_COUNT = "cycle_count"
@@ -51,5 +63,6 @@ class StateRepository(context: Context) {
         private const val KEY_SECONDS_REMAINING = "seconds_remaining"
         private const val KEY_BASE_GO_DURATION = "base_go_duration"
         private const val KEY_BASE_STOP_DURATION = "base_stop_duration"
+        private const val KEY_RESET_PENDING = "reset_pending"
     }
 }

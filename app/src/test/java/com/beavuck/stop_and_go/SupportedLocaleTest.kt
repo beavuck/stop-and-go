@@ -1,7 +1,7 @@
 package com.beavuck.stop_and_go
 
 import android.content.Context
-import com.beavuck.stop_and_go.model.DEFAULT
+import com.beavuck.stop_and_go.model.DEFAULT_LOCALE
 import com.beavuck.stop_and_go.model.SupportedLocale
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -12,7 +12,7 @@ class SupportedLocaleTest {
 
     @Test
     fun default_isEnglish() {
-        assertEquals(SupportedLocale.ENGLISH, DEFAULT)
+        assertEquals(SupportedLocale.ENGLISH, DEFAULT_LOCALE)
     }
 
     @Test
@@ -24,25 +24,25 @@ class SupportedLocaleTest {
     @Test
     fun fromCode_withNull_returnsDefault() {
         val result = SupportedLocale.fromCode(null)
-        assertEquals(DEFAULT, result)
+        assertEquals(DEFAULT_LOCALE, result)
     }
 
     @Test
     fun fromCode_withInvalidCode_returnsDefault() {
         val result = SupportedLocale.fromCode("invalid")
-        assertEquals(DEFAULT, result)
+        assertEquals(DEFAULT_LOCALE, result)
     }
 
     @Test
     fun fromCode_withEmptyString_returnsDefault() {
         val result = SupportedLocale.fromCode("")
-        assertEquals(DEFAULT, result)
+        assertEquals(DEFAULT_LOCALE, result)
     }
 
     @Test
     fun getDisplayName_returnsStringFromContext() {
         val context = mock(Context::class.java)
-        `when`(context.getString(com.beavuck.stop_and_go.R.string.language_english)).thenReturn("English")
+        `when`(context.getString(R.string.language_english)).thenReturn("English")
 
         val displayName = SupportedLocale.ENGLISH.getDisplayName(context)
 

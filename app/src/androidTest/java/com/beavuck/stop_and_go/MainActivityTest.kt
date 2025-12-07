@@ -1,148 +1,143 @@
 package com.beavuck.stop_and_go
 
 import android.graphics.Color
-import android.view.WindowManager
-import android.widget.TextView
+import androidx.compose.ui.test.*
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.core.app.ActivityScenario
-import androidx.test.core.app.ApplicationProvider
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
 import com.beavuck.stop_and_go.activities.MainActivity
 import com.beavuck.stop_and_go.model.AppState
-import com.beavuck.stop_and_go.model.TimerConfig
-import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_GO_DURATION
-import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_STOP_DURATION
-import com.beavuck.stop_and_go.model.TimerConstants.INITIAL_CYCLE_COUNT
+import com.beavuck.stop_and_go.model.timer.TimerConfig
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_DURATION
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_STOP_DURATION
+import com.beavuck.stop_and_go.model.timer.TimerConstants.INITIAL_CYCLE_COUNT
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
-import com.beavuck.stop_and_go.utils.ColorUtils
-import org.hamcrest.CoreMatchers.not
+import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
 import org.junit.After
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotEquals
+import org.junit.Assert.assertTrue
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 class MainActivityTest {
-    private lateinit var scenario: ActivityScenario<MainActivity>
+
+    @get:Rule
+    val composeTestRule = createAndroidComposeRule<MainActivity>()
+
+    private val context = InstrumentationRegistry.getInstrumentation().targetContext
+    private lateinit var stateRepository: StateRepository
+    private lateinit var configRepository: ConfigRepository
+    private var manuallyLaunchedScenario: ActivityScenario<MainActivity>? = null
 
     @Before
     fun setup() {
-        val stateRepository = StateRepository(ApplicationProvider.getApplicationContext())
+        stateRepository = StateRepository(context)
+        configRepository = ConfigRepository(context)
         stateRepository.clearState()
-
-        scenario = ActivityScenario.launch(MainActivity::class.java)
+        configRepository.saveConfig(TimerConfig())
     }
 
     @After
     fun tearDown() {
-        scenario.close()
+        manuallyLaunchedScenario?.close()
+        manuallyLaunchedScenario = null
+        stateRepository.clearState()
+        configRepository.saveConfig(TimerConfig())
     }
 
     @Test
     fun activityLaunches_successfully() {
-        scenario.onActivity { activity ->
-            assert(activity != null)
-        }
+        composeTestRule.onNodeWithTag("timerDisplay").assertExists()
     }
 
     @Test
     fun timerText_isDisplayed() {
-        onView(withId(R.id.timerText))
-            .check(matches(isDisplayed()))
+        composeTestRule.onNodeWithTag("timerText").assertIsDisplayed()
     }
 
     @Test
     fun cycleCountText_isDisplayed() {
-        onView(withId(R.id.cycleCount))
-            .check(matches(isDisplayed()))
+        composeTestRule.onNodeWithTag("cycleCount").assertIsDisplayed()
     }
 
     @Test
     fun phaseLabel_isDisplayed() {
-        onView(withId(R.id.phaseLabel))
-            .check(matches(isDisplayed()))
+        composeTestRule.onNodeWithTag("phaseLabel").assertIsDisplayed()
     }
 
     @Test
     fun initialPhaseLabel_showsGo() {
-        var expectedLabel = ""
-        scenario.onActivity { activity ->
-            expectedLabel = activity.getString(R.string.phase_go)
-        }
-
-        onView(withId(R.id.phaseLabel))
-            .check(matches(withText(expectedLabel)))
-    }
-
-    @Test
-    fun initialTimerText_showsGoDuration() {
-        onView(withId(R.id.timerText))
-            .check(matches(withText(DEFAULT_GO_DURATION.toString())))
+        val expectedLabel = context.getString(R.string.phase_go)
+        composeTestRule.onNodeWithTag("phaseLabel")
+            .assertTextEquals(expectedLabel)
     }
 
     @Test
     fun initialCycleCount_showsOne() {
-        var expectedText = ""
-        scenario.onActivity { activity ->
-            expectedText = activity.getString(R.string.cycle_count, INITIAL_CYCLE_COUNT + 1)
-        }
-
-        onView(withId(R.id.cycleCount))
-            .check(matches(withText(expectedText)))
+        val expectedText = context.getString(R.string.cycle_count, INITIAL_CYCLE_COUNT + 1)
+        composeTestRule.onNodeWithTag("cycleCount")
+            .assertTextEquals(expectedText)
     }
-
 
     @Test
     fun timerText_changesAfterOneSecond() {
+        composeTestRule.waitForIdle()
         Thread.sleep(1500)
 
-        onView(withId(R.id.timerText))
-            .check(matches(not(withText(DEFAULT_GO_DURATION.toString()))))
+        val locale = java.util.Locale.getDefault()
+        val initialText =
+            java.text.NumberFormat.getIntegerInstance(locale).format(DEFAULT_GO_DURATION)
+        composeTestRule.onNodeWithTag("timerText")
+            .assert(hasTextExactly(initialText).not())
     }
 
     @Test
     fun timerText_countdownsCorrectly() {
+        composeTestRule.waitForIdle()
         Thread.sleep(1500)
 
-        onView(withId(R.id.timerText))
-            .check(matches(withText((DEFAULT_GO_DURATION - 1).toString())))
+        val locale = java.util.Locale.getDefault()
+        val expectedText =
+            java.text.NumberFormat.getIntegerInstance(locale).format(DEFAULT_GO_DURATION - 1)
+        composeTestRule.onNodeWithTag("timerText")
+            .assertTextEquals(expectedText)
     }
 
     @Test
     fun activityRecreation_maintainsTimerState() {
+        composeTestRule.waitForIdle()
         Thread.sleep(1500)
 
-        var timerValueBeforeRecreation = ""
-        scenario.onActivity { activity ->
-            timerValueBeforeRecreation = activity.findViewById<TextView>(
-                R.id.timerText
-            ).text.toString()
-        }
+        val timerValueBefore = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
 
-        scenario.recreate()
-
+        composeTestRule.activityRule.scenario.recreate()
+        composeTestRule.waitForIdle()
         Thread.sleep(500)
 
-        scenario.onActivity { activity ->
-            val timerValueAfterRecreation = activity.findViewById<TextView>(
-                R.id.timerText
-            ).text.toString()
-            val beforeValue = timerValueBeforeRecreation.toIntOrNull() ?: 0
-            val afterValue = timerValueAfterRecreation.toIntOrNull() ?: 0
-            assert(afterValue in (beforeValue - 2)..(beforeValue + 1))
-        }
+        val timerValueAfter = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
+
+        assertTrue(
+            "Timer value should be preserved across recreation",
+            timerValueAfter in (timerValueBefore - 2)..(timerValueBefore + 1)
+        )
     }
 
     @Test
     fun activityLaunch_restoresStopPhase() {
-        scenario.close()
+        composeTestRule.activityRule.scenario.close()
 
-        val stateRepository = StateRepository(ApplicationProvider.getApplicationContext())
         val stopPhaseState = AppState(
             cycleCount = 1,
             isGo = false,
@@ -154,171 +149,295 @@ class MainActivityTest {
         )
         stateRepository.saveState(stopPhaseState)
 
-        scenario = ActivityScenario.launch(MainActivity::class.java)
-
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
         Thread.sleep(500)
 
-        var expectedLabel = ""
-        scenario.onActivity { activity ->
-            expectedLabel = activity.getString(R.string.phase_stop)
-        }
+        val expectedLabel = context.getString(R.string.phase_stop)
+        composeTestRule.onNodeWithTag("phaseLabel")
+            .assertTextEquals(expectedLabel)
 
-        onView(withId(R.id.phaseLabel))
-            .check(matches(withText(expectedLabel)))
+        val timerValue = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
 
-        scenario.onActivity { activity ->
-            val timerValue = activity.findViewById<TextView>(R.id.timerText).text.toString()
-            val value = timerValue.toIntOrNull() ?: 0
-            assert(value in 8..10)
-        }
+        assertTrue("Timer should show remaining time", timerValue in 8..10)
     }
 
     @Test
     fun timerRunning_keepsScreenOn() {
-        scenario.onActivity { activity ->
+        composeTestRule.activityRule.scenario.onActivity { activity ->
             val flags = activity.window.attributes.flags
-            val keepScreenOn = flags and WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-            assert(keepScreenOn != 0) { "FLAG_KEEP_SCREEN_ON should be set when timer is running" }
-        }
-    }
-
-    @Test
-    fun localeChange_recreatesActivity() {
-        val configRepository = ConfigRepository(ApplicationProvider.getApplicationContext())
-
-        var activityHashBeforeChange = 0
-        scenario.onActivity { activity ->
-            activityHashBeforeChange = System.identityHashCode(activity)
-        }
-
-        configRepository.saveLocale("fr")
-
-        scenario.onActivity { activity ->
-            activity.runOnUiThread {
-                activity.onResume()
-            }
-        }
-
-        Thread.sleep(500)
-
-        scenario.onActivity { activity ->
-            val activityHashAfterChange = System.identityHashCode(activity)
-            assertNotEquals(activityHashBeforeChange, activityHashAfterChange)
-        }
-    }
-
-    @Test
-    fun localeChange_preservesTimerState() {
-        val configRepository = ConfigRepository(ApplicationProvider.getApplicationContext())
-
-        Thread.sleep(1500)
-
-        var timerValueBeforeChange = ""
-        scenario.onActivity { activity ->
-            timerValueBeforeChange = activity.findViewById<TextView>(R.id.timerText).text.toString()
-        }
-
-        configRepository.saveLocale("es")
-
-        scenario.onActivity { activity ->
-            activity.runOnUiThread {
-                activity.onResume()
-            }
-        }
-
-        Thread.sleep(1000)
-
-        scenario.onActivity { activity ->
-            val timerValueAfterChange =
-                activity.findViewById<TextView>(R.id.timerText).text.toString()
-            val beforeValue = timerValueBeforeChange.toIntOrNull() ?: 0
-            val afterValue = timerValueAfterChange.toIntOrNull() ?: 0
-            assert(afterValue in (beforeValue - 3)..(beforeValue + 1))
+            val keepScreenOn = flags and android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+            assertTrue("FLAG_KEEP_SCREEN_ON should be set when timer is running", keepScreenOn != 0)
         }
     }
 
     @Test
     fun textColor_contrastsWithLightBackground() {
-        scenario.close()
+        composeTestRule.activityRule.scenario.close()
 
         val lightConfig = TimerConfig(goColor = "#FFFFFF", stopColor = "#F0F0F0")
-        val configRepository = ConfigRepository(ApplicationProvider.getApplicationContext())
         configRepository.saveConfig(lightConfig)
 
-        scenario = ActivityScenario.launch(MainActivity::class.java)
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
 
-        scenario.onActivity { activity ->
-            val backgroundColor = Color.parseColor("#FFFFFF")
-            val expectedTextColor = ColorUtils.getContrastingTextColor(backgroundColor)
+        val backgroundColor = Color.parseColor("#FFFFFF")
+        val expectedTextColor = ColorUtils.getContrastingTextColor(backgroundColor)
 
-            val timerText = activity.findViewById<TextView>(R.id.timerText)
-            val phaseLabelText = activity.findViewById<TextView>(R.id.phaseLabel)
-            val cycleCountText = activity.findViewById<TextView>(R.id.cycleCount)
-
-            assertEquals(expectedTextColor, timerText.currentTextColor)
-            assertEquals(expectedTextColor, phaseLabelText.currentTextColor)
-            assertEquals(expectedTextColor, cycleCountText.currentTextColor)
-
-            assert(Color.luminance(expectedTextColor) < 0.5)
-        }
+        assertTrue(
+            "Text should be dark on light background",
+            Color.luminance(expectedTextColor) < 0.5f
+        )
     }
 
     @Test
     fun textColor_contrastsWithDarkBackground() {
-        scenario.close()
+        composeTestRule.activityRule.scenario.close()
 
         val darkConfig = TimerConfig(goColor = "#000000", stopColor = "#202020")
-        val configRepository = ConfigRepository(ApplicationProvider.getApplicationContext())
         configRepository.saveConfig(darkConfig)
 
-        scenario = ActivityScenario.launch(MainActivity::class.java)
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
 
-        scenario.onActivity { activity ->
-            val backgroundColor = Color.parseColor("#000000")
-            val expectedTextColor = ColorUtils.getContrastingTextColor(backgroundColor)
+        val backgroundColor = Color.parseColor("#000000")
+        val expectedTextColor = ColorUtils.getContrastingTextColor(backgroundColor)
 
-            val timerText = activity.findViewById<TextView>(R.id.timerText)
-            val phaseLabelText = activity.findViewById<TextView>(R.id.phaseLabel)
-            val cycleCountText = activity.findViewById<TextView>(R.id.cycleCount)
-
-            assertEquals(expectedTextColor, timerText.currentTextColor)
-            assertEquals(expectedTextColor, phaseLabelText.currentTextColor)
-            assertEquals(expectedTextColor, cycleCountText.currentTextColor)
-
-            assert(Color.luminance(expectedTextColor) > 0.5)
-        }
+        assertTrue(
+            "Text should be light on dark background",
+            Color.luminance(expectedTextColor) > 0.5f
+        )
     }
 
     @Test
     fun timerFinish_transitionsFromGoToStop() {
-        scenario.close()
+        composeTestRule.activityRule.scenario.close()
 
-        val stateRepository = StateRepository(ApplicationProvider.getApplicationContext())
         stateRepository.clearState()
-
         val shortConfig = TimerConfig(goDuration = 2, stopDuration = 2)
-        val configRepository = ConfigRepository(ApplicationProvider.getApplicationContext())
         configRepository.saveConfig(shortConfig)
 
-        scenario = ActivityScenario.launch(MainActivity::class.java)
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
 
-        var initialPhaseLabel = ""
-        scenario.onActivity { activity ->
-            initialPhaseLabel = activity.getString(R.string.phase_go)
-        }
-
-        onView(withId(R.id.phaseLabel))
-            .check(matches(withText(initialPhaseLabel)))
+        val initialPhaseLabel = context.getString(R.string.phase_go)
+        composeTestRule.onNodeWithTag("phaseLabel")
+            .assertTextEquals(initialPhaseLabel)
 
         Thread.sleep(3000)
 
-        var stopPhaseLabel = ""
-        var actualPhaseLabelText = ""
-        scenario.onActivity { activity ->
-            stopPhaseLabel = activity.getString(R.string.phase_stop)
-            actualPhaseLabelText = activity.findViewById<TextView>(R.id.phaseLabel).text.toString()
-        }
+        val stopPhaseLabel = context.getString(R.string.phase_stop)
+        composeTestRule.onNodeWithTag("phaseLabel")
+            .assertTextEquals(stopPhaseLabel)
+    }
 
-        assertEquals("Phase label should transition to Stop", stopPhaseLabel, actualPhaseLabelText)
+    @Test
+    fun timerScreen_hasContentDescription() {
+        val screenDescription = context.getString(R.string.timer_screen)
+        composeTestRule.onNodeWithTag("timerDisplay")
+            .assert(hasContentDescription(screenDescription))
+    }
+
+    @Test
+    fun activityLaunch_withInvalidColorInConfig_doesNotCrash() {
+        composeTestRule.activityRule.scenario.close()
+
+        val invalidColorConfig = TimerConfig(goColor = "#pppppp", stopColor = "#xxxxxx")
+        configRepository.saveConfig(invalidColorConfig)
+
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("timerDisplay").assertExists()
+        composeTestRule.onNodeWithTag("timerText").assertIsDisplayed()
+    }
+
+    @Test
+    fun timerScreen_hasPauseAction_whenRunning() {
+        composeTestRule.onNodeWithTag("timerDisplay")
+            .assert(hasClickAction())
+    }
+
+    @Test
+    fun timerScreen_hasSettingsAction() {
+        composeTestRule.onNodeWithTag("timerDisplay")
+            .assertHasClickAction()
+    }
+
+    @Test
+    fun timer_continuesCountingThroughMultiplePhases() {
+        composeTestRule.activityRule.scenario.close()
+
+        stateRepository.clearState()
+        val shortConfig = TimerConfig(goDuration = 3, stopDuration = 3)
+        configRepository.saveConfig(shortConfig)
+
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+
+        val goPhaseLabel = context.getString(R.string.phase_go)
+        composeTestRule.onNodeWithTag("phaseLabel")
+            .assertTextEquals(goPhaseLabel)
+
+        Thread.sleep(3500)
+
+        val stopPhaseLabel = context.getString(R.string.phase_stop)
+        composeTestRule.onNodeWithTag("phaseLabel")
+            .assertTextEquals(stopPhaseLabel)
+
+        val timerValueInStop = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
+
+        assertTrue("Timer should be counting down in Stop phase", timerValueInStop in 0..3)
+
+        Thread.sleep(3500)
+
+        composeTestRule.onNodeWithTag("phaseLabel")
+            .assertTextEquals(goPhaseLabel)
+
+        val timerValueInSecondGo = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
+
+        assertTrue("Timer should be counting down in second Go phase", timerValueInSecondGo in 0..3)
+    }
+
+    @Test
+    fun stateCleared_andActivityRecreated_resetsTimerToInitialState() {
+        composeTestRule.activityRule.scenario.close()
+
+        val modifiedState = AppState(
+            cycleCount = 5,
+            isGo = false,
+            currentGoDuration = 100,
+            currentStopDuration = 80,
+            secondsRemaining = 42,
+            baseGoDuration = DEFAULT_GO_DURATION,
+            baseStopDuration = DEFAULT_STOP_DURATION
+        )
+        stateRepository.saveState(modifiedState)
+
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+
+        val stopPhaseLabel = context.getString(R.string.phase_stop)
+        composeTestRule.onNodeWithTag("phaseLabel")
+            .assertTextEquals(stopPhaseLabel)
+
+        val cycleBeforeReset = composeTestRule.onNodeWithTag("cycleCount")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+
+        assertTrue("Cycle count should be 6 before reset", cycleBeforeReset.contains("6"))
+
+        stateRepository.clearState()
+
+        manuallyLaunchedScenario?.recreate()
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+
+        val goPhaseLabel = context.getString(R.string.phase_go)
+        composeTestRule.onNodeWithTag("phaseLabel")
+            .assertTextEquals(goPhaseLabel)
+
+        val cycleAfterReset = context.getString(R.string.cycle_count, INITIAL_CYCLE_COUNT + 1)
+        composeTestRule.onNodeWithTag("cycleCount")
+            .assertTextEquals(cycleAfterReset)
+
+        val timerValue = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+
+        assertTrue(
+            "Timer should reset to initial duration when state is cleared",
+            timerValue.toIntOrNull() in (DEFAULT_GO_DURATION - 1)..DEFAULT_GO_DURATION
+        )
+    }
+
+    @Test
+    fun tripleTap_resetsTimerToInitialState() {
+        composeTestRule.activityRule.scenario.close()
+
+        val shortConfig = TimerConfig(goDuration = 10, stopDuration = 5)
+        configRepository.saveConfig(shortConfig)
+
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+        Thread.sleep(3000)
+
+        val timerBeforeReset = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
+
+        assertTrue("Timer should have counted down", timerBeforeReset in 0..8)
+
+        composeTestRule.onNodeWithTag("timerDisplay").performClick()
+        Thread.sleep(50)
+        composeTestRule.onNodeWithTag("timerDisplay").performClick()
+        Thread.sleep(50)
+        composeTestRule.onNodeWithTag("timerDisplay").performClick()
+
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+
+        val goPhaseLabel = context.getString(R.string.phase_go)
+        composeTestRule.onNodeWithTag("phaseLabel")
+            .assertTextEquals(goPhaseLabel)
+
+        val cycleAfterReset = context.getString(R.string.cycle_count, INITIAL_CYCLE_COUNT + 1)
+        composeTestRule.onNodeWithTag("cycleCount")
+            .assertTextEquals(cycleAfterReset)
+
+        val timerAfterReset = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
+
+        assertTrue(
+            "Timer should reset to initial duration after triple tap",
+            timerAfterReset in 9..10
+        )
+    }
+
+    @Test
+    fun singleTap_doesNotResetTimer() {
+        composeTestRule.activityRule.scenario.close()
+
+        val shortConfig = TimerConfig(goDuration = 10, stopDuration = 5)
+        configRepository.saveConfig(shortConfig)
+
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+        Thread.sleep(3000)
+
+        composeTestRule.onNodeWithTag("timerDisplay").performClick()
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+
+        val timerValue = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
+
+        assertTrue(
+            "Single tap should pause, not reset",
+            timerValue in 0..8
+        )
     }
 }

@@ -1,10 +1,7 @@
 package com.beavuck.stop_and_go
 
 import com.beavuck.stop_and_go.model.AppState
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertNotEquals
-import org.junit.Assert.assertTrue
+import org.junit.Assert.*
 import org.junit.Test
 
 class AppStateTest {

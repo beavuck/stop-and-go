@@ -1,36 +1,98 @@
 package com.beavuck.stop_and_go.dialogs
 
-import android.app.Dialog
-import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.DialogFragment
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.RadioButton
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.unit.dp
 import com.beavuck.stop_and_go.R
+import com.beavuck.stop_and_go.model.DEFAULT_LOCALE
 import com.beavuck.stop_and_go.model.SupportedLocale
-import com.beavuck.stop_and_go.repositories.ConfigRepository
 
-class LanguagePickerDialog : DialogFragment() {
+@Composable
+fun LanguagePickerDialog(
+    currentLocale: SupportedLocale = DEFAULT_LOCALE,
+    onLocaleSelected: (String) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    val locales = SupportedLocale.entries
 
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val context = requireContext()
-        val configRepository = ConfigRepository(context)
+    var selectedLocale by remember { mutableStateOf(currentLocale) }
 
-        val languages = SupportedLocale.getAllDisplayNames(context)
-        val savedLocale = configRepository.loadLocale()
-        val currentSelection = SupportedLocale.fromCode(savedLocale).ordinal
-
-        return AlertDialog.Builder(context)
-            .setTitle(R.string.language)
-            .setSingleChoiceItems(languages, currentSelection) { dialog, which ->
-                val selectedLocale = SupportedLocale.entries[which]
-                configRepository.saveLocale(selectedLocale.code)
-                dialog.dismiss()
-                activity?.recreate()
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = {
+            Text(stringResource(R.string.language))
+        },
+        text = {
+            Column(
+                modifier = Modifier.verticalScroll(rememberScrollState())
+            ) {
+                locales.forEach { locale ->
+                    LocaleRadioItem(
+                        locale = locale,
+                        isSelected = locale == selectedLocale,
+                        onSelect = {
+                            selectedLocale = locale
+                            onLocaleSelected(locale.code)
+                        }
+                    )
+                }
             }
-            .setNegativeButton(R.string.cancel, null)
-            .create()
-    }
+        },
+        confirmButton = {},
+        dismissButton = {
+            TextButton(
+                onClick = onDismiss,
+                modifier = Modifier.testTag("cancelButton")
+            ) {
+                Text(text = stringResource(R.string.cancel))
+            }
+        }
+    )
+}
 
-    companion object {
-        fun newInstance() = LanguagePickerDialog()
+@Composable
+private fun LocaleRadioItem(
+    locale: SupportedLocale,
+    isSelected: Boolean,
+    onSelect: () -> Unit,
+) {
+    val context = LocalContext.current
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .selectable(
+                selected = isSelected,
+                onClick = onSelect,
+                role = Role.RadioButton
+            )
+            .testTag("locale_${locale.code}")
+            .padding(vertical = 12.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        RadioButton(
+            selected = isSelected,
+            onClick = null
+        )
+        Text(
+            text = locale.getDisplayName(context),
+            modifier = Modifier.padding(start = 16.dp)
+        )
     }
 }

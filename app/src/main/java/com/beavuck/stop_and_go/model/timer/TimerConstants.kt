@@ -1,4 +1,4 @@
-package com.beavuck.stop_and_go.model
+package com.beavuck.stop_and_go.model.timer
 
 object TimerConstants {
     const val MIN_DURATION_SECONDS = 1
@@ -11,7 +11,6 @@ object TimerConstants {
     const val DEFAULT_GROWTH_MULTIPLIER = 1.0f
     const val DEFAULT_GO_COLOR = "#20b05c"
     const val DEFAULT_STOP_COLOR = "#992639"
-    const val DEFAULT_COLOR = "#000000"
 
     const val INITIAL_CYCLE_COUNT = 0
 
@@ -23,6 +22,4 @@ object TimerConstants {
 
     val GO_VIBRATION_PATTERN = longArrayOf(0, 200, 100, 200)
     val STOP_VIBRATION_PATTERN = longArrayOf(0, 768)
-
-    const val APPROX_KEYBOARD_HEIGHT = 384
 }

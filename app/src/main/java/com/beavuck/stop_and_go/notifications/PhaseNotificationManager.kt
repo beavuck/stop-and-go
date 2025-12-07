@@ -8,13 +8,14 @@ import android.media.RingtoneManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.beavuck.stop_and_go.R
-import com.beavuck.stop_and_go.model.TimerConstants.GO_VIBRATION_PATTERN
-import com.beavuck.stop_and_go.model.TimerConstants.STOP_VIBRATION_PATTERN
+import com.beavuck.stop_and_go.model.timer.TimerConstants.GO_VIBRATION_PATTERN
+import com.beavuck.stop_and_go.model.timer.TimerConstants.STOP_VIBRATION_PATTERN
 
 class PhaseNotificationManager(private val context: Context) {
     private val notificationManager =
         context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
+    @Suppress("unused", "RedundantSuppression")
     companion object {
         private const val GO_CHANNEL_ID = "go_phase_channel"
         private const val STOP_CHANNEL_ID = "stop_phase_channel"

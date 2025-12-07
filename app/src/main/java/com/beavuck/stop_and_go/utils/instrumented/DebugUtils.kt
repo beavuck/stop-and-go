@@ -1,8 +1,9 @@
-package com.beavuck.stop_and_go.utils
+package com.beavuck.stop_and_go.utils.instrumented
 
 import android.os.StrictMode
 import com.beavuck.stop_and_go.BuildConfig
 
+@Suppress("unused", "RedundantSuppression")
 object DebugUtils {
     fun maybeSetStrictMode() {
         if (!BuildConfig.DEBUG) {

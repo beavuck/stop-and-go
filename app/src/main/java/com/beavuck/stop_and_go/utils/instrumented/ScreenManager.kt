@@ -1,4 +1,4 @@
-package com.beavuck.stop_and_go.utils
+package com.beavuck.stop_and_go.utils.instrumented
 
 import android.app.Activity
 import android.view.WindowManager

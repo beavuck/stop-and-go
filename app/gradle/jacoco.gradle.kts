@@ -14,19 +14,15 @@ tasks.register<JacocoReport>("jacocoTestReport") {
         "**/BuildConfig.*",
         "**/Manifest*.*",
         "**/*Test*.*",
+        "**/*Constants.*",
+        "**/*Config.*",
+        "**/model/timer/**/*.*",
+        "**/instrumented/**/*.*",
         "**/activities/**/*.*",
         "**/repositories/**/*.*",
-        "**/accessibility/**/*.*",
-        "**/gestures/**/*.*",
-        "**/settings/**/*.*",
-        "**/timer/**/*.*",
         "**/notifications/**/*.*",
         "**/dialogs/**/*.*",
         "**/ui/**/*.*",
-        "**/model/TimerConstants.*",
-        "**/utils/ScreenManager.*",
-        "**/utils/DebugUtils.*",
-        "**/utils/ColorUtils.*",
         "android/**/*.*"
     )
 

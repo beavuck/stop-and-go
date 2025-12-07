@@ -33,7 +33,13 @@
     <string name="timer_screen">Écran du minuteur. Appuyez une fois pour mettre en pause ou reprendre. Appuyez longuement pour ouvrir les paramètres.</string>
     <string name="timer_paused">Minuteur en pause</string>
     <string name="timer_resumed">Minuteur repris</string>
-    <string name="phase_changed">Phase %1$s commencée. %2$d secondes restantes.</string>
+    <string name="pause">Pause</string>
+    <string name="resume">Reprendre</string>
+    <plurals name="phase_changed">
+        <item quantity="one">Phase %1$s commencée. %2$d seconde restante.</item>
+        <item quantity="other">Phase %1$s commencée. %2$d secondes restantes.</item>
+        <item quantity="many">Phase %1$s commencée. %2$d de secondes restantes.</item>
+    </plurals>
     <string name="red_slider">Curseur du composant rouge</string>
     <string name="green_slider">Curseur du composant vert</string>
     <string name="blue_slider">Curseur du composant bleu</string>

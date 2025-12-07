@@ -1,8 +1,8 @@
-package com.beavuck.stop_and_go.timer
+package com.beavuck.stop_and_go.model.timer
 
 import android.os.CountDownTimer
-import com.beavuck.stop_and_go.model.TimerConstants.MILLIS_PER_SECOND
-import com.beavuck.stop_and_go.model.TimerConstants.TIMER_DISPLAY_OFFSET
+import com.beavuck.stop_and_go.model.timer.TimerConstants.MILLIS_PER_SECOND
+import com.beavuck.stop_and_go.model.timer.TimerConstants.TIMER_DISPLAY_OFFSET
 
 class TimerController(
     private val onTickCallback: (secondsRemaining: Int) -> Unit,
@@ -36,5 +36,6 @@ class TimerController(
         }
     }
 
-    private fun toSeconds(millisUntilFinished: Long): Long = (millisUntilFinished / MILLIS_PER_SECOND)
+    private fun toSeconds(millisUntilFinished: Long): Long =
+        (millisUntilFinished / MILLIS_PER_SECOND)
 }

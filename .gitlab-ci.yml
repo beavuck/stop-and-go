@@ -145,7 +145,7 @@ analyze:
       -Dsonar.projectVersion=$PROJECT_VERSION
       -Dsonar.projectKey="beavuck-services_stop-and-go"
       -Dsonar.organization="beavuck-services"
-      -Dsonar.coverage.exclusions="app/src/androidTest/**,app/src/test/**,app/src/main/res/**,app/src/main/java/com/beavuck/stop_and_go/accessibility/**,app/src/main/java/com/beavuck/stop_and_go/gestures/**,app/src/main/java/com/beavuck/stop_and_go/settings/**,app/src/main/java/com/beavuck/stop_and_go/timer/**,app/src/main/java/com/beavuck/stop_and_go/ui/**,app/src/main/java/com/beavuck/stop_and_go/activities/**,app/src/main/java/com/beavuck/stop_and_go/repositories/**,app/src/main/java/com/beavuck/stop_and_go/dialogs/**,app/src/main/java/com/beavuck/stop_and_go/notifications/**,app/src/main/java/com/beavuck/stop_and_go/model/TimerConstants.kt,app/src/main/java/com/beavuck/stop_and_go/utils/ScreenManager.kt,app/src/main/java/com/beavuck/stop_and_go/utils/DebugUtils.kt,app/src/main/java/com/beavuck/stop_and_go/utils/ColorUtils.kt,app/src/main/AndroidManifest.xml"
+      -Dsonar.coverage.exclusions="app/src/androidTest/**,app/src/test/**,app/src/main/res/**,app/src/main/java/com/beavuck/stop_and_go/model/timer/**,app/src/main/java/com/beavuck/stop_and_go/ui/**,app/src/main/java/com/beavuck/stop_and_go/activities/**,app/src/main/java/com/beavuck/stop_and_go/repositories/**,app/src/main/java/com/beavuck/stop_and_go/dialogs/**,app/src/main/java/com/beavuck/stop_and_go/notifications/**,app/src/main/java/com/beavuck/stop_and_go/utils/instrumented/**,app/src/main/AndroidManifest.xml"
       -Dsonar.sources="app/src/main/java"
       -Dsonar.coverage.jacoco.xmlReportPaths="$JACOCO_PATH"
   rules:

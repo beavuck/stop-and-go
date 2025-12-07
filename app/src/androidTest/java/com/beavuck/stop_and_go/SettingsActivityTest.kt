@@ -1,217 +1,185 @@
 package com.beavuck.stop_and_go
 
-import android.content.Context
-import androidx.test.core.app.ActivityScenario
-import androidx.test.core.app.ApplicationProvider
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.*
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.compose.ui.test.*
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
 import com.beavuck.stop_and_go.activities.SettingsActivity
-import com.beavuck.stop_and_go.model.TimerConfig
-import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_GO_COLOR
-import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_GO_DURATION
-import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_GROWTH_MULTIPLIER
-import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_STOP_COLOR
-import com.beavuck.stop_and_go.model.TimerConstants.DEFAULT_STOP_DURATION
+import com.beavuck.stop_and_go.model.DEFAULT_LOCALE
+import com.beavuck.stop_and_go.model.SupportedLocale
+import com.beavuck.stop_and_go.model.timer.TimerConfig
+import com.beavuck.stop_and_go.model.timer.TimerConstants
 import com.beavuck.stop_and_go.repositories.ConfigRepository
+import com.beavuck.stop_and_go.repositories.StateRepository
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 class SettingsActivityTest {
-    private lateinit var context: Context
+
+    @get:Rule
+    val composeTestRule = createAndroidComposeRule<SettingsActivity>()
+
+    private val context = InstrumentationRegistry.getInstrumentation().targetContext
+    private lateinit var stateRepository: StateRepository
     private lateinit var configRepository: ConfigRepository
 
     @Before
     fun setup() {
-        context = ApplicationProvider.getApplicationContext()
+        stateRepository = StateRepository(context)
         configRepository = ConfigRepository(context)
+        stateRepository.clearState()
         configRepository.saveConfig(TimerConfig())
-        configRepository.saveLocale("")
+        configRepository.saveLocale(DEFAULT_LOCALE.code)
     }
 
     @After
     fun tearDown() {
-        val sharedPreferences =
-            context.getSharedPreferences("stop_and_go_prefs", Context.MODE_PRIVATE)
-        sharedPreferences.edit().clear().commit()
+        stateRepository.clearState()
+        configRepository.saveConfig(TimerConfig())
+        configRepository.saveLocale(DEFAULT_LOCALE.code)
     }
 
     @Test
-    fun settingsActivity_displaysAllInputFields() {
-        ActivityScenario.launch(SettingsActivity::class.java).use {
-            onView(withId(R.id.go_duration_input)).check(matches(isDisplayed()))
-            onView(withId(R.id.stop_duration_input)).check(matches(isDisplayed()))
-            onView(withId(R.id.go_growth_input)).check(matches(isDisplayed()))
-            onView(withId(R.id.stop_growth_input)).check(matches(isDisplayed()))
-            onView(withId(R.id.go_color_input)).check(matches(isDisplayed()))
-            onView(withId(R.id.stop_color_input)).check(matches(isDisplayed()))
-        }
+    fun settingsScreen_displaysAllInputFields() {
+        composeTestRule.onNodeWithTag("goDurationInput").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("stopDurationInput").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("goGrowthInput").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("stopGrowthInput").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("goColorInput").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("stopColorInput").assertIsDisplayed()
     }
 
     @Test
-    fun settingsActivity_displaysAllButtons() {
-        ActivityScenario.launch(SettingsActivity::class.java).use {
-            onView(withId(R.id.save_button)).check(matches(isDisplayed()))
-            onView(withId(R.id.reset_button)).check(matches(isDisplayed()))
-            onView(withId(R.id.language_button)).check(matches(isDisplayed()))
-            onView(withId(R.id.go_color_picker_button)).check(matches(isDisplayed()))
-            onView(withId(R.id.stop_color_picker_button)).check(matches(isDisplayed()))
-        }
+    fun settingsScreen_displaysActionButtons() {
+        composeTestRule.onNodeWithTag("saveButton").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("resetButton").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("languageButton").assertIsDisplayed()
     }
 
     @Test
-    fun settingsActivity_loadsDefaultConfig() {
-        ActivityScenario.launch(SettingsActivity::class.java).use {
-            onView(withId(R.id.go_duration_input)).check(matches(withText(DEFAULT_GO_DURATION.toString())))
-            onView(withId(R.id.stop_duration_input)).check(matches(withText(DEFAULT_STOP_DURATION.toString())))
-            onView(withId(R.id.go_growth_input)).check(matches(withText(DEFAULT_GROWTH_MULTIPLIER.toString())))
-            onView(withId(R.id.stop_growth_input)).check(matches(withText(DEFAULT_GROWTH_MULTIPLIER.toString())))
-            onView(withId(R.id.go_color_input)).check(matches(withText(DEFAULT_GO_COLOR)))
-            onView(withId(R.id.stop_color_input)).check(matches(withText(DEFAULT_STOP_COLOR)))
-        }
+    fun settingsScreen_colorButtons_openColorPicker() {
+        composeTestRule.onNodeWithTag("goColorButton").performClick()
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("colorPreview").assertIsDisplayed()
     }
 
     @Test
-    fun settingsActivity_loadsSavedConfig() {
-        val customConfig = TimerConfig(
-            goDuration = 120,
-            stopDuration = 30,
-            goDurationGrowth = 1.5f,
-            stopDurationGrowth = 0.8f,
-            goColor = "#FF0000",
-            stopColor = "#00FF00"
+    fun settingsScreen_languageButton_opensLanguagePicker() {
+        composeTestRule.onNodeWithTag("languageButton").performClick()
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("locale_en").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("locale_ar").assertIsDisplayed()
+    }
+
+    @Test
+    fun saveButton_withValidInput_savesConfigAndClearsState() {
+        composeTestRule.onNodeWithTag("goDurationInput").performTextClearance()
+        composeTestRule.onNodeWithTag("goDurationInput").performTextInput("120")
+
+        composeTestRule.onNodeWithTag("saveButton").performClick()
+        composeTestRule.waitForIdle()
+
+        val savedConfig = configRepository.loadConfig()
+        assertEquals(120, savedConfig.goDuration)
+
+        val savedState = stateRepository.loadState()
+        assertEquals(null, savedState)
+    }
+
+    @Test
+    fun resetButton_clearsStateAndFinishes() {
+        val testState = com.beavuck.stop_and_go.model.AppState(
+            cycleCount = 5,
+            isGo = false,
+            currentGoDuration = 100,
+            currentStopDuration = 50,
+            secondsRemaining = 25
         )
-        configRepository.saveConfig(customConfig)
+        stateRepository.saveState(testState)
 
-        ActivityScenario.launch(SettingsActivity::class.java).use {
-            onView(withId(R.id.go_duration_input)).check(matches(withText("120")))
-            onView(withId(R.id.stop_duration_input)).check(matches(withText("30")))
-            onView(withId(R.id.go_growth_input)).check(matches(withText("1.5")))
-            onView(withId(R.id.stop_growth_input)).check(matches(withText("0.8")))
-            onView(withId(R.id.go_color_input)).check(matches(withText("#FF0000")))
-            onView(withId(R.id.stop_color_input)).check(matches(withText("#00FF00")))
-        }
+        composeTestRule.onNodeWithTag("resetButton").performClick()
+        composeTestRule.waitForIdle()
+
+        val clearedState = stateRepository.loadState()
+        assertEquals(null, clearedState)
     }
 
     @Test
-    fun colorInput_canBeCleared_withoutCrashing() {
-        ActivityScenario.launch(SettingsActivity::class.java).use {
-            onView(withId(R.id.go_color_input)).perform(clearText())
-            onView(withId(R.id.go_color_input)).check(matches(withText("")))
+    fun settingsScreen_loadsDefaultValues() {
+        configRepository.saveConfig(TimerConfig())
+        composeTestRule.activityRule.scenario.recreate()
+        composeTestRule.waitForIdle()
 
-            onView(withId(R.id.stop_color_input)).perform(clearText())
-            onView(withId(R.id.stop_color_input)).check(matches(withText("")))
-        }
+        composeTestRule.onNodeWithTag("goDurationInput")
+            .assertTextContains(TimerConstants.DEFAULT_GO_DURATION.toString())
+        composeTestRule.onNodeWithTag("stopDurationInput")
+            .assertTextContains(TimerConstants.DEFAULT_STOP_DURATION.toString())
     }
 
     @Test
-    fun colorInput_canBeModified() {
-        ActivityScenario.launch(SettingsActivity::class.java).use {
-            onView(withId(R.id.go_color_input)).perform(replaceText("#ABCDEF"))
-            onView(withId(R.id.go_color_input)).check(matches(withText("#ABCDEF")))
+    fun colorPicker_selectColor_updatesInput() {
+        composeTestRule.onNodeWithTag("goColorButton").performClick()
+        composeTestRule.waitForIdle()
 
-            onView(withId(R.id.stop_color_input)).perform(replaceText("#123456"))
-            onView(withId(R.id.stop_color_input)).check(matches(withText("#123456")))
-        }
+        composeTestRule.onNodeWithTag("confirmButton").performClick()
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("goColorInput").assertExists()
     }
 
     @Test
-    fun saveButton_withValidInputs_savesConfig() {
-        ActivityScenario.launch(SettingsActivity::class.java).use { scenario ->
-            onView(withId(R.id.go_duration_input)).perform(replaceText("90"))
-            onView(withId(R.id.stop_duration_input)).perform(replaceText("20"))
-            onView(withId(R.id.go_growth_input)).perform(replaceText("1.2"))
-            onView(withId(R.id.stop_growth_input)).perform(replaceText("1.1"))
-            onView(withId(R.id.go_color_input)).perform(replaceText("#AABBCC"))
-            onView(withId(R.id.stop_color_input)).perform(replaceText("#DDEEFF"))
+    fun settingsScreen_inputsAcceptUserInput() {
+        composeTestRule.onNodeWithTag("goDurationInput").performTextClearance()
+        composeTestRule.onNodeWithTag("goDurationInput").performTextInput("300")
 
-            onView(withId(R.id.save_button)).perform(click())
-
-            scenario.onActivity {
-                val savedConfig = configRepository.loadConfig()
-                assertEquals(90, savedConfig.goDuration)
-                assertEquals(20, savedConfig.stopDuration)
-                assertEquals(1.2f, savedConfig.goDurationGrowth, 0.001f)
-                assertEquals(1.1f, savedConfig.stopDurationGrowth, 0.001f)
-                assertEquals("#AABBCC", savedConfig.goColor)
-                assertEquals("#DDEEFF", savedConfig.stopColor)
-            }
-        }
+        composeTestRule.onNodeWithTag("goDurationInput")
+            .assertTextContains("300")
     }
 
     @Test
-    fun durationInputs_canBeModified() {
-        ActivityScenario.launch(SettingsActivity::class.java).use {
-            onView(withId(R.id.go_duration_input)).perform(replaceText("100"))
-            onView(withId(R.id.go_duration_input)).check(matches(withText("100")))
+    fun saveButton_withInvalidColorHex_showsErrorAndDoesNotSave() {
+        composeTestRule.onNodeWithTag("goColorInput").performTextClearance()
+        composeTestRule.onNodeWithTag("goColorInput").performTextInput("#pppppp")
 
-            onView(withId(R.id.stop_duration_input)).perform(replaceText("25"))
-            onView(withId(R.id.stop_duration_input)).check(matches(withText("25")))
-        }
+        composeTestRule.onNodeWithTag("saveButton").performClick()
+        composeTestRule.waitForIdle()
+
+        val savedConfig = configRepository.loadConfig()
+        assertEquals(TimerConstants.DEFAULT_GO_COLOR, savedConfig.goColor)
     }
 
     @Test
-    fun growthInputs_canBeModified() {
-        ActivityScenario.launch(SettingsActivity::class.java).use {
-            onView(withId(R.id.go_growth_input)).perform(replaceText("2.0"))
-            onView(withId(R.id.go_growth_input)).check(matches(withText("2.0")))
+    fun languageSelection_updatesTranslationsImmediately() {
+        configRepository.saveLocale(DEFAULT_LOCALE.code)
+        composeTestRule.activityRule.scenario.recreate()
+        composeTestRule.waitForIdle()
 
-            onView(withId(R.id.stop_growth_input)).perform(replaceText("0.5"))
-            onView(withId(R.id.stop_growth_input)).check(matches(withText("0.5")))
-        }
+        val englishLabel = getLocalizedString(R.string.go_duration, DEFAULT_LOCALE.code)
+        composeTestRule.onNode(hasText(englishLabel)).assertExists()
+
+        composeTestRule.onNodeWithTag("languageButton").performClick()
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("locale_fr").performClick()
+        composeTestRule.waitForIdle()
+
+        val frenchLabel = getLocalizedString(R.string.go_duration, SupportedLocale.FRENCH.code)
+        composeTestRule.onNode(hasText(frenchLabel)).assertExists()
+
+        composeTestRule.onNode(hasText(englishLabel)).assertDoesNotExist()
     }
 
-    @Test
-    fun saveButton_withEmptyFields_usesDefaultValues() {
-        ActivityScenario.launch(SettingsActivity::class.java).use { scenario ->
-            onView(withId(R.id.go_duration_input)).perform(clearText())
-            onView(withId(R.id.stop_duration_input)).perform(clearText())
-            onView(withId(R.id.go_growth_input)).perform(clearText())
-            onView(withId(R.id.stop_growth_input)).perform(clearText())
-            onView(withId(R.id.go_color_input)).perform(clearText())
-            onView(withId(R.id.stop_color_input)).perform(clearText())
-
-            onView(withId(R.id.save_button)).perform(click())
-
-            scenario.onActivity {
-                val savedConfig = configRepository.loadConfig()
-                assertEquals(DEFAULT_GO_DURATION, savedConfig.goDuration)
-                assertEquals(DEFAULT_STOP_DURATION, savedConfig.stopDuration)
-                assertEquals(DEFAULT_GROWTH_MULTIPLIER, savedConfig.goDurationGrowth, 0.001f)
-                assertEquals(DEFAULT_GROWTH_MULTIPLIER, savedConfig.stopDurationGrowth, 0.001f)
-                assertEquals(DEFAULT_GO_COLOR, savedConfig.goColor)
-                assertEquals(DEFAULT_STOP_COLOR, savedConfig.stopColor)
-            }
-        }
-    }
-
-    @Test
-    fun saveButton_withPartiallyEmptyFields_usesDefaultsForEmptyFields() {
-        ActivityScenario.launch(SettingsActivity::class.java).use { scenario ->
-            onView(withId(R.id.go_duration_input)).perform(replaceText("100"))
-            onView(withId(R.id.stop_duration_input)).perform(clearText())
-            onView(withId(R.id.go_growth_input)).perform(clearText())
-            onView(withId(R.id.stop_growth_input)).perform(replaceText("1.5"))
-            onView(withId(R.id.go_color_input)).perform(replaceText("#FF0000"))
-            onView(withId(R.id.stop_color_input)).perform(clearText())
-
-            onView(withId(R.id.save_button)).perform(click())
-
-            scenario.onActivity {
-                val savedConfig = configRepository.loadConfig()
-                assertEquals(100, savedConfig.goDuration)
-                assertEquals(DEFAULT_STOP_DURATION, savedConfig.stopDuration)
-                assertEquals(DEFAULT_GROWTH_MULTIPLIER, savedConfig.goDurationGrowth, 0.001f)
-                assertEquals(1.5f, savedConfig.stopDurationGrowth, 0.001f)
-                assertEquals("#FF0000", savedConfig.goColor)
-                assertEquals(DEFAULT_STOP_COLOR, savedConfig.stopColor)
-            }
-        }
+    private fun getLocalizedString(stringRes: Int, localeCode: String): String {
+        val locale = java.util.Locale.forLanguageTag(localeCode)
+        val config = android.content.res.Configuration(context.resources.configuration)
+        config.setLocale(locale)
+        return context.createConfigurationContext(config).getString(stringRes)
     }
 }

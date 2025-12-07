@@ -203,4 +203,38 @@ class StateRepositoryTest {
 
         assertEquals(state2, loadedState)
     }
+
+    @Test
+    fun resetPending_defaultsToFalse() {
+        val isPending = repository.isResetPending()
+
+        assertEquals(false, isPending)
+    }
+
+    @Test
+    fun setResetPending_true_persistsValue() {
+        repository.setResetPending()
+        val isPending = repository.isResetPending()
+
+        assertEquals(true, isPending)
+    }
+
+    @Test
+    fun setResetPending_false_persistsValue() {
+        repository.setResetPending()
+        repository.setResetPending(false)
+        val isPending = repository.isResetPending()
+
+        assertEquals(false, isPending)
+    }
+
+    @Test
+    fun setResetPending_survivesRepositoryRecreation() {
+        repository.setResetPending()
+
+        val newRepository = StateRepository(context)
+        val isPending = newRepository.isResetPending()
+
+        assertEquals(true, isPending)
+    }
 }

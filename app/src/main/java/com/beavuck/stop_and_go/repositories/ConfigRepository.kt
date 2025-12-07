@@ -1,9 +1,12 @@
+@file:Suppress("RedundantSuppression")
+
 package com.beavuck.stop_and_go.repositories
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.beavuck.stop_and_go.model.TimerConfig
+import com.beavuck.stop_and_go.model.timer.TimerConfig
 
+@Suppress("unused", "RedundantSuppression")
 class ConfigRepository(context: Context) {
     private val sharedPreferences: SharedPreferences =
         context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -25,10 +28,18 @@ class ConfigRepository(context: Context) {
         return TimerConfig(
             goDuration = sharedPreferences.getInt(KEY_GO_DURATION, defaultConfig.goDuration),
             stopDuration = sharedPreferences.getInt(KEY_STOP_DURATION, defaultConfig.stopDuration),
-            goDurationGrowth = sharedPreferences.getFloat(KEY_GO_GROWTH, defaultConfig.goDurationGrowth),
-            stopDurationGrowth = sharedPreferences.getFloat(KEY_STOP_GROWTH, defaultConfig.stopDurationGrowth),
-            goColor = sharedPreferences.getString(KEY_GO_COLOR, defaultConfig.goColor) ?: defaultConfig.goColor,
-            stopColor = sharedPreferences.getString(KEY_STOP_COLOR, defaultConfig.stopColor) ?: defaultConfig.stopColor
+            goDurationGrowth = sharedPreferences.getFloat(
+                KEY_GO_GROWTH,
+                defaultConfig.goDurationGrowth
+            ),
+            stopDurationGrowth = sharedPreferences.getFloat(
+                KEY_STOP_GROWTH,
+                defaultConfig.stopDurationGrowth
+            ),
+            goColor = sharedPreferences.getString(KEY_GO_COLOR, defaultConfig.goColor)
+                ?: defaultConfig.goColor,
+            stopColor = sharedPreferences.getString(KEY_STOP_COLOR, defaultConfig.stopColor)
+                ?: defaultConfig.stopColor
         )
     }
 

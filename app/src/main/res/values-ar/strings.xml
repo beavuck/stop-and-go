@@ -33,7 +33,16 @@
     <string name="timer_screen">شاشة المؤقت. انقر مرة واحدة للإيقاف المؤقت أو الاستئناف. اضغط مطولاً لفتح الإعدادات.</string>
     <string name="timer_paused">المؤقت متوقف مؤقتًا</string>
     <string name="timer_resumed">المؤقت مستأنف</string>
-    <string name="phase_changed">بدأت مرحلة %1$s. %2$d ثانية متبقية.</string>
+    <string name="pause">إيقاف مؤقت</string>
+    <string name="resume">استئناف</string>
+    <plurals name="phase_changed">
+        <item quantity="zero">بدأت مرحلة %1$s. لا توجد ثواني متبقية.</item>
+        <item quantity="one">بدأت مرحلة %1$s. ثانية واحدة متبقية.</item>
+        <item quantity="two">بدأت مرحلة %1$s. ثانيتان متبقيتان.</item>
+        <item quantity="few">بدأت مرحلة %1$s. %2$d ثوانٍ متبقية.</item>
+        <item quantity="many">بدأت مرحلة %1$s. %2$d ثانية متبقية.</item>
+        <item quantity="other">بدأت مرحلة %1$s. %2$d ثانية متبقية.</item>
+    </plurals>
     <string name="red_slider">شريط تمرير المكون الأحمر</string>
     <string name="green_slider">شريط تمرير المكون الأخضر</string>
     <string name="blue_slider">شريط تمرير المكون الأزرق</string>
