@@ -149,8 +149,8 @@ fun TimerDisplay(
             fontSize = 24.sp,
             color = textColor,
             modifier = Modifier
-                .align(Alignment.TopStart)
-                .padding(start = 24.dp, top = 48.dp)
+                .align(Alignment.BottomStart)
+                .padding(start = 24.dp, bottom = 48.dp)
                 .alpha(0.7f)
                 .testTag("cycleCount")
         )
@@ -160,22 +160,19 @@ fun TimerDisplay(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(Color.Black.copy(alpha = 0.3f))
-                    .testTag("pauseOverlay")
-            )
-        }
-
-        if (isPaused) {
-            Icon(
-                painter = painterResource(android.R.drawable.ic_media_pause),
-                contentDescription = stringResource(R.string.timer_paused),
-                tint = textColor,
-                modifier = Modifier
-                    .align(Alignment.Center)
-                    .padding(top = 256.dp)
-                    .size(64.dp)
-                    .alpha(0.7f)
-                    .testTag("pauseIcon")
-            )
+                    .testTag("pauseOverlay"),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    painter = painterResource(android.R.drawable.ic_media_pause),
+                    contentDescription = stringResource(R.string.timer_paused),
+                    tint = textColor,
+                    modifier = Modifier
+                        .size(64.dp)
+                        .alpha(0.7f)
+                        .testTag("pauseIcon")
+                )
+            }
         }
     }
 }

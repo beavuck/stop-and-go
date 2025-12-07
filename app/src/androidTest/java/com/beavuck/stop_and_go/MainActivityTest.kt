@@ -530,4 +530,106 @@ class MainActivityTest {
         composeTestRule.onNodeWithTag("phaseLabel")
             .assertTextEquals(expectedLabel)
     }
+
+    @Test
+    fun topAppBar_settingsButton_isDisplayed() {
+        composeTestRule.onNodeWithTag("settingsButton").assertIsDisplayed()
+    }
+
+    @Test
+    fun topAppBar_resetButton_isDisplayed() {
+        composeTestRule.onNodeWithTag("resetTimerButton").assertIsDisplayed()
+    }
+
+    @Test
+    fun topAppBar_settingsButton_hasCorrectContentDescription() {
+        val expectedDescription = context.getString(R.string.settings)
+        composeTestRule.onNodeWithTag("settingsButton")
+            .assert(hasContentDescription(expectedDescription))
+    }
+
+    @Test
+    fun topAppBar_resetButton_hasCorrectContentDescription() {
+        val expectedDescription = context.getString(R.string.reset_timer)
+        composeTestRule.onNodeWithTag("resetTimerButton")
+            .assert(hasContentDescription(expectedDescription))
+    }
+
+    @Test
+    fun topAppBar_resetButton_resetsTimerToInitialState() {
+        composeTestRule.activityRule.scenario.close()
+
+        val shortConfig = TimerConfig(goDuration = 10, stopDuration = 5)
+        configRepository.saveConfig(shortConfig)
+
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+        Thread.sleep(3000)
+
+        val timerBeforeReset = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
+
+        assertTrue("Timer should have counted down", timerBeforeReset in 0..8)
+
+        composeTestRule.onNodeWithTag("resetTimerButton").performClick()
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+
+        val goPhaseLabel = context.getString(R.string.phase_go)
+        composeTestRule.onNodeWithTag("phaseLabel")
+            .assertTextEquals(goPhaseLabel)
+
+        val cycleAfterReset = context.getString(R.string.cycle_count, INITIAL_CYCLE_COUNT + 1)
+        composeTestRule.onNodeWithTag("cycleCount")
+            .assertTextEquals(cycleAfterReset)
+
+        val timerAfterReset = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
+
+        assertTrue(
+            "Timer should reset to initial duration after clicking reset button",
+            timerAfterReset in 9..10
+        )
+    }
+
+    @Test
+    fun topAppBar_resetButton_resetsCycleCount() {
+        composeTestRule.activityRule.scenario.close()
+
+        val modifiedState = AppState(
+            cycleCount = 5,
+            isGo = false,
+            currentGoDuration = DEFAULT_GO_DURATION,
+            currentStopDuration = DEFAULT_STOP_DURATION,
+            secondsRemaining = 10,
+            baseGoDuration = DEFAULT_GO_DURATION,
+            baseStopDuration = DEFAULT_STOP_DURATION
+        )
+        stateRepository.saveState(modifiedState)
+
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+
+        val cycleBeforeReset = composeTestRule.onNodeWithTag("cycleCount")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+
+        assertTrue("Cycle count should be 6 before reset", cycleBeforeReset.contains("6"))
+
+        composeTestRule.onNodeWithTag("resetTimerButton").performClick()
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+
+        val cycleAfterReset = context.getString(R.string.cycle_count, INITIAL_CYCLE_COUNT + 1)
+        composeTestRule.onNodeWithTag("cycleCount")
+            .assertTextEquals(cycleAfterReset)
+    }
 }

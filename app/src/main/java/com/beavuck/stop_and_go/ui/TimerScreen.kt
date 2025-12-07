@@ -1,15 +1,26 @@
 package com.beavuck.stop_and_go.ui
 
+import android.annotation.SuppressLint
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
+import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.model.PhaseManager
 import com.beavuck.stop_and_go.model.timer.TimerController
 import com.beavuck.stop_and_go.notifications.PhaseNotificationManager
 import com.beavuck.stop_and_go.repositories.StateRepository
+import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
 import java.util.Locale
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TimerScreen(
     phaseManager: PhaseManager,
@@ -143,16 +154,53 @@ fun TimerScreen(
         }
     }
 
-    TimerDisplay(
-        phase = phase,
-        secondsRemaining = secondsRemaining,
-        cycleCount = cycleCount,
-        locale = locale,
-        isPaused = isPaused,
-        goLabel = phaseManager.getGoLabel(),
-        stopLabel = phaseManager.getStopLabel(),
-        onTap = ::togglePause,
-        onLongPress = onNavigateToSettings,
-        onTripleTap = ::resetTimer,
-    )
+    val backgroundColor = Color(ColorUtils.parseColorSafely(phase.color))
+    val iconColor = Color(ColorUtils.getContrastingTextColor(backgroundColor.toArgb()))
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {},
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color.Transparent,
+                    navigationIconContentColor = iconColor,
+                    actionIconContentColor = iconColor
+                ),
+                actions = {
+                    IconButton(
+                        onClick = ::resetTimer,
+                        modifier = androidx.compose.ui.Modifier.testTag("resetTimerButton")
+                    ) {
+                        Icon(
+                            painter = painterResource(android.R.drawable.ic_menu_rotate),
+                            contentDescription = stringResource(R.string.reset_timer)
+                        )
+                    }
+                    IconButton(
+                        onClick = onNavigateToSettings,
+                        modifier = androidx.compose.ui.Modifier.testTag("settingsButton")
+                    ) {
+                        Icon(
+                            painter = painterResource(android.R.drawable.ic_menu_preferences),
+                            contentDescription = stringResource(R.string.settings)
+                        )
+                    }
+                }
+            )
+        },
+        containerColor = Color.Transparent
+    ) {
+        TimerDisplay(
+            phase = phase,
+            secondsRemaining = secondsRemaining,
+            cycleCount = cycleCount,
+            locale = locale,
+            isPaused = isPaused,
+            goLabel = phaseManager.getGoLabel(),
+            stopLabel = phaseManager.getStopLabel(),
+            onTap = ::togglePause,
+            onLongPress = onNavigateToSettings,
+            onTripleTap = ::resetTimer
+        )
+    }
 }
