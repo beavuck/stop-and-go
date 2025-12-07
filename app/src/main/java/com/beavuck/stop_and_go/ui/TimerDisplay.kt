@@ -2,11 +2,7 @@ package com.beavuck.stop_and_go.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -28,8 +24,6 @@ import androidx.compose.ui.unit.sp
 import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.model.PhaseState
 import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
-import java.text.NumberFormat
-import java.util.Locale
 
 
 @Composable
@@ -37,7 +31,6 @@ fun TimerDisplay(
     phase: PhaseState,
     secondsRemaining: Int,
     cycleCount: Int,
-    locale: Locale,
     isPaused: Boolean,
     goLabel: String,
     stopLabel: String,
@@ -57,7 +50,7 @@ fun TimerDisplay(
     } else {
         stopLabel.ifEmpty { defaultStopLabel }
     }
-    val formattedTime = NumberFormat.getIntegerInstance(locale).format(secondsRemaining)
+    val formattedTime = stringResource(R.string.timer_seconds, secondsRemaining)
     val cycleText = stringResource(R.string.cycle_count, cycleCount + 1)
     val screenDescription = stringResource(R.string.timer_screen)
 

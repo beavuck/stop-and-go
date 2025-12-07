@@ -138,4 +138,17 @@ class AppStateTest {
 
         assertEquals(state1.hashCode(), state2.hashCode())
     }
+
+    @Test
+    fun constructor_withNoParameters_usesDefaultValues() {
+        val state = AppState()
+
+        assertEquals(0, state.cycleCount)
+        assertTrue(state.isGo)
+        assertEquals(60, state.currentGoDuration)
+        assertEquals(15, state.currentStopDuration)
+        assertEquals(60, state.secondsRemaining)
+        assertEquals(60, state.baseGoDuration)
+        assertEquals(15, state.baseStopDuration)
+    }
 }

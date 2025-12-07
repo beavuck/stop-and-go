@@ -11,7 +11,6 @@ import com.beavuck.stop_and_go.model.timer.TimerConstants.MIN_DURATION_SECONDS
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
-import kotlin.math.roundToInt
 
 class PhaseManagerTest {
     private lateinit var config: TimerConfig
@@ -131,11 +130,11 @@ class PhaseManagerTest {
         repeat(4) { manager.advanceToNextPhase() }
 
         val goPhase = manager.getCurrentPhase()
-        assertEquals((100 * 1.2 * 1.2).roundToInt(), goPhase.durationSeconds)
+        assertEquals((100 * 1.2 * 1.2).toInt(), goPhase.durationSeconds)
 
         manager.advanceToNextPhase()
         val stopPhase = manager.getCurrentPhase()
-        assertEquals((50 * 1.1 * 1.1).roundToInt(), stopPhase.durationSeconds)
+        assertEquals((50 * 1.1 * 1.1).toInt(), stopPhase.durationSeconds)
     }
 
     @Test
@@ -288,5 +287,58 @@ class PhaseManagerTest {
         val manager = PhaseManager(customConfig)
 
         assertEquals("Rest", manager.getStopLabel())
+    }
+
+    @Test
+    fun getState_withSecondsRemaining_returnsStateWithProvidedSeconds() {
+        phaseManager.advanceToNextPhase()
+        phaseManager.advanceToNextPhase()
+
+        val state = phaseManager.getState(45)
+
+        assertEquals(1, state.cycleCount)
+        assertTrue(state.isGo)
+        assertEquals(DEFAULT_GO_DURATION, state.currentGoDuration)
+        assertEquals(DEFAULT_STOP_DURATION, state.currentStopDuration)
+        assertEquals(45, state.secondsRemaining)
+        assertEquals(DEFAULT_GO_DURATION, state.baseGoDuration)
+        assertEquals(DEFAULT_STOP_DURATION, state.baseStopDuration)
+    }
+
+    @Test
+    fun getState_withSecondsRemaining_includesGrowthAppliedDurations() {
+        val config = TimerConfig(
+            goDuration = 100,
+            stopDuration = 50,
+            goDurationGrowth = 1.5f,
+            stopDurationGrowth = 2.0f
+        )
+        val manager = PhaseManager(config)
+
+        manager.advanceToNextPhase()
+        manager.advanceToNextPhase()
+
+        val state = manager.getState(30)
+
+        assertEquals(150, state.currentGoDuration)
+        assertEquals(100, state.currentStopDuration)
+        assertEquals(30, state.secondsRemaining)
+        assertEquals(100, state.baseGoDuration)
+        assertEquals(50, state.baseStopDuration)
+    }
+
+    @Test
+    fun getState_whenInStopPhase_returnsStopDurationAsSecondsRemaining() {
+        phaseManager.advanceToNextPhase()
+
+        val state = phaseManager.getState()
+
+        assertEquals(INITIAL_CYCLE_COUNT, state.cycleCount)
+        assertFalse(state.isGo)
+        assertEquals(DEFAULT_GO_DURATION, state.currentGoDuration)
+        assertEquals(DEFAULT_STOP_DURATION, state.currentStopDuration)
+        assertEquals(DEFAULT_STOP_DURATION, state.secondsRemaining)
+        assertEquals(DEFAULT_GO_DURATION, state.baseGoDuration)
+        assertEquals(DEFAULT_STOP_DURATION, state.baseStopDuration)
     }
 }

@@ -114,6 +114,8 @@ increment_patch:
     paths:
       - vendor/bundle
   before_script:
+    - sdkmanager --install "ndk;27.3.13750724"
+    - sdkmanager --install "cmake;4.2.0"
     - apt update -y && apt install -y curl ruby-full build-essential
     - gem install bundler -v $BUNDLER_VERSION -N
     - bundle config set --local path 'vendor/bundle'

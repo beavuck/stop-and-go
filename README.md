@@ -1,6 +1,7 @@
 # Stop and Go
 
-A minimalist Android interval timer that alternates between two phases — with configurable colors, durations, and growth rates.
+A minimalist Android interval timer that alternates between two phases — with configurable colors,
+durations, and growth rates.
 
 ## 📊 Status
 
@@ -23,9 +24,11 @@ A minimalist Android interval timer that alternates between two phases — with 
 
 ## What It Does
 
-Stop and Go displays full-screen colors that alternate on a timer. Use it for interval training, pomodoro techniques, meditation timing, or any activity requiring visual time cues.
+Stop and Go displays full-screen colors that alternate on a timer. Use it for interval training,
+pomodoro techniques, meditation timing, or any activity requiring time cues.
 
 The screen alternates between:
+
 - **Go phase** (default: green for 60 seconds)
 - **Stop phase** (default: red for 15 seconds)
 
@@ -43,35 +46,33 @@ The screen alternates between:
 - No accounts, no backend, no network required
 
 ## Privacy
-See PRIVACY.md
 
-## Controls
+See [PRIVACY.md](https://gitlab.com/beavuck-services/stop-and-go/-/blob/main/PRIVACY.md?ref_type=heads)
+for details.
+
+## Gestures
 
 - **Single tap**: Pause/resume timer
+- **Triple tap**: Reset timer
 - **Long press**: Open settings
 
 ## Configuration
 
-### Duration Settings
-- **Go Duration**: 1-3600 seconds (default: 60)
-- **Stop Duration**: 1-3600 seconds (default: 15)
-
 ### Growth Multipliers
-- **Go Duration Growth**: 0.01-100.0× (default: 1.0)
-- **Stop Duration Growth**: 0.01-100.0× (default: 1.0)
 
-After each complete cycle (go → stop → go), durations multiply by their growth rates. A 1.0× multiplier keeps durations constant.
+After each complete cycle, durations multiply by their growth rates. A 1.0× multiplier keeps
+durations constant.
 
 **Example**: With a 1.1× go growth multiplier:
+
 - Cycle 1: 60s go, 15s stop
 - Cycle 2: 66s go, 15s stop
 - Cycle 3: 73s go, 15s stop
 
 ### Colors
-- **Go Color**: Hex code (default: `#20b05c`)
-- **Stop Color**: Hex code (default: `#992639`)
 
 Colors can be configured in two ways:
+
 - **Manual entry**: Type color names or hex color codes directly (e.g., `navy`, or `#000080`)
 - **Color picker**: Click the color preview button to open an RGB slider picker with live preview
 

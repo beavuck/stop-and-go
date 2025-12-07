@@ -17,7 +17,6 @@ import com.beavuck.stop_and_go.model.timer.TimerController
 import com.beavuck.stop_and_go.notifications.PhaseNotificationManager
 import com.beavuck.stop_and_go.repositories.StateRepository
 import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
-import java.util.Locale
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -29,8 +28,6 @@ fun TimerScreen(
     onNavigateToSettings: () -> Unit,
     onKeepScreenOnChange: (Boolean) -> Unit,
 ) {
-    val locale = Locale.getDefault()
-
     var phase by remember { mutableStateOf(phaseManager.getCurrentPhase()) }
     var cycleCount by remember { mutableIntStateOf(phaseManager.cycleCount) }
     var secondsRemaining by remember { mutableIntStateOf(phase.durationSeconds) }
@@ -183,7 +180,6 @@ fun TimerScreen(
             phase = phase,
             secondsRemaining = secondsRemaining,
             cycleCount = cycleCount,
-            locale = locale,
             isPaused = isPaused,
             goLabel = phaseManager.getGoLabel(),
             stopLabel = phaseManager.getStopLabel(),
