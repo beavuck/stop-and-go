@@ -183,6 +183,7 @@ build:
     paths:
       - app/build/outputs/bundle/release/app-release.aab
       - app/build/outputs/apk/release/app-release.apk
+      - app/build/outputs/native-debug-symbols/release/native-debug-symbols.zip
     expire_in: 1 week
   rules:
     - if: "$CI_COMMIT_TAG"

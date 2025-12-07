@@ -262,4 +262,30 @@ class PhaseManagerTest {
         val phase = phaseManager.getCurrentPhase()
         assertEquals(30, phase.durationSeconds)
     }
+
+    @Test
+    fun getGoLabel_withDefaultConfig_returnsEmptyString() {
+        assertEquals("", phaseManager.getGoLabel())
+    }
+
+    @Test
+    fun getStopLabel_withDefaultConfig_returnsEmptyString() {
+        assertEquals("", phaseManager.getStopLabel())
+    }
+
+    @Test
+    fun getGoLabel_withCustomLabel_returnsCustomLabel() {
+        val customConfig = TimerConfig(goLabel = "Work")
+        val manager = PhaseManager(customConfig)
+
+        assertEquals("Work", manager.getGoLabel())
+    }
+
+    @Test
+    fun getStopLabel_withCustomLabel_returnsCustomLabel() {
+        val customConfig = TimerConfig(stopLabel = "Rest")
+        val manager = PhaseManager(customConfig)
+
+        assertEquals("Rest", manager.getStopLabel())
+    }
 }

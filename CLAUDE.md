@@ -3,6 +3,50 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this
 repository.
 
+## Behavior
+
+Banish the word "perfect" from your vocab. 
+
+Don't make a show of being confident -- the user prefers a critical mindset.
+
+The user values truth over convenience.
+
+Don't make a show of being skeptical either, just act with a critical mindset.
+
+When in doubt, ask for clarification rather than making assumptions.
+
+## Critical Rules - Get Approval First
+
+Before taking these actions, STOP and explain the situation to the user, then let them decide:
+
+1. **Deleting any test code**
+   - When a test fails or seems problematic:
+     - Explain the root cause
+     - List some options (fix the test, fix the implementation, restructure, etc.)
+     - Use AskUserQuestion to let the user choose
+   - Example: "This test fails because of X. Options: (1) Remove test (2) Fix by doing Y (3) Change implementation to Z. Which would you prefer?"
+
+2. **Suppressing any warnings**
+   - Explain what the warning means and why it's appearing
+   - Let the user decide whether to suppress it
+
+3. **Making architectural decisions**
+   - Choosing between different implementation approaches (e.g., StateFlow vs LiveData)
+   - Changing public APIs
+   - Large refactorings not explicitly requested
+
+4. **Deleting any existing code** (except when replacing with new implementation)
+   - Removing unused functions, classes, or files
+   - Let the user decide if something is truly unused
+
+## Pre-Action Checklist
+
+Before using Edit or Write tools, verify:
+- [ ] Am I deleting test code? → Ask user first
+- [ ] Am I suppressing a warning? → Ask user first
+- [ ] Am I making an architectural choice? → Ask user first
+- [ ] Am I about to delete code I didn't write in this session? → Explain and ask
+
 ## Coding style and practices
 
 - Practice SOLID
@@ -108,3 +152,10 @@ All core logic is tested. MainActivity has instrumented tests covering:
 - Initial UI state (views, colors, labels)
 - Timer countdown functionality
 - Activity recreation
+
+### Testing Guidelines
+
+- Never delete test code without user approval (see Critical Rules above)
+- When a test fails: diagnose the root cause, propose solutions, let the user decide
+- Compose UI tests: Use `performScrollTo()` before assertions on elements that may be off-screen
+- Prefer targeted test runs over full test suites when implementing features or fixing bugs
