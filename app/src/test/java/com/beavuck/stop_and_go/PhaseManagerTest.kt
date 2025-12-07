@@ -11,6 +11,7 @@ import com.beavuck.stop_and_go.model.timer.TimerConstants.MIN_DURATION_SECONDS
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
+import kotlin.math.roundToInt
 
 class PhaseManagerTest {
     private lateinit var config: TimerConfig
@@ -130,11 +131,11 @@ class PhaseManagerTest {
         repeat(4) { manager.advanceToNextPhase() }
 
         val goPhase = manager.getCurrentPhase()
-        assertEquals((100 * 1.2 * 1.2).toInt(), goPhase.durationSeconds)
+        assertEquals((100 * 1.2 * 1.2).roundToInt(), goPhase.durationSeconds)
 
         manager.advanceToNextPhase()
         val stopPhase = manager.getCurrentPhase()
-        assertEquals((50 * 1.1 * 1.1).toInt(), stopPhase.durationSeconds)
+        assertEquals((50 * 1.1 * 1.1).roundToInt(), stopPhase.durationSeconds)
     }
 
     @Test

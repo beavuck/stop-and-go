@@ -1,11 +1,15 @@
 package com.beavuck.stop_and_go.model
 
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_DURATION
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_STOP_DURATION
+import com.beavuck.stop_and_go.model.timer.TimerConstants.INITIAL_CYCLE_COUNT
+
 data class AppState(
-    val cycleCount: Int,
-    val isGo: Boolean,
-    val currentGoDuration: Int,
-    val currentStopDuration: Int,
-    val secondsRemaining: Int,
-    val baseGoDuration: Int = 0,
-    val baseStopDuration: Int = 0
+    val cycleCount: Int = INITIAL_CYCLE_COUNT,
+    val isGo: Boolean = true,
+    val currentGoDuration: Int = DEFAULT_GO_DURATION,
+    val currentStopDuration: Int = DEFAULT_STOP_DURATION,
+    val secondsRemaining: Int = DEFAULT_GO_DURATION,
+    val baseGoDuration: Int = DEFAULT_GO_DURATION,
+    val baseStopDuration: Int = DEFAULT_STOP_DURATION
 )

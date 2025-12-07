@@ -4,6 +4,7 @@ import com.beavuck.stop_and_go.model.timer.TimerConfig
 import com.beavuck.stop_and_go.model.timer.TimerConstants.INITIAL_CYCLE_COUNT
 import com.beavuck.stop_and_go.model.timer.TimerConstants.MAX_DURATION_SECONDS
 import com.beavuck.stop_and_go.model.timer.TimerConstants.MIN_DURATION_SECONDS
+import kotlin.math.roundToInt
 
 class PhaseManager(private val config: TimerConfig) {
     private var currentGoDuration: Int = config.goDuration
@@ -38,7 +39,7 @@ class PhaseManager(private val config: TimerConfig) {
     }
 
     private fun applyGrowth(duration: Int, growth: Float): Int = (duration * growth)
-        .toInt()
+        .roundToInt()
         .coerceIn(MIN_DURATION_SECONDS, MAX_DURATION_SECONDS)
 
     fun reset() {
@@ -54,13 +55,25 @@ class PhaseManager(private val config: TimerConfig) {
 
     fun getStopLabel(): String = config.stopLabel
 
+    fun getState(secondsRemaining: Int): AppState {
+        return AppState(
+            cycleCount = _cycleCount,
+            isGo = isCurrentlyGo,
+            currentGoDuration = currentGoDuration,
+            currentStopDuration = currentStopDuration,
+            secondsRemaining = secondsRemaining,
+            baseGoDuration = config.goDuration,
+            baseStopDuration = config.stopDuration
+        )
+    }
+
     fun getState(): AppState {
         return AppState(
             cycleCount = _cycleCount,
             isGo = isCurrentlyGo,
             currentGoDuration = currentGoDuration,
             currentStopDuration = currentStopDuration,
-            secondsRemaining = 0,
+            secondsRemaining = if (isCurrentlyGo) currentGoDuration else currentStopDuration,
             baseGoDuration = config.goDuration,
             baseStopDuration = config.stopDuration
         )

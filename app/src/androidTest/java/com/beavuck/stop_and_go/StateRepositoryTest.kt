@@ -47,8 +47,6 @@ class StateRepositoryTest {
             currentGoDuration = 72,
             currentStopDuration = 20,
             secondsRemaining = 15,
-            baseGoDuration = 60,
-            baseStopDuration = 15
         )
 
         repository.saveState(state)
@@ -62,8 +60,6 @@ class StateRepositoryTest {
         val state1 = AppState(
             cycleCount = 1,
             isGo = true,
-            currentGoDuration = 60,
-            currentStopDuration = 15,
             secondsRemaining = 30
         )
         repository.saveState(state1)
@@ -87,8 +83,6 @@ class StateRepositoryTest {
         val state = AppState(
             cycleCount = 2,
             isGo = true,
-            currentGoDuration = 60,
-            currentStopDuration = 15,
             secondsRemaining = 45
         )
         repository.saveState(state)
@@ -142,8 +136,6 @@ class StateRepositoryTest {
             currentGoDuration = 3600,
             currentStopDuration = 3600,
             secondsRemaining = 3600,
-            baseGoDuration = 60,
-            baseStopDuration = 15
         )
 
         repository.saveState(state)
@@ -158,8 +150,6 @@ class StateRepositoryTest {
         val state1 = AppState(
             cycleCount = 1,
             isGo = true,
-            currentGoDuration = 60,
-            currentStopDuration = 15,
             secondsRemaining = 30
         )
         repository.saveState(state1)
@@ -191,13 +181,7 @@ class StateRepositoryTest {
         repository.saveState(state1)
         repository.clearState()
 
-        val state2 = AppState(
-            cycleCount = 0,
-            isGo = true,
-            currentGoDuration = 60,
-            currentStopDuration = 15,
-            secondsRemaining = 60
-        )
+        val state2 = AppState()
         repository.saveState(state2)
         val loadedState = repository.loadState()
 

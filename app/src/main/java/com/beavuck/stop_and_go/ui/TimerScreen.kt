@@ -34,7 +34,7 @@ fun TimerScreen(
     var phase by remember { mutableStateOf(phaseManager.getCurrentPhase()) }
     var cycleCount by remember { mutableIntStateOf(phaseManager.cycleCount) }
     var secondsRemaining by remember { mutableIntStateOf(phase.durationSeconds) }
-    var isPaused by remember { mutableStateOf(false) }
+    var isPaused by remember { mutableStateOf(true) }
 
     var startNextPhase: (() -> Unit)? = null
 
@@ -71,21 +71,10 @@ fun TimerScreen(
             secondsRemaining = savedState.secondsRemaining
         }
 
-        val startDuration = if (secondsRemaining > 0) {
-            val duration = secondsRemaining
-            secondsRemaining = 0
-            duration
-        } else {
-            phase.durationSeconds
-        }
-
-        timerController.start(startDuration)
-        onKeepScreenOnChange(true)
-
         onDispose {
             timerController.cancel()
             if (!stateRepository.isResetPending()) {
-                val state = phaseManager.getState().copy(secondsRemaining = secondsRemaining)
+                val state = phaseManager.getState(secondsRemaining)
                 stateRepository.saveState(state)
             } else {
                 stateRepository.setResetPending(false) // now is the time to clear that flag -- any earlier and we might re-save the state before using it to reset

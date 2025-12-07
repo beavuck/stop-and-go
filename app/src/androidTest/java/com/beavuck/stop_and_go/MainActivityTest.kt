@@ -10,7 +10,6 @@ import com.beavuck.stop_and_go.activities.MainActivity
 import com.beavuck.stop_and_go.model.AppState
 import com.beavuck.stop_and_go.model.timer.TimerConfig
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_DURATION
-import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_STOP_DURATION
 import com.beavuck.stop_and_go.model.timer.TimerConstants.INITIAL_CYCLE_COUNT
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
@@ -38,6 +37,8 @@ class MainActivityTest {
         stateRepository = StateRepository(context)
         configRepository = ConfigRepository(context)
         stateRepository.clearState()
+        val appState = AppState()
+        stateRepository.saveState(appState)
         configRepository.saveConfig(TimerConfig())
     }
 
@@ -86,6 +87,7 @@ class MainActivityTest {
     @Test
     fun timerText_changesAfterOneSecond() {
         composeTestRule.waitForIdle()
+        tapTimer()
         Thread.sleep(1500)
 
         val locale = java.util.Locale.getDefault()
@@ -98,6 +100,7 @@ class MainActivityTest {
     @Test
     fun timerText_countdownsCorrectly() {
         composeTestRule.waitForIdle()
+        tapTimer()
         Thread.sleep(1500)
 
         val locale = java.util.Locale.getDefault()
@@ -110,6 +113,7 @@ class MainActivityTest {
     @Test
     fun activityRecreation_maintainsTimerState() {
         composeTestRule.waitForIdle()
+        tapTimer()
         Thread.sleep(1500)
 
         val timerValueBefore = composeTestRule.onNodeWithTag("timerText")
@@ -141,11 +145,7 @@ class MainActivityTest {
         val stopPhaseState = AppState(
             cycleCount = 1,
             isGo = false,
-            currentGoDuration = DEFAULT_GO_DURATION,
-            currentStopDuration = DEFAULT_STOP_DURATION,
             secondsRemaining = 10,
-            baseGoDuration = DEFAULT_GO_DURATION,
-            baseStopDuration = DEFAULT_STOP_DURATION
         )
         stateRepository.saveState(stopPhaseState)
 
@@ -168,6 +168,9 @@ class MainActivityTest {
 
     @Test
     fun timerRunning_keepsScreenOn() {
+        tapTimer()
+        composeTestRule.waitForIdle()
+
         composeTestRule.activityRule.scenario.onActivity { activity ->
             val flags = activity.window.attributes.flags
             val keepScreenOn = flags and android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
@@ -228,6 +231,9 @@ class MainActivityTest {
         composeTestRule.onNodeWithTag("phaseLabel")
             .assertTextEquals(initialPhaseLabel)
 
+        composeTestRule.waitForIdle()
+        tapTimer()
+
         Thread.sleep(3000)
 
         val stopPhaseLabel = context.getString(R.string.phase_stop)
@@ -283,6 +289,9 @@ class MainActivityTest {
         composeTestRule.onNodeWithTag("phaseLabel")
             .assertTextEquals(goPhaseLabel)
 
+        composeTestRule.waitForIdle()
+        tapTimer()
+
         Thread.sleep(3500)
 
         val stopPhaseLabel = context.getString(R.string.phase_stop)
@@ -321,8 +330,6 @@ class MainActivityTest {
             currentGoDuration = 100,
             currentStopDuration = 80,
             secondsRemaining = 42,
-            baseGoDuration = DEFAULT_GO_DURATION,
-            baseStopDuration = DEFAULT_STOP_DURATION
         )
         stateRepository.saveState(modifiedState)
 
@@ -368,13 +375,10 @@ class MainActivityTest {
 
     @Test
     fun tripleTap_resetsTimerToInitialState() {
-        composeTestRule.activityRule.scenario.close()
-
-        val shortConfig = TimerConfig(goDuration = 10, stopDuration = 5)
-        configRepository.saveConfig(shortConfig)
-
-        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
         composeTestRule.waitForIdle()
+
+        tapTimer()
+
         Thread.sleep(3000)
 
         val timerBeforeReset = composeTestRule.onNodeWithTag("timerText")
@@ -383,16 +387,16 @@ class MainActivityTest {
             .first().text
             .toIntOrNull() ?: 0
 
-        assertTrue("Timer should have counted down", timerBeforeReset in 0..8)
+        assertTrue("Timer should have counted down", timerBeforeReset in 56 .. 59)
 
-        composeTestRule.onNodeWithTag("timerDisplay").performClick()
+        tapTimer()
         Thread.sleep(50)
-        composeTestRule.onNodeWithTag("timerDisplay").performClick()
+        tapTimer()
         Thread.sleep(50)
-        composeTestRule.onNodeWithTag("timerDisplay").performClick()
+        tapTimer()
 
         composeTestRule.waitForIdle()
-        Thread.sleep(500)
+        Thread.sleep(100)
 
         val goPhaseLabel = context.getString(R.string.phase_go)
         composeTestRule.onNodeWithTag("phaseLabel")
@@ -410,61 +414,51 @@ class MainActivityTest {
 
         assertTrue(
             "Timer should reset to initial duration after triple tap",
-            timerAfterReset in 9..10
+            timerAfterReset in 59..60
         )
     }
 
     @Test
-    fun singleTap_doesNotResetTimer() {
-        composeTestRule.activityRule.scenario.close()
+    fun singleTap_togglesPause() {
+        composeTestRule.onNodeWithTag("pauseIcon").assertIsDisplayed()
 
-        val shortConfig = TimerConfig(goDuration = 10, stopDuration = 5)
-        configRepository.saveConfig(shortConfig)
-
-        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        tapTimer()
         composeTestRule.waitForIdle()
-        Thread.sleep(3000)
 
-        composeTestRule.onNodeWithTag("timerDisplay").performClick()
-        composeTestRule.waitForIdle()
-        Thread.sleep(500)
-
-        val timerValue = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
-
-        assertTrue(
-            "Single tap should pause, not reset",
-            timerValue in 0..8
-        )
-    }
-
-    @Test
-    fun pauseIcon_isNotDisplayed_whenTimerRunning() {
         composeTestRule.onNodeWithTag("pauseIcon").assertDoesNotExist()
-    }
 
-    @Test
-    fun pauseOverlay_isNotDisplayed_whenTimerRunning() {
-        composeTestRule.onNodeWithTag("pauseOverlay").assertDoesNotExist()
-    }
+        Thread.sleep(600) // large enough to avoid being detected as part of a triple tap
 
-    @Test
-    fun pauseIcon_isDisplayed_whenTimerPaused() {
-        composeTestRule.onNodeWithTag("timerDisplay").performClick()
+        tapTimer()
         composeTestRule.waitForIdle()
 
         composeTestRule.onNodeWithTag("pauseIcon").assertIsDisplayed()
     }
 
     @Test
+    fun pauseIcon_isDisplayed_whenTimerPaused() {
+        composeTestRule.onNodeWithTag("pauseIcon").assertIsDisplayed()
+    }
+
+    @Test
     fun pauseOverlay_isDisplayed_whenTimerPaused() {
-        composeTestRule.onNodeWithTag("timerDisplay").performClick()
+        composeTestRule.onNodeWithTag("pauseOverlay").assertExists()
+    }
+
+    @Test
+    fun pauseIcon_isNotDisplayed_whenTimerRunning() {
+        tapTimer()
         composeTestRule.waitForIdle()
 
-        composeTestRule.onNodeWithTag("pauseOverlay").assertExists()
+        composeTestRule.onNodeWithTag("pauseIcon").assertDoesNotExist()
+    }
+
+    @Test
+    fun pauseOverlay_isNotDisplayed_whenTimerRunning() {
+        tapTimer()
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("pauseOverlay").assertDoesNotExist()
     }
 
     @Test
@@ -499,6 +493,8 @@ class MainActivityTest {
 
         manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
         composeTestRule.waitForIdle()
+
+        tapTimer()
 
         Thread.sleep(3000)
 
@@ -557,13 +553,10 @@ class MainActivityTest {
 
     @Test
     fun topAppBar_resetButton_resetsTimerToInitialState() {
-        composeTestRule.activityRule.scenario.close()
-
-        val shortConfig = TimerConfig(goDuration = 10, stopDuration = 5)
-        configRepository.saveConfig(shortConfig)
-
-        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
         composeTestRule.waitForIdle()
+
+        tapTimer()
+
         Thread.sleep(3000)
 
         val timerBeforeReset = composeTestRule.onNodeWithTag("timerText")
@@ -572,7 +565,7 @@ class MainActivityTest {
             .first().text
             .toIntOrNull() ?: 0
 
-        assertTrue("Timer should have counted down", timerBeforeReset in 0..8)
+        assertTrue("Timer should have counted down", timerBeforeReset in 56 .. 59)
 
         composeTestRule.onNodeWithTag("resetTimerButton").performClick()
         composeTestRule.waitForIdle()
@@ -594,7 +587,7 @@ class MainActivityTest {
 
         assertTrue(
             "Timer should reset to initial duration after clicking reset button",
-            timerAfterReset in 9..10
+            timerAfterReset in 59..60
         )
     }
 
@@ -605,11 +598,7 @@ class MainActivityTest {
         val modifiedState = AppState(
             cycleCount = 5,
             isGo = false,
-            currentGoDuration = DEFAULT_GO_DURATION,
-            currentStopDuration = DEFAULT_STOP_DURATION,
             secondsRemaining = 10,
-            baseGoDuration = DEFAULT_GO_DURATION,
-            baseStopDuration = DEFAULT_STOP_DURATION
         )
         stateRepository.saveState(modifiedState)
 
@@ -631,5 +620,131 @@ class MainActivityTest {
         val cycleAfterReset = context.getString(R.string.cycle_count, INITIAL_CYCLE_COUNT + 1)
         composeTestRule.onNodeWithTag("cycleCount")
             .assertTextEquals(cycleAfterReset)
+    }
+
+    @Test
+    fun app_startsPaused() {
+        composeTestRule.onNodeWithTag("pauseIcon").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("pauseOverlay").assertExists()
+
+        val timerValueBefore = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
+
+        Thread.sleep(1500)
+
+        val timerValueAfter = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
+
+        assertTrue(
+            "Timer should not count down when paused on start",
+            timerValueAfter == timerValueBefore
+        )
+    }
+
+    @Test
+    fun app_startsPausedWithFullDuration() {
+        val timerValue = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
+
+        assertTrue(
+            "Timer should start with full duration, not 0",
+            timerValue == DEFAULT_GO_DURATION
+        )
+    }
+
+    @Test
+    fun app_startsPausedOnGoPhase() {
+        val goPhaseLabel = context.getString(R.string.phase_go)
+        composeTestRule.onNodeWithTag("phaseLabel")
+            .assertTextEquals(goPhaseLabel)
+    }
+
+    @Test
+    fun unpauseAfterSettingsSave_doesNotCauseDoubleCountdown() {
+        tapTimer()
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+
+        composeTestRule.onNodeWithTag("settingsButton").performClick()
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+
+        composeTestRule.onNodeWithTag("saveButton").performClick()
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+
+        val timerBefore = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
+
+        Thread.sleep(1000)
+
+        val timerAfter = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
+
+        val countdown = timerBefore - timerAfter
+
+        assertTrue(
+            "Timer should count down by approximately 1 second, not jump by large amounts. Before: $timerBefore, After: $timerAfter, Diff: $countdown",
+            countdown in 0..2
+        )
+    }
+
+    @Test
+    fun resetAfterSettingsSave_doesNotCauseDoubleCountdown() {
+        tapTimer()
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+
+        composeTestRule.onNodeWithTag("settingsButton").performClick()
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+
+        composeTestRule.onNodeWithTag("saveButton").performClick()
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+
+        composeTestRule.onNodeWithTag("resetTimerButton").performClick()
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+
+        val timerBefore = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
+
+        Thread.sleep(1000)
+
+        val timerAfter = composeTestRule.onNodeWithTag("timerText")
+            .fetchSemanticsNode()
+            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
+            .first().text
+            .toIntOrNull() ?: 0
+
+        val countdown = timerBefore - timerAfter
+
+        assertTrue(
+            "Timer should count down by approximately 1 second after reset, not jump by large amounts. Before: $timerBefore, After: $timerAfter, Diff: $countdown",
+            countdown in 0..2
+        )
+    }
+
+    private fun tapTimer() {
+        composeTestRule.onNodeWithTag("timerDisplay").performClick()
     }
 }

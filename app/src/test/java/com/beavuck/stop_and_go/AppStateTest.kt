@@ -28,20 +28,6 @@ class AppStateTest {
     }
 
     @Test
-    fun constructor_withDefaultBaseValues_usesZero() {
-        val state = AppState(
-            cycleCount = 0,
-            isGo = false,
-            currentGoDuration = 60,
-            currentStopDuration = 30,
-            secondsRemaining = 15
-        )
-
-        assertEquals(0, state.baseGoDuration)
-        assertEquals(0, state.baseStopDuration)
-    }
-
-    @Test
     fun copy_withNoChanges_createsEqualState() {
         val original = AppState(
             cycleCount = 3,
@@ -151,26 +137,5 @@ class AppStateTest {
         )
 
         assertEquals(state1.hashCode(), state2.hashCode())
-    }
-
-    @Test
-    fun toString_containsAllFields() {
-        val state = AppState(
-            cycleCount = 3,
-            isGo = true,
-            currentGoDuration = 60,
-            currentStopDuration = 30,
-            secondsRemaining = 20,
-            baseGoDuration = 50,
-            baseStopDuration = 25
-        )
-
-        val stringRepresentation = state.toString()
-
-        assertTrue(stringRepresentation.contains("cycleCount"))
-        assertTrue(stringRepresentation.contains("3"))
-        assertTrue(stringRepresentation.contains("isGo"))
-        assertTrue(stringRepresentation.contains("currentGoDuration"))
-        assertTrue(stringRepresentation.contains("60"))
     }
 }

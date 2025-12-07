@@ -5,6 +5,7 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.beavuck.stop_and_go.activities.SettingsActivity
+import com.beavuck.stop_and_go.model.AppState
 import com.beavuck.stop_and_go.model.DEFAULT_LOCALE
 import com.beavuck.stop_and_go.model.SupportedLocale
 import com.beavuck.stop_and_go.model.timer.TimerConfig
@@ -97,7 +98,7 @@ class SettingsActivityTest {
 
     @Test
     fun resetButton_clearsStateAndFinishes() {
-        val testState = com.beavuck.stop_and_go.model.AppState(
+        val testState = AppState(
             cycleCount = 5,
             isGo = false,
             currentGoDuration = 100,
