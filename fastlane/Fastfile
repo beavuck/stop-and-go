@@ -2,12 +2,13 @@ default_platform(:android)
 
 desc "Create and sign a new build"
 lane :build do
-    gradle(tasks: ["clean", "assembleRelease", "bundleRelease"])
+    gradle(task: "clean assembleRelease bundleRelease")
 end
 
 desc "Submit a new internal build to the Google Play store"
 lane :internal do
     upload_to_play_store(
+        package_name: 'com.beavuck.stop_and_go',
         track: 'internal',
         aab: 'app/build/outputs/bundle/release/app-release.aab',
         release_status: 'draft',
@@ -18,6 +19,7 @@ end
 desc "Submit a new Production build to the Google Play store"
 lane :release do
     upload_to_play_store(
+        package_name: 'com.beavuck.stop_and_go',
         track: 'production',
         aab: 'app/build/outputs/bundle/release/app-release.aab',
         json_key: '.secure_files/play-store-credentials.json'

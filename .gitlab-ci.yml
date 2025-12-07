@@ -15,6 +15,7 @@ variables:
   JACOCO_PATH: "app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
   ANDROID_API_IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/fabernovel/android:api-35-v1.10.1"
   GITLAB_CI_VERSION: "1.79.0"
+  BUNDLER_VERSION: "2.7.2"
 
 default:
   image: $IMAGE
@@ -105,6 +106,24 @@ increment_patch:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'schedule' && $IS_INCREMENT_PATCH == 'true'"
 
+########~~~~-- Job Templates --~~~~########
+
+.fastlane_setup:
+  image: $ANDROID_API_IMAGE
+  cache:
+    key: gems-cache
+    paths:
+      - vendor/bundle
+  before_script:
+    - apt update -y && apt install -y curl ruby-full build-essential
+    - gem install bundler -v $BUNDLER_VERSION -N
+    - bundle config set --local path 'vendor/bundle'
+    - bundle install
+    - wget https://gitlab.com/gitlab-org/cli/-/releases/v$GITLAB_CI_VERSION/downloads/glab_${GITLAB_CI_VERSION}_linux_amd64.deb
+    - apt install ./glab_${GITLAB_CI_VERSION}_linux_amd64.deb
+    - glab auth login --hostname $CI_SERVER_FQDN --job-token $CI_JOB_TOKEN
+    - glab securefile download --all --output-dir .secure_files/
+
 ########~~~~-- Jobs --~~~~########
 
 run_unit_tests:
@@ -157,21 +176,9 @@ analyze:
       artifacts: true
 
 build:
-  image: $ANDROID_API_IMAGE
+  extends: .fastlane_setup
   stage: build
-  cache:
-    key: gems-cache
-    paths:
-      - vendor/bundle
   script:
-    - apt update -y && apt install -y curl ruby-full build-essential
-    - gem install bundler -N
-    - bundle config set --local path 'vendor/bundle'
-    - bundle install
-    - wget https://gitlab.com/gitlab-org/cli/-/releases/v$GITLAB_CI_VERSION/downloads/glab_${GITLAB_CI_VERSION}_linux_amd64.deb
-    - apt install ./glab_${GITLAB_CI_VERSION}_linux_amd64.deb
-    - glab auth login --hostname $CI_SERVER_FQDN --job-token $CI_JOB_TOKEN
-    - glab securefile download --all --output-dir .secure_files/
     - bundle exec fastlane build
   artifacts:
     paths:
@@ -188,21 +195,9 @@ build:
       optional: true
 
 internal:
-  image: $ANDROID_API_IMAGE
+  extends: .fastlane_setup
   stage: internal
-  cache:
-    key: gems-cache
-    paths:
-      - vendor/bundle
   script:
-    - apt update -y && apt install -y curl ruby-full build-essential
-    - gem install bundler -N
-    - bundle config set --local path 'vendor/bundle'
-    - bundle install
-    - wget https://gitlab.com/gitlab-org/cli/-/releases/v$GITLAB_CI_VERSION/downloads/glab_${GITLAB_CI_VERSION}_linux_amd64.deb
-    - apt install ./glab_${GITLAB_CI_VERSION}_linux_amd64.deb
-    - glab auth login --hostname $CI_SERVER_FQDN --job-token $CI_JOB_TOKEN
-    - glab securefile download --all --output-dir .secure_files/
     - bundle exec fastlane internal
   rules:
     - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != 'schedule'"
@@ -212,21 +207,9 @@ internal:
       artifacts: true
 
 release:
-  image: $ANDROID_API_IMAGE
+  extends: .fastlane_setup
   stage: release
-  cache:
-    key: gems-cache
-    paths:
-      - vendor/bundle
   script:
-    - apt update -y && apt install -y curl ruby-full build-essential
-    - gem install bundler -N
-    - bundle config set --local path 'vendor/bundle'
-    - bundle install
-    - wget https://gitlab.com/gitlab-org/cli/-/releases/v$GITLAB_CI_VERSION/downloads/glab_${GITLAB_CI_VERSION}_linux_amd64.deb
-    - apt install ./glab_${GITLAB_CI_VERSION}_linux_amd64.deb
-    - glab auth login --hostname $CI_SERVER_FQDN --job-token $CI_JOB_TOKEN
-    - glab securefile download --all --output-dir .secure_files/
     - bundle exec fastlane release
   rules:
     - if: "$CI_COMMIT_TAG"
