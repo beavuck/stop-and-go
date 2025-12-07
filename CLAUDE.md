@@ -24,6 +24,7 @@ repository.
 - Favor composition over inheritance.
 - Use meaningful names. Choose clear and descriptive names for variables, functions, classes, and
   modules.
+- Consider accessibility and internationalization from the start.
 - Follow Kotlin coding conventions and Android best practices.
 - Perform minimal changes necessary to implement features or fix bugs. Avoid large refactorings
   unless asked for.

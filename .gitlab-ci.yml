@@ -13,7 +13,6 @@ stages:
 variables:
   IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/alvrme/alpine-android:android-35-jdk21"
   JACOCO_PATH: "app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
-  ANDROID_API_IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/fabernovel/android:api-35-v1.10.1"
   GITLAB_CI_VERSION: "1.79.0"
   BUNDLER_VERSION: "2.7.2"
 
@@ -109,7 +108,7 @@ increment_patch:
 ########~~~~-- Job Templates --~~~~########
 
 .fastlane_setup:
-  image: $ANDROID_API_IMAGE
+  image: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/fabernovel/android:api-35-v1.10.1"
   cache:
     key: gems-cache
     paths:

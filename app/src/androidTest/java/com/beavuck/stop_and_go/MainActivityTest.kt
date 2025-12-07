@@ -440,4 +440,30 @@ class MainActivityTest {
             timerValue in 0..8
         )
     }
+
+    @Test
+    fun pauseIcon_isNotDisplayed_whenTimerRunning() {
+        composeTestRule.onNodeWithTag("pauseIcon").assertDoesNotExist()
+    }
+
+    @Test
+    fun pauseOverlay_isNotDisplayed_whenTimerRunning() {
+        composeTestRule.onNodeWithTag("pauseOverlay").assertDoesNotExist()
+    }
+
+    @Test
+    fun pauseIcon_isDisplayed_whenTimerPaused() {
+        composeTestRule.onNodeWithTag("timerDisplay").performClick()
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("pauseIcon").assertIsDisplayed()
+    }
+
+    @Test
+    fun pauseOverlay_isDisplayed_whenTimerPaused() {
+        composeTestRule.onNodeWithTag("timerDisplay").performClick()
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("pauseOverlay").assertExists()
+    }
 }

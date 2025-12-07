@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -15,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.*
@@ -141,5 +144,28 @@ fun TimerDisplay(
                 .alpha(0.7f)
                 .testTag("cycleCount")
         )
+
+        if (isPaused) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.Black.copy(alpha = 0.3f))
+                    .testTag("pauseOverlay")
+            )
+        }
+
+        if (isPaused) {
+            Icon(
+                painter = painterResource(android.R.drawable.ic_media_pause),
+                contentDescription = stringResource(R.string.timer_paused),
+                tint = textColor,
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .padding(top = 256.dp)
+                    .size(64.dp)
+                    .alpha(0.7f)
+                    .testTag("pauseIcon")
+            )
+        }
     }
 }
