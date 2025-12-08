@@ -2,13 +2,13 @@
     <string name="phase_go">ALLEZ</string>
     <string name="phase_stop">ARRÊT</string>
     <string name="cycle_count">Cycle : %d</string>
-    <string name="go_duration">Durée de départ (secondes)</string>
+    <string name="go_duration">Durée de marche (secondes)</string>
     <string name="stop_duration">Durée d\'arrêt (secondes)</string>
-    <string name="go_growth">Multiplicateur de croissance (départ)</string>
+    <string name="go_growth">Multiplicateur de croissance (marche)</string>
     <string name="go_growth_hint">0,01–100,0</string>
     <string name="stop_growth">Multiplicateur de croissance (arrêt)</string>
     <string name="stop_growth_hint">0,01–100,0</string>
-    <string name="go_color">Couleur de départ</string>
+    <string name="go_color">Couleur de marche</string>
     <string name="stop_color">Couleur d\'arrêt</string>
     <string name="stop_label_hint">Laissez vide pour utiliser la valeur par défaut.</string>
     <string name="save_settings">Enregistrer les paramètres</string>
@@ -24,8 +24,8 @@
     <string name="color_picker_title">Choisir une couleur</string>
     <string name="ok">OK</string>
     <string name="cancel">Annuler</string>
-    <string name="notification_channel_go_name">Phase de départ</string>
-    <string name="notification_channel_go_description">Notifications pour les changements de phase de départ</string>
+    <string name="notification_channel_go_name">Phase de marche</string>
+    <string name="notification_channel_go_description">Notifications pour les changements de phase de marche</string>
     <string name="notification_channel_stop_name">Phase d\'arrêt</string>
     <string name="notification_channel_stop_description">Notifications pour les changements de phase d\'arrêt</string>
     <string name="notification_go_title">Phase ALLEZ commencée</string>
