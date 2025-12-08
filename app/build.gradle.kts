@@ -28,6 +28,7 @@ android {
     val packagePath = "com.beavuck.stop_and_go"
     namespace = packagePath
     compileSdk = 36
+    ndkVersion = "27.3.13750724"
 
     bundle {
         language {
