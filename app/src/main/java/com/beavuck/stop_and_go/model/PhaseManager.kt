@@ -1,6 +1,8 @@
 package com.beavuck.stop_and_go.model
 
 import com.beavuck.stop_and_go.model.timer.TimerConfig
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_IS_GO
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_IS_PAUSED
 import com.beavuck.stop_and_go.model.timer.TimerConstants.INITIAL_CYCLE_COUNT
 import com.beavuck.stop_and_go.model.timer.TimerConstants.MAX_DURATION_SECONDS
 import com.beavuck.stop_and_go.model.timer.TimerConstants.MIN_DURATION_SECONDS
@@ -8,7 +10,7 @@ import com.beavuck.stop_and_go.model.timer.TimerConstants.MIN_DURATION_SECONDS
 class PhaseManager(private val config: TimerConfig) {
     private var currentGoDuration: Int = config.goDuration
     private var currentStopDuration: Int = config.stopDuration
-    private var isCurrentlyGo: Boolean = true
+    private var isCurrentlyGo: Boolean = DEFAULT_IS_GO
     private var _cycleCount: Int = INITIAL_CYCLE_COUNT
     val cycleCount: Int
         get() = _cycleCount
@@ -45,7 +47,7 @@ class PhaseManager(private val config: TimerConfig) {
         currentGoDuration = config.goDuration
         currentStopDuration = config.stopDuration
         _cycleCount = INITIAL_CYCLE_COUNT
-        isCurrentlyGo = true
+        isCurrentlyGo = DEFAULT_IS_GO
     }
 
     fun isGo(): Boolean = isCurrentlyGo
@@ -54,7 +56,7 @@ class PhaseManager(private val config: TimerConfig) {
 
     fun getStopLabel(): String = config.stopLabel
 
-    fun getState(secondsRemaining: Int): AppState {
+    fun getState(secondsRemaining: Int, isPaused: Boolean): AppState {
         return AppState(
             cycleCount = _cycleCount,
             isGo = isCurrentlyGo,
@@ -62,7 +64,8 @@ class PhaseManager(private val config: TimerConfig) {
             currentStopDuration = currentStopDuration,
             secondsRemaining = secondsRemaining,
             baseGoDuration = config.goDuration,
-            baseStopDuration = config.stopDuration
+            baseStopDuration = config.stopDuration,
+            isPaused = isPaused
         )
     }
 
@@ -74,7 +77,8 @@ class PhaseManager(private val config: TimerConfig) {
             currentStopDuration = currentStopDuration,
             secondsRemaining = if (isCurrentlyGo) currentGoDuration else currentStopDuration,
             baseGoDuration = config.goDuration,
-            baseStopDuration = config.stopDuration
+            baseStopDuration = config.stopDuration,
+            isPaused = DEFAULT_IS_PAUSED
         )
     }
 

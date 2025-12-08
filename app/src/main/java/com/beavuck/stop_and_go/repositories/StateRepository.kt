@@ -4,6 +4,11 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.core.content.edit
 import com.beavuck.stop_and_go.model.AppState
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_DURATION
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_IS_GO
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_IS_PAUSED
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_STOP_DURATION
+import com.beavuck.stop_and_go.model.timer.TimerConstants.INITIAL_CYCLE_COUNT
 
 class StateRepository(context: Context) {
     private val sharedPreferences: SharedPreferences =
@@ -18,6 +23,7 @@ class StateRepository(context: Context) {
             putInt(KEY_SECONDS_REMAINING, state.secondsRemaining)
             putInt(KEY_BASE_GO_DURATION, state.baseGoDuration)
             putInt(KEY_BASE_STOP_DURATION, state.baseStopDuration)
+            putBoolean(KEY_IS_PAUSED, state.isPaused)
             apply()
         }
     }
@@ -28,13 +34,14 @@ class StateRepository(context: Context) {
         }
 
         return AppState(
-            cycleCount = sharedPreferences.getInt(KEY_CYCLE_COUNT, 0),
-            isGo = sharedPreferences.getBoolean(KEY_IS_GO, true),
-            currentGoDuration = sharedPreferences.getInt(KEY_CURRENT_GO_DURATION, 0),
-            currentStopDuration = sharedPreferences.getInt(KEY_CURRENT_STOP_DURATION, 0),
-            secondsRemaining = sharedPreferences.getInt(KEY_SECONDS_REMAINING, 0),
-            baseGoDuration = sharedPreferences.getInt(KEY_BASE_GO_DURATION, 0),
-            baseStopDuration = sharedPreferences.getInt(KEY_BASE_STOP_DURATION, 0)
+            cycleCount = sharedPreferences.getInt(KEY_CYCLE_COUNT, INITIAL_CYCLE_COUNT),
+            isGo = sharedPreferences.getBoolean(KEY_IS_GO, DEFAULT_IS_GO),
+            currentGoDuration = sharedPreferences.getInt(KEY_CURRENT_GO_DURATION, DEFAULT_GO_DURATION),
+            currentStopDuration = sharedPreferences.getInt(KEY_CURRENT_STOP_DURATION, DEFAULT_STOP_DURATION),
+            secondsRemaining = sharedPreferences.getInt(KEY_SECONDS_REMAINING, DEFAULT_GO_DURATION),
+            baseGoDuration = sharedPreferences.getInt(KEY_BASE_GO_DURATION, DEFAULT_GO_DURATION),
+            baseStopDuration = sharedPreferences.getInt(KEY_BASE_STOP_DURATION, DEFAULT_STOP_DURATION),
+            isPaused = sharedPreferences.getBoolean(KEY_IS_PAUSED, DEFAULT_IS_PAUSED)
         )
     }
 
@@ -63,6 +70,7 @@ class StateRepository(context: Context) {
         private const val KEY_SECONDS_REMAINING = "seconds_remaining"
         private const val KEY_BASE_GO_DURATION = "base_go_duration"
         private const val KEY_BASE_STOP_DURATION = "base_stop_duration"
+        private const val KEY_IS_PAUSED = "is_paused"
         private const val KEY_RESET_PENDING = "reset_pending"
     }
 }

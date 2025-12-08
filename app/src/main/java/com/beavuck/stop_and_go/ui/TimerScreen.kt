@@ -13,6 +13,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.model.PhaseManager
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_IS_PAUSED
 import com.beavuck.stop_and_go.model.timer.TimerController
 import com.beavuck.stop_and_go.notifications.PhaseNotificationManager
 import com.beavuck.stop_and_go.repositories.StateRepository
@@ -31,7 +32,7 @@ fun TimerScreen(
     var phase by remember { mutableStateOf(phaseManager.getCurrentPhase()) }
     var cycleCount by remember { mutableIntStateOf(phaseManager.cycleCount) }
     var secondsRemaining by remember { mutableIntStateOf(phase.durationSeconds) }
-    var isPaused by remember { mutableStateOf(true) }
+    var isPaused by remember { mutableStateOf(DEFAULT_IS_PAUSED) }
 
     var startNextPhase: (() -> Unit)? = null
 
@@ -66,12 +67,13 @@ fun TimerScreen(
             cycleCount = phaseManager.cycleCount
             phase = phaseManager.getCurrentPhase()
             secondsRemaining = savedState.secondsRemaining
+            isPaused = savedState.isPaused
         }
 
         onDispose {
             timerController.cancel()
             if (!stateRepository.isResetPending()) {
-                val state = phaseManager.getState(secondsRemaining)
+                val state = phaseManager.getState(secondsRemaining, isPaused)
                 stateRepository.saveState(state)
             } else {
                 stateRepository.setResetPending(false) // now is the time to clear that flag -- any earlier and we might re-save the state before using it to reset
@@ -104,17 +106,9 @@ fun TimerScreen(
     }
 
     val lifecycleOwner = LocalLifecycleOwner.current
-    var isInitialized by remember { mutableStateOf(false) }
 
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
-            if (!isInitialized) {
-                if (event == Lifecycle.Event.ON_RESUME) {
-                    isInitialized = true
-                }
-                return@LifecycleEventObserver
-            }
-
             when (event) {
                 Lifecycle.Event.ON_PAUSE -> {
                     if (!isPaused) {
@@ -130,7 +124,8 @@ fun TimerScreen(
                     }
                 }
 
-                else -> { /* no-op */
+                else -> {
+                /* no-op */
                 }
             }
         }

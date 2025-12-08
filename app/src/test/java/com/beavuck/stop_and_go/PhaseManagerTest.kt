@@ -294,7 +294,7 @@ class PhaseManagerTest {
         phaseManager.advanceToNextPhase()
         phaseManager.advanceToNextPhase()
 
-        val state = phaseManager.getState(45)
+        val state = phaseManager.getState(secondsRemaining = 45, isPaused = true)
 
         assertEquals(1, state.cycleCount)
         assertTrue(state.isGo)
@@ -318,7 +318,7 @@ class PhaseManagerTest {
         manager.advanceToNextPhase()
         manager.advanceToNextPhase()
 
-        val state = manager.getState(30)
+        val state = manager.getState(secondsRemaining = 30, isPaused = true)
 
         assertEquals(150, state.currentGoDuration)
         assertEquals(100, state.currentStopDuration)

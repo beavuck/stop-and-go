@@ -1,6 +1,7 @@
 package com.beavuck.stop_and_go
 
 import android.graphics.Color
+import androidx.compose.ui.semantics.SemanticsProperties
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.core.app.ActivityScenario
@@ -39,6 +40,7 @@ class MainActivityTest {
         stateRepository.clearState()
         val appState = AppState()
         stateRepository.saveState(appState)
+        stateRepository.setResetPending(false)
         configRepository.saveConfig(TimerConfig())
     }
 
@@ -116,21 +118,13 @@ class MainActivityTest {
         tapTimer()
         Thread.sleep(1500)
 
-        val timerValueBefore = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
+        val timerValueBefore = getTimerValue()
 
         composeTestRule.activityRule.scenario.recreate()
         composeTestRule.waitForIdle()
         Thread.sleep(500)
 
-        val timerValueAfter = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
+        val timerValueAfter = getTimerValue()
 
         assertTrue(
             "Timer value should be preserved across recreation",
@@ -157,11 +151,7 @@ class MainActivityTest {
         composeTestRule.onNodeWithTag("phaseLabel")
             .assertTextEquals(expectedLabel)
 
-        val timerValue = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
+        val timerValue = getTimerValue()
 
         assertTrue("Timer should show remaining time", timerValue in 8..10)
     }
@@ -298,11 +288,7 @@ class MainActivityTest {
         composeTestRule.onNodeWithTag("phaseLabel")
             .assertTextEquals(stopPhaseLabel)
 
-        val timerValueInStop = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
+        val timerValueInStop = getTimerValue()
 
         assertTrue("Timer should be counting down in Stop phase", timerValueInStop in 0..3)
 
@@ -311,11 +297,7 @@ class MainActivityTest {
         composeTestRule.onNodeWithTag("phaseLabel")
             .assertTextEquals(goPhaseLabel)
 
-        val timerValueInSecondGo = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
+        val timerValueInSecondGo = getTimerValue()
 
         assertTrue("Timer should be counting down in second Go phase", timerValueInSecondGo in 0..3)
     }
@@ -341,10 +323,7 @@ class MainActivityTest {
         composeTestRule.onNodeWithTag("phaseLabel")
             .assertTextEquals(stopPhaseLabel)
 
-        val cycleBeforeReset = composeTestRule.onNodeWithTag("cycleCount")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
+        val cycleBeforeReset = getCycleCount()
 
         assertTrue("Cycle count should be 6 before reset", cycleBeforeReset.contains("6"))
 
@@ -362,14 +341,9 @@ class MainActivityTest {
         composeTestRule.onNodeWithTag("cycleCount")
             .assertTextEquals(cycleAfterReset)
 
-        val timerValue = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-
         assertTrue(
             "Timer should reset to initial duration when state is cleared",
-            timerValue.toIntOrNull() in (DEFAULT_GO_DURATION - 1)..DEFAULT_GO_DURATION
+            getTimerValue() in (DEFAULT_GO_DURATION - 1)..DEFAULT_GO_DURATION
         )
     }
 
@@ -381,13 +355,9 @@ class MainActivityTest {
 
         Thread.sleep(3000)
 
-        val timerBeforeReset = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
+        val timerBeforeReset = getTimerValue()
 
-        assertTrue("Timer should have counted down", timerBeforeReset in 56 .. 59)
+        assertTrue("Timer should have counted down", timerBeforeReset in 56..59)
 
         tapTimer()
         Thread.sleep(50)
@@ -406,11 +376,7 @@ class MainActivityTest {
         composeTestRule.onNodeWithTag("cycleCount")
             .assertTextEquals(cycleAfterReset)
 
-        val timerAfterReset = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
+        val timerAfterReset = getTimerValue()
 
         assertTrue(
             "Timer should reset to initial duration after triple tap",
@@ -559,13 +525,9 @@ class MainActivityTest {
 
         Thread.sleep(3000)
 
-        val timerBeforeReset = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
+        val timerBeforeReset = getTimerValue()
 
-        assertTrue("Timer should have counted down", timerBeforeReset in 56 .. 59)
+        assertTrue("Timer should have counted down", timerBeforeReset in 56..59)
 
         composeTestRule.onNodeWithTag("resetTimerButton").performClick()
         composeTestRule.waitForIdle()
@@ -579,11 +541,7 @@ class MainActivityTest {
         composeTestRule.onNodeWithTag("cycleCount")
             .assertTextEquals(cycleAfterReset)
 
-        val timerAfterReset = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
+        val timerAfterReset = getTimerValue()
 
         assertTrue(
             "Timer should reset to initial duration after clicking reset button",
@@ -606,10 +564,7 @@ class MainActivityTest {
         composeTestRule.waitForIdle()
         Thread.sleep(500)
 
-        val cycleBeforeReset = composeTestRule.onNodeWithTag("cycleCount")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
+        val cycleBeforeReset = getCycleCount()
 
         assertTrue("Cycle count should be 6 before reset", cycleBeforeReset.contains("6"))
 
@@ -627,19 +582,11 @@ class MainActivityTest {
         composeTestRule.onNodeWithTag("pauseIcon").assertIsDisplayed()
         composeTestRule.onNodeWithTag("pauseOverlay").assertExists()
 
-        val timerValueBefore = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
+        val timerValueBefore = getTimerValue()
 
         Thread.sleep(1500)
 
-        val timerValueAfter = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
+        val timerValueAfter = getTimerValue()
 
         assertTrue(
             "Timer should not count down when paused on start",
@@ -649,11 +596,7 @@ class MainActivityTest {
 
     @Test
     fun app_startsPausedWithFullDuration() {
-        val timerValue = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
+        val timerValue = getTimerValue()
 
         assertTrue(
             "Timer should start with full duration, not 0",
@@ -682,19 +625,11 @@ class MainActivityTest {
         composeTestRule.waitForIdle()
         Thread.sleep(500)
 
-        val timerBefore = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
+        val timerBefore = getTimerValue()
 
         Thread.sleep(1000)
 
-        val timerAfter = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
+        val timerAfter = getTimerValue()
 
         val countdown = timerBefore - timerAfter
 
@@ -722,19 +657,11 @@ class MainActivityTest {
         composeTestRule.waitForIdle()
         Thread.sleep(500)
 
-        val timerBefore = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
+        val timerBefore = getTimerValue()
 
         Thread.sleep(1000)
 
-        val timerAfter = composeTestRule.onNodeWithTag("timerText")
-            .fetchSemanticsNode()
-            .config[androidx.compose.ui.semantics.SemanticsProperties.Text]
-            .first().text
-            .toIntOrNull() ?: 0
+        val timerAfter = getTimerValue()
 
         val countdown = timerBefore - timerAfter
 
@@ -743,6 +670,71 @@ class MainActivityTest {
             countdown in 0..2
         )
     }
+
+    @Test
+    fun activityRecreation_preservesPausedState() {
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("pauseIcon").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("pauseOverlay").assertExists()
+
+        composeTestRule.activityRule.scenario.recreate()
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("pauseIcon").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("pauseOverlay").assertExists()
+
+        val timerValueBefore = getTimerValue()
+
+        Thread.sleep(1500)
+
+        val timerValueAfter = getTimerValue()
+
+        assertTrue(
+            "Timer should remain paused after orientation change",
+            timerValueAfter == timerValueBefore
+        )
+    }
+
+    @Test
+    fun activityRecreation_preservesRunningState() {
+        composeTestRule.waitForIdle()
+
+        tapTimer()
+        composeTestRule.waitForIdle()
+        Thread.sleep(1500)
+
+        val timerValueBeforeRecreate = getTimerValue()
+
+        composeTestRule.activityRule.scenario.recreate()
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+
+        val timerValueAfterRecreate = getTimerValue()
+
+        Thread.sleep(1500)
+
+        val timerValueAfterWait = getTimerValue()
+
+        assertTrue(
+            "Timer should continue counting down after orientation change. Before recreate: $timerValueBeforeRecreate, After recreate: $timerValueAfterRecreate, After wait: $timerValueAfterWait",
+            timerValueAfterWait < timerValueAfterRecreate
+        )
+
+        composeTestRule.onNodeWithTag("pauseIcon").assertDoesNotExist()
+        composeTestRule.onNodeWithTag("pauseOverlay").assertDoesNotExist()
+    }
+
+    private fun getCycleCount(): String = composeTestRule.onNodeWithTag("cycleCount")
+        .fetchSemanticsNode()
+        .config[SemanticsProperties.Text]
+        .first().text
+
+    private fun getTimerValue(): Int = composeTestRule.onNodeWithTag("timerText")
+        .fetchSemanticsNode()
+        .config[SemanticsProperties.Text]
+        .first().text
+        .toIntOrNull() ?: 0
 
     private fun tapTimer() {
         composeTestRule.onNodeWithTag("timerDisplay").performClick()
