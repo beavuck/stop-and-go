@@ -48,9 +48,9 @@ fun TimerScreen(
                 secondsRemaining = phase.durationSeconds
 
                 if (phase.isGo) {
-                    notificationManager.notifyGoPhase()
+                    notificationManager.notifyGoPhase(phaseManager.getGoLabel())
                 } else {
-                    notificationManager.notifyStopPhase()
+                    notificationManager.notifyStopPhase(phaseManager.getStopLabel())
                 }
 
                 startNextPhase?.invoke()

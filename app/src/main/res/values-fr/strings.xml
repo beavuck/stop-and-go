@@ -28,7 +28,7 @@
     <string name="notification_channel_go_description">Notifications pour les changements de phase de marche</string>
     <string name="notification_channel_stop_name">Phase d\'arrêt</string>
     <string name="notification_channel_stop_description">Notifications pour les changements de phase d\'arrêt</string>
-    <string name="notification_go_title">Phase ALLEZ commencée</string>
+    <string name="notification_go_title">Phase MARCHE commencée</string>
     <string name="notification_stop_title">Phase ARRÊT commencée</string>
     <string name="language">Langue</string>
     <string name="timer_screen">Écran du minuteur. Appuyez une fois pour mettre en pause ou reprendre. Appuyez longuement pour ouvrir les paramètres.</string>

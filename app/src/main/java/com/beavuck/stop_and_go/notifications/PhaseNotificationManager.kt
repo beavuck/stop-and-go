@@ -73,18 +73,22 @@ class PhaseNotificationManager(private val context: Context) {
         }
     }
 
-    fun notifyGoPhase() {
-        notifyPhase(GO_CHANNEL_ID, GO_NOTIFICATION_ID, R.string.notification_go_title)
+    fun notifyGoPhase(customLabel: String = "") {
+        notifyPhase(GO_CHANNEL_ID, GO_NOTIFICATION_ID, R.string.notification_go_title, customLabel)
     }
 
-    fun notifyStopPhase() {
-        notifyPhase(STOP_CHANNEL_ID, STOP_NOTIFICATION_ID, R.string.notification_stop_title)
+    fun notifyStopPhase(customLabel: String = "") {
+        notifyPhase(STOP_CHANNEL_ID, STOP_NOTIFICATION_ID, R.string.notification_stop_title, customLabel)
     }
 
-    private fun notifyPhase(channelId: String, notificationId: Int, titleResId: Int) {
+    private fun notifyPhase(channelId: String, notificationId: Int, titleResId: Int, customLabel: String) {
+        val title = customLabel.ifBlank {
+            context.getString(titleResId)
+        }
+
         val notification = NotificationCompat.Builder(context, channelId)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setContentTitle(context.getString(titleResId))
+            .setContentTitle(title)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
             .setTimeoutAfter(5000)
