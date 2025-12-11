@@ -21,6 +21,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import kotlin.math.pow
 
 @RunWith(AndroidJUnit4::class)
 class MainActivityTest {
@@ -738,5 +739,155 @@ class MainActivityTest {
 
     private fun tapTimer() {
         composeTestRule.onNodeWithTag("timerDisplay").performClick()
+    }
+
+    @Test
+    fun rapidTripleTap_neverShowsTimerExceedingPhaseDuration() {
+        composeTestRule.activityRule.scenario.close()
+
+        val goDuration = 60
+        val stopDuration = 15
+        val config = TimerConfig(goDuration = goDuration, stopDuration = stopDuration)
+        configRepository.saveConfig(config)
+        stateRepository.clearState()
+
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+
+        val observedValues = mutableListOf<Int>()
+
+        repeat(20) { iteration ->
+            val timerValue = getTimerValue()
+            observedValues.add(timerValue)
+
+            tapTimer()
+            Thread.sleep(20)
+            tapTimer()
+            Thread.sleep(20)
+            tapTimer()
+            Thread.sleep(50)
+        }
+
+        val maxObserved = observedValues.maxOrNull()!!
+        assertTrue(
+            "Rapid triple-taps should never cause timer to exceed phase duration. Duration: $goDuration, Max observed: $maxObserved, Sample values: ${observedValues.take(10)}",
+            maxObserved <= goDuration
+        )
+    }
+
+    @Test
+    fun rapidResetButton_neverShowsTimerExceedingPhaseDuration() {
+        composeTestRule.activityRule.scenario.close()
+
+        val goDuration = 60
+        val stopDuration = 15
+        val config = TimerConfig(goDuration = goDuration, stopDuration = stopDuration)
+        configRepository.saveConfig(config)
+        stateRepository.clearState()
+
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+
+        val observedValues = mutableListOf<Int>()
+
+        repeat(30) {
+            val timerValue = getTimerValue()
+            observedValues.add(timerValue)
+
+            composeTestRule.onNodeWithTag("resetTimerButton").performClick()
+            composeTestRule.waitForIdle()
+            Thread.sleep(50)
+        }
+
+        val maxObserved = observedValues.maxOrNull()!!
+        assertTrue(
+            "Rapid reset button clicks should never cause timer to exceed phase duration. Duration: $goDuration, Max observed: $maxObserved, Sample values: ${observedValues.take(10)}",
+            maxObserved <= goDuration
+        )
+    }
+
+    @Test
+    fun rapidResetFromSettings_neverShowsTimerExceedingPhaseDuration() {
+        composeTestRule.activityRule.scenario.close()
+
+        val goDuration = 60
+        val stopDuration = 15
+        val config = TimerConfig(goDuration = goDuration, stopDuration = stopDuration)
+        configRepository.saveConfig(config)
+        stateRepository.clearState()
+
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+
+        val observedValues = mutableListOf<Int>()
+
+        repeat(15) {
+            composeTestRule.onNodeWithTag("settingsButton").performClick()
+            composeTestRule.waitForIdle()
+            Thread.sleep(50)
+
+            composeTestRule.onNodeWithTag("saveButton").performClick()
+            composeTestRule.waitForIdle()
+            Thread.sleep(50)
+
+            val timerValue = getTimerValue()
+            observedValues.add(timerValue)
+        }
+
+        val maxObserved = observedValues.maxOrNull()!!
+        assertTrue(
+            "Rapid settings save should never cause timer to exceed phase duration. Duration: $goDuration, Max observed: $maxObserved, Sample values: ${observedValues.take(10)}",
+            maxObserved <= goDuration
+        )
+    }
+
+    @Test
+    fun phaseTransitionWithGrowth_neverShowsTimerExceedingCurrentPhaseDuration() {
+        composeTestRule.activityRule.scenario.close()
+
+        stateRepository.clearState()
+        val goDuration = 2
+        val stopDuration = 2
+        val growthMultiplier = 1.2f
+        val config = TimerConfig(
+            goDuration = goDuration,
+            stopDuration = stopDuration,
+            goDurationGrowth = growthMultiplier,
+            stopDurationGrowth = growthMultiplier
+        )
+        configRepository.saveConfig(config)
+
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+
+        val observedGoValues = mutableListOf<Int>()
+        val observedStopValues = mutableListOf<Int>()
+
+        tapTimer()
+        composeTestRule.waitForIdle()
+
+        repeat(3) { cycle ->
+            Thread.sleep(2500)
+
+            val goValue = getTimerValue()
+            observedGoValues.add(goValue)
+            val expectedMaxGo = (goDuration * growthMultiplier.toDouble().pow(cycle.toDouble())).toInt()
+
+            assertTrue(
+                "Go phase cycle $cycle should not exceed expected duration. Expected max: $expectedMaxGo, Observed: $goValue",
+                goValue <= expectedMaxGo
+            )
+
+            Thread.sleep(2500)
+
+            val stopValue = getTimerValue()
+            observedStopValues.add(stopValue)
+            val expectedMaxStop = (stopDuration * growthMultiplier.toDouble().pow(cycle.toDouble())).toInt()
+
+            assertTrue(
+                "Stop phase cycle $cycle should not exceed expected duration. Expected max: $expectedMaxStop, Observed: $stopValue",
+                stopValue <= expectedMaxStop
+            )
+        }
     }
 }

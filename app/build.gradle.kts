@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.util.Properties
 
 plugins {
-    id("com.android.application") version "8.13.1"
+    id("com.android.application") version "8.13.2"
     id("org.jetbrains.kotlin.android") version "2.2.21"
     id("org.jetbrains.kotlin.plugin.compose") version "2.2.21"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
@@ -42,9 +42,9 @@ android {
         minSdk = 24
         targetSdk = 36
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionCode = 8
+        versionCode = 9
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionName = "1.1.4"
+        versionName = "1.1.5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -120,7 +120,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     testImplementation("junit:junit:4.13.2")
-    testImplementation("org.mockito:mockito-core:5.20.0")
+    testImplementation("org.mockito:mockito-core:5.21.0")
 }
 
 apply(from = "gradle/jacoco.gradle.kts")

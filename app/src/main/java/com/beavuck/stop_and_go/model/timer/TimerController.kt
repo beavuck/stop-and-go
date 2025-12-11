@@ -27,7 +27,7 @@ class TimerController(
         ) {
             override fun onTick(millisUntilFinished: Long) {
                 val remaining = toSeconds(millisUntilFinished).toInt() + TIMER_DISPLAY_OFFSET
-                onTickCallback(remaining)
+                onTickCallback(remaining.coerceAtMost(durationSeconds))
             }
 
             override fun onFinish() {
