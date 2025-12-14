@@ -1,5 +1,6 @@
-package com.beavuck.stop_and_go.ui
+package com.beavuck.stop_and_go.ui.settings
 
+import android.content.Intent
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -22,12 +23,14 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.beavuck.stop_and_go.R
+import com.beavuck.stop_and_go.activities.TutorialActivity
 import com.beavuck.stop_and_go.dialogs.ColorPickerDialog
 import com.beavuck.stop_and_go.dialogs.LanguagePickerDialog
-import com.beavuck.stop_and_go.model.SupportedLocale
+import com.beavuck.stop_and_go.config.SupportedLocale
 import com.beavuck.stop_and_go.model.timer.TimerConfig
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
+import com.beavuck.stop_and_go.repositories.TutorialRepository
 import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
 
 
@@ -36,6 +39,7 @@ import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
 fun SettingsContent(
     configRepository: ConfigRepository,
     stateRepository: StateRepository,
+    tutorialRepository: TutorialRepository,
     currentLocale: String?,
     onLocaleChange: (String) -> Unit,
     onFinish: () -> Unit,
@@ -110,6 +114,20 @@ fun SettingsContent(
                         Icon(
                             painterResource(android.R.drawable.ic_menu_rotate),
                             contentDescription = stringResource(R.string.reset_timer)
+                        )
+                    }
+                    IconButton(
+                        onClick = {
+                            tutorialRepository.resetTutorialCompletion()
+                            val intent = Intent(context, TutorialActivity::class.java)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            context.startActivity(intent)
+                        },
+                        modifier = Modifier.testTag("helpButton")
+                    ) {
+                        Icon(
+                            painterResource(android.R.drawable.ic_menu_help),
+                            contentDescription = stringResource(R.string.help)
                         )
                     }
                     IconButton(

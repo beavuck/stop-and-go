@@ -1,0 +1,7 @@
+.secure_files/*
+*.env
+**/.gradle/*
+*.iml
+.idea/
+.kotlin/
+local.properties

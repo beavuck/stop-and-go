@@ -1,8 +1,9 @@
-package com.beavuck.stop_and_go.ui
+package com.beavuck.stop_and_go.ui.timer
 
 import android.annotation.SuppressLint
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.testTag
@@ -12,7 +13,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.beavuck.stop_and_go.R
-import com.beavuck.stop_and_go.model.PhaseManager
+import com.beavuck.stop_and_go.model.phase.PhaseManager
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_IS_PAUSED
 import com.beavuck.stop_and_go.model.timer.TimerController
 import com.beavuck.stop_and_go.notifications.PhaseNotificationManager
@@ -150,7 +151,7 @@ fun TimerScreen(
                 actions = {
                     IconButton(
                         onClick = ::resetTimer,
-                        modifier = androidx.compose.ui.Modifier.testTag("resetTimerButton")
+                        modifier = Modifier.testTag("resetTimerButton")
                     ) {
                         Icon(
                             painter = painterResource(android.R.drawable.ic_menu_rotate),
@@ -159,7 +160,7 @@ fun TimerScreen(
                     }
                     IconButton(
                         onClick = onNavigateToSettings,
-                        modifier = androidx.compose.ui.Modifier.testTag("settingsButton")
+                        modifier = Modifier.testTag("settingsButton")
                     ) {
                         Icon(
                             painter = painterResource(android.R.drawable.ic_menu_preferences),

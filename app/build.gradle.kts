@@ -42,9 +42,9 @@ android {
         minSdk = 24
         targetSdk = 36
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionCode = 9
+        versionCode = 10
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionName = "1.1.5"
+        versionName = "1.1.6"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -95,6 +95,12 @@ android {
         compose = true
     }
 
+    testOptions {
+        unitTests.all {
+            it.jvmArgs("-XX:+EnableDynamicAgentLoading")
+        }
+    }
+
     lint {
         checkReleaseBuilds = false
         abortOnError = false
@@ -124,3 +130,24 @@ dependencies {
 }
 
 apply(from = "gradle/jacoco.gradle.kts")
+
+tasks.register<Zip>("packageReleaseNativeDebugSymbols") {
+    dependsOn("mergeReleaseNativeLibs")
+
+    val mergedLibsDir = layout.buildDirectory.dir("intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib")
+    from(mergedLibsDir)
+
+    archiveFileName.set("native-debug-symbols.zip")
+    destinationDirectory.set(layout.buildDirectory.dir("outputs/native-debug-symbols/release"))
+
+    include("**/*.so")
+}
+
+afterEvaluate {
+    tasks.named("bundleRelease") {
+        finalizedBy("packageReleaseNativeDebugSymbols")
+    }
+    tasks.named("assembleRelease") {
+        finalizedBy("packageReleaseNativeDebugSymbols")
+    }
+}

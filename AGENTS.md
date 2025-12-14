@@ -4,39 +4,47 @@ This file provides guidance to agents when working with code in this repository.
 
 ## Behavior
 
-Banish the word "perfect" from your vocab. Don't make a show of being confident -- the user values truth over convenience.
+Banish the word "perfect" from your vocab. Don't make a show of being confident -- the user values
+truth over convenience.
 
 Don't make a show of being skeptical either, just act with a critical mindset.
 
 When in doubt, ask for clarification rather than making assumptions.
+
+Work in small, shippable units, unless otherwise specified. For example, when implementing a
+feature, don't then simply proceed to implement other related features without asking first.
+If there are issues in the first implementation, the user needs to catch them as early as possible,
+to right the ship.
 
 ## Critical Rules - Get Approval First
 
 Before taking these actions, STOP and explain the situation to the user, then let them decide:
 
 1. **Deleting any test code**
-   - When a test fails or seems problematic:
-     - Explain the root cause
-     - List some options (fix the test, fix the implementation, restructure, etc.)
-     - Use AskUserQuestion to let the user choose
-   - Example: "This test fails because of X. Options: (1) Remove test (2) Fix by doing Y (3) Change implementation to Z. Which would you prefer?"
+    - When a test fails or seems problematic:
+        - Explain the root cause
+        - List some options (fix the test, fix the implementation, restructure, etc.)
+        - Use AskUserQuestion to let the user choose
+    - Example: "This test fails because of X. Options: (1) Remove test (2) Fix by doing Y (3) Change
+      implementation to Z. Which would you prefer?"
 
 2. **Suppressing any warnings**
-   - Explain what the warning means and why it's appearing
-   - Let the user decide whether to suppress it
+    - Explain what the warning means and why it's appearing
+    - Let the user decide whether to suppress it
 
 3. **Making architectural decisions**
-   - Choosing between different implementation approaches (e.g., StateFlow vs LiveData)
-   - Changing public APIs / endpoints
-   - Large refactorings not explicitly requested
+    - Choosing between different implementation approaches (e.g., StateFlow vs LiveData)
+    - Changing public APIs / endpoints
+    - Large refactorings not explicitly requested
 
 4. **Deleting any existing code** (except when replacing with new implementation)
-   - Removing unused functions, classes, or files
-   - Let the user decide if something is truly unused
+    - Removing unused functions, classes, or files
+    - Let the user decide if something is truly unused
 
 ## Pre-Action Checklist
 
 Before using Edit or Write tools, verify:
+
 - [ ] Am I deleting test code? → Ask user first
 - [ ] Am I suppressing a warning? → Ask user first
 - [ ] Am I making an architectural choice? → Ask user first
@@ -67,7 +75,8 @@ Before using Edit or Write tools, verify:
 - Never suppress any warnings -- let a human do so if they deem it necessary.
 - Never delete a test -- let a human do so if they deem it necessary.
 - Ensure you use no deprecated methods, APIs, or libraries.
-- When implementing a feature or fixing a bug, prefer running targeted tests instead of entire suites
+- When implementing a feature or fixing a bug, prefer running targeted tests instead of entire
+  suites
   (ask the user to run suites at their convenience).
 - Follow Kotlin coding conventions and Android best practices.
 - Favor immutability. Use `val` over `var` unless mutability is strictly necessary.
@@ -97,10 +106,27 @@ Run tests with coverage report
 ```bash
 ./gradlew test jacocoTestReport
 ```
+
 Coverage reports are generated in:
 
 - HTML: `app/build/reports/jacoco/jacocoTestReport/html/index.html`
 - XML: `app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml`
+
+As for instrumented tests, never run the entire suite, but do run individual ones.
+
+To do so, run:
+
+```bash
+./gradlew installDebugAndroidTest
+```
+
+then
+
+```bash
+adb shell am instrument -w -e class com.beavuck.stop_and_go.MainActivityTest#tripleTap_resetsTimerToInitialState com.beavuck.stop_and_go.test/androidx.test.runner.AndroidJUnitRunner
+```
+
+But make sure to update the class and method names for your needs.
 
 ## Testing
 
@@ -109,13 +135,16 @@ The project has comprehensive test coverage:
 - **Unit Tests** (`app/src/test/`): Test core business logic
 - **Instrumented Tests** (`app/src/androidTest/`): Test Android UI components
 
-`app/gradle/jacoco.gradle.kts` contains a list of files and directories excluded from unit test coverage –
-among those, many are covered by instrumented tests instead, and the files not excluded are fully unit-tested.
+`app/gradle/jacoco.gradle.kts` contains a list of files and directories excluded from unit test
+coverage –
+among those, many are covered by instrumented tests instead, and the files not excluded are fully
+unit-tested.
 
 ### Testing Guidelines
 
 - Never delete test code without user approval (see Critical Rules above)
 - When a test fails: diagnose the root cause, propose solutions, let the user decide
-- Test code should also be of high quality: let it use reusable logical units of testing code, and let it be clear and concise
+- Test code should also be of high quality: let it use reusable logical units of testing code, and
+  let it be clear and concise
 - Compose UI tests: Use `performScrollTo()` before assertions on elements that may be off-screen
 - Prefer targeted test runs over full test suites when implementing features or fixing bugs

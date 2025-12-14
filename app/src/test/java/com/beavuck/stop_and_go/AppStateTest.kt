@@ -150,5 +150,6 @@ class AppStateTest {
         assertEquals(60, state.secondsRemaining)
         assertEquals(60, state.baseGoDuration)
         assertEquals(15, state.baseStopDuration)
+        assertTrue(state.isPaused)
     }
 }

@@ -1,4 +1,4 @@
-package com.beavuck.stop_and_go.model
+package com.beavuck.stop_and_go.model.phase
 
 data class PhaseState(
     val isGo: Boolean,

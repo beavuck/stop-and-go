@@ -11,6 +11,7 @@
       <option name="taskNames">
         <list>
           <option value=":app:testDebugUnitTest" />
+          <option value="jacocoTestReport" />
         </list>
       </option>
       <option name="vmOptions" />
@@ -19,6 +20,8 @@
     <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
     <DebugAllEnabled>false</DebugAllEnabled>
     <RunAsTest>true</RunAsTest>
-    <method v="2" />
+    <method v="2">
+      <option name="Gradle.BeforeRunTask" enabled="true" tasks="clean" externalProjectPath="$PROJECT_DIR$/app" vmOptions="" scriptParameters="" />
+    </method>
   </configuration>
 </component>

@@ -14,6 +14,7 @@ import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_DURATION
 import com.beavuck.stop_and_go.model.timer.TimerConstants.INITIAL_CYCLE_COUNT
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
+import com.beavuck.stop_and_go.repositories.TutorialRepository
 import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
 import org.junit.After
 import org.junit.Assert.assertTrue
@@ -43,6 +44,9 @@ class MainActivityTest {
         stateRepository.saveState(appState)
         stateRepository.setResetPending(false)
         configRepository.saveConfig(TimerConfig())
+
+        val tutorialRepository = TutorialRepository(context)
+        tutorialRepository.markTutorialComplete()
     }
 
     @After
@@ -736,6 +740,22 @@ class MainActivityTest {
         .config[SemanticsProperties.Text]
         .first().text
         .toIntOrNull() ?: 0
+
+
+    @Test
+    fun mainActivity_launchesTutorial_onFirstRun() {
+        composeTestRule.activityRule.scenario.close()
+
+        val tutorialRepository = TutorialRepository(context)
+        tutorialRepository.resetTutorialCompletion()
+
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+
+        composeTestRule.onNodeWithText(context.getString(R.string.tutorial_language_title))
+            .assertExists()
+    }
 
     private fun tapTimer() {
         composeTestRule.onNodeWithTag("timerDisplay").performClick()

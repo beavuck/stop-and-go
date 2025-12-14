@@ -38,12 +38,20 @@ class ConfigRepository(context: Context) {
             stopLabel = getStringFromSharedPrefs(KEY_STOP_LABEL, defaultConfig.stopLabel)
         )
     }
+
     private fun getStringFromSharedPrefs(key: String, default: String): String =
         sharedPreferences.getString(key, default) ?: default
 
     fun saveLocale(localeTag: String) {
         sharedPreferences.edit().apply {
             putString(KEY_LOCALE, localeTag)
+            apply()
+        }
+    }
+
+    fun clearLocale() {
+        sharedPreferences.edit().apply {
+            remove(KEY_LOCALE)
             apply()
         }
     }

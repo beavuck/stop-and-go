@@ -6,7 +6,7 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.beavuck.stop_and_go.dialogs.LanguagePickerDialog
-import com.beavuck.stop_and_go.model.SupportedLocale
+import com.beavuck.stop_and_go.config.SupportedLocale
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

@@ -1,4 +1,4 @@
-package com.beavuck.stop_and_go.ui
+package com.beavuck.stop_and_go.ui.timer
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
@@ -22,7 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.beavuck.stop_and_go.R
-import com.beavuck.stop_and_go.model.PhaseState
+import com.beavuck.stop_and_go.model.phase.PhaseState
 import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
 
 

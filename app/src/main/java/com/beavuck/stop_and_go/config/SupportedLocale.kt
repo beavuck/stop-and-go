@@ -1,4 +1,4 @@
-package com.beavuck.stop_and_go.model
+package com.beavuck.stop_and_go.config
 
 import android.content.Context
 import com.beavuck.stop_and_go.R

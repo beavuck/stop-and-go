@@ -1,8 +1,8 @@
 package com.beavuck.stop_and_go
 
 import android.content.Context
-import com.beavuck.stop_and_go.model.DEFAULT_LOCALE
-import com.beavuck.stop_and_go.model.SupportedLocale
+import com.beavuck.stop_and_go.config.DEFAULT_LOCALE
+import com.beavuck.stop_and_go.config.SupportedLocale
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.mockito.Mockito.mock

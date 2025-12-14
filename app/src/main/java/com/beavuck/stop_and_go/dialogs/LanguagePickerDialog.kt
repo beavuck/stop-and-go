@@ -20,8 +20,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import com.beavuck.stop_and_go.R
-import com.beavuck.stop_and_go.model.DEFAULT_LOCALE
-import com.beavuck.stop_and_go.model.SupportedLocale
+import com.beavuck.stop_and_go.config.DEFAULT_LOCALE
+import com.beavuck.stop_and_go.config.SupportedLocale
 
 @Composable
 fun LanguagePickerDialog(

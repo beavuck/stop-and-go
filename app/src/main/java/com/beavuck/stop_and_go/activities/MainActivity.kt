@@ -12,12 +12,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.beavuck.stop_and_go.BuildConfig
 import com.beavuck.stop_and_go.R
-import com.beavuck.stop_and_go.model.PhaseManager
+import com.beavuck.stop_and_go.model.phase.PhaseManager
 import com.beavuck.stop_and_go.notifications.PhaseNotificationManager
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
-import com.beavuck.stop_and_go.ui.StopAndGoTheme
-import com.beavuck.stop_and_go.ui.TimerScreen
+import com.beavuck.stop_and_go.repositories.TutorialRepository
+import com.beavuck.stop_and_go.config.StopAndGoTheme
+import com.beavuck.stop_and_go.ui.timer.TimerScreen
 import com.beavuck.stop_and_go.utils.instrumented.DebugUtils.maybeSetStrictMode
 import com.beavuck.stop_and_go.utils.instrumented.ScreenManager
 
@@ -36,6 +37,13 @@ class MainActivity : LocalizedActivity() {
         enableEdgeToEdge()
         maybeSetStrictMode()
         super.onCreate(savedInstanceState)
+
+        val tutorialRepository = TutorialRepository(this)
+        if (tutorialRepository.shouldShowTutorial()) {
+            startActivity(Intent(this, TutorialActivity::class.java))
+            finish()
+            return
+        }
 
         currentLocaleTag = ConfigRepository(this).loadLocale()
         stateRepository = StateRepository(this)

@@ -1,4 +1,4 @@
-package com.beavuck.stop_and_go.ui
+package com.beavuck.stop_and_go.config
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
