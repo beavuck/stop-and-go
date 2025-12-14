@@ -22,6 +22,12 @@ durations, and growth rates.
 
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=beavuck-services_stop-and-go&metric=coverage)](https://sonarcloud.io/summary/new_code?id=beavuck-services_stop-and-go)
 
+## 📱 Get the app
+
+[Check out the app on Android](https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go).
+
+It's completely free, ad-free, does not collect any data, and runs off-network.
+
 ## What It Does
 
 Stop and Go displays full-screen colors that alternate on a timer. Use it for interval training,
