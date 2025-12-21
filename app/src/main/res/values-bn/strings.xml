@@ -1,0 +1,116 @@
+<resources>
+    <string name="phase_go">চালু</string>
+    <string name="phase_stop">বন্ধ</string>
+
+    <string name="cycle_count">চক্র: %d</string>
+
+    <string name="go_duration">"চালু" সময়কাল (সেকেন্ড)</string>
+    <string name="stop_duration">"বন্ধ" সময়কাল (সেকেন্ড)</string>
+
+    <string name="go_growth">"চালু" বৃদ্ধির গুণক</string>
+    <string name="go_growth_hint">০.০১–১০০.০</string>
+    <string name="stop_growth">"বন্ধ" বৃদ্ধির গুণক</string>
+    <string name="stop_growth_hint">০.০১–১০০.০</string>
+
+    <string name="go_color">"চালু" রঙ</string>
+    <string name="stop_color">"বন্ধ" রঙ</string>
+
+    <string name="go_label">"চালু" লেবেল (ঐচ্ছিক)</string>
+    <string name="go_label_hint">ডিফল্ট ব্যবহার করতে খালি রাখুন</string>
+
+    <string name="stop_label">"বন্ধ" লেবেল (ঐচ্ছিক)</string>
+    <string name="stop_label_hint">ডিফল্ট ব্যবহার করতে খালি রাখুন</string>
+
+    <string name="save_settings">সেটিংস সংরক্ষণ করুন</string>
+    <string name="settings">সেটিংস</string>
+    <string name="settings_saved">সেটিংস সফলভাবে সংরক্ষণ করা হয়েছে</string>
+
+    <string name="invalid_input">অবৈধ ইনপুট</string>
+    <string name="reset_timer">টাইমার রিসেট করুন</string>
+
+    <string name="pick_color">রঙ নির্বাচন করুন</string>
+    <string name="color_preview">রঙ প্রিভিউ</string>
+
+    <string name="red_label">লাল</string>
+    <string name="green_label">সবুজ</string>
+    <string name="blue_label">নীল</string>
+
+    <string name="color_picker_title">রঙ নির্বাচন করুন</string>
+
+    <string name="ok">ওকে</string>
+    <string name="cancel">বাতিল</string>
+
+    <string name="notification_channel_go_name">"চালু" ধাপ</string>
+    <string name="notification_channel_go_description">"চালু" ধাপ পরিবর্তনের জন্য নোটিফিকেশন</string>
+
+    <string name="notification_channel_stop_name">"বন্ধ" ধাপ</string>
+    <string name="notification_channel_stop_description">"বন্ধ" ধাপ পরিবর্তনের জন্য নোটিফিকেশন</string>
+
+    <string name="notification_go_title">"চালু" ধাপ শুরু হয়েছে</string>
+    <string name="notification_stop_title">"বন্ধ" ধাপ শুরু হয়েছে</string>
+
+    <string name="language">ভাষা</string>
+
+    <string name="timer_screen">টাইমার স্ক্রীন। থামাতে বা চালাতে ট্যাপ করুন। সেটিংস খুলতে দীর্ঘ চাপ দিন।</string>
+    <string name="timer_paused">টাইমার বিরতিতে আছে</string>
+    <string name="timer_resumed">টাইমার চালু হয়েছে</string>
+
+    <string name="pause">বিরতি</string>
+    <string name="resume">চালিয়ে যান</string>
+
+    <plurals name="phase_changed">
+        <item quantity="one">%1$s ধাপ শুরু। %2$d সেকেন্ড বাকি।</item>
+        <item quantity="other">%1$s ধাপ শুরু। %2$d সেকেন্ড বাকি।</item>
+    </plurals>
+
+    <string name="red_slider">লাল রঙ কম্পোনেন্ট স্লাইডার</string>
+    <string name="green_slider">সবুজ রঙ কম্পোনেন্ট স্লাইডার</string>
+    <string name="blue_slider">নীল রঙ কম্পোনেন্ট স্লাইডার</string>
+
+    <string name="notification_permission_rationale_title">ধাপ পরিবর্তনের নোটিফিকেশন চালু করুন</string>
+    <string name="notification_permission_rationale_message">Stop and Go আপনাকে জানাতে পারে যখন টাইমার "চালু" ও "বন্ধ" ধাপের মধ্যে পরিবর্তন করে—ফলে স্ক্রীন দেখেই থাকতে হবে না।</string>
+
+    <string name="enable">চালু করুন</string>
+    <string name="not_now">এখন নয়</string>
+
+    <string name="error_go_duration_range">"চালু" সময় %1$d থেকে %2$d সেকেন্ডের মধ্যে হতে হবে</string>
+    <string name="error_stop_duration_range">"বন্ধ" সময় %1$d থেকে %2$d সেকেন্ডের মধ্যে হতে হবে</string>
+
+    <string name="error_go_growth_range">"চালু" বৃদ্ধির গুণক %1$.2f থেকে %2$.2f এর মধ্যে হতে হবে</string>
+    <string name="error_stop_growth_range">"বন্ধ" বৃদ্ধির গুণক %1$.2f থেকে %2$.2f এর মধ্যে হতে হবে</string>
+
+    <string name="error_go_label_length">"চালু" লেবেল %d অক্ষরের বেশি হতে পারবে না</string>
+    <string name="error_stop_label_length">"বন্ধ" লেবেল %d অক্ষরের বেশি হতে পারবে না</string>
+
+    <string name="tutorial_welcome">Stop and Go-তে স্বাগতম!</string>
+    <string name="tutorial_skip">এড়িয়ে যান</string>
+    <string name="tutorial_next">পরবর্তী</string>
+    <string name="tutorial_progress">ধাপ %1$d এর %2$d</string>
+
+    <string name="help">সহায়তা</string>
+
+    <string name="tutorial_language_title">ভাষা</string>
+    <string name="tutorial_language_description">একটি বেছে নিন। পরে সেটিংসে পরিবর্তন করতে পারবেন।</string>
+    <string name="tutorial_language_skip">ডিফল্ট ইংরেজি ব্যবহার করুন</string>
+
+    <string name="tutorial_gestures_title">কীভাবে ব্যবহার করবেন</string>
+    <string name="tutorial_tap_instruction">থামাতে/চালাতে ট্যাপ করুন</string>
+    <string name="tutorial_tap_success">বিরতিতে</string>
+
+    <string name="tutorial_long_instruction">সেটিংস খুলতে দীর্ঘ চাপ দিন</string>
+    <string name="tutorial_long_success">এতে সেটিংস খোলে</string>
+
+    <string name="tutorial_multi_instruction">রিসেট করতে তিনবার ট্যাপ করুন</string>
+    <string name="tutorial_multi_success">রিসেট হয়েছে</string>
+
+    <string name="tutorial_background_title">টাইমার চলতেই থাকে</string>
+    <string name="tutorial_background_description">অ্যাপ বন্ধ করলেও টাইমার চলতে থাকে। ধাপ পরিবর্তনের সময় নোটিফিকেশন পাবেন।</string>
+
+    <string name="tutorial_creative_title">উদাহরণ</string>
+    <string name="tutorial_creative_description">অনেকে এটি ব্যবহার করেন:</string>
+    <string name="tutorial_use_chess">চেস ঘড়ি</string>
+    <string name="tutorial_use_apnea">শ্বাস ধরে রাখার প্রশিক্ষণ</string>
+    <string name="tutorial_use_pomodoro">পোমোডোরো টাইমার</string>
+    <string name="tutorial_use_hiit">HIIT ইন্টারভাল</string>
+    <string name="tutorial_use_custom">আপনার যেকোনো কাজে</string>
+</resources>

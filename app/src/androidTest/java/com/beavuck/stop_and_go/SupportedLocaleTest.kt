@@ -46,5 +46,15 @@ class SupportedLocaleTest {
         assertNotNull(entries.find { it == SupportedLocale.ARABIC })
         assertNotNull(entries.find { it == SupportedLocale.CHINESE_SIMPLIFIED })
         assertNotNull(entries.find { it == SupportedLocale.SPANISH })
+        assertNotNull(entries.find { it == SupportedLocale.BENGALI })
+        assertNotNull(entries.find { it == SupportedLocale.HINDI })
+        assertNotNull(entries.find { it == SupportedLocale.JAPANESE })
+        assertNotNull(entries.find { it == SupportedLocale.JAVANESE })
+        assertNotNull(entries.find { it == SupportedLocale.PUNJABI })
+        assertNotNull(entries.find { it == SupportedLocale.PORTUGUESE })
+        assertNotNull(entries.find { it == SupportedLocale.RUSSIAN })
+        assertNotNull(entries.find { it == SupportedLocale.TURKISH })
+        assertNotNull(entries.find { it == SupportedLocale.VIETNAMESE })
+        assertNotNull(entries.find { it == SupportedLocale.CHINESE_TRADITIONAL_HK })
     }
 }

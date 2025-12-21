@@ -1,0 +1,140 @@
+<resources>
+    <string name="phase_go">СТАРТ</string>
+    <string name="phase_stop">СТОП</string>
+    <string name="cycle_count">Цикл: %d</string>
+
+    <string name="go_duration">Длительность "Старт" (в секундах)</string>
+    <string name="stop_duration">Длительность "Стоп" (в секундах)</string>
+
+    <string name="go_growth">Множитель роста "Старт"</string>
+    <string name="go_growth_hint">0,01–100,0</string>
+    <string name="stop_growth">Множитель роста "Стоп"</string>
+    <string name="stop_growth_hint">0,01–100,0</string>
+
+    <string name="go_color">Цвет "Старт"</string>
+    <string name="stop_color">Цвет "Стоп"</string>
+
+    <string name="go_label">Метка "Старт" (необязательно)</string>
+    <string name="go_label_hint">Оставьте пустым для значения по умолчанию</string>
+
+    <string name="stop_label">Метка "Стоп" (необязательно)</string>
+    <string name="stop_label_hint">Оставьте пустым для значения по умолчанию</string>
+
+    <string name="save_settings">Сохранить настройки</string>
+    <string name="settings">Настройки</string>
+    <string name="settings_saved">Настройки успешно сохранены</string>
+    <string name="invalid_input">Недопустимое значение</string>
+    <string name="reset_timer">Сброс таймера</string>
+    <string name="pick_color">Выбрать цвет</string>
+    <string name="color_preview">Предпросмотр цвета</string>
+
+    <string name="red_label">Красный</string>
+    <string name="green_label">Зелёный</string>
+    <string name="blue_label">Синий</string>
+    <string name="color_picker_title">Выбор цвета</string>
+
+    <string name="ok">ОК</string>
+    <string name="cancel">Отмена</string>
+
+    <string name="notification_channel_go_name">Фаза "Старт"</string>
+    <string name="notification_channel_go_description">
+        Уведомления о начале фазы "Старт"
+    </string>
+
+    <string name="notification_channel_stop_name">Фаза "Стоп"</string>
+    <string name="notification_channel_stop_description">
+        Уведомления о начале фазы "Стоп"
+    </string>
+
+    <string name="notification_go_title">Фаза "Старт" началась</string>
+    <string name="notification_stop_title">Фаза "Стоп" началась</string>
+
+    <string name="language">Язык</string>
+
+    <string name="timer_screen">
+        Экран таймера. Одно касание — пауза или продолжение. Долгое нажатие — настройки.
+    </string>
+
+    <string name="timer_paused">Таймер на паузе</string>
+    <string name="timer_resumed">Таймер продолжен</string>
+
+    <string name="pause">Пауза</string>
+    <string name="resume">Продолжить</string>
+
+    <plurals name="phase_changed">
+        <item quantity="one">%1$s началась. Осталась %2$d секунда.</item>
+        <item quantity="few">%1$s началась. Осталось %2$d секунды.</item>
+        <item quantity="many">%1$s началась. Осталось %2$d секунд.</item>
+        <item quantity="other">%1$s началась. Осталось %2$d секунды.</item>
+    </plurals>
+
+    <string name="red_slider">Слайдер компонента красного цвета</string>
+    <string name="green_slider">Слайдер компонента зелёного цвета</string>
+    <string name="blue_slider">Слайдер компонента синего цвета</string>
+
+    <string name="notification_permission_rationale_title">
+        Включите уведомления о смене фазы
+    </string>
+    <string name="notification_permission_rationale_message">
+        Приложение может уведомлять вас при переходе между фазами СТАРТ и СТОП.
+        Так можно не смотреть постоянно на экран.
+    </string>
+
+    <string name="enable">Включить</string>
+    <string name="not_now">Не сейчас</string>
+
+    <string name="error_go_duration_range">
+        Длительность "Старт" должна быть от %1$d до %2$d секунд
+    </string>
+    <string name="error_stop_duration_range">
+        Длительность "Стоп" должна быть от %1$d до %2$d секунд
+    </string>
+    <string name="error_go_growth_range">
+        Множитель роста "Старт" должен быть от %1$.2f до %2$.2f
+    </string>
+    <string name="error_stop_growth_range">
+        Множитель роста "Стоп" должен быть от %1$.2f до %2$.2f
+    </string>
+    <string name="error_go_label_length">
+        Метка "Старт" не должна превышать %d символов
+    </string>
+    <string name="error_stop_label_length">
+        Метка "Стоп" не должна превышать %d символов
+    </string>
+
+    <string name="tutorial_welcome">Добро пожаловать в Stop and Go!</string>
+    <string name="tutorial_skip">Пропустить</string>
+    <string name="tutorial_next">Далее</string>
+    <string name="tutorial_progress">Шаг %1$d из %2$d</string>
+
+    <string name="help">Помощь</string>
+
+    <string name="tutorial_language_title">Язык</string>
+    <string name="tutorial_language_description">
+        Выберите язык. Это можно изменить позже.
+    </string>
+    <string name="tutorial_language_skip">Использовать английский (по умолчанию)</string>
+
+    <string name="tutorial_gestures_title">Как работает</string>
+    <string name="tutorial_tap_instruction">Нажмите, чтобы поставить на паузу/продолжить</string>
+    <string name="tutorial_tap_success">Пауза</string>
+
+    <string name="tutorial_long_instruction">Долгое нажатие открывает настройки</string>
+    <string name="tutorial_long_success">Открыты настройки</string>
+
+    <string name="tutorial_multi_instruction">Тройное касание — сброс</string>
+    <string name="tutorial_multi_success">Сброшено</string>
+
+    <string name="tutorial_background_title">Таймер продолжает работать</string>
+    <string name="tutorial_background_description">
+        Таймер работает даже при закрытии приложения. Вы получите уведомления при смене фаз.
+    </string>
+
+    <string name="tutorial_creative_title">Примеры</string>
+    <string name="tutorial_creative_description">Для чего используют:</string>
+    <string name="tutorial_use_chess">Шахматный таймер</string>
+    <string name="tutorial_use_apnea">Тренировка задержки дыхания</string>
+    <string name="tutorial_use_pomodoro">Техника "Помодоро"</string>
+    <string name="tutorial_use_hiit">Интервалы HIIT</string>
+    <string name="tutorial_use_custom">Как угодно</string>
+</resources>

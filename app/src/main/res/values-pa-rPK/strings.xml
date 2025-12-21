@@ -1,0 +1,135 @@
+<resources>
+    <string name="phase_go">شروع</string>
+    <string name="phase_stop">روک</string>
+    <string name="cycle_count">سائیکل: %d</string>
+
+    <string name="go_duration">"شروع" دا وقت (سیکنڈ)</string>
+    <string name="stop_duration">"روک" دا وقت (سیکنڈ)</string>
+
+    <string name="go_growth">"شروع" گروتھ ملٹی پلائر</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+    <string name="stop_growth">"روک" گروتھ ملٹی پلائر</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+
+    <string name="go_color">"شروع" دا رنگ</string>
+    <string name="stop_color">"روک" دا رنگ</string>
+
+    <string name="go_label">"شروع" لیبل (اختیاری)</string>
+    <string name="go_label_hint">خالی چھڈو تاں ڈیفالٹ چلے گا</string>
+
+    <string name="stop_label">"روک" لیبل (اختیاری)</string>
+    <string name="stop_label_hint">خالی چھڈو تاں ڈیفالٹ چلے گا</string>
+
+    <string name="save_settings">سیٹنگز محفوظ کرو</string>
+    <string name="settings">سیٹنگز</string>
+    <string name="settings_saved">سیٹنگز کامیابی نال محفوظ ہوگئیاں</string>
+    <string name="invalid_input">غلط ان پٹ</string>
+    <string name="reset_timer">ٹائمر ری سیٹ کرو</string>
+    <string name="pick_color">رنگ چونو</string>
+    <string name="color_preview">رنگ دا پری ویوو</string>
+
+    <string name="red_label">لال</string>
+    <string name="green_label">ہرا</string>
+    <string name="blue_label">نیلا</string>
+    <string name="color_picker_title">رنگ چنو</string>
+
+    <string name="ok">ٹھیک</string>
+    <string name="cancel">منسوخ</string>
+
+    <string name="notification_channel_go_name">شروع فیز</string>
+    <string name="notification_channel_go_description">شروع فیز دیاں نوٹیفکیشنز</string>
+
+    <string name="notification_channel_stop_name">روک فیز</string>
+    <string name="notification_channel_stop_description">روک فیز دیاں نوٹیفکیشنز</string>
+
+    <string name="notification_go_title">شروع فیز شروع ہوگئی</string>
+    <string name="notification_stop_title">روک فیز شروع ہوگئی</string>
+
+    <string name="language">زبان</string>
+
+    <string name="timer_screen">
+        ٹائمر سکرین۔ ایک ٹیپ نال روک/چلاؤ۔ لانگ پریس نال سیٹنگز کھل دیاں۔
+    </string>
+
+    <string name="timer_paused">ٹائمر رکا ہویا اے</string>
+    <string name="timer_resumed">ٹائمر دوبارہ چل پیا</string>
+
+    <string name="pause">روک</string>
+    <string name="resume">جاری</string>
+
+    <plurals name="phase_changed">
+        <item quantity="one">%1$s شروع ہو گئی۔ %2$d سیکنڈ باقی۔</item>
+        <item quantity="other">%1$s شروع ہو گئی۔ %2$d سیکنڈ باقی۔</item>
+    </plurals>
+
+    <string name="red_slider">لال کمپوننٹ سلائیڈر</string>
+    <string name="green_slider">ہرا کمپوننٹ سلائیڈر</string>
+    <string name="blue_slider">نیلا کمپوننٹ سلائیڈر</string>
+
+    <string name="notification_permission_rationale_title">
+        فیز نوٹیفکیشنز فعال کرو
+    </string>
+    <string name="notification_permission_rationale_message">
+        ایپ تہانوں شروع تے روک فیز بدلنے تے نوٹیفائی کرسکدی اے۔
+        اینج تسی سکرین تے نظر رکھن دی لوڑ نہیں۔
+    </string>
+
+    <string name="enable">فعال کرو</string>
+    <string name="not_now">ہن نہیں</string>
+
+    <string name="error_go_duration_range">
+        "شروع" دا وقت %1$d تے %2$d سیکنڈ دے درمیان ہونا چاہیدا
+    </string>
+    <string name="error_stop_duration_range">
+        "روک" دا وقت %1$d تے %2$d سیکنڈ دے درمیان ہونا چاہیدا
+    </string>
+    <string name="error_go_growth_range">
+        "شروع" گروتھ ملٹی پلائر %1$.2f تے %2$.2f دے درمیان ہونا چاہیدا
+    </string>
+    <string name="error_stop_growth_range">
+        "روک" گروتھ ملٹی پلائر %1$.2f تے %2$.2f دے درمیان ہونا چاہیدا
+    </string>
+    <string name="error_go_label_length">
+        "شروع" لیبل زیادہ توں زیادہ %d حروف ہو سکتے نیں
+    </string>
+    <string name="error_stop_label_length">
+        "روک" لیبل زیادہ توں زیادہ %d حروف ہو سکتے نیں
+    </string>
+
+    <string name="tutorial_welcome">Stop and Go وچ خوش آمدید!</string>
+    <string name="tutorial_skip">سکپ</string>
+    <string name="tutorial_next">اگلا</string>
+    <string name="tutorial_progress">%1$d وچوں %2$d</string>
+
+    <string name="help">مدد</string>
+
+    <string name="tutorial_language_title">زبان</string>
+    <string name="tutorial_language_description">
+        زبان چنو۔ بعد وچ بدل سکدی اے۔
+    </string>
+    <string name="tutorial_language_skip">انگریزی استعمال کرو (ڈیفالٹ)</string>
+
+    <string name="tutorial_gestures_title">کیویں چل دا اے</string>
+    <string name="tutorial_tap_instruction">ٹیپ کرو روک/جاری</string>
+    <string name="tutorial_tap_success">روکیا</string>
+
+    <string name="tutorial_long_instruction">لانگ پریس نال سیٹنگز کھل دیاں</string>
+    <string name="tutorial_long_success">سیٹنگز کھل گئیاں</string>
+
+    <string name="tutorial_multi_instruction">تین واری ٹیپ—ری سیٹ</string>
+    <string name="tutorial_multi_success">ری سیٹ ہوگیا</string>
+
+    <string name="tutorial_background_title">بیک گراؤنڈ وچ وی چلدا اے</string>
+    <string name="tutorial_background_description">
+        ایپ بند وی کرو، ٹائمر چلدا رہندا اے۔
+        فیز بدلنے تے نوٹیفکیشن ملے گی۔
+    </string>
+
+    <string name="tutorial_creative_title">مثالاں</string>
+    <string name="tutorial_creative_description">لوگ اینہوں کیہ لئی ورتدے نیں:</string>
+    <string name="tutorial_use_chess">شطرنج ٹائمر</string>
+    <string name="tutorial_use_apnea">سانس روک ٹریننگ</string>
+    <string name="tutorial_use_pomodoro">پومودورو ٹائمر</string>
+    <string name="tutorial_use_hiit">HIIT وقفے</string>
+    <string name="tutorial_use_custom">جہڑا مرضی استعمال</string>
+</resources>

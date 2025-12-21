@@ -1,0 +1,136 @@
+<resources>
+    <string name="phase_go">開始</string>
+    <string name="phase_stop">停止</string>
+    <string name="cycle_count">サイクル: %d</string>
+
+    <string name="go_duration">「開始」時間（秒）</string>
+    <string name="stop_duration">「停止」時間（秒）</string>
+
+    <string name="go_growth">「開始」成長倍率</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+    <string name="stop_growth">「停止」成長倍率</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+
+    <string name="go_color">「開始」カラー</string>
+    <string name="stop_color">「停止」カラー</string>
+
+    <string name="go_label">「開始」ラベル（任意）</string>
+    <string name="go_label_hint">空欄の場合は既定値を使用</string>
+
+    <string name="stop_label">「停止」ラベル（任意）</string>
+    <string name="stop_label_hint">空欄の場合は既定値を使用</string>
+
+    <string name="save_settings">設定を保存</string>
+    <string name="settings">設定</string>
+    <string name="settings_saved">設定を保存しました</string>
+    <string name="invalid_input">無効な入力です</string>
+    <string name="reset_timer">タイマーをリセット</string>
+    <string name="pick_color">色を選択</string>
+    <string name="color_preview">色のプレビュー</string>
+
+    <string name="red_label">赤</string>
+    <string name="green_label">緑</string>
+    <string name="blue_label">青</string>
+    <string name="color_picker_title">色の選択</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">キャンセル</string>
+
+    <string name="notification_channel_go_name">開始フェーズ</string>
+    <string name="notification_channel_go_description">
+        開始フェーズの通知
+    </string>
+
+    <string name="notification_channel_stop_name">停止フェーズ</string>
+    <string name="notification_channel_stop_description">
+        停止フェーズの通知
+    </string>
+
+    <string name="notification_go_title">開始フェーズが始まりました</string>
+    <string name="notification_stop_title">停止フェーズが始まりました</string>
+
+    <string name="language">言語</string>
+
+    <string name="timer_screen">
+        タイマー画面。タップで一時停止／再開。長押しで設定を開く。
+    </string>
+
+    <string name="timer_paused">一時停止中</string>
+    <string name="timer_resumed">再開しました</string>
+
+    <string name="pause">一時停止</string>
+    <string name="resume">再開</string>
+
+    <plurals name="phase_changed">
+        <item quantity="other">%1$sが開始。残り%2$d秒。</item>
+    </plurals>
+
+    <string name="red_slider">赤成分スライダー</string>
+    <string name="green_slider">緑成分スライダー</string>
+    <string name="blue_slider">青成分スライダー</string>
+
+    <string name="notification_permission_rationale_title">
+        フェーズ通知を有効にする
+    </string>
+    <string name="notification_permission_rationale_message">
+        開始や停止に切り替わった際、通知で知らせます。
+        画面を常に見る必要がなくなります。
+    </string>
+
+    <string name="enable">有効にする</string>
+    <string name="not_now">後で</string>
+
+    <string name="error_go_duration_range">
+        「開始」時間は %1$d～%2$d 秒の間で指定してください
+    </string>
+    <string name="error_stop_duration_range">
+        「停止」時間は %1$d～%2$d 秒の間で指定してください
+    </string>
+    <string name="error_go_growth_range">
+        「開始」成長倍率は %1$.2f〜%2$.2f の間で指定してください
+    </string>
+    <string name="error_stop_growth_range">
+        「停止」成長倍率は %1$.2f〜%2$.2f の間で指定してください
+    </string>
+    <string name="error_go_label_length">
+        「開始」ラベルは %d 文字以内で入力してください
+    </string>
+    <string name="error_stop_label_length">
+        「停止」ラベルは %d 文字以内で入力してください
+    </string>
+
+    <string name="tutorial_welcome">Stop and Go へようこそ！</string>
+    <string name="tutorial_skip">スキップ</string>
+    <string name="tutorial_next">次へ</string>
+    <string name="tutorial_progress">%1$d / %2$d</string>
+
+    <string name="help">ヘルプ</string>
+
+    <string name="tutorial_language_title">言語</string>
+    <string name="tutorial_language_description">言語を選択。後で変更できます。</string>
+    <string name="tutorial_language_skip">英語を使用（既定）</string>
+
+    <string name="tutorial_gestures_title">操作方法</string>
+    <string name="tutorial_tap_instruction">タップで一時停止／再開</string>
+    <string name="tutorial_tap_success">一時停止</string>
+
+    <string name="tutorial_long_instruction">長押しで設定を開く</string>
+    <string name="tutorial_long_success">設定を開きました</string>
+
+    <string name="tutorial_multi_instruction">3回タップでリセット</string>
+    <string name="tutorial_multi_success">リセットしました</string>
+
+    <string name="tutorial_background_title">バックグラウンドでも動作</string>
+    <string name="tutorial_background_description">
+        アプリを閉じてもタイマーは動作します。
+        フェーズ切替時に通知が届きます。
+    </string>
+
+    <string name="tutorial_creative_title">使用例</string>
+    <string name="tutorial_creative_description">例えばこんな用途：</string>
+    <string name="tutorial_use_chess">チェスクロック</string>
+    <string name="tutorial_use_apnea">息止めトレーニング</string>
+    <string name="tutorial_use_pomodoro">ポモドーロ</string>
+    <string name="tutorial_use_hiit">HIIT インターバル</string>
+    <string name="tutorial_use_custom">自由に活用</string>
+</resources>

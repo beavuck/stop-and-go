@@ -1,0 +1,115 @@
+<resources>
+    <string name="phase_go">INICIAR</string>
+    <string name="phase_stop">PARAR</string>
+    <string name="cycle_count">Ciclo: %d</string>
+
+    <string name="go_duration">Duração "Iniciar" (segundos)</string>
+    <string name="stop_duration">Duração "Parar" (segundos)</string>
+
+    <string name="go_growth">Multiplicador de crescimento "Iniciar"</string>
+    <string name="go_growth_hint">0,01–100,0</string>
+    <string name="stop_growth">Multiplicador de crescimento "Parar"</string>
+    <string name="stop_growth_hint">0,01–100,0</string>
+
+    <string name="go_color">Cor "Iniciar"</string>
+    <string name="stop_color">Cor "Parar"</string>
+
+    <string name="go_label">Etiqueta "Iniciar" (opcional)</string>
+    <string name="go_label_hint">Deixe vazio para usar o padrão</string>
+
+    <string name="stop_label">Etiqueta "Parar" (opcional)</string>
+    <string name="stop_label_hint">Deixe vazio para usar o padrão</string>
+
+    <string name="save_settings">Guardar definições</string>
+    <string name="settings">Definições</string>
+    <string name="settings_saved">Definições guardadas com sucesso</string>
+
+    <string name="invalid_input">Entrada inválida</string>
+    <string name="reset_timer">Repor temporizador</string>
+
+    <string name="pick_color">Escolher cor</string>
+    <string name="color_preview">Pré-visualização da cor</string>
+
+    <string name="red_label">Vermelho</string>
+    <string name="green_label">Verde</string>
+    <string name="blue_label">Azul</string>
+
+    <string name="color_picker_title">Escolher cor</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancelar</string>
+
+    <string name="notification_channel_go_name">Fase "Iniciar"</string>
+    <string name="notification_channel_go_description">Notificações para alterações da fase "Iniciar"</string>
+
+    <string name="notification_channel_stop_name">Fase "Parar"</string>
+    <string name="notification_channel_stop_description">Notificações para alterações da fase "Parar"</string>
+
+    <string name="notification_go_title">Fase "Iniciar" iniciada</string>
+    <string name="notification_stop_title">Fase "Parar" iniciada</string>
+
+    <string name="language">Idioma</string>
+
+    <string name="timer_screen">Ecrã do temporizador. Toque para pausar ou retomar. Toque longo para abrir as definições.</string>
+    <string name="timer_paused">Temporizador pausado</string>
+    <string name="timer_resumed">Temporizador retomado</string>
+
+    <string name="pause">Pausar</string>
+    <string name="resume">Retomar</string>
+
+    <plurals name="phase_changed">
+        <item quantity="one">%1$s iniciado. Falta %2$d segundo.</item>
+        <item quantity="other">%1$s iniciado. Faltam %2$d segundos.</item>
+    </plurals>
+
+    <string name="red_slider">Slider do componente vermelho</string>
+    <string name="green_slider">Slider do componente verde</string>
+    <string name="blue_slider">Slider do componente azul</string>
+
+    <string name="notification_permission_rationale_title">Ativar notificações de mudança de fase</string>
+    <string name="notification_permission_rationale_message">O Stop and Go pode avisá-lo quando o temporizador muda entre "Iniciar" e "Parar". Assim mantém o foco sem olhar sempre para o ecrã.</string>
+
+    <string name="enable">Ativar</string>
+    <string name="not_now">Agora não</string>
+
+    <string name="error_go_duration_range">A duração "Iniciar" deve estar entre %1$d e %2$d segundos</string>
+    <string name="error_stop_duration_range">A duração "Parar" deve estar entre %1$d e %2$d segundos</string>
+
+    <string name="error_go_growth_range">O multiplicador "Iniciar" deve estar entre %1$.2f e %2$.2f</string>
+    <string name="error_stop_growth_range">O multiplicador "Parar" deve estar entre %1$.2f e %2$.2f</string>
+
+    <string name="error_go_label_length">A etiqueta "Iniciar" não deve exceder %d caracteres</string>
+    <string name="error_stop_label_length">A etiqueta "Parar" não deve exceder %d caracteres</string>
+
+    <string name="tutorial_welcome">Bem-vindo ao Stop and Go!</string>
+    <string name="tutorial_skip">Saltar</string>
+    <string name="tutorial_next">Seguinte</string>
+    <string name="tutorial_progress">Passo %1$d de %2$d</string>
+
+    <string name="help">Ajuda</string>
+
+    <string name="tutorial_language_title">Idioma</string>
+    <string name="tutorial_language_description">Escolha um. Pode mudá-lo depois nas definições.</string>
+    <string name="tutorial_language_skip">Usar inglês (padrão)</string>
+
+    <string name="tutorial_gestures_title">Como funciona</string>
+    <string name="tutorial_tap_instruction">Toque para pausar/retomar</string>
+    <string name="tutorial_tap_success">Pausado</string>
+
+    <string name="tutorial_long_instruction">Toque longo para abrir definições</string>
+    <string name="tutorial_long_success">Isso abre as definições</string>
+
+    <string name="tutorial_multi_instruction">Toque três vezes para repor</string>
+    <string name="tutorial_multi_success">Reposto</string>
+
+    <string name="tutorial_background_title">O temporizador continua ativo</string>
+    <string name="tutorial_background_description">O temporizador continua mesmo ao fechar a app. Receberá notificações quando as fases mudarem.</string>
+
+    <string name="tutorial_creative_title">Exemplos</string>
+    <string name="tutorial_creative_description">Alguns usos comuns:</string>
+    <string name="tutorial_use_chess">Relógio de xadrez</string>
+    <string name="tutorial_use_apnea">Treino de apneia</string>
+    <string name="tutorial_use_pomodoro">Temporizador Pomodoro</string>
+    <string name="tutorial_use_hiit">Intervalos HIIT</string>
+    <string name="tutorial_use_custom">O que quiser</string>
+</resources>

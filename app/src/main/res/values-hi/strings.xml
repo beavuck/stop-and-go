@@ -1,0 +1,92 @@
+<resources>
+    <string name="phase_go">चलें</string>
+    <string name="phase_stop">रुकें</string>
+    <string name="cycle_count">चक्र: %d</string>
+    <string name="go_duration">"चलें" अवधि (सेकंड में)</string>
+    <string name="stop_duration">"रुकें" अवधि (सेकंड में)</string>
+    <string name="go_growth">"चलें" वृद्धि गुणक</string>
+    <string name="go_growth_hint">०.०१–१००.०</string>
+    <string name="stop_growth">"रुकें" वृद्धि गुणक</string>
+    <string name="stop_growth_hint">०.०१–१००.०</string>
+    <string name="go_color">"चलें" रंग</string>
+    <string name="stop_color">"रुकें" रंग</string>
+    <string name="go_label">"चलें" लेबल (वैकल्पिक)</string>
+    <string name="go_label_hint">डिफ़ॉल्ट उपयोग करने के लिए खाली छोड़ें</string>
+    <string name="stop_label">"रुकें" लेबल (वैकल्पिक)</string>
+    <string name="stop_label_hint">डिफ़ॉल्ट उपयोग करने के लिए खाली छोड़ें</string>
+    <string name="save_settings">सेटिंग्स सहेजें</string>
+    <string name="settings">सेटिंग्स</string>
+    <string name="settings_saved">सेटिंग्स सफलतापूर्वक सहेजी गईं</string>
+    <string name="invalid_input">अमान्य इनपुट</string>
+    <string name="reset_timer">टाइमर रीसेट करें</string>
+    <string name="pick_color">रंग चुनें</string>
+    <string name="color_preview">रंग पूर्वावलोकन</string>
+    <string name="red_label">लाल</string>
+    <string name="green_label">हरा</string>
+    <string name="blue_label">नीला</string>
+    <string name="color_picker_title">रंग चुनें</string>
+    <string name="ok">ओके</string>
+    <string name="cancel">रद्द करें</string>
+    <string name="notification_channel_go_name">"चलें" चरण</string>
+    <string name="notification_channel_go_description">"चलें" चरण बदलने के लिए सूचनाएँ</string>
+    <string name="notification_channel_stop_name">"रुकें" चरण</string>
+    <string name="notification_channel_stop_description">"रुकें" चरण बदलने के लिए सूचनाएँ</string>
+    <string name="notification_go_title">"चलें" चरण शुरू</string>
+    <string name="notification_stop_title">"रुकें" चरण शुरू</string>
+    <string name="language">भाषा</string>
+    <string name="timer_screen">टाइमर स्क्रीन। रोकने/जारी करने के लिए एक बार टैप करें। सेटिंग्स खोलने के लिए लंबा प्रेस करें।</string>
+    <string name="timer_paused">टाइमर रोका गया</string>
+    <string name="timer_resumed">टाइमर फिर शुरू हुआ</string>
+    <string name="pause">रोकें</string>
+    <string name="resume">जारी रखें</string>
+
+    <plurals name="phase_changed">
+        <item quantity="one">%1$s चरण शुरू। %2$d सेकंड शेष।</item>
+        <item quantity="other">%1$s चरण शुरू। %2$d सेकंड शेष।</item>
+    </plurals>
+
+    <string name="red_slider">लाल रंग अवयव स्लाइडर</string>
+    <string name="green_slider">हरा रंग अवयव स्लाइडर</string>
+    <string name="blue_slider">नीला रंग अवयव स्लाइडर</string>
+
+    <string name="notification_permission_rationale_title">चरण-बदल सूचना सक्षम करें</string>
+    <string name="notification_permission_rationale_message">Stop and Go आपको सूचित कर सकता है जब टाइमर "चलें" और "रुकें" के बीच बदलता है। इससे आपको स्क्रीन देखते रहने की ज़रूरत नहीं पड़ेगी।</string>
+    <string name="enable">सक्रिय करें</string>
+    <string name="not_now">अभी नहीं</string>
+
+    <string name="error_go_duration_range">"चलें" अवधि %1$d से %2$d सेकंड के बीच होनी चाहिए</string>
+    <string name="error_stop_duration_range">"रुकें" अवधि %1$d से %2$d सेकंड के बीच होनी चाहिए</string>
+    <string name="error_go_growth_range">"चलें" वृद्धि गुणक %1$.2f से %2$.2f के बीच होना चाहिए</string>
+    <string name="error_stop_growth_range">"रुकें" वृद्धि गुणक %1$.2f से %2$.2f के बीच होना चाहिए</string>
+    <string name="error_go_label_length">"चलें" लेबल %d वर्णों से अधिक नहीं होना चाहिए</string>
+    <string name="error_stop_label_length">"रुकें" लेबल %d वर्णों से अधिक नहीं होना चाहिए</string>
+
+    <string name="tutorial_welcome">Stop and Go में आपका स्वागत है!</string>
+    <string name="tutorial_skip">स्किप</string>
+    <string name="tutorial_next">आगे</string>
+    <string name="tutorial_progress">कदम %1$d में से %2$d</string>
+    <string name="help">मदद</string>
+
+    <string name="tutorial_language_title">भाषा</string>
+    <string name="tutorial_language_description">एक चुनें। बाद में सेटिंग्स में बदल सकते हैं।</string>
+    <string name="tutorial_language_skip">डिफ़ॉल्ट अंग्रेज़ी उपयोग करें</string>
+
+    <string name="tutorial_gestures_title">यह कैसे काम करता है</string>
+    <string name="tutorial_tap_instruction">रोकने/जारी करने के लिए कहीं भी टैप करें</string>
+    <string name="tutorial_tap_success">रोक दिया गया</string>
+    <string name="tutorial_long_instruction">सेटिंग्स खोलने के लिए लंबा प्रेस करें</string>
+    <string name="tutorial_long_success">यह सेटिंग्स खोलता है</string>
+    <string name="tutorial_multi_instruction">रीसेट के लिए तीन बार टैप करें</string>
+    <string name="tutorial_multi_success">रीसेट किया गया</string>
+
+    <string name="tutorial_background_title">टाइमर चलता रहता है</string>
+    <string name="tutorial_background_description">ऐप बंद करने पर भी टाइमर चलता रहता है। चरण बदलने पर सूचनाएँ मिलेंगी।</string>
+
+    <string name="tutorial_creative_title">उदाहरण</string>
+    <string name="tutorial_creative_description">लोग इसका उपयोग इन चीज़ों के लिए करते हैं:</string>
+    <string name="tutorial_use_chess">शतरंज घड़ी</string>
+    <string name="tutorial_use_apnea">साँस रोकने का प्रशिक्षण</string>
+    <string name="tutorial_use_pomodoro">पोमोडोरो टाइमर</string>
+    <string name="tutorial_use_hiit">HIIT अंतराल</string>
+    <string name="tutorial_use_custom">जो भी आपको चाहिए</string>
+</resources>

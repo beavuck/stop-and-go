@@ -41,11 +41,24 @@
     <string name="notification_go_title">GO Phase Started</string>
     <string name="notification_stop_title">STOP Phase Started</string>
     <string name="language">Language</string>
+    <string name="search_language">Search language</string>
+    <string name="clear_search">Clear search</string>
+    <string name="no_languages_found">No languages found</string>
     <string name="language_english" translatable="false">English</string>
     <string name="language_french" translatable="false">Français</string>
     <string name="language_arabic" translatable="false">العربية</string>
     <string name="language_chinese_simplified" translatable="false">简体中文</string>
     <string name="language_spanish" translatable="false">Español</string>
+    <string name="language_bengali" translatable="false">বাংলা</string>
+    <string name="language_hindi" translatable="false">हिन्दी</string>
+    <string name="language_japanese" translatable="false">日本語</string>
+    <string name="language_javanese" translatable="false">Basa Jawa</string>
+    <string name="language_punjabi" translatable="false">ਪੰਜਾਬੀ</string>
+    <string name="language_portuguese" translatable="false">Português</string>
+    <string name="language_russian" translatable="false">Русский</string>
+    <string name="language_turkish" translatable="false">Türkçe</string>
+    <string name="language_vietnamese" translatable="false">Tiếng Việt</string>
+    <string name="language_chinese_traditional_hk" translatable="false">繁體中文（香港）</string>
     <string name="timer_screen">Timer screen. Single tap to pause or resume. Long press to open settings.</string>
     <string name="timer_paused">Timer paused</string>
     <string name="timer_resumed">Timer resumed</string>

@@ -1,5 +1,3 @@
-// gradle/jacoco.gradle.kts
-
 tasks.register<JacocoReport>("jacocoTestReport") {
     dependsOn("testDebugUnitTest")
 

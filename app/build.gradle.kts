@@ -1,12 +1,10 @@
-// build.gradle.kts
-
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.util.Properties
 
 plugins {
     id("com.android.application") version "8.13.2"
-    id("org.jetbrains.kotlin.android") version "2.2.21"
-    id("org.jetbrains.kotlin.plugin.compose") version "2.2.21"
+    id("org.jetbrains.kotlin.android") version "2.3.0"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.3.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
     id("com.github.ben-manes.versions") version "0.53.0"
     jacoco
@@ -42,9 +40,9 @@ android {
         minSdk = 24
         targetSdk = 36
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionCode = 11
+        versionCode = 12
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionName = "1.1.7"
+        versionName = "1.1.8"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -114,12 +112,12 @@ dependencies {
     implementation("androidx.core:core-ktx:1.17.0")
     implementation("androidx.appcompat:appcompat:1.7.1")
     implementation("com.google.android.material:material:1.13.0")
-    implementation("androidx.activity:activity:1.12.1")
+    implementation("androidx.activity:activity:1.12.2")
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.material3:material3")
-    implementation("androidx.activity:activity-compose:1.12.1")
+    implementation("androidx.activity:activity-compose:1.12.2")
 
     androidTestImplementation(composeBom)
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
