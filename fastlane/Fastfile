@@ -11,7 +11,10 @@ lane :internal do
         package_name: 'com.beavuck.stop_and_go',
         track: 'internal',
         aab: 'app/build/outputs/bundle/release/app-release.aab',
-        mapping: 'app/build/outputs/native-debug-symbols/release/native-debug-symbols.zip',
+        mapping_paths: [
+            'app/build/outputs/mapping/release/mapping.txt',
+            'app/build/outputs/native-debug-symbols/release/native-debug-symbols.zip'
+        ],
         release_status: 'draft',
         json_key: '.secure_files/play-store-credentials.json'
     )
@@ -23,7 +26,10 @@ lane :release do
         package_name: 'com.beavuck.stop_and_go',
         track: 'production',
         aab: 'app/build/outputs/bundle/release/app-release.aab',
-        mapping: 'app/build/outputs/native-debug-symbols/release/native-debug-symbols.zip',
+        mapping_paths: [
+            'app/build/outputs/mapping/release/mapping.txt',
+            'app/build/outputs/native-debug-symbols/release/native-debug-symbols.zip'
+        ],
         json_key: '.secure_files/play-store-credentials.json'
     )
 end
