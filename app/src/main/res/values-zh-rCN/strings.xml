@@ -58,7 +58,6 @@
     <string name="tutorial_welcome">欢迎使用 Stop and Go！</string>
     <string name="tutorial_skip">跳过</string>
     <string name="tutorial_next">下一步</string>
-    <string name="tutorial_finish">完成</string>
     <string name="tutorial_progress">第 %1$d 步，共 %2$d 步</string>
     <string name="help">帮助</string>
     <string name="tutorial_language_title">语言</string>

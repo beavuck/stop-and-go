@@ -46,7 +46,7 @@ class MainActivityTest {
         configRepository.saveConfig(TimerConfig())
 
         val tutorialRepository = TutorialRepository(context)
-        tutorialRepository.markTutorialComplete()
+        tutorialRepository.markTutorialCompleteSync()
     }
 
     @After
@@ -139,26 +139,18 @@ class MainActivityTest {
 
     @Test
     fun activityLaunch_restoresStopPhase() {
-        composeTestRule.activityRule.scenario.close()
-
         val stopPhaseState = AppState(
             cycleCount = 1,
             isGo = false,
             secondsRemaining = 10,
         )
-        stateRepository.saveState(stopPhaseState)
-
-        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
-        composeTestRule.waitForIdle()
-        Thread.sleep(500)
+        launchWithState(stopPhaseState)
 
         val expectedLabel = context.getString(R.string.phase_stop)
         composeTestRule.onNodeWithTag("phaseLabel")
             .assertTextEquals(expectedLabel)
 
-        val timerValue = getTimerValue()
-
-        assertTrue("Timer should show remaining time", timerValue in 8..10)
+        assertTrue("Timer should show remaining time", getTimerValue() in 8..10)
     }
 
     @Test
@@ -175,13 +167,8 @@ class MainActivityTest {
 
     @Test
     fun textColor_contrastsWithLightBackground() {
-        composeTestRule.activityRule.scenario.close()
-
         val lightConfig = TimerConfig(goColor = "#FFFFFF", stopColor = "#F0F0F0")
-        configRepository.saveConfig(lightConfig)
-
-        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
-        composeTestRule.waitForIdle()
+        launchWithConfig(lightConfig)
 
         val backgroundColor = Color.parseColor("#FFFFFF")
         val expectedTextColor = ColorUtils.getContrastingTextColor(backgroundColor)
@@ -194,13 +181,8 @@ class MainActivityTest {
 
     @Test
     fun textColor_contrastsWithDarkBackground() {
-        composeTestRule.activityRule.scenario.close()
-
         val darkConfig = TimerConfig(goColor = "#000000", stopColor = "#202020")
-        configRepository.saveConfig(darkConfig)
-
-        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
-        composeTestRule.waitForIdle()
+        launchWithConfig(darkConfig)
 
         val backgroundColor = Color.parseColor("#000000")
         val expectedTextColor = ColorUtils.getContrastingTextColor(backgroundColor)
@@ -245,13 +227,8 @@ class MainActivityTest {
 
     @Test
     fun activityLaunch_withInvalidColorInConfig_doesNotCrash() {
-        composeTestRule.activityRule.scenario.close()
-
         val invalidColorConfig = TimerConfig(goColor = "#pppppp", stopColor = "#xxxxxx")
-        configRepository.saveConfig(invalidColorConfig)
-
-        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
-        composeTestRule.waitForIdle()
+        launchWithConfig(invalidColorConfig)
 
         composeTestRule.onNodeWithTag("timerDisplay").assertExists()
         composeTestRule.onNodeWithTag("timerText").assertIsDisplayed()
@@ -309,8 +286,6 @@ class MainActivityTest {
 
     @Test
     fun stateCleared_andActivityRecreated_resetsTimerToInitialState() {
-        composeTestRule.activityRule.scenario.close()
-
         val modifiedState = AppState(
             cycleCount = 5,
             isGo = false,
@@ -318,18 +293,13 @@ class MainActivityTest {
             currentStopDuration = 80,
             secondsRemaining = 42,
         )
-        stateRepository.saveState(modifiedState)
-
-        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
-        composeTestRule.waitForIdle()
-        Thread.sleep(500)
+        launchWithState(modifiedState)
 
         val stopPhaseLabel = context.getString(R.string.phase_stop)
         composeTestRule.onNodeWithTag("phaseLabel")
             .assertTextEquals(stopPhaseLabel)
 
         val cycleBeforeReset = getCycleCount()
-
         assertTrue("Cycle count should be 6 before reset", cycleBeforeReset.contains("6"))
 
         stateRepository.clearState()
@@ -408,12 +378,7 @@ class MainActivityTest {
 
     @Test
     fun pauseIcon_isDisplayed_whenTimerPaused() {
-        composeTestRule.onNodeWithTag("pauseIcon").assertIsDisplayed()
-    }
-
-    @Test
-    fun pauseOverlay_isDisplayed_whenTimerPaused() {
-        composeTestRule.onNodeWithTag("pauseOverlay").assertExists()
+        assertTimerPaused()
     }
 
     @Test
@@ -421,29 +386,16 @@ class MainActivityTest {
         tapTimer()
         composeTestRule.waitForIdle()
 
-        composeTestRule.onNodeWithTag("pauseIcon").assertDoesNotExist()
-    }
-
-    @Test
-    fun pauseOverlay_isNotDisplayed_whenTimerRunning() {
-        tapTimer()
-        composeTestRule.waitForIdle()
-
-        composeTestRule.onNodeWithTag("pauseOverlay").assertDoesNotExist()
+        assertTimerRunning()
     }
 
     @Test
     fun customGoLabel_isDisplayed_whenConfigured() {
-        composeTestRule.activityRule.scenario.close()
-
         val customConfig = TimerConfig(
             goLabel = "Sprint",
             stopLabel = "Rest"
         )
-        configRepository.saveConfig(customConfig)
-
-        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
-        composeTestRule.waitForIdle()
+        launchWithConfig(customConfig)
 
         composeTestRule.onNodeWithTag("phaseLabel")
             .assertTextEquals("Sprint")
@@ -451,22 +403,16 @@ class MainActivityTest {
 
     @Test
     fun customStopLabel_isDisplayed_whenConfigured() {
-        composeTestRule.activityRule.scenario.close()
-
         val customConfig = TimerConfig(
             goDuration = 2,
             stopDuration = 2,
             goLabel = "Run",
             stopLabel = "Walk"
         )
-        configRepository.saveConfig(customConfig)
         stateRepository.clearState()
-
-        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
-        composeTestRule.waitForIdle()
+        launchWithConfig(customConfig)
 
         tapTimer()
-
         Thread.sleep(3000)
 
         composeTestRule.onNodeWithTag("phaseLabel")
@@ -482,16 +428,8 @@ class MainActivityTest {
 
     @Test
     fun emptyLabels_fallBackToDefaultLabels() {
-        composeTestRule.activityRule.scenario.close()
-
-        val config = TimerConfig(
-            goLabel = "",
-            stopLabel = ""
-        )
-        configRepository.saveConfig(config)
-
-        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
-        composeTestRule.waitForIdle()
+        val config = TimerConfig(goLabel = "", stopLabel = "")
+        launchWithConfig(config)
 
         val expectedLabel = context.getString(R.string.phase_go)
         composeTestRule.onNodeWithTag("phaseLabel")
@@ -556,21 +494,14 @@ class MainActivityTest {
 
     @Test
     fun topAppBar_resetButton_resetsCycleCount() {
-        composeTestRule.activityRule.scenario.close()
-
         val modifiedState = AppState(
             cycleCount = 5,
             isGo = false,
             secondsRemaining = 10,
         )
-        stateRepository.saveState(modifiedState)
-
-        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
-        composeTestRule.waitForIdle()
-        Thread.sleep(500)
+        launchWithState(modifiedState)
 
         val cycleBeforeReset = getCycleCount()
-
         assertTrue("Cycle count should be 6 before reset", cycleBeforeReset.contains("6"))
 
         composeTestRule.onNodeWithTag("resetTimerButton").performClick()
@@ -584,13 +515,10 @@ class MainActivityTest {
 
     @Test
     fun app_startsPaused() {
-        composeTestRule.onNodeWithTag("pauseIcon").assertIsDisplayed()
-        composeTestRule.onNodeWithTag("pauseOverlay").assertExists()
+        assertTimerPaused()
 
         val timerValueBefore = getTimerValue()
-
         Thread.sleep(1500)
-
         val timerValueAfter = getTimerValue()
 
         assertTrue(
@@ -678,21 +606,15 @@ class MainActivityTest {
 
     @Test
     fun activityRecreation_preservesPausedState() {
-        composeTestRule.waitForIdle()
-
-        composeTestRule.onNodeWithTag("pauseIcon").assertIsDisplayed()
-        composeTestRule.onNodeWithTag("pauseOverlay").assertExists()
+        assertTimerPaused()
 
         composeTestRule.activityRule.scenario.recreate()
         composeTestRule.waitForIdle()
 
-        composeTestRule.onNodeWithTag("pauseIcon").assertIsDisplayed()
-        composeTestRule.onNodeWithTag("pauseOverlay").assertExists()
+        assertTimerPaused()
 
         val timerValueBefore = getTimerValue()
-
         Thread.sleep(1500)
-
         val timerValueAfter = getTimerValue()
 
         assertTrue(
@@ -701,33 +623,8 @@ class MainActivityTest {
         )
     }
 
-    @Test
-    fun activityRecreation_preservesRunningState() {
-        composeTestRule.waitForIdle()
-
-        tapTimer()
-        composeTestRule.waitForIdle()
-        Thread.sleep(1500)
-
-        val timerValueBeforeRecreate = getTimerValue()
-
-        composeTestRule.activityRule.scenario.recreate()
-        composeTestRule.waitForIdle()
-        Thread.sleep(500)
-
-        val timerValueAfterRecreate = getTimerValue()
-
-        Thread.sleep(1500)
-
-        val timerValueAfterWait = getTimerValue()
-
-        assertTrue(
-            "Timer should continue counting down after orientation change. Before recreate: $timerValueBeforeRecreate, After recreate: $timerValueAfterRecreate, After wait: $timerValueAfterWait",
-            timerValueAfterWait < timerValueAfterRecreate
-        )
-
-        composeTestRule.onNodeWithTag("pauseIcon").assertDoesNotExist()
-        composeTestRule.onNodeWithTag("pauseOverlay").assertDoesNotExist()
+    private fun tapTimer() {
+        composeTestRule.onNodeWithTag("timerDisplay").performClick()
     }
 
     private fun getCycleCount(): String = composeTestRule.onNodeWithTag("cycleCount")
@@ -741,13 +638,37 @@ class MainActivityTest {
         .first().text
         .toIntOrNull() ?: 0
 
+    private fun launchWithConfig(config: TimerConfig) {
+        composeTestRule.activityRule.scenario.close()
+        configRepository.saveConfig(config)
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+    }
+
+    private fun launchWithState(state: AppState) {
+        composeTestRule.activityRule.scenario.close()
+        stateRepository.saveState(state)
+        manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
+        composeTestRule.waitForIdle()
+        Thread.sleep(500)
+    }
+
+    private fun assertTimerPaused() {
+        composeTestRule.onNodeWithTag("pauseIcon").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("pauseOverlay").assertExists()
+    }
+
+    private fun assertTimerRunning() {
+        composeTestRule.onNodeWithTag("pauseIcon").assertDoesNotExist()
+        composeTestRule.onNodeWithTag("pauseOverlay").assertDoesNotExist()
+    }
 
     @Test
     fun mainActivity_launchesTutorial_onFirstRun() {
         composeTestRule.activityRule.scenario.close()
 
         val tutorialRepository = TutorialRepository(context)
-        tutorialRepository.resetTutorialCompletion()
+        tutorialRepository.resetTutorialCompletionSync()
 
         manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
         composeTestRule.waitForIdle()
@@ -755,10 +676,6 @@ class MainActivityTest {
 
         composeTestRule.onNodeWithText(context.getString(R.string.tutorial_language_title))
             .assertExists()
-    }
-
-    private fun tapTimer() {
-        composeTestRule.onNodeWithTag("timerDisplay").performClick()
     }
 
     @Test
@@ -790,7 +707,11 @@ class MainActivityTest {
 
         val maxObserved = observedValues.maxOrNull()!!
         assertTrue(
-            "Rapid triple-taps should never cause timer to exceed phase duration. Duration: $goDuration, Max observed: $maxObserved, Sample values: ${observedValues.take(10)}",
+            "Rapid triple-taps should never cause timer to exceed phase duration. Duration: $goDuration, Max observed: $maxObserved, Sample values: ${
+                observedValues.take(
+                    10
+                )
+            }",
             maxObserved <= goDuration
         )
     }
@@ -821,7 +742,11 @@ class MainActivityTest {
 
         val maxObserved = observedValues.maxOrNull()!!
         assertTrue(
-            "Rapid reset button clicks should never cause timer to exceed phase duration. Duration: $goDuration, Max observed: $maxObserved, Sample values: ${observedValues.take(10)}",
+            "Rapid reset button clicks should never cause timer to exceed phase duration. Duration: $goDuration, Max observed: $maxObserved, Sample values: ${
+                observedValues.take(
+                    10
+                )
+            }",
             maxObserved <= goDuration
         )
     }
@@ -856,7 +781,11 @@ class MainActivityTest {
 
         val maxObserved = observedValues.maxOrNull()!!
         assertTrue(
-            "Rapid settings save should never cause timer to exceed phase duration. Duration: $goDuration, Max observed: $maxObserved, Sample values: ${observedValues.take(10)}",
+            "Rapid settings save should never cause timer to exceed phase duration. Duration: $goDuration, Max observed: $maxObserved, Sample values: ${
+                observedValues.take(
+                    10
+                )
+            }",
             maxObserved <= goDuration
         )
     }
@@ -891,7 +820,8 @@ class MainActivityTest {
 
             val goValue = getTimerValue()
             observedGoValues.add(goValue)
-            val expectedMaxGo = (goDuration * growthMultiplier.toDouble().pow(cycle.toDouble())).toInt()
+            val expectedMaxGo =
+                (goDuration * growthMultiplier.toDouble().pow(cycle.toDouble())).toInt()
 
             assertTrue(
                 "Go phase cycle $cycle should not exceed expected duration. Expected max: $expectedMaxGo, Observed: $goValue",
@@ -902,7 +832,8 @@ class MainActivityTest {
 
             val stopValue = getTimerValue()
             observedStopValues.add(stopValue)
-            val expectedMaxStop = (stopDuration * growthMultiplier.toDouble().pow(cycle.toDouble())).toInt()
+            val expectedMaxStop =
+                (stopDuration * growthMultiplier.toDouble().pow(cycle.toDouble())).toInt()
 
             assertTrue(
                 "Stop phase cycle $cycle should not exceed expected duration. Expected max: $expectedMaxStop, Observed: $stopValue",

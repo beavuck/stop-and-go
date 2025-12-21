@@ -41,7 +41,7 @@ class TutorialRepositoryTest {
 
     @Test
     fun shouldShowTutorial_whenCompletedSameVersion_returnsFalse() {
-        repository.markTutorialComplete()
+        repository.markTutorialCompleteSync()
 
         assertFalse(repository.shouldShowTutorial())
     }
@@ -60,7 +60,7 @@ class TutorialRepositoryTest {
 
     @Test
     fun markTutorialComplete_savesCompletionFlag() {
-        repository.markTutorialComplete()
+        repository.markTutorialCompleteSync()
 
         val prefs = context.getSharedPreferences("tutorial_prefs", Context.MODE_PRIVATE)
         assertTrue(prefs.getBoolean("tutorial_completed", false))
@@ -68,7 +68,7 @@ class TutorialRepositoryTest {
 
     @Test
     fun markTutorialComplete_savesCurrentVersion() {
-        repository.markTutorialComplete()
+        repository.markTutorialCompleteSync()
 
         val prefs = context.getSharedPreferences("tutorial_prefs", Context.MODE_PRIVATE)
         assertEquals(

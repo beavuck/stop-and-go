@@ -60,7 +60,6 @@
     <string name="tutorial_welcome">¡Bienvenido a Stop and Go!</string>
     <string name="tutorial_skip">Omitir</string>
     <string name="tutorial_next">Siguiente</string>
-    <string name="tutorial_finish">Listo</string>
     <string name="tutorial_progress">Paso %1$d de %2$d</string>
     <string name="help">Ayuda</string>
     <string name="tutorial_language_title">Idioma</string>

@@ -4,12 +4,13 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -73,23 +74,10 @@ fun LanguageSelectionStep(
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            TextButton(onClick = onSkip) {
-                Text(stringResource(R.string.tutorial_skip))
-            }
-
-            Button(
-                onClick = {
-                    val locale = selectedLocale ?: DEFAULT_LOCALE
-                    onLanguageSelected(locale.code)
-                }
-            ) {
-                Text(stringResource(R.string.tutorial_next))
-            }
-        }
+        TutorialBottomButtons(
+            onSkip = onSkip,
+            onNext = { onLanguageSelected(selectedLocale?.code ?: DEFAULT_LOCALE.code) }
+        )
     }
 }
 

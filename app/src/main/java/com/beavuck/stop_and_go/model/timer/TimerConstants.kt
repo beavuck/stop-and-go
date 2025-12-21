@@ -10,8 +10,8 @@ object TimerConstants {
     const val DEFAULT_GO_DURATION = 60
     const val DEFAULT_STOP_DURATION = 15
     const val DEFAULT_GROWTH_MULTIPLIER = 1.0f
-    const val DEFAULT_GO_COLOR = "#20b05c"
-    const val DEFAULT_STOP_COLOR = "#992639"
+    const val DEFAULT_GO_COLOR = "#5B8394"
+    const val DEFAULT_STOP_COLOR = "#8B7366"
     const val DEFAULT_IS_PAUSED = true
 
     const val MAX_LABEL_LENGTH = 32

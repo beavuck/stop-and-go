@@ -2,6 +2,8 @@ package com.beavuck.stop_and_go
 
 import android.graphics.Color
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_COLOR
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_STOP_COLOR
 import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
 import com.beavuck.stop_and_go.utils.instrumented.ColorUtils.DEFAULT_COLOR
 import org.junit.Assert.*
@@ -151,14 +153,14 @@ class ColorUtilsTest {
 
     @Test
     fun getContrastingTextColor_withDefaultGoColor_returnsLightText() {
-        val goColor = Color.parseColor("#20b05c")
+        val goColor = Color.parseColor(DEFAULT_GO_COLOR)
         val result = ColorUtils.getContrastingTextColor(goColor)
         assertTrue(Color.luminance(result) > 0.5)
     }
 
     @Test
     fun getContrastingTextColor_withDefaultStopColor_returnsLightText() {
-        val stopColor = Color.parseColor("#992639")
+        val stopColor = Color.parseColor(DEFAULT_STOP_COLOR)
         val result = ColorUtils.getContrastingTextColor(stopColor)
         assertTrue(Color.luminance(result) > 0.5)
     }

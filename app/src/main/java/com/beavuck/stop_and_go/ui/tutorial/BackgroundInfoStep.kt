@@ -3,9 +3,7 @@ package com.beavuck.stop_and_go.ui.tutorial
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -47,17 +45,9 @@ fun BackgroundInfoStep(
 
         Spacer(modifier = Modifier.weight(1f))
 
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            TextButton(onClick = onSkip) {
-                Text(stringResource(R.string.tutorial_skip))
-            }
-
-            Button(onClick = onNext) {
-                Text(stringResource(R.string.tutorial_next))
-            }
-        }
+        TutorialBottomButtons(
+            onSkip = onSkip,
+            onNext = onNext
+        )
     }
 }

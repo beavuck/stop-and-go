@@ -5,7 +5,9 @@ import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.*
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -19,7 +21,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.graphics.toColorInt
 import com.beavuck.stop_and_go.R
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_COLOR
 
 enum class GestureType {
     TAP, LONG_PRESS, MULTI_TAP
@@ -35,8 +39,8 @@ fun GestureDemoStep(
 
     val gestures = listOf(
         GestureType.TAP,
-        GestureType.LONG_PRESS,
-        GestureType.MULTI_TAP
+        GestureType.MULTI_TAP,
+        GestureType.LONG_PRESS
     )
 
     Column(
@@ -97,28 +101,17 @@ fun GestureDemoStep(
 
         Spacer(modifier = Modifier.weight(1f))
 
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            TextButton(onClick = onSkip) {
-                Text(stringResource(R.string.tutorial_skip))
+        TutorialBottomButtons(
+            onSkip = onSkip,
+            onNext = {
+                if (currentGesture < 2) {
+                    currentGesture++
+                    gestureCompleted = false
+                } else {
+                    onComplete()
+                }
             }
-
-            Button(
-                onClick = {
-                    if (currentGesture < 2) {
-                        currentGesture++
-                        gestureCompleted = false
-                    } else {
-                        onComplete()
-                    }
-                },
-                enabled = gestureCompleted
-            ) {
-                Text(stringResource(R.string.tutorial_next))
-            }
-        }
+        )
     }
 }
 
@@ -137,7 +130,7 @@ private fun DemoArea(
         modifier = Modifier
             .fillMaxWidth()
             .height(300.dp)
-            .background(Color(0xFF20b05c))
+            .background(Color(DEFAULT_GO_COLOR.toColorInt()))
             .pointerInput(gestureType) {
                 detectTapGestures(
                     onTap = {

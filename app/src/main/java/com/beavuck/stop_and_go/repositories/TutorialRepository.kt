@@ -21,11 +21,28 @@ class TutorialRepository(context: Context) {
         }
     }
 
+    fun markTutorialCompleteSync() {
+        sharedPreferences.edit().apply {
+            putBoolean(KEY_TUTORIAL_COMPLETED, true)
+            putInt(KEY_TUTORIAL_VERSION, CURRENT_TUTORIAL_VERSION)
+            commit()
+        }
+    }
+
+
     fun resetTutorialCompletion() {
         sharedPreferences.edit().apply {
             putBoolean(KEY_TUTORIAL_COMPLETED, false)
             putInt(KEY_TUTORIAL_VERSION, 0)
             apply()
+        }
+    }
+
+    fun resetTutorialCompletionSync() {
+        sharedPreferences.edit().apply {
+            putBoolean(KEY_TUTORIAL_COMPLETED, false)
+            putInt(KEY_TUTORIAL_VERSION, 0)
+            commit()
         }
     }
 
