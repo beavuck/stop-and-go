@@ -24,15 +24,18 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.activities.TutorialActivity
+import com.beavuck.stop_and_go.config.SupportedLocale
 import com.beavuck.stop_and_go.dialogs.ColorPickerDialog
 import com.beavuck.stop_and_go.dialogs.LanguagePickerDialog
-import com.beavuck.stop_and_go.config.SupportedLocale
 import com.beavuck.stop_and_go.model.timer.TimerConfig
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
 import com.beavuck.stop_and_go.repositories.TutorialRepository
 import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
+import kotlinx.coroutines.delay
 
+
+public const val DEBOUNCE_DELAY = 500L
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -64,25 +67,39 @@ fun SettingsContent(
     var showStopColorPicker by rememberSaveable { mutableStateOf(false) }
     var showLanguagePicker by rememberSaveable { mutableStateOf(false) }
 
-    fun saveSettings() {
-        val config = TimerConfig(
-            goDuration = goDuration.toIntOrNull() ?: currentConfig.goDuration,
-            stopDuration = stopDuration.toIntOrNull() ?: currentConfig.stopDuration,
-            goDurationGrowth = goGrowth.toFloatOrNull() ?: currentConfig.goDurationGrowth,
-            stopDurationGrowth = stopGrowth.toFloatOrNull() ?: currentConfig.stopDurationGrowth,
-            goColor = ColorUtils.isValidColorString(goColor)
-                .let { if (it) goColor else currentConfig.goColor },
-            stopColor = ColorUtils.isValidColorString(stopColor)
-                .let { if (it) stopColor else currentConfig.stopColor },
-            goLabel = goLabel.trim(),
-            stopLabel = stopLabel.trim(),
-        )
+    var isInitialComposition by remember { mutableStateOf(true) }
 
+    fun buildConfig() = TimerConfig(
+        goDuration = goDuration.toIntOrNull() ?: currentConfig.goDuration,
+        stopDuration = stopDuration.toIntOrNull() ?: currentConfig.stopDuration,
+        goDurationGrowth = goGrowth.toFloatOrNull() ?: currentConfig.goDurationGrowth,
+        stopDurationGrowth = stopGrowth.toFloatOrNull() ?: currentConfig.stopDurationGrowth,
+        goColor = ColorUtils.isValidColorString(goColor)
+            .let { if (it) goColor else currentConfig.goColor },
+        stopColor = ColorUtils.isValidColorString(stopColor)
+            .let { if (it) stopColor else currentConfig.stopColor },
+        goLabel = goLabel.trim(),
+        stopLabel = stopLabel.trim(),
+    )
+
+    fun autoSaveSettings() {
         try {
+            val config = buildConfig()
             config.validate(context)
             configRepository.saveConfig(config)
             stateRepository.clearState()
+        } catch (ignored: IllegalArgumentException) {
+            /* no-op */
+        }
+    }
+
+    fun saveSettings() {
+        try {
+            val config = buildConfig()
+            config.validate(context)
+            configRepository.saveConfig(config)
             Toast.makeText(context, settingsSavedMessage, Toast.LENGTH_SHORT).show()
+            stateRepository.clearState()
             onFinish()
         } catch (e: IllegalArgumentException) {
             Toast.makeText(
@@ -94,9 +111,18 @@ fun SettingsContent(
     }
 
     fun resetTimer() {
-        stateRepository.clearState()
         Toast.makeText(context, resetTimerMessage, Toast.LENGTH_SHORT).show()
+        stateRepository.clearState()
         onFinish()
+    }
+
+    LaunchedEffect(goDuration, stopDuration, goGrowth, stopGrowth, goColor, stopColor, goLabel, stopLabel) {
+        if (isInitialComposition) {
+            isInitialComposition = false
+        } else {
+            delay(DEBOUNCE_DELAY)
+            autoSaveSettings()
+        }
     }
 
     Scaffold(

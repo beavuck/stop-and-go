@@ -28,7 +28,7 @@ class SupportedLocaleTest {
     @Test
     fun fromCode_withInvalidCode_returnsDefault() {
         assertEquals(DEFAULT_LOCALE, SupportedLocale.fromCode("invalid"))
-        assertEquals(DEFAULT_LOCALE, SupportedLocale.fromCode("de"))
+        assertEquals(DEFAULT_LOCALE, SupportedLocale.fromCode("pl"))
         assertEquals(DEFAULT_LOCALE, SupportedLocale.fromCode("xyz"))
     }
 
@@ -41,20 +41,20 @@ class SupportedLocaleTest {
     @Test
     fun entries_containsAllLocales() {
         val entries = SupportedLocale.entries
+        assertNotNull(entries.find { it == SupportedLocale.ARABIC })
+        assertNotNull(entries.find { it == SupportedLocale.BENGALI })
+        assertNotNull(entries.find { it == SupportedLocale.CHINESE_SIMPLIFIED })
+        assertNotNull(entries.find { it == SupportedLocale.CHINESE_TRADITIONAL_HK })
         assertNotNull(entries.find { it == SupportedLocale.ENGLISH })
         assertNotNull(entries.find { it == SupportedLocale.FRENCH })
-        assertNotNull(entries.find { it == SupportedLocale.ARABIC })
-        assertNotNull(entries.find { it == SupportedLocale.CHINESE_SIMPLIFIED })
-        assertNotNull(entries.find { it == SupportedLocale.SPANISH })
-        assertNotNull(entries.find { it == SupportedLocale.BENGALI })
         assertNotNull(entries.find { it == SupportedLocale.HINDI })
         assertNotNull(entries.find { it == SupportedLocale.JAPANESE })
         assertNotNull(entries.find { it == SupportedLocale.JAVANESE })
-        assertNotNull(entries.find { it == SupportedLocale.PUNJABI })
         assertNotNull(entries.find { it == SupportedLocale.PORTUGUESE })
+        assertNotNull(entries.find { it == SupportedLocale.PUNJABI })
         assertNotNull(entries.find { it == SupportedLocale.RUSSIAN })
+        assertNotNull(entries.find { it == SupportedLocale.SPANISH })
         assertNotNull(entries.find { it == SupportedLocale.TURKISH })
         assertNotNull(entries.find { it == SupportedLocale.VIETNAMESE })
-        assertNotNull(entries.find { it == SupportedLocale.CHINESE_TRADITIONAL_HK })
     }
 }

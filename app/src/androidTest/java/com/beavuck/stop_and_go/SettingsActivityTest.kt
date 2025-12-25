@@ -192,7 +192,6 @@ class SettingsActivityTest {
         assertEquals("Rest", savedConfig.stopLabel)
     }
 
-
     private fun getLocalizedString(stringRes: Int, localeCode: String): String {
         val locale = java.util.Locale.forLanguageTag(localeCode)
         val config = android.content.res.Configuration(context.resources.configuration)

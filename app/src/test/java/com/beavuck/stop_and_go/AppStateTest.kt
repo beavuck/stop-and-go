@@ -1,6 +1,9 @@
 package com.beavuck.stop_and_go
 
 import com.beavuck.stop_and_go.model.AppState
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_DURATION
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_STOP_DURATION
+import com.beavuck.stop_and_go.model.timer.TimerConstants.INITIAL_CYCLE_COUNT
 import org.junit.Assert.*
 import org.junit.Test
 
@@ -143,13 +146,13 @@ class AppStateTest {
     fun constructor_withNoParameters_usesDefaultValues() {
         val state = AppState()
 
-        assertEquals(0, state.cycleCount)
+        assertEquals(INITIAL_CYCLE_COUNT, state.cycleCount)
         assertTrue(state.isGo)
-        assertEquals(60, state.currentGoDuration)
-        assertEquals(15, state.currentStopDuration)
-        assertEquals(60, state.secondsRemaining)
-        assertEquals(60, state.baseGoDuration)
-        assertEquals(15, state.baseStopDuration)
+        assertEquals(DEFAULT_GO_DURATION, state.currentGoDuration)
+        assertEquals(DEFAULT_STOP_DURATION, state.currentStopDuration)
+        assertEquals(DEFAULT_GO_DURATION, state.secondsRemaining)
+        assertEquals(DEFAULT_GO_DURATION, state.baseGoDuration)
+        assertEquals(DEFAULT_STOP_DURATION, state.baseStopDuration)
         assertTrue(state.isPaused)
     }
 }
