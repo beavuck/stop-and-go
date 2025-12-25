@@ -59,6 +59,7 @@ fun TimerScreen(
         )
     }
 
+    // actually used despite IDE warning -- see above
     startNextPhase = { timerController.start(phase.durationSeconds) }
 
     DisposableEffect(Unit) {
@@ -154,7 +155,7 @@ fun TimerScreen(
                         modifier = Modifier.testTag("resetTimerButton")
                     ) {
                         Icon(
-                            painter = painterResource(android.R.drawable.ic_menu_rotate),
+                            painter = painterResource(R.drawable.reset),
                             contentDescription = stringResource(R.string.reset_timer)
                         )
                     }
@@ -163,7 +164,7 @@ fun TimerScreen(
                         modifier = Modifier.testTag("settingsButton")
                     ) {
                         Icon(
-                            painter = painterResource(android.R.drawable.ic_menu_preferences),
+                            painter = painterResource(R.drawable.settings),
                             contentDescription = stringResource(R.string.settings)
                         )
                     }

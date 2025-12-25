@@ -112,7 +112,7 @@ fun SettingsContent(
                         modifier = Modifier.testTag("resetButton")
                     ) {
                         Icon(
-                            painterResource(android.R.drawable.ic_menu_rotate),
+                            painterResource(R.drawable.reset),
                             contentDescription = stringResource(R.string.reset_timer)
                         )
                     }
@@ -126,7 +126,7 @@ fun SettingsContent(
                         modifier = Modifier.testTag("helpButton")
                     ) {
                         Icon(
-                            painterResource(android.R.drawable.ic_menu_help),
+                            painterResource(R.drawable.help),
                             contentDescription = stringResource(R.string.help)
                         )
                     }
@@ -135,7 +135,7 @@ fun SettingsContent(
                         modifier = Modifier.testTag("languageButton")
                     ) {
                         Icon(
-                            painterResource(android.R.drawable.ic_menu_mapmode),
+                            painterResource(R.drawable.languages),
                             contentDescription = stringResource(R.string.language)
                         )
                     }
@@ -144,7 +144,7 @@ fun SettingsContent(
                         modifier = Modifier.testTag("saveButton")
                     ) {
                         Icon(
-                            painterResource(android.R.drawable.ic_menu_save),
+                            painterResource(R.drawable.check_circle),
                             contentDescription = stringResource(R.string.save_settings)
                         )
                     }
