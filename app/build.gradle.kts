@@ -108,28 +108,38 @@ android {
 
 dependencies {
     val composeBom = platform("androidx.compose:compose-bom:2025.12.00")
+    val activityVersion = "1.12.2"
+    val coreKtxVersion = "1.17.0"
+    val appcompatVersion = "1.7.1"
+    val materialVersion = "1.13.0"
+
     implementation(composeBom)
-    implementation("androidx.core:core-ktx:1.17.0")
-    implementation("androidx.appcompat:appcompat:1.7.1")
-    implementation("com.google.android.material:material:1.13.0")
-    implementation("androidx.activity:activity:1.12.2")
+    implementation("androidx.core:core-ktx:$coreKtxVersion")
+    implementation("androidx.appcompat:appcompat:$appcompatVersion")
+    implementation("com.google.android.material:material:$materialVersion")
+    implementation("androidx.activity:activity:$activityVersion")
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.material3:material3")
-    implementation("androidx.activity:activity-compose:1.12.2")
+    implementation("androidx.activity:activity-compose:$activityVersion")
+
+    val junitVersion = "4.13.2"
+    val mockitoVersion = "5.21.0"
 
     androidTestImplementation(composeBom)
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-    testImplementation("junit:junit:4.13.2")
-    testImplementation("org.mockito:mockito-core:5.21.0")
+    testImplementation("junit:junit:$junitVersion")
+    testImplementation("org.mockito:mockito-core:$mockitoVersion")
 }
 
 apply(from = "gradle/jacoco.gradle.kts")
 
 tasks.register<Zip>("packageReleaseNativeDebugSymbols") {
+    group = "packaging"
+    description = "Packages native debug symbols for the release build into a zip file."
     dependsOn("mergeReleaseNativeLibs")
 
     val mergedLibsDir = layout.buildDirectory.dir("intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib")
