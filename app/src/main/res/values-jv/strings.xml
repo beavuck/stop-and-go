@@ -34,6 +34,9 @@
     <string name="notification_go_title">Fase MULAI Dimulai</string>
     <string name="notification_stop_title">Fase MANDHEG Dimulai</string>
     <string name="language">Basa</string>
+    <string name="search_language">Goleki basa</string>
+    <string name="clear_search">Resiki panelusuran</string>
+    <string name="no_languages_found">Ora ana basa ketemu</string>
     <string name="timer_screen">Layar timer. Tap sak panggonan kanggo pause utawa lanjutake. Tekan dawa kanggo mbukak setelan.</string>
     <string name="timer_paused">Timer dijeda</string>
     <string name="timer_resumed">Timer diterusake</string>

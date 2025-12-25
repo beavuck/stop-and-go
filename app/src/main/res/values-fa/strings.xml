@@ -1,0 +1,155 @@
+<resources>
+
+    <string name="phase_go">شروع</string>
+    <string name="phase_stop">توقف</string>
+
+    <string name="cycle_count">چرخه: %d</string>
+
+    <string name="go_duration">مدت زمان مرحله شروع (ثانیه)</string>
+    <string name="stop_duration">مدت زمان مرحله توقف (ثانیه)</string>
+
+    <string name="go_growth">ضریب افزایش مرحله شروع</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+
+    <string name="stop_growth">ضریب افزایش مرحله توقف</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+
+    <string name="go_color">رنگ مرحله شروع</string>
+    <string name="stop_color">رنگ مرحله توقف</string>
+
+    <string name="go_label">برچسب "شروع" (اختیاری)</string>
+    <string name="go_label_hint">برای استفاده از پیش فرض خالی بگذارید</string>
+
+    <string name="stop_label">برچسب "توقف" (اختیاری)</string>
+    <string name="stop_label_hint">برای استفاده از پیش فرض خالی بگذارید</string>
+
+    <string name="save_settings">ذخیره تنظیمات</string>
+    <string name="settings">تنظیمات</string>
+    <string name="settings_saved">تنظیمات با موفقیت ذخیره شد</string>
+    <string name="invalid_input">ورودی نامعتبر</string>
+
+    <string name="reset_timer">بازنشانی تایمر</string>
+    <string name="pick_color">انتخاب رنگ</string>
+
+    <string name="color_preview">پیش نمایش رنگ</string>
+
+    <string name="red_label">قرمز</string>
+    <string name="green_label">سبز</string>
+    <string name="blue_label">آبی</string>
+
+    <string name="color_picker_title">انتخاب رنگ</string>
+
+    <string name="ok">تایید</string>
+    <string name="cancel">لغو</string>
+
+    <string name="notification_channel_go_name">مرحله شروع</string>
+    <string name="notification_channel_go_description">اعلان تغییرات مرحله شروع</string>
+
+    <string name="notification_channel_stop_name">مرحله توقف</string>
+    <string name="notification_channel_stop_description">اعلان تغییرات مرحله توقف</string>
+
+    <string name="notification_go_title">مرحله شروع آغاز شد</string>
+    <string name="notification_stop_title">مرحله توقف آغاز شد</string>
+
+    <string name="language">زبان</string>
+    <string name="search_language">جستجوی زبان</string>
+    <string name="clear_search">پاک کردن جستجو</string>
+    <string name="no_languages_found">زبانی یافت نشد</string>
+
+    <string name="timer_screen">
+        صفحه تایمر. یک بار لمس برای توقف یا ادامه. لمس طولانی برای باز کردن تنظیمات.
+    </string>
+
+    <string name="timer_paused">تایمر متوقف شد</string>
+    <string name="timer_resumed">تایمر ادامه یافت</string>
+
+    <string name="pause">توقف</string>
+    <string name="resume">ادامه</string>
+
+    <plurals name="phase_changed">
+        <item quantity="one">%1$s آغاز شد. %2$d ثانیه باقی مانده است.</item>
+        <item quantity="other">%1$s آغاز شد. %2$d ثانیه باقی مانده است.</item>
+    </plurals>
+
+    <string name="red_slider">نوار تنظیم رنگ قرمز</string>
+    <string name="green_slider">نوار تنظیم رنگ سبز</string>
+    <string name="blue_slider">نوار تنظیم رنگ آبی</string>
+
+    <string name="notification_permission_rationale_title">
+        فعال سازی اعلان تغییر مرحله
+    </string>
+
+    <string name="notification_permission_rationale_message">
+        Stop and Go می تواند هنگام تغییر بین مراحل شروع و توقف به شما اعلان ارسال کند.
+        این کار کمک می کند بدون نگاه مداوم به صفحه تمرکز خود را حفظ کنید.
+    </string>
+
+    <string name="enable">فعال سازی</string>
+    <string name="not_now">فعلا نه</string>
+
+    <string name="error_go_duration_range">
+        مدت زمان "شروع" باید بین %1$d و %2$d ثانیه باشد
+    </string>
+
+    <string name="error_stop_duration_range">
+        مدت زمان "توقف" باید بین %1$d و %2$d ثانیه باشد
+    </string>
+
+    <string name="error_go_growth_range">
+        ضریب افزایش "شروع" باید بین %1$.2f و %2$.2f باشد
+    </string>
+
+    <string name="error_stop_growth_range">
+        ضریب افزایش "توقف" باید بین %1$.2f و %2$.2f باشد
+    </string>
+
+    <string name="error_go_label_length">
+        برچسب "شروع" نباید بیشتر از %d کاراکتر باشد
+    </string>
+
+    <string name="error_stop_label_length">
+        برچسب "توقف" نباید بیشتر از %d کاراکتر باشد
+    </string>
+
+    <string name="tutorial_welcome">به Stop and Go خوش آمدید!</string>
+    <string name="tutorial_skip">رد کردن</string>
+    <string name="tutorial_next">بعدی</string>
+
+    <string name="tutorial_progress">مرحله %1$d از %2$d</string>
+
+    <string name="help">راهنما</string>
+
+    <string name="tutorial_language_title">زبان</string>
+    <string name="tutorial_language_description">
+        یکی را انتخاب کنید. بعدا می توانید آن را در تنظیمات تغییر دهید.
+    </string>
+
+    <string name="tutorial_language_skip">استفاده از انگلیسی (پیش فرض)</string>
+
+    <string name="tutorial_gestures_title">نحوه استفاده</string>
+
+    <string name="tutorial_tap_instruction">برای توقف یا ادامه صفحه را لمس کنید</string>
+    <string name="tutorial_tap_success">متوقف شد</string>
+
+    <string name="tutorial_long_instruction">برای باز کردن تنظیمات لمس طولانی انجام دهید</string>
+    <string name="tutorial_long_success">تنظیمات باز شد</string>
+
+    <string name="tutorial_multi_instruction">سه بار لمس برای بازنشانی</string>
+    <string name="tutorial_multi_success">بازنشانی شد</string>
+
+    <string name="tutorial_background_title">تایمر ادامه دارد</string>
+    <string name="tutorial_background_description">
+        تایمر حتی پس از بستن برنامه نیز ادامه می یابد.
+        هنگام تغییر مراحل اعلان دریافت خواهید کرد.
+    </string>
+
+    <string name="tutorial_creative_title">مثال ها</string>
+    <string name="tutorial_creative_description">برخی کاربردهای رایج:</string>
+
+    <string name="tutorial_use_chess">ساعت شطرنج</string>
+    <string name="tutorial_use_apnea">تمرین حبس نفس</string>
+    <string name="tutorial_use_pomodoro">تایمر پومودورو</string>
+    <string name="tutorial_use_hiit">تمرینات HIIT</string>
+    <string name="tutorial_use_custom">هر کاربرد دلخواه</string>
+
+</resources>

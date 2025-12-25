@@ -1,0 +1,147 @@
+<resources>
+
+    <string name="phase_go">செல்</string>
+    <string name="phase_stop">நிறுத்து</string>
+
+    <string name="cycle_count">சுழற்சி: %d</string>
+
+    <string name="go_duration">செல் நேரம் (வினாடிகள்)</string>
+    <string name="stop_duration">நிறுத்து நேரம் (வினாடிகள்)</string>
+
+    <string name="go_growth">செல் வளர்ச்சி பெருக்கி</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+    <string name="stop_growth">நிறுத்து வளர்ச்சி பெருக்கி</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+
+    <string name="go_color">செல் நிறம்</string>
+    <string name="stop_color">நிறுத்து நிறம்</string>
+
+    <string name="go_label">"செல்" குறிச்சொல் (விருப்பம்)</string>
+    <string name="go_label_hint">இயல்புநிலையை பயன்படுத்த காலியாக விடவும்</string>
+    <string name="stop_label">"நிறுத்து" குறிச்சொல் (விருப்பம்)</string>
+    <string name="stop_label_hint">இயல்புநிலையை பயன்படுத்த காலியாக விடவும்</string>
+
+    <string name="save_settings">அமைப்புகளை சேமிக்கவும்</string>
+    <string name="settings">அமைப்புகள்</string>
+    <string name="settings_saved">அமைப்புகள் வெற்றிகரமாக சேமிக்கப்பட்டன</string>
+    <string name="invalid_input">தவறான உள்ளீடு</string>
+
+    <string name="reset_timer">டைமரை மீட்டமைக்கவும்</string>
+    <string name="pick_color">நிறத்தை தேர்ந்தெடுக்கவும்</string>
+    <string name="color_preview">நிற முன்னோட்டம்</string>
+
+    <string name="red_label">சிவப்பு</string>
+    <string name="green_label">பச்சை</string>
+    <string name="blue_label">நீலம்</string>
+
+    <string name="color_picker_title">நிறத்தை தேர்ந்தெடுக்கவும்</string>
+    <string name="ok">சரி</string>
+    <string name="cancel">ரத்து</string>
+
+    <string name="notification_channel_go_name">செல் கட்டம்</string>
+    <string name="notification_channel_go_description">செல் கட்ட மாற்றங்களுக்கு அறிவிப்புகள்</string>
+    <string name="notification_channel_stop_name">நிறுத்து கட்டம்</string>
+    <string name="notification_channel_stop_description">நிறுத்து கட்ட மாற்றங்களுக்கு அறிவிப்புகள்</string>
+
+    <string name="notification_go_title">செல் கட்டம் தொடங்கியது</string>
+    <string name="notification_stop_title">நிறுத்து கட்டம் தொடங்கியது</string>
+
+    <string name="language">மொழி</string>
+    <string name="search_language">மொழி தேடு</string>
+    <string name="clear_search">தேடலை அழிக்கவும்</string>
+    <string name="no_languages_found">மொழிகள் கிடைக்கவில்லை</string>
+
+    <string name="timer_screen">
+        டைமர் திரை. ஒற்றை தட்டுதல் இடைநிறுத்த அல்லது தொடர. நீண்ட அழுத்தம் அமைப்புகளை திறக்க.
+    </string>
+
+    <string name="timer_paused">டைமர் இடைநிறுத்தப்பட்டது</string>
+    <string name="timer_resumed">டைமர் தொடரப்பட்டது</string>
+    <string name="pause">இடைநிறுத்து</string>
+    <string name="resume">தொடரவும்</string>
+
+    <plurals name="phase_changed">
+        <item quantity="one">%1$s கட்டம் தொடங்கியது. %2$d வினாடி மீதம்.</item>
+        <item quantity="other">%1$s கட்டம் தொடங்கியது. %2$d வினாடிகள் மீதம்.</item>
+    </plurals>
+
+    <string name="red_slider">சிவப்பு நிற கூறு ஸ்லைடர்</string>
+    <string name="green_slider">பச்சை நிற கூறு ஸ்லைடர்</string>
+    <string name="blue_slider">நீலம் நிற கூறு ஸ்லைடர்</string>
+
+    <string name="notification_permission_rationale_title">
+        கட்ட மாற்ற அறிவிப்புகளை இயக்கு
+    </string>
+
+    <string name="notification_permission_rationale_message">
+        செல் மற்றும் நிறுத்து கட்டங்களுக்கு இடையில் டைமர் மாறும்போது Stop and Go அறிவிப்புகளை அனுப்ப முடியும். இது திரையை தொடர்ந்து பார்க்காமல் கவனம் செலுத்த உதவும்.
+    </string>
+
+    <string name="enable">இயக்கு</string>
+    <string name="not_now">இப்போது வேண்டாம்</string>
+
+    <string name="error_go_duration_range">
+        "செல்" நேரம் %1$d மற்றும் %2$d வினாடிகளுக்கு இடையில் இருக்க வேண்டும்
+    </string>
+
+    <string name="error_stop_duration_range">
+        "நிறுத்து" நேரம் %1$d மற்றும் %2$d வினாடிகளுக்கு இடையில் இருக்க வேண்டும்
+    </string>
+
+    <string name="error_go_growth_range">
+        "செல்" வளர்ச்சி பெருக்கி %1$.2f மற்றும் %2$.2f இடையில் இருக்க வேண்டும்
+    </string>
+
+    <string name="error_stop_growth_range">
+        "நிறுத்து" வளர்ச்சி பெருக்கி %1$.2f மற்றும் %2$.2f இடையில் இருக்க வேண்டும்
+    </string>
+
+    <string name="error_go_label_length">
+        "செல்" குறிச்சொல் %d எழுத்துகளை மீறக்கூடாது
+    </string>
+
+    <string name="error_stop_label_length">
+        "நிறுத்து" குறிச்சொல் %d எழுத்துகளை மீறக்கூடாது
+    </string>
+
+    <string name="tutorial_welcome">Stop and Go-க்கு வரவேற்கிறோம்!</string>
+    <string name="tutorial_skip">தவிர்</string>
+    <string name="tutorial_next">அடுத்து</string>
+    <string name="tutorial_progress">படி %1$d / %2$d</string>
+
+    <string name="help">உதவி</string>
+
+    <string name="tutorial_language_title">மொழி</string>
+    <string name="tutorial_language_description">
+        ஒன்றை தேர்ந்தெடுக்கவும். பின்னர் அமைப்புகளில் மாற்றலாம்.
+    </string>
+
+    <string name="tutorial_language_skip">ஆங்கிலத்தை பயன்படுத்தவும் (இயல்புநிலை)</string>
+
+    <string name="tutorial_gestures_title">எப்படி வேலை செய்கிறது</string>
+    <string name="tutorial_tap_instruction">இடைநிறுத்த அல்லது தொடர எங்கும் தட்டவும்</string>
+    <string name="tutorial_tap_success">இடைநிறுத்தப்பட்டது</string>
+
+    <string name="tutorial_long_instruction">அமைப்புகளை திறக்க நீண்ட அழுத்தம்</string>
+    <string name="tutorial_long_success">அமைப்புகள் திறக்கப்பட்டது</string>
+
+    <string name="tutorial_multi_instruction">மீட்டமைக்க மூன்று முறை தட்டவும்</string>
+    <string name="tutorial_multi_success">மீட்டமைக்கப்பட்டது</string>
+
+    <string name="tutorial_background_title">டைமர் தொடர்ந்து இயங்கும்</string>
+    <string name="tutorial_background_description">
+        செயலியை மூடினாலும் டைமர் இயங்கும். கட்டங்கள் மாறும்போது அறிவிப்புகள் வரும்.
+    </string>
+
+    <string name="tutorial_creative_title">உதாரணங்கள்</string>
+    <string name="tutorial_creative_description">
+        மக்கள் இதை பயன்படுத்தும் சில வழிகள்:
+    </string>
+
+    <string name="tutorial_use_chess">சதுரங்க டைமர்</string>
+    <string name="tutorial_use_apnea">மூச்சுத்தடை பயிற்சி</string>
+    <string name="tutorial_use_pomodoro">போமடோரோ டைமர்</string>
+    <string name="tutorial_use_hiit">HIIT இடைவெளிகள்</string>
+    <string name="tutorial_use_custom">உங்களுக்கு தேவையானது</string>
+
+</resources>

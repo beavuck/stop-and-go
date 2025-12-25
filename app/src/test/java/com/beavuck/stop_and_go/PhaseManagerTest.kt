@@ -1,6 +1,6 @@
 package com.beavuck.stop_and_go
 
-import com.beavuck.stop_and_go.model.AppState
+import com.beavuck.stop_and_go.config.AppState
 import com.beavuck.stop_and_go.model.phase.PhaseManager
 import com.beavuck.stop_and_go.model.timer.TimerConfig
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_DURATION

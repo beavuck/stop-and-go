@@ -49,6 +49,9 @@
     <string name="notification_stop_title">Fase "Parar" iniciada</string>
 
     <string name="language">Idioma</string>
+    <string name="search_language">Pesquisar idioma</string>
+    <string name="clear_search">Limpar pesquisa</string>
+    <string name="no_languages_found">Nenhum idioma encontrado</string>
 
     <string name="timer_screen">Ecrã do temporizador. Toque para pausar ou retomar. Toque longo para abrir as definições.</string>
     <string name="timer_paused">Temporizador pausado</string>
@@ -60,6 +63,7 @@
     <plurals name="phase_changed">
         <item quantity="one">%1$s iniciado. Falta %2$d segundo.</item>
         <item quantity="other">%1$s iniciado. Faltam %2$d segundos.</item>
+        <item quantity="many">%1$s iniciado. Faltam %2$d segundos.</item>
     </plurals>
 
     <string name="red_slider">Slider do componente vermelho</string>

@@ -50,6 +50,9 @@
     <string name="notification_stop_title">停止フェーズが始まりました</string>
 
     <string name="language">言語</string>
+    <string name="search_language">言語を検索</string>
+    <string name="clear_search">検索をクリア</string>
+    <string name="no_languages_found">言語が見つかりません</string>
 
     <string name="timer_screen">
         タイマー画面。タップで一時停止／再開。長押しで設定を開く。

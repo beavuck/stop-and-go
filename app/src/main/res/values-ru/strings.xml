@@ -50,6 +50,9 @@
     <string name="notification_stop_title">Фаза "Стоп" началась</string>
 
     <string name="language">Язык</string>
+    <string name="search_language">Искать язык</string>
+    <string name="clear_search">Очистить поиск</string>
+    <string name="no_languages_found">Языки не найдены</string>
 
     <string name="timer_screen">
         Экран таймера. Одно касание — пауза или продолжение. Долгое нажатие — настройки.

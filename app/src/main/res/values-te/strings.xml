@@ -1,0 +1,155 @@
+<resources>
+
+    <string name="phase_go">వెళ్ళు</string>
+    <string name="phase_stop">ఆపు</string>
+
+    <string name="cycle_count">సైకిల్: %d</string>
+
+    <string name="go_duration">వెళ్ళు వ్యవధి (సెకన్లు)</string>
+    <string name="stop_duration">ఆపు వ్యవధి (సెకన్లు)</string>
+
+    <string name="go_growth">వెళ్ళు పెరుగుదల గుణకం</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+
+    <string name="stop_growth">ఆపు పెరుగుదల గుణకం</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+
+    <string name="go_color">వెళ్ళు రంగు</string>
+    <string name="stop_color">ఆపు రంగు</string>
+
+    <string name="go_label">"వెళ్ళు" లేబుల్ (ఐచ్చికం)</string>
+    <string name="go_label_hint">డిఫాల్ట్ ఉపయోగించడానికి ఖాళీగా ఉంచండి</string>
+
+    <string name="stop_label">"ఆపు" లేబుల్ (ఐచ్చికం)</string>
+    <string name="stop_label_hint">డిఫాల్ట్ ఉపయోగించడానికి ఖాళీగా ఉంచండి</string>
+
+    <string name="save_settings">సెట్టింగ్స్ సేవ్ చేయండి</string>
+    <string name="settings">సెట్టింగ్స్</string>
+    <string name="settings_saved">సెట్టింగ్స్ విజయవంతంగా సేవ్ చేయబడ్డాయి</string>
+
+    <string name="invalid_input">చెల్లని ఇన్పుట్</string>
+    <string name="reset_timer">టైమర్ రీసెట్ చేయండి</string>
+
+    <string name="pick_color">రంగు ఎంచుకోండి</string>
+    <string name="color_preview">రంగు ప్రివ్యూ</string>
+
+    <string name="red_label">ఎరుపు</string>
+    <string name="green_label">ఆకుపచ్చ</string>
+    <string name="blue_label">నీలం</string>
+
+    <string name="color_picker_title">రంగు ఎంచుకోండి</string>
+    <string name="ok">సరే</string>
+    <string name="cancel">రద్దు</string>
+
+    <string name="notification_channel_go_name">వెళ్ళు దశ</string>
+    <string name="notification_channel_go_description">వెళ్ళు దశ మారినప్పుడు నోటిఫికేషన్లు</string>
+
+    <string name="notification_channel_stop_name">ఆపు దశ</string>
+    <string name="notification_channel_stop_description">ఆపు దశ మారినప్పుడు నోటిఫికేషన్లు</string>
+
+    <string name="notification_go_title">వెళ్ళు దశ ప్రారంభమైంది</string>
+    <string name="notification_stop_title">ఆపు దశ ప్రారంభమైంది</string>
+
+    <string name="language">భాష</string>
+    <string name="search_language">భాష వెతకండి</string>
+    <string name="clear_search">శోధనను క్లియర్ చేయండి</string>
+    <string name="no_languages_found">ఏ భాషలు కనుగొనబడలేదు</string>
+
+    <string name="timer_screen">
+        టైమర్ స్క్రీన్. ఆపడానికి లేదా కొనసాగించడానికి ఒకసారి ట్యాప్ చేయండి. సెట్టింగ్స్ తెరవడానికి లాంగ్ ప్రెస్ చేయండి.
+    </string>
+
+    <string name="timer_paused">టైమర్ నిలిపివేయబడింది</string>
+    <string name="timer_resumed">టైమర్ మళ్లీ ప్రారంభమైంది</string>
+
+    <string name="pause">నిలిపివేయి</string>
+    <string name="resume">కొనసాగించు</string>
+
+    <plurals name="phase_changed">
+        <item quantity="one">%1$s దశ ప్రారంభమైంది. %2$d సెకను మిగిలి ఉంది.</item>
+        <item quantity="other">%1$s దశ ప్రారంభమైంది. %2$d సెకన్లు మిగిలి ఉన్నాయి.</item>
+    </plurals>
+
+    <string name="red_slider">ఎరుపు రంగు భాగం స్లైడర్</string>
+    <string name="green_slider">ఆకుపచ్చ రంగు భాగం స్లైడర్</string>
+    <string name="blue_slider">నీలం రంగు భాగం స్లైడర్</string>
+
+    <string name="notification_permission_rationale_title">
+        దశ మార్పు నోటిఫికేషన్లు ప్రారంభించండి
+    </string>
+
+    <string name="notification_permission_rationale_message">
+        టైమర్ వెళ్ళు మరియు ఆపు దశల మధ్య మారినప్పుడు Stop and Go మీకు నోటిఫికేషన్ పంపుతుంది.
+        ఇది స్క్రీన్ చూస్తూ ఉండకుండా మీ దృష్టి నిలుపుకోవడానికి సహాయపడుతుంది.
+    </string>
+
+    <string name="enable">ప్రారంభించండి</string>
+    <string name="not_now">ఇప్పుడు కాదు</string>
+
+    <string name="error_go_duration_range">
+        "వెళ్ళు" వ్యవధి %1$d మరియు %2$d సెకన్ల మధ్య ఉండాలి
+    </string>
+
+    <string name="error_stop_duration_range">
+        "ఆపు" వ్యవధి %1$d మరియు %2$d సెకన్ల మధ్య ఉండాలి
+    </string>
+
+    <string name="error_go_growth_range">
+        "వెళ్ళు" పెరుగుదల గుణకం %1$.2f మరియు %2$.2f మధ్య ఉండాలి
+    </string>
+
+    <string name="error_stop_growth_range">
+        "ఆపు" పెరుగుదల గుణకం %1$.2f మరియు %2$.2f మధ్య ఉండాలి
+    </string>
+
+    <string name="error_go_label_length">
+        "వెళ్ళు" లేబుల్ %d అక్షరాలను మించకూడదు
+    </string>
+
+    <string name="error_stop_label_length">
+        "ఆపు" లేబుల్ %d అక్షరాలను మించకూడదు
+    </string>
+
+    <string name="tutorial_welcome">Stop and Go కు స్వాగతం!</string>
+    <string name="tutorial_skip">దాటవేయి</string>
+    <string name="tutorial_next">తరువాత</string>
+
+    <string name="tutorial_progress">దశ %1$d / %2$d</string>
+
+    <string name="help">సహాయం</string>
+
+    <string name="tutorial_language_title">భాష</string>
+    <string name="tutorial_language_description">
+        ఒకటి ఎంచుకోండి. తర్వాత సెట్టింగ్స్ లో మార్చవచ్చు.
+    </string>
+
+    <string name="tutorial_language_skip">ఇంగ్లీష్ ఉపయోగించండి (డిఫాల్ట్)</string>
+
+    <string name="tutorial_gestures_title">ఎలా పనిచేస్తుంది</string>
+    <string name="tutorial_tap_instruction">ఆపడానికి లేదా కొనసాగించడానికి ఎక్కడైనా ట్యాప్ చేయండి</string>
+    <string name="tutorial_tap_success">నిలిపివేయబడింది</string>
+
+    <string name="tutorial_long_instruction">సెట్టింగ్స్ తెరవడానికి లాంగ్ ప్రెస్ చేయండి</string>
+    <string name="tutorial_long_success">ఇది సెట్టింగ్స్ తెరుస్తుంది</string>
+
+    <string name="tutorial_multi_instruction">రీసెట్ చేయడానికి మూడు సార్లు ట్యాప్ చేయండి</string>
+    <string name="tutorial_multi_success">రీసెట్ అయింది</string>
+
+    <string name="tutorial_background_title">టైమర్ కొనసాగుతూనే ఉంటుంది</string>
+    <string name="tutorial_background_description">
+        యాప్ మూసినప్పటికీ టైమర్ కొనసాగుతుంది.
+        దశ మారినప్పుడు మీకు నోటిఫికేషన్లు వస్తాయి.
+    </string>
+
+    <string name="tutorial_creative_title">ఉదాహరణలు</string>
+    <string name="tutorial_creative_description">
+        ప్రజలు దీనిని ఉపయోగించే కొన్ని విధాలు:
+    </string>
+
+    <string name="tutorial_use_chess">చెస్ క్లాక్</string>
+    <string name="tutorial_use_apnea">శ్వాస ఆపే శిక్షణ</string>
+    <string name="tutorial_use_pomodoro">పోమోడోరో టైమర్</string>
+    <string name="tutorial_use_hiit">HIIT ఇంటర్వల్స్</string>
+    <string name="tutorial_use_custom">మీకు కావలసిన విధంగా</string>
+
+</resources>

@@ -34,6 +34,9 @@
     <string name="notification_go_title">"चलें" चरण शुरू</string>
     <string name="notification_stop_title">"रुकें" चरण शुरू</string>
     <string name="language">भाषा</string>
+    <string name="search_language">भाषा खोजें</string>
+    <string name="clear_search">खोज साफ़ करें</string>
+    <string name="no_languages_found">कोई भाषा नहीं मिली</string>
     <string name="timer_screen">टाइमर स्क्रीन। रोकने/जारी करने के लिए एक बार टैप करें। सेटिंग्स खोलने के लिए लंबा प्रेस करें।</string>
     <string name="timer_paused">टाइमर रोका गया</string>
     <string name="timer_resumed">टाइमर फिर शुरू हुआ</string>

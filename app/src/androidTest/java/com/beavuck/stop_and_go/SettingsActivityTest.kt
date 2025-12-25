@@ -5,7 +5,7 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.beavuck.stop_and_go.activities.SettingsActivity
-import com.beavuck.stop_and_go.model.AppState
+import com.beavuck.stop_and_go.config.AppState
 import com.beavuck.stop_and_go.config.DEFAULT_LOCALE
 import com.beavuck.stop_and_go.config.SupportedLocale
 import com.beavuck.stop_and_go.model.timer.TimerConfig

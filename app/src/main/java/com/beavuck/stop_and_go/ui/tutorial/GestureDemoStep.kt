@@ -202,7 +202,7 @@ private fun DemoArea(
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
-                    painter = painterResource(android.R.drawable.ic_menu_manage),
+                    painter = painterResource(R.drawable.settings),
                     contentDescription = null,
                     tint = Color.White,
                     modifier = Modifier

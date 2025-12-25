@@ -31,6 +31,9 @@
     <string name="notification_go_title">Phase MARCHE commencée</string>
     <string name="notification_stop_title">Phase ARRÊT commencée</string>
     <string name="language">Langue</string>
+    <string name="search_language">Rechercher une langue</string>
+    <string name="clear_search">Effacer la recherche</string>
+    <string name="no_languages_found">Aucune langue trouvée</string>
     <string name="timer_screen">Écran du minuteur. Appuyez une fois pour mettre en pause ou reprendre. Appuyez longuement pour ouvrir les paramètres.</string>
     <string name="timer_paused">Minuteur en pause</string>
     <string name="timer_resumed">Minuteur repris</string>

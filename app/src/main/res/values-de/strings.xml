@@ -1,0 +1,147 @@
+<resources>
+
+    <string name="phase_go">LOS</string>
+    <string name="phase_stop">STOPP</string>
+
+    <string name="cycle_count">Zyklus: %d</string>
+
+    <string name="go_duration">LOS-Dauer (Sekunden)</string>
+    <string name="stop_duration">STOPP-Dauer (Sekunden)</string>
+
+    <string name="go_growth">LOS-Wachstumsfaktor</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+    <string name="stop_growth">STOPP-Wachstumsfaktor</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+
+    <string name="go_color">LOS-Farbe</string>
+    <string name="stop_color">STOPP-Farbe</string>
+
+    <string name="go_label">"LOS"-Beschriftung (optional)</string>
+    <string name="go_label_hint">Leer lassen, um Standard zu verwenden</string>
+    <string name="stop_label">"STOPP"-Beschriftung (optional)</string>
+    <string name="stop_label_hint">Leer lassen, um Standard zu verwenden</string>
+
+    <string name="save_settings">Einstellungen speichern</string>
+    <string name="settings">Einstellungen</string>
+    <string name="settings_saved">Einstellungen erfolgreich gespeichert</string>
+
+    <string name="invalid_input">Ungueltige Eingabe</string>
+
+    <string name="reset_timer">Timer zuruecksetzen</string>
+
+    <string name="pick_color">Farbe auswaehlen</string>
+    <string name="color_preview">Farbvorschau</string>
+
+    <string name="red_label">Rot</string>
+    <string name="green_label">Gruen</string>
+    <string name="blue_label">Blau</string>
+
+    <string name="color_picker_title">Farbe auswaehlen</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Abbrechen</string>
+
+    <string name="notification_channel_go_name">LOS-Phase</string>
+    <string name="notification_channel_go_description">Benachrichtigungen bei Wechsel zur LOS-Phase</string>
+    <string name="notification_channel_stop_name">STOPP-Phase</string>
+    <string name="notification_channel_stop_description">Benachrichtigungen bei Wechsel zur STOPP-Phase</string>
+
+    <string name="notification_go_title">LOS-Phase gestartet</string>
+    <string name="notification_stop_title">STOPP-Phase gestartet</string>
+
+    <string name="language">Sprache</string>
+    <string name="search_language">Sprache suchen</string>
+    <string name="clear_search">Suche loeschen</string>
+    <string name="no_languages_found">Keine Sprachen gefunden</string>
+
+    <string name="timer_screen">
+        Timer-Bildschirm. Einfach tippen zum Pausieren oder Fortsetzen. Lange druecken, um die Einstellungen zu oeffnen.
+    </string>
+
+    <string name="timer_paused">Timer pausiert</string>
+    <string name="timer_resumed">Timer fortgesetzt</string>
+
+    <string name="pause">Pause</string>
+    <string name="resume">Fortsetzen</string>
+
+    <plurals name="phase_changed">
+        <item quantity="one">%1$s-Phase gestartet. %2$d Sekunde verbleibt.</item>
+        <item quantity="other">%1$s-Phase gestartet. %2$d Sekunden verbleiben.</item>
+    </plurals>
+
+    <string name="red_slider">Schieberegler für Rotanteil</string>
+    <string name="green_slider">Schieberegler für Gruenanteil</string>
+    <string name="blue_slider">Schieberegler für Blauanteil</string>
+
+    <string name="notification_permission_rationale_title">
+        Benachrichtigungen bei Phasenwechsel aktivieren
+    </string>
+
+    <string name="notification_permission_rationale_message">
+        Stop and Go kann dich benachrichtigen, wenn der Timer zwischen LOS- und STOPP-Phasen wechselt. So bleibst du fokussiert, ohne staendig auf den Bildschirm zu schauen.
+    </string>
+
+    <string name="enable">Aktivieren</string>
+    <string name="not_now">Nicht jetzt</string>
+
+    <string name="error_go_duration_range">
+        "LOS"-Dauer muss zwischen %1$d und %2$d Sekunden liegen
+    </string>
+
+    <string name="error_stop_duration_range">
+        "STOPP"-Dauer muss zwischen %1$d und %2$d Sekunden liegen
+    </string>
+
+    <string name="error_go_growth_range">
+        "LOS"-Wachstumsfaktor muss zwischen %1$.2f und %2$.2f liegen
+    </string>
+
+    <string name="error_stop_growth_range">
+        "STOPP"-Wachstumsfaktor muss zwischen %1$.2f und %2$.2f liegen
+    </string>
+
+    <string name="error_go_label_length">
+        "LOS"-Beschriftung darf %d Zeichen nicht ueberschreiten
+    </string>
+
+    <string name="error_stop_label_length">
+        "STOPP"-Beschriftung darf %d Zeichen nicht ueberschreiten
+    </string>
+
+    <string name="tutorial_welcome">Willkommen bei Stop and Go!</string>
+    <string name="tutorial_skip">Ueberspringen</string>
+    <string name="tutorial_next">Weiter</string>
+    <string name="tutorial_progress">Schritt %1$d von %2$d</string>
+
+    <string name="help">Hilfe</string>
+
+    <string name="tutorial_language_title">Sprache</string>
+    <string name="tutorial_language_description">
+        Waehle eine Sprache. Du kannst sie spaeter in den Einstellungen aendern.
+    </string>
+
+    <string name="tutorial_language_skip">Englisch verwenden (Standard)</string>
+
+    <string name="tutorial_gestures_title">So funktioniert es</string>
+    <string name="tutorial_tap_instruction">Einfach tippen zum Pausieren oder Fortsetzen</string>
+    <string name="tutorial_tap_success">Pausiert</string>
+    <string name="tutorial_long_instruction">Lange druecken, um die Einstellungen zu oeffnen</string>
+    <string name="tutorial_long_success">Das oeffnet die Einstellungen</string>
+    <string name="tutorial_multi_instruction">Dreimal tippen zum Zuruecksetzen</string>
+    <string name="tutorial_multi_success">Zurueckgesetzt</string>
+
+    <string name="tutorial_background_title">Timer laeuft weiter</string>
+    <string name="tutorial_background_description">
+        Der Timer laeuft weiter, auch wenn du die App schließt. Du erhaeltst Benachrichtigungen bei Phasenwechseln.
+    </string>
+
+    <string name="tutorial_creative_title">Beispiele</string>
+    <string name="tutorial_creative_description">Einige Einsatzmoeglichkeiten:</string>
+
+    <string name="tutorial_use_chess">Schachuhr</string>
+    <string name="tutorial_use_apnea">Atemanhalte-Training</string>
+    <string name="tutorial_use_pomodoro">Pomodoro-Timer</string>
+    <string name="tutorial_use_hiit">HIIT-Intervalle</string>
+    <string name="tutorial_use_custom">Was auch immer du brauchst</string>
+
+</resources>

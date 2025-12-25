@@ -1,0 +1,153 @@
+<resources>
+
+    <string name="phase_go">JALAN</string>
+    <string name="phase_stop">BERHENTI</string>
+
+    <string name="cycle_count">Siklus: %d</string>
+
+    <string name="go_duration">Durasi Jalan (detik)</string>
+    <string name="stop_duration">Durasi Berhenti (detik)</string>
+
+    <string name="go_growth">Pengali Pertumbuhan Jalan</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+
+    <string name="stop_growth">Pengali Pertumbuhan Berhenti</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+
+    <string name="go_color">Warna Jalan</string>
+    <string name="stop_color">Warna Berhenti</string>
+
+    <string name="go_label">Label "Jalan" (opsional)</string>
+    <string name="go_label_hint">Biarkan kosong untuk default</string>
+
+    <string name="stop_label">Label "Berhenti" (opsional)</string>
+    <string name="stop_label_hint">Biarkan kosong untuk default</string>
+
+    <string name="save_settings">Simpan Pengaturan</string>
+    <string name="settings">Pengaturan</string>
+    <string name="settings_saved">Pengaturan berhasil disimpan</string>
+
+    <string name="invalid_input">Input tidak valid</string>
+    <string name="reset_timer">Atur Ulang Timer</string>
+    <string name="pick_color">Pilih Warna</string>
+
+    <string name="color_preview">Pratinjau Warna</string>
+    <string name="red_label">Merah</string>
+    <string name="green_label">Hijau</string>
+    <string name="blue_label">Biru</string>
+
+    <string name="color_picker_title">Pilih Warna</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Batal</string>
+
+    <string name="notification_channel_go_name">Fase Jalan</string>
+    <string name="notification_channel_go_description">Notifikasi untuk perubahan fase Jalan</string>
+
+    <string name="notification_channel_stop_name">Fase Berhenti</string>
+    <string name="notification_channel_stop_description">Notifikasi untuk perubahan fase Berhenti</string>
+
+    <string name="notification_go_title">Fase JALAN Dimulai</string>
+    <string name="notification_stop_title">Fase BERHENTI Dimulai</string>
+
+    <string name="language">Bahasa</string>
+    <string name="search_language">Cari bahasa</string>
+    <string name="clear_search">Hapus pencarian</string>
+    <string name="no_languages_found">Tidak ada bahasa yang ditemukan</string>
+
+    <string name="timer_screen">
+        Layar timer. Ketuk sekali untuk jeda atau lanjutkan. Tekan lama untuk membuka pengaturan.
+    </string>
+
+    <string name="timer_paused">Timer dijeda</string>
+    <string name="timer_resumed">Timer dilanjutkan</string>
+
+    <string name="pause">Jeda</string>
+    <string name="resume">Lanjutkan</string>
+
+    <plurals name="phase_changed">
+        <item quantity="other">%1$s dimulai. %2$d detik tersisa.</item>
+    </plurals>
+
+    <string name="red_slider">Slider komponen warna merah</string>
+    <string name="green_slider">Slider komponen warna hijau</string>
+    <string name="blue_slider">Slider komponen warna biru</string>
+
+    <string name="notification_permission_rationale_title">
+        Aktifkan Notifikasi Perubahan Fase
+    </string>
+
+    <string name="notification_permission_rationale_message">
+        Stop and Go dapat memberi tahu Anda saat timer berpindah antara fase JALAN dan BERHENTI.
+        Ini membantu Anda tetap fokus tanpa terus melihat layar.
+    </string>
+
+    <string name="enable">Aktifkan</string>
+    <string name="not_now">Nanti</string>
+
+    <string name="error_go_duration_range">
+        Durasi "Jalan" harus antara %1$d dan %2$d detik
+    </string>
+
+    <string name="error_stop_duration_range">
+        Durasi "Berhenti" harus antara %1$d dan %2$d detik
+    </string>
+
+    <string name="error_go_growth_range">
+        Pengali pertumbuhan "Jalan" harus antara %1$.2f dan %2$.2f
+    </string>
+
+    <string name="error_stop_growth_range">
+        Pengali pertumbuhan "Berhenti" harus antara %1$.2f dan %2$.2f
+    </string>
+
+    <string name="error_go_label_length">
+        Label "Jalan" tidak boleh lebih dari %d karakter
+    </string>
+
+    <string name="error_stop_label_length">
+        Label "Berhenti" tidak boleh lebih dari %d karakter
+    </string>
+
+    <string name="tutorial_welcome">Selamat datang di Stop and Go!</string>
+    <string name="tutorial_skip">Lewati</string>
+    <string name="tutorial_next">Berikutnya</string>
+
+    <string name="tutorial_progress">Langkah %1$d dari %2$d</string>
+
+    <string name="help">Bantuan</string>
+
+    <string name="tutorial_language_title">Bahasa</string>
+    <string name="tutorial_language_description">
+        Pilih satu. Anda dapat mengubahnya nanti di pengaturan.
+    </string>
+
+    <string name="tutorial_language_skip">Gunakan Inggris (default)</string>
+
+    <string name="tutorial_gestures_title">Cara Kerja</string>
+    <string name="tutorial_tap_instruction">Ketuk di mana saja untuk jeda atau lanjutkan</string>
+    <string name="tutorial_tap_success">Dijeda</string>
+
+    <string name="tutorial_long_instruction">Tekan lama untuk membuka pengaturan</string>
+    <string name="tutorial_long_success">Itu membuka pengaturan</string>
+
+    <string name="tutorial_multi_instruction">Ketuk tiga kali untuk mengatur ulang</string>
+    <string name="tutorial_multi_success">Diatur ulang</string>
+
+    <string name="tutorial_background_title">Timer Tetap Berjalan</string>
+    <string name="tutorial_background_description">
+        Timer tetap berjalan meskipun Anda menutup aplikasi.
+        Anda akan menerima notifikasi saat fase berubah.
+    </string>
+
+    <string name="tutorial_creative_title">Contoh</string>
+    <string name="tutorial_creative_description">
+        Beberapa hal yang orang gunakan aplikasi ini untuk:
+    </string>
+
+    <string name="tutorial_use_chess">Jam catur</string>
+    <string name="tutorial_use_apnea">Latihan menahan napas</string>
+    <string name="tutorial_use_pomodoro">Timer pomodoro</string>
+    <string name="tutorial_use_hiit">Interval HIIT</string>
+    <string name="tutorial_use_custom">Apa pun yang Anda butuhkan</string>
+
+</resources>

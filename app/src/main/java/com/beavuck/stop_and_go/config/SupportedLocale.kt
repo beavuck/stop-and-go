@@ -20,8 +20,21 @@ enum class SupportedLocale(val code: String, private val nameResId: Int) {
     CHINESE_TRADITIONAL_HK("zh-HK", R.string.language_chinese_traditional_hk),
     TURKISH("tr", R.string.language_turkish),
     ARABIC("ar", R.string.language_arabic),
+    CHINESE_WU_SH("wuu-rCN", R.string.language_chinese_wu),
+    MARATHI("mr", R.string.language_marathi),
+    TELUGU("te", R.string.language_telugu),
+    KOREAN("ko", R.string.language_korean),
+    TAMIL("ta", R.string.language_tamil),
+    URDU("ur", R.string.language_urdu),
+    GERMAN("de", R.string.language_german),
+    INDONESIAN("id", R.string.language_indonesian),
     FRENCH("fr", R.string.language_french),
-    JAVANESE("jv", R.string.language_javanese);
+    JAVANESE("jv", R.string.language_javanese),
+    IRANIAN_PERSIAN("fa", R.string.language_iranian_persian),
+    ITALIAN("it", R.string.language_italian),
+    HAUSA("ha", R.string.language_hausa),
+    GUJARATI("gu", R.string.language_gujarati),
+    ;
 
     fun getDisplayName(context: Context): String {
         return context.getString(nameResId)

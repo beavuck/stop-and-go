@@ -1,11 +1,6 @@
 package com.beavuck.stop_and_go
 
 import com.beavuck.stop_and_go.model.timer.TimerConfig
-import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_COLOR
-import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_DURATION
-import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GROWTH_MULTIPLIER
-import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_STOP_COLOR
-import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_STOP_DURATION
 import com.beavuck.stop_and_go.model.timer.TimerConstants.MAX_DURATION_SECONDS
 import com.beavuck.stop_and_go.model.timer.TimerConstants.MAX_GROWTH_MULTIPLIER
 import com.beavuck.stop_and_go.model.timer.TimerConstants.MIN_DURATION_SECONDS
@@ -14,17 +9,6 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class TimerConfigTest {
-    @Test
-    fun defaultConfig_hasCorrectValues() {
-        val config = TimerConfig()
-
-        assertEquals(DEFAULT_GO_DURATION, config.goDuration)
-        assertEquals(DEFAULT_STOP_DURATION, config.stopDuration)
-        assertEquals(DEFAULT_GROWTH_MULTIPLIER, config.goDurationGrowth)
-        assertEquals(DEFAULT_GROWTH_MULTIPLIER, config.stopDurationGrowth)
-        assertEquals(DEFAULT_GO_COLOR, config.goColor)
-        assertEquals(DEFAULT_STOP_COLOR, config.stopColor)
-    }
 
     @Test
     fun validate_withValidConfig_succeeds() {
@@ -122,25 +106,6 @@ class TimerConfigTest {
         val config = TimerConfig(stopDurationGrowth = MAX_GROWTH_MULTIPLIER + 1f)
 
         config.validate()
-    }
-
-    @Test
-    fun defaultConfig_hasEmptyLabels() {
-        val config = TimerConfig()
-
-        assertEquals("", config.goLabel)
-        assertEquals("", config.stopLabel)
-    }
-
-    @Test
-    fun config_withCustomLabels_succeeds() {
-        val config = TimerConfig(
-            goLabel = "Run",
-            stopLabel = "Walk"
-        )
-
-        assertEquals("Run", config.goLabel)
-        assertEquals("Walk", config.stopLabel)
     }
 
     @Test

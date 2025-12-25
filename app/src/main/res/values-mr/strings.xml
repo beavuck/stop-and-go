@@ -1,0 +1,130 @@
+<resources>
+
+    <string name="phase_go">सुरू</string>
+    <string name="phase_stop">थांबा</string>
+
+    <string name="cycle_count">चक्र: %d</string>
+
+    <string name="go_duration">सुरू कालावधी (सेकंद)</string>
+    <string name="stop_duration">थांबा कालावधी (सेकंद)</string>
+
+    <string name="go_growth">सुरू वाढ गुणक</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+
+    <string name="stop_growth">थांबा वाढ गुणक</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+
+    <string name="go_color">सुरू रंग</string>
+    <string name="stop_color">थांबा रंग</string>
+
+    <string name="go_label">"सुरू" लेबल (ऐच्छिक)</string>
+    <string name="go_label_hint">मूलभूत वापरण्यासाठी रिक्त ठेवा</string>
+
+    <string name="stop_label">"थांबा" लेबल (ऐच्छिक)</string>
+    <string name="stop_label_hint">मूलभूत वापरण्यासाठी रिक्त ठेवा</string>
+
+    <string name="save_settings">सेटिंग्ज जतन करा</string>
+    <string name="settings">सेटिंग्ज</string>
+    <string name="settings_saved">सेटिंग्ज यशस्वीपणे जतन केल्या</string>
+
+    <string name="invalid_input">अवैध इनपुट</string>
+
+    <string name="reset_timer">टायमर रीसेट करा</string>
+    <string name="pick_color">रंग निवडा</string>
+
+    <string name="color_preview">रंग पूर्वदृश्य</string>
+
+    <string name="red_label">लाल</string>
+    <string name="green_label">हिरवा</string>
+    <string name="blue_label">निळा</string>
+
+    <string name="color_picker_title">रंग निवडा</string>
+    <string name="ok">ठीक आहे</string>
+    <string name="cancel">रद्द करा</string>
+
+    <string name="notification_channel_go_name">सुरू टप्पा</string>
+    <string name="notification_channel_go_description">सुरू टप्प्यातील बदलांसाठी सूचना</string>
+
+    <string name="notification_channel_stop_name">थांबा टप्पा</string>
+    <string name="notification_channel_stop_description">थांबा टप्प्यातील बदलांसाठी सूचना</string>
+
+    <string name="notification_go_title">सुरू टप्पा सुरू झाला</string>
+    <string name="notification_stop_title">थांबा टप्पा सुरू झाला</string>
+
+    <string name="language">भाषा</string>
+    <string name="search_language">भाषा शोधा</string>
+    <string name="clear_search">शोध साफ करा</string>
+    <string name="no_languages_found">कोणतीही भाषा सापडली नाही</string>
+
+    <string name="timer_screen">टायमर स्क्रीन. थांबवण्यासाठी किंवा पुन्हा सुरू करण्यासाठी एकदा टॅप करा. सेटिंग्ज उघडण्यासाठी दीर्घ दाबा.</string>
+    <string name="timer_paused">टायमर थांबवला</string>
+    <string name="timer_resumed">टायमर पुन्हा सुरू झाला</string>
+
+    <string name="pause">थांबा</string>
+    <string name="resume">पुन्हा सुरू करा</string>
+
+    <plurals name="phase_changed">
+        <item quantity="one">%1$s टप्पा सुरू झाला. %2$d सेकंद शिल्लक.</item>
+        <item quantity="other">%1$s टप्पा सुरू झाला. %2$d सेकंद शिल्लक.</item>
+    </plurals>
+
+    <string name="red_slider">लाल रंग घटक स्लायडर</string>
+    <string name="green_slider">हिरवा रंग घटक स्लायडर</string>
+    <string name="blue_slider">निळा रंग घटक स्लायडर</string>
+
+    <string name="notification_permission_rationale_title">टप्पा बदल सूचना सक्षम करा</string>
+    <string name="notification_permission_rationale_message">
+        Stop and Go टायमर सुरूं आणि थांबा टप्प्यांमध्ये बदल झाल्यावर तुम्हाला सूचित करू शकतो.
+        यामुळे स्क्रीन सतत पाहण्याची गरज न पडता लक्ष केंद्रित ठेवता येते.
+    </string>
+
+    <string name="enable">सक्षम करा</string>
+    <string name="not_now">आता नाही</string>
+
+    <string name="error_go_duration_range">"सुरू" कालावधी %1$d ते %2$d सेकंदांदरम्यान असावा</string>
+    <string name="error_stop_duration_range">"थांबा" कालावधी %1$d ते %2$d सेकंदांदरम्यान असावा</string>
+
+    <string name="error_go_growth_range">"सुरू" वाढ गुणक %1$.2f ते %2$.2f दरम्यान असावा</string>
+    <string name="error_stop_growth_range">"थांबा" वाढ गुणक %1$.2f ते %2$.2f दरम्यान असावा</string>
+
+    <string name="error_go_label_length">"सुरू" लेबल %d अक्षरांपेक्षा जास्त नसावे</string>
+    <string name="error_stop_label_length">"थांबा" लेबल %d अक्षरांपेक्षा जास्त नसावे</string>
+
+    <string name="tutorial_welcome">Stop and Go मध्ये स्वागत आहे!</string>
+    <string name="tutorial_skip">वगळा</string>
+    <string name="tutorial_next">पुढे</string>
+
+    <string name="tutorial_progress">पायरी %1$d पैकी %2$d</string>
+
+    <string name="help">मदत</string>
+
+    <string name="tutorial_language_title">भाषा</string>
+    <string name="tutorial_language_description">एक निवडा. नंतर सेटिंग्जमध्ये बदल करू शकता.</string>
+    <string name="tutorial_language_skip">इंग्रजी वापरा (मूलभूत)</string>
+
+    <string name="tutorial_gestures_title">कसे कार्य करते</string>
+    <string name="tutorial_tap_instruction">थांबवण्यासाठी किंवा पुन्हा सुरू करण्यासाठी कुठेही टॅप करा</string>
+    <string name="tutorial_tap_success">थांबवले</string>
+
+    <string name="tutorial_long_instruction">सेटिंग्ज उघडण्यासाठी दीर्घ दाबा</string>
+    <string name="tutorial_long_success">यामुळे सेटिंग्ज उघडतात</string>
+
+    <string name="tutorial_multi_instruction">रीसेट करण्यासाठी तीन वेळा टॅप करा</string>
+    <string name="tutorial_multi_success">रीसेट</string>
+
+    <string name="tutorial_background_title">टायमर सुरूच राहतो</string>
+    <string name="tutorial_background_description">
+        अ‍ॅप बंद केल्यानंतरही टायमर चालू राहतो.
+        टप्पे बदलल्यावर तुम्हाला सूचना मिळतील.
+    </string>
+
+    <string name="tutorial_creative_title">उदाहरणे</string>
+    <string name="tutorial_creative_description">लोक हे कशासाठी वापरतात:</string>
+
+    <string name="tutorial_use_chess">बुद्धिबळ घड्याळ</string>
+    <string name="tutorial_use_apnea">श्वास रोखण्याचा सराव</string>
+    <string name="tutorial_use_pomodoro">पोमोडोरो टायमर</string>
+    <string name="tutorial_use_hiit">HIIT अंतराल</string>
+    <string name="tutorial_use_custom">तुम्हाला जे हवे ते</string>
+
+</resources>

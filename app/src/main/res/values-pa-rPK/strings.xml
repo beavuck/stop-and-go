@@ -46,6 +46,9 @@
     <string name="notification_stop_title">روک فیز شروع ہوگئی</string>
 
     <string name="language">زبان</string>
+    <string name="search_language">زبان تلاش کرو</string>
+    <string name="clear_search">تلاش صاف کرو</string>
+    <string name="no_languages_found">کوئی زبان نہیں ملی</string>
 
     <string name="timer_screen">
         ٹائمر سکرین۔ ایک ٹیپ نال روک/چلاؤ۔ لانگ پریس نال سیٹنگز کھل دیاں۔

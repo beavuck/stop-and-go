@@ -59,6 +59,18 @@
     <string name="language_turkish" translatable="false">Türkçe</string>
     <string name="language_vietnamese" translatable="false">Tiếng Việt</string>
     <string name="language_chinese_traditional_hk" translatable="false">繁體中文（香港）</string>
+    <string name="language_chinese_wu" translatable="false">吴语</string>
+    <string name="language_german" translatable="false">Deutsch</string>
+    <string name="language_gujarati" translatable="false">ગુજરાતી</string>
+    <string name="language_hausa" translatable="false">Hausa</string>
+    <string name="language_indonesian" translatable="false">Bahasa Indonesia</string>
+    <string name="language_iranian_persian" translatable="false">فارسی</string>
+    <string name="language_italian" translatable="false">Italiano</string>
+    <string name="language_korean" translatable="false">한국어</string>
+    <string name="language_marathi" translatable="false">मराठी</string>
+    <string name="language_tamil" translatable="false">தமிழ்</string>
+    <string name="language_telugu" translatable="false">తెలుగు</string>
+    <string name="language_urdu" translatable="false">اردو</string>
     <string name="timer_screen">Timer screen. Single tap to pause or resume. Long press to open settings.</string>
     <string name="timer_paused">Timer paused</string>
     <string name="timer_resumed">Timer resumed</string>

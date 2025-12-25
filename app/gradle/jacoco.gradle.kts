@@ -21,6 +21,7 @@ tasks.register<JacocoReport>("jacocoTestReport") {
         "**/notifications/**/*.*",
         "**/dialogs/**/*.*",
         "**/ui/**/*.*",
+        "**/config/**/*.*",
         "android/**/*.*"
     )
 

@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.beavuck.stop_and_go.model.AppState
+import com.beavuck.stop_and_go.config.AppState
 import com.beavuck.stop_and_go.repositories.StateRepository
 import org.junit.After
 import org.junit.Assert.assertEquals

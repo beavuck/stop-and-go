@@ -3,7 +3,7 @@ package com.beavuck.stop_and_go.repositories
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.core.content.edit
-import com.beavuck.stop_and_go.model.AppState
+import com.beavuck.stop_and_go.config.AppState
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_DURATION
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_IS_GO
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_IS_PAUSED
@@ -29,7 +29,7 @@ class StateRepository(context: Context) {
     }
 
     fun loadState(): AppState? {
-        if (!sharedPreferences.contains(KEY_CYCLE_COUNT)) {
+        if (!existsSavedState()) {
             return null
         }
 
@@ -44,6 +44,10 @@ class StateRepository(context: Context) {
             isPaused = sharedPreferences.getBoolean(KEY_IS_PAUSED, DEFAULT_IS_PAUSED)
         )
     }
+
+    private fun existsSavedState(): Boolean =
+        sharedPreferences.contains(KEY_CYCLE_COUNT)
+                && sharedPreferences.contains(KEY_SECONDS_REMAINING)
 
     fun clearState() {
         sharedPreferences.edit { clear() }

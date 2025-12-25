@@ -32,6 +32,9 @@
     <string name="notification_go_title">بدأت مرحلة الانطلاق</string>
     <string name="notification_stop_title">بدأت مرحلة التوقف</string>
     <string name="language">اللغة</string>
+    <string name="search_language">ابحث عن لغة</string>
+    <string name="clear_search">مسح البحث</string>
+    <string name="no_languages_found">لم يتم العثور على لغات</string>
     <string name="timer_screen">شاشة المؤقت. انقر مرة واحدة للإيقاف المؤقت أو الاستئناف. اضغط مطولاً لفتح الإعدادات.</string>
     <string name="timer_paused">المؤقت متوقف مؤقتًا</string>
     <string name="timer_resumed">المؤقت مستأنف</string>

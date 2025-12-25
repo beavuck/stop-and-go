@@ -34,6 +34,9 @@
     <string name="notification_go_title">BAŞLA Fazı Başladı</string>
     <string name="notification_stop_title">DUR Fazı Başladı</string>
     <string name="language">Dil</string>
+    <string name="search_language">Dil ara</string>
+    <string name="clear_search">Aramayı temizle</string>
+    <string name="no_languages_found">Hiçbir dil bulunamadı</string>
     <string name="timer_screen">Zamanlayıcı ekranı. Duraklatmak veya devam ettirmek için tek dokunun. Ayarları açmak için uzun basın.</string>
     <string name="timer_paused">Zamanlayıcı duraklatıldı</string>
     <string name="timer_resumed">Zamanlayıcı devam etti</string>

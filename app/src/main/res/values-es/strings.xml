@@ -32,6 +32,9 @@
     <string name="notification_go_title">Fase ADELANTE iniciada</string>
     <string name="notification_stop_title">Fase ALTO iniciada</string>
     <string name="language">Idioma</string>
+    <string name="search_language">Buscar idioma</string>
+    <string name="clear_search">Borrar búsqueda</string>
+    <string name="no_languages_found">No se encontraron idiomas</string>
     <string name="timer_screen">Pantalla del temporizador. Toque una vez para pausar o reanudar. Mantenga presionado para abrir la configuración.</string>
     <string name="timer_paused">Temporizador en pausa</string>
     <string name="timer_resumed">Temporizador reanudado</string>

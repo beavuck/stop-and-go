@@ -1,0 +1,150 @@
+<resources>
+
+    <string name="phase_go">시작</string>
+    <string name="phase_stop">정지</string>
+
+    <string name="cycle_count">사이클: %d</string>
+
+    <string name="go_duration">시작 지속 시간 (초)</string>
+    <string name="stop_duration">정지 지속 시간 (초)</string>
+
+    <string name="go_growth">시작 증가 배율</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+
+    <string name="stop_growth">정지 증가 배율</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+
+    <string name="go_color">시작 색상</string>
+    <string name="stop_color">정지 색상</string>
+
+    <string name="go_label">"시작" 라벨 (선택 사항)</string>
+    <string name="go_label_hint">비워두면 기본값 사용</string>
+
+    <string name="stop_label">"정지" 라벨 (선택 사항)</string>
+    <string name="stop_label_hint">비워두면 기본값 사용</string>
+
+    <string name="save_settings">설정 저장</string>
+    <string name="settings">설정</string>
+    <string name="settings_saved">설정이 저장되었습니다</string>
+
+    <string name="invalid_input">잘못된 입력</string>
+    <string name="reset_timer">타이머 초기화</string>
+
+    <string name="pick_color">색상 선택</string>
+    <string name="color_preview">색상 미리보기</string>
+
+    <string name="red_label">빨강</string>
+    <string name="green_label">초록</string>
+    <string name="blue_label">파랑</string>
+
+    <string name="color_picker_title">색상 선택</string>
+
+    <string name="ok">확인</string>
+    <string name="cancel">취소</string>
+
+    <string name="notification_channel_go_name">시작 단계</string>
+    <string name="notification_channel_go_description">시작 단계 변경 알림</string>
+
+    <string name="notification_channel_stop_name">정지 단계</string>
+    <string name="notification_channel_stop_description">정지 단계 변경 알림</string>
+
+    <string name="notification_go_title">시작 단계 시작됨</string>
+    <string name="notification_stop_title">정지 단계 시작됨</string>
+
+    <string name="language">언어</string>
+    <string name="search_language">언어 검색</string>
+    <string name="clear_search">검색 지우기</string>
+    <string name="no_languages_found">언어를 찾을 수 없습니다</string>
+
+    <string name="timer_screen">
+        타이머 화면입니다. 한 번 탭하면 일시정지 또는 재개됩니다. 길게 누르면 설정이 열립니다.
+    </string>
+
+    <string name="timer_paused">타이머 일시정지됨</string>
+    <string name="timer_resumed">타이머 재개됨</string>
+
+    <string name="pause">일시정지</string>
+    <string name="resume">재개</string>
+
+    <plurals name="phase_changed">
+        <item quantity="other">%1$s 단계가 시작되었습니다. %2$d초 남았습니다.</item>
+    </plurals>
+
+    <string name="red_slider">빨강 색상 조절 슬라이더</string>
+    <string name="green_slider">초록 색상 조절 슬라이더</string>
+    <string name="blue_slider">파랑 색상 조절 슬라이더</string>
+
+    <string name="notification_permission_rationale_title">단계 변경 알림 사용</string>
+    <string name="notification_permission_rationale_message">
+        Stop and Go는 시작과 정지 단계가 전환될 때 알림을 보낼 수 있습니다.
+        화면을 계속 보지 않아도 집중을 유지하는 데 도움이 됩니다.
+    </string>
+
+    <string name="enable">사용</string>
+    <string name="not_now">나중에</string>
+
+    <string name="error_go_duration_range">
+        "시작" 지속 시간은 %1$d초에서 %2$d초 사이여야 합니다
+    </string>
+
+    <string name="error_stop_duration_range">
+        "정지" 지속 시간은 %1$d초에서 %2$d초 사이여야 합니다
+    </string>
+
+    <string name="error_go_growth_range">
+        "시작" 증가 배율은 %1$.2f에서 %2$.2f 사이여야 합니다
+    </string>
+
+    <string name="error_stop_growth_range">
+        "정지" 증가 배율은 %1$.2f에서 %2$.2f 사이여야 합니다
+    </string>
+
+    <string name="error_go_label_length">
+        "시작" 라벨은 %d자를 초과할 수 없습니다
+    </string>
+
+    <string name="error_stop_label_length">
+        "정지" 라벨은 %d자를 초과할 수 없습니다
+    </string>
+
+    <string name="tutorial_welcome">Stop and Go에 오신 것을 환영합니다!</string>
+    <string name="tutorial_skip">건너뛰기</string>
+    <string name="tutorial_next">다음</string>
+
+    <string name="tutorial_progress">단계 %1$d / %2$d</string>
+
+    <string name="help">도움말</string>
+
+    <string name="tutorial_language_title">언어</string>
+    <string name="tutorial_language_description">
+        하나를 선택하세요. 나중에 설정에서 변경할 수 있습니다.
+    </string>
+
+    <string name="tutorial_language_skip">영어 사용 (기본값)</string>
+
+    <string name="tutorial_gestures_title">사용 방법</string>
+    <string name="tutorial_tap_instruction">어디든 탭하여 일시정지 또는 재개</string>
+    <string name="tutorial_tap_success">일시정지됨</string>
+
+    <string name="tutorial_long_instruction">길게 눌러 설정 열기</string>
+    <string name="tutorial_long_success">설정이 열립니다</string>
+
+    <string name="tutorial_multi_instruction">세 번 탭하여 초기화</string>
+    <string name="tutorial_multi_success">초기화됨</string>
+
+    <string name="tutorial_background_title">타이머는 계속 실행됩니다</string>
+    <string name="tutorial_background_description">
+        앱을 닫아도 타이머는 계속 실행됩니다.
+        단계가 바뀌면 알림을 받게 됩니다.
+    </string>
+
+    <string name="tutorial_creative_title">사용 예시</string>
+    <string name="tutorial_creative_description">이런 용도로 사용됩니다:</string>
+
+    <string name="tutorial_use_chess">체스 시계</string>
+    <string name="tutorial_use_apnea">호흡 참기 훈련</string>
+    <string name="tutorial_use_pomodoro">포모도로 타이머</string>
+    <string name="tutorial_use_hiit">HIIT 인터벌</string>
+    <string name="tutorial_use_custom">필요한 어떤 용도로든</string>
+
+</resources>

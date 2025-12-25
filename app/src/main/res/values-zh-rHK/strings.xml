@@ -34,13 +34,15 @@
     <string name="notification_go_title">走階段開始</string>
     <string name="notification_stop_title">停階段開始</string>
     <string name="language">語言</string>
+    <string name="search_language">搜尋語言</string>
+    <string name="clear_search">清除搜尋</string>
+    <string name="no_languages_found">搵唔到語言</string>
     <string name="timer_screen">計時器畫面。單擊暫停或繼續。長按打開設定。</string>
     <string name="timer_paused">計時器已暫停</string>
     <string name="timer_resumed">計時器已繼續</string>
     <string name="pause">暫停</string>
     <string name="resume">繼續</string>
     <plurals name="phase_changed">
-        <item quantity="one">%1$s 階段開始。剩餘 %2$d 秒。</item>
         <item quantity="other">%1$s 階段開始。剩餘 %2$d 秒。</item>
     </plurals>
     <string name="red_slider">紅色滑動條</string>

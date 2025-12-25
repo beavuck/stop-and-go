@@ -34,13 +34,15 @@
     <string name="notification_go_title">Bắt đầu giai đoạn BẮT ĐẦU</string>
     <string name="notification_stop_title">Bắt đầu giai đoạn DỪNG</string>
     <string name="language">Ngôn ngữ</string>
+    <string name="search_language">Tìm kiếm ngôn ngữ</string>
+    <string name="clear_search">Xóa tìm kiếm</string>
+    <string name="no_languages_found">Không tìm thấy ngôn ngữ</string>
     <string name="timer_screen">Màn hình đồng hồ. Chạm một lần để tạm dừng hoặc tiếp tục. Nhấn giữ để mở cài đặt.</string>
     <string name="timer_paused">Đồng hồ tạm dừng</string>
     <string name="timer_resumed">Đồng hồ tiếp tục</string>
     <string name="pause">Tạm dừng</string>
     <string name="resume">Tiếp tục</string>
     <plurals name="phase_changed">
-        <item quantity="one">Giai đoạn %1$s bắt đầu. Còn %2$d giây.</item>
         <item quantity="other">Giai đoạn %1$s bắt đầu. Còn %2$d giây.</item>
     </plurals>
     <string name="red_slider">Thanh trượt thành phần màu đỏ</string>
