@@ -35,8 +35,6 @@
     <string name="green_label">সবুজ</string>
     <string name="blue_label">নীল</string>
 
-    <string name="color_picker_title">রঙ নির্বাচন করুন</string>
-
     <string name="ok">ওকে</string>
     <string name="cancel">বাতিল</string>
 
@@ -116,4 +114,15 @@
     <string name="tutorial_use_pomodoro">পোমোডোরো টাইমার</string>
     <string name="tutorial_use_hiit">HIIT ইন্টারভাল</string>
     <string name="tutorial_use_custom">আপনার যেকোনো কাজে</string>
+
+    <string name="more">আরও</string>
+    <string name="more_about">সম্পর্কে</string>
+    <string name="more_privacy">গোপনীয়তা</string>
+    <string name="more_license">লাইসেন্স</string>
+    <string name="more_tip">ডেভেলপারকে সমর্থন করুন</string>
+    <string name="more_open">খুলুন</string>
+    <string name="more_share">অ্যাপ শেয়ার করুন</string>
+    <string name="more_share_text">Stop and Go ব্যবহার করুন - একটি মিনিমালিস্ট ইন্টারভাল টাইমার। বিনামূল্যে, বিজ্ঞাপন-মুক্ত, অফলাইন। https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
+    <string name="more_reset_settings">ডিফল্ট সেটিংসে রিসেট করুন</string>
+    <string name="more_reset_success">সেটিংস ডিফল্ট মানগুলিতে রিসেট হয়েছে</string>
 </resources>

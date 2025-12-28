@@ -21,7 +21,6 @@
     <string name="red_label">Rouge</string>
     <string name="green_label">Vert</string>
     <string name="blue_label">Bleu</string>
-    <string name="color_picker_title">Choisir une couleur</string>
     <string name="ok">OK</string>
     <string name="cancel">Annuler</string>
     <string name="notification_channel_go_name">Phase de marche</string>
@@ -84,4 +83,14 @@
     <string name="tutorial_use_pomodoro">Minuteur Pomodoro</string>
     <string name="tutorial_use_hiit">Intervalles HIIT</string>
     <string name="tutorial_use_custom">Ce que vous voulez</string>
+    <string name="more">Plus</string>
+    <string name="more_about">À propos</string>
+    <string name="more_privacy">Confidentialité</string>
+    <string name="more_license">Licence</string>
+    <string name="more_tip">Soutenir le développeur</string>
+    <string name="more_open">Ouvrir</string>
+    <string name="more_share">Partager l\'application</string>
+    <string name="more_share_text">Découvrez Stop and Go - un minuteur d\'intervalles minimaliste. Gratuit, sans publicité, hors ligne. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
+    <string name="more_reset_settings">Réinitialiser les paramètres par défaut</string>
+    <string name="more_reset_success">Paramètres réinitialisés aux valeurs par défaut</string>
 </resources>

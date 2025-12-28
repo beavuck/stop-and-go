@@ -34,8 +34,6 @@
     <string name="green_label">Verde</string>
     <string name="blue_label">Azul</string>
 
-    <string name="color_picker_title">Escolher cor</string>
-
     <string name="ok">OK</string>
     <string name="cancel">Cancelar</string>
 
@@ -116,4 +114,15 @@
     <string name="tutorial_use_pomodoro">Temporizador Pomodoro</string>
     <string name="tutorial_use_hiit">Intervalos HIIT</string>
     <string name="tutorial_use_custom">O que quiser</string>
+
+    <string name="more">Mais</string>
+    <string name="more_about">Sobre</string>
+    <string name="more_privacy">Privacidade</string>
+    <string name="more_license">Licença</string>
+    <string name="more_tip">Apoiar o desenvolvedor</string>
+    <string name="more_open">Abrir</string>
+    <string name="more_share">Compartilhar app</string>
+    <string name="more_share_text">Conheça o Stop and Go - um cronômetro de intervalos minimalista. Gratuito, sem anúncios, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
+    <string name="more_reset_settings">Redefinir para configurações padrão</string>
+    <string name="more_reset_success">Configurações redefinidas para padrões</string>
 </resources>

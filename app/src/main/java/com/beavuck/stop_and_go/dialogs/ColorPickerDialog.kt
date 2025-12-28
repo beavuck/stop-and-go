@@ -36,9 +36,6 @@ fun ColorPickerDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = {
-            Text(stringResource(R.string.color_picker_title))
-        },
         text = {
             Column(
                 modifier = Modifier

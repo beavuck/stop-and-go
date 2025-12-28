@@ -27,6 +27,7 @@ import com.beavuck.stop_and_go.activities.TutorialActivity
 import com.beavuck.stop_and_go.config.SupportedLocale
 import com.beavuck.stop_and_go.dialogs.ColorPickerDialog
 import com.beavuck.stop_and_go.dialogs.LanguagePickerDialog
+import com.beavuck.stop_and_go.dialogs.MoreDialog
 import com.beavuck.stop_and_go.model.timer.TimerConfig
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
@@ -35,7 +36,7 @@ import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
 import kotlinx.coroutines.delay
 
 
-public const val DEBOUNCE_DELAY = 500L
+const val DEBOUNCE_DELAY = 500L
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -48,7 +49,7 @@ fun SettingsContent(
     onFinish: () -> Unit,
 ) {
     val context = LocalContext.current
-    val currentConfig = remember { configRepository.loadConfig() }
+    var currentConfig by remember { mutableStateOf(configRepository.loadConfig()) }
 
     val invalidInputMessage = stringResource(R.string.invalid_input)
     val settingsSavedMessage = stringResource(R.string.settings_saved)
@@ -66,6 +67,7 @@ fun SettingsContent(
     var showGoColorPicker by rememberSaveable { mutableStateOf(false) }
     var showStopColorPicker by rememberSaveable { mutableStateOf(false) }
     var showLanguagePicker by rememberSaveable { mutableStateOf(false) }
+    var showMoreDialog by rememberSaveable { mutableStateOf(false) }
 
     var isInitialComposition by remember { mutableStateOf(true) }
 
@@ -82,33 +84,32 @@ fun SettingsContent(
         stopLabel = stopLabel.trim(),
     )
 
-    fun autoSaveSettings() {
+    fun saveSettingsInternal(showToast: Boolean = false, finishAfter: Boolean = false) {
         try {
             val config = buildConfig()
             config.validate(context)
             configRepository.saveConfig(config)
             stateRepository.clearState()
-        } catch (ignored: IllegalArgumentException) {
-            /* no-op */
+            if (showToast) {
+                Toast.makeText(context, settingsSavedMessage, Toast.LENGTH_SHORT).show()
+            }
+            if (finishAfter) {
+                onFinish()
+            }
+        } catch (e: IllegalArgumentException) {
+            if (showToast) {
+                Toast.makeText(
+                    context,
+                    e.message ?: invalidInputMessage,
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
     }
 
-    fun saveSettings() {
-        try {
-            val config = buildConfig()
-            config.validate(context)
-            configRepository.saveConfig(config)
-            Toast.makeText(context, settingsSavedMessage, Toast.LENGTH_SHORT).show()
-            stateRepository.clearState()
-            onFinish()
-        } catch (e: IllegalArgumentException) {
-            Toast.makeText(
-                context,
-                e.message ?: invalidInputMessage,
-                Toast.LENGTH_LONG
-            ).show()
-        }
-    }
+    fun autoSaveSettings() = saveSettingsInternal(showToast = false, finishAfter = false)
+
+    fun saveSettings() = saveSettingsInternal(showToast = true, finishAfter = true)
 
     fun resetTimer() {
         Toast.makeText(context, resetTimerMessage, Toast.LENGTH_SHORT).show()
@@ -116,7 +117,16 @@ fun SettingsContent(
         onFinish()
     }
 
-    LaunchedEffect(goDuration, stopDuration, goGrowth, stopGrowth, goColor, stopColor, goLabel, stopLabel) {
+    LaunchedEffect(
+        goDuration,
+        stopDuration,
+        goGrowth,
+        stopGrowth,
+        goColor,
+        stopColor,
+        goLabel,
+        stopLabel,
+    ) {
         if (isInitialComposition) {
             isInitialComposition = false
         } else {
@@ -129,9 +139,7 @@ fun SettingsContent(
         modifier = Modifier.imePadding(),
         topBar = {
             TopAppBar(
-                title = {
-                    Text(stringResource(R.string.settings))
-                },
+                title = { },
                 actions = {
                     IconButton(
                         onClick = { resetTimer() },
@@ -172,6 +180,15 @@ fun SettingsContent(
                         Icon(
                             painterResource(R.drawable.check_circle),
                             contentDescription = stringResource(R.string.save_settings)
+                        )
+                    }
+                    IconButton(
+                        onClick = { showMoreDialog = true },
+                        modifier = Modifier.testTag("moreButton")
+                    ) {
+                        Icon(
+                            painterResource(R.drawable.more),
+                            contentDescription = stringResource(R.string.more)
                         )
                     }
                 }
@@ -299,6 +316,27 @@ fun SettingsContent(
                 showLanguagePicker = false
             },
             onDismiss = { showLanguagePicker = false }
+        )
+    }
+
+    if (showMoreDialog) {
+        MoreDialog(
+            configRepository = configRepository,
+            stateRepository = stateRepository,
+            onDismiss = { showMoreDialog = false },
+            onReset = {
+                val resetConfig = configRepository.loadConfig()
+                currentConfig = resetConfig
+                goDuration = resetConfig.goDuration.toString()
+                stopDuration = resetConfig.stopDuration.toString()
+                goGrowth = resetConfig.goDurationGrowth.toString()
+                stopGrowth = resetConfig.stopDurationGrowth.toString()
+                goColor = resetConfig.goColor
+                stopColor = resetConfig.stopColor
+                goLabel = resetConfig.goLabel
+                stopLabel = resetConfig.stopLabel
+                showMoreDialog = false
+            },
         )
     }
 }

@@ -24,7 +24,6 @@
     <string name="red_label">Đỏ</string>
     <string name="green_label">Xanh lá</string>
     <string name="blue_label">Xanh dương</string>
-    <string name="color_picker_title">Chọn màu</string>
     <string name="ok">OK</string>
     <string name="cancel">Hủy</string>
     <string name="notification_channel_go_name">Giai đoạn Bắt đầu</string>
@@ -82,4 +81,15 @@
     <string name="tutorial_use_pomodoro">Đồng hồ Pomodoro</string>
     <string name="tutorial_use_hiit">Chu kỳ HIIT</string>
     <string name="tutorial_use_custom">Bất cứ thứ gì bạn cần</string>
+
+    <string name="more">Thêm</string>
+    <string name="more_about">Giới thiệu</string>
+    <string name="more_privacy">Quyền riêng tư</string>
+    <string name="more_license">Giấy phép</string>
+    <string name="more_tip">Ủng hộ nhà phát triển</string>
+    <string name="more_open">Mở</string>
+    <string name="more_share">Chia sẻ ứng dụng</string>
+    <string name="more_share_text">Thử Stop and Go - bộ đếm thời gian khoảng tối giản. Miễn phí, không quảng cáo, ngoại tuyến. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
+    <string name="more_reset_settings">Đặt lại về cài đặt mặc định</string>
+    <string name="more_reset_success">Đã đặt lại cài đặt về giá trị mặc định</string>
 </resources>

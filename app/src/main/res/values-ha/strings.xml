@@ -24,7 +24,6 @@
     <string name="red_label">Ja</string>
     <string name="green_label">Kore</string>
     <string name="blue_label">Shudi</string>
-    <string name="color_picker_title">Zaɓi Launi</string>
     <string name="ok">OK</string>
     <string name="cancel">Soke</string>
     <string name="notification_channel_go_name">Lokacin Tsafa</string>
@@ -83,4 +82,15 @@
     <string name="tutorial_use_pomodoro">Agogon Pomodoro</string>
     <string name="tutorial_use_hiit">Lokutan HIIT</string>
     <string name="tutorial_use_custom">Duk abin da kake buƙata</string>
+
+    <string name="more">Ƙari</string>
+    <string name="more_about">Game da</string>
+    <string name="more_privacy">Sirri</string>
+    <string name="more_license">Lasisi</string>
+    <string name="more_tip">Tallafa wa mai haɓakawa</string>
+    <string name="more_open">Buɗe</string>
+    <string name="more_share">Raba aikace-aikacen</string>
+    <string name="more_share_text">Gwada Stop and Go - masu ƙididdigar tazara mai sauƙi. Kyauta, babu talla, ba tare da yanar gizo ba. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
+    <string name="more_reset_settings">Sake saita zuwa saitunan asali</string>
+    <string name="more_reset_success">An sake saita saituna zuwa ƙimar asali</string>
 </resources>

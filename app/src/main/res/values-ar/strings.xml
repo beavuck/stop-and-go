@@ -22,7 +22,6 @@
     <string name="red_label">أحمر</string>
     <string name="green_label">أخضر</string>
     <string name="blue_label">أزرق</string>
-    <string name="color_picker_title">اختر لونًا</string>
     <string name="ok">موافق</string>
     <string name="cancel">إلغاء</string>
     <string name="notification_channel_go_name">مرحلة الانطلاق</string>
@@ -87,4 +86,15 @@
     <string name="tutorial_use_pomodoro">مؤقت بومودورو</string>
     <string name="tutorial_use_hiit">فترات HIIT</string>
     <string name="tutorial_use_custom">ما تحتاجه</string>
+
+    <string name="more">المزيد</string>
+    <string name="more_about">حول</string>
+    <string name="more_privacy">الخصوصية</string>
+    <string name="more_license">الترخيص</string>
+    <string name="more_tip">دعم المطور</string>
+    <string name="more_open">فتح</string>
+    <string name="more_share">مشاركة التطبيق</string>
+    <string name="more_share_text">جرب Stop and Go - مؤقت فترات بسيط. مجاني، بدون إعلانات، بلا اتصال. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
+    <string name="more_reset_settings">إعادة تعيين إلى الإعدادات الافتراضية</string>
+    <string name="more_reset_success">تمت إعادة تعيين الإعدادات إلى القيم الافتراضية</string>
 </resources>

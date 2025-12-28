@@ -48,3 +48,7 @@ for details.
 ## 📜 License
 
 See [UNLICENSE](https://gitlab.com/beavuck-services/stop-and-go/-/blob/main/UNLICENSE?ref_type=heads)
+
+## 🗨 Attributions
+
+- Icons by SVG Repo (svgrepo.com)

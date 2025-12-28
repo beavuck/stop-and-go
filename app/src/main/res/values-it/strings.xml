@@ -24,7 +24,6 @@
     <string name="red_label">Rosso</string>
     <string name="green_label">Verde</string>
     <string name="blue_label">Blu</string>
-    <string name="color_picker_title">Scegli Colore</string>
     <string name="ok">OK</string>
     <string name="cancel">Annulla</string>
     <string name="notification_channel_go_name">Fase Go</string>
@@ -84,4 +83,15 @@
     <string name="tutorial_use_pomodoro">Timer Pomodoro</string>
     <string name="tutorial_use_hiit">Intervalli HIIT</string>
     <string name="tutorial_use_custom">Qualsiasi esigenza</string>
+
+    <string name="more">Altro</string>
+    <string name="more_about">Informazioni</string>
+    <string name="more_privacy">Privacy</string>
+    <string name="more_license">Licenza</string>
+    <string name="more_tip">Sostieni lo sviluppatore</string>
+    <string name="more_open">Apri</string>
+    <string name="more_share">Condividi app</string>
+    <string name="more_share_text">Scopri Stop and Go - un timer a intervalli minimalista. Gratuito, senza pubblicità, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
+    <string name="more_reset_settings">Ripristina impostazioni predefinite</string>
+    <string name="more_reset_success">Impostazioni ripristinate ai valori predefiniti</string>
 </resources>

@@ -97,19 +97,6 @@ class LanguagePickerDialogTest {
     }
 
     @Test
-    fun languagePickerDialog_displaysTitle() {
-        composeTestRule.setContent {
-            LanguagePickerDialog(
-                onLocaleSelected = {},
-                onDismiss = {}
-            )
-        }
-
-        composeTestRule.onNodeWithText(context.getString(R.string.language))
-            .assertIsDisplayed()
-    }
-
-    @Test
     fun languagePickerDialog_displaysSearchField() {
         composeTestRule.setContent {
             LanguagePickerDialog(

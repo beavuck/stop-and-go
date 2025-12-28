@@ -60,6 +60,10 @@ class ConfigRepository(context: Context) {
         return sharedPreferences.getString(KEY_LOCALE, null)
     }
 
+    fun clearConfig() {
+        saveConfig(TimerConfig())
+    }
+
     companion object {
         private const val PREFS_NAME = "stop_and_go_prefs"
         private const val KEY_GO_DURATION = "go_duration"

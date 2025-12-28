@@ -22,9 +22,6 @@ fun LanguagePickerDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = {
-            Text(stringResource(R.string.language))
-        },
         text = {
             LanguageListWithSearch(
                 selectedLocale = selectedLocale,

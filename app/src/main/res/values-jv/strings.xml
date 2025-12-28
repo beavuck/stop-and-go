@@ -24,7 +24,6 @@
     <string name="red_label">Abang</string>
     <string name="green_label">Ijo</string>
     <string name="blue_label">Biru</string>
-    <string name="color_picker_title">Pilih Werna</string>
     <string name="ok">OK</string>
     <string name="cancel">Batal</string>
     <string name="notification_channel_go_name">Fase Mulai</string>
@@ -82,4 +81,15 @@
     <string name="tutorial_use_pomodoro">Timer Pomodoro</string>
     <string name="tutorial_use_hiit">Interval HIIT</string>
     <string name="tutorial_use_custom">Sakabehe sing sampeyan butuhake</string>
+
+    <string name="more">Liyane</string>
+    <string name="more_about">Babagan</string>
+    <string name="more_privacy">Privasi</string>
+    <string name="more_license">Lisensi</string>
+    <string name="more_tip">Dukung pangembang</string>
+    <string name="more_open">Bukak</string>
+    <string name="more_share">Enggo bareng aplikasi</string>
+    <string name="more_share_text">Cobi Stop and Go - pewaktu interval minimalis. Gratis, tanpa iklan, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
+    <string name="more_reset_settings">Reset menyang setelan standar</string>
+    <string name="more_reset_success">Setelan wis direset menyang nilai standar</string>
 </resources>

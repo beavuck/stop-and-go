@@ -24,7 +24,6 @@
     <string name="red_label">લાલ</string>
     <string name="green_label">લીલું</string>
     <string name="blue_label">નિલું</string>
-    <string name="color_picker_title">રંગ પસંદ કરો</string>
     <string name="ok">બરાબર</string>
     <string name="cancel">રદ કરો</string>
     <string name="notification_channel_go_name">જાઓ ફેઝ</string>
@@ -83,4 +82,15 @@
     <string name="tutorial_use_pomodoro">પોમોડોરો ટાઈમર</string>
     <string name="tutorial_use_hiit">HIIT ઇન્ટરવલ્સ</string>
     <string name="tutorial_use_custom">જે પણ તમને જરૂર છે</string>
+
+    <string name="more">વધુ</string>
+    <string name="more_about">વિશે</string>
+    <string name="more_privacy">ગોપનીયતા</string>
+    <string name="more_license">લાઇસન્સ</string>
+    <string name="more_tip">ડેવલપરને સપોર્ટ કરો</string>
+    <string name="more_open">ખોલો</string>
+    <string name="more_share">ઍપ શેર કરો</string>
+    <string name="more_share_text">Stop and Go અજમાવો - એક મિનિમલિસ્ટ ઇન્ટરવલ ટાઇમર. મફત, જાહેરાત-મુક્ત, ઑફલાઇન. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
+    <string name="more_reset_settings">ડિફૉલ્ટ સેટિંગ્સ પર રીસેટ કરો</string>
+    <string name="more_reset_success">સેટિંગ્સ ડિફૉલ્ટ મૂલ્યો પર રીસેટ થઈ ગઈ છે</string>
 </resources>

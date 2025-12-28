@@ -31,7 +31,6 @@
     <string name="red_label">لال</string>
     <string name="green_label">ہرا</string>
     <string name="blue_label">نیلا</string>
-    <string name="color_picker_title">رنگ چنو</string>
 
     <string name="ok">ٹھیک</string>
     <string name="cancel">منسوخ</string>
@@ -135,4 +134,15 @@
     <string name="tutorial_use_pomodoro">پومودورو ٹائمر</string>
     <string name="tutorial_use_hiit">HIIT وقفے</string>
     <string name="tutorial_use_custom">جہڑا مرضی استعمال</string>
+
+    <string name="more">ਹੋਰ</string>
+    <string name="more_about">ਬਾਰੇ</string>
+    <string name="more_privacy">ਨਿੱਜਤਾ</string>
+    <string name="more_license">ਲਾਇਸੈਂਸ</string>
+    <string name="more_tip">ਡਿਵੈਲਪਰ ਦਾ ਸਮਰਥਨ ਕਰੋ</string>
+    <string name="more_open">ਖੋਲ੍ਹੋ</string>
+    <string name="more_share">ਐਪ ਸਾਂਝੀ ਕਰੋ</string>
+    <string name="more_share_text">Stop and Go ਅਜ਼ਮਾਓ - ਇੱਕ ਘੱਟੋ-ਘੱਟ ਅੰਤਰਾਲ ਟਾਈਮਰ। ਮੁਫ਼ਤ, ਇਸ਼ਤਿਹਾਰ-ਮੁਕਤ, ਔਫ਼ਲਾਈਨ। https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
+    <string name="more_reset_settings">ਡਿਫੌਲਟ ਸੈਟਿੰਗਾਂ ਤੇ ਰੀਸੈੱਟ ਕਰੋ</string>
+    <string name="more_reset_success">ਸੈਟਿੰਗਾਂ ਨੂੰ ਡਿਫੌਲਟ ਮੁੱਲਾਂ ਤੇ ਰੀਸੈੱਟ ਕੀਤਾ ਗਿਆ</string>
 </resources>

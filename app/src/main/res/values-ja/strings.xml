@@ -31,7 +31,6 @@
     <string name="red_label">赤</string>
     <string name="green_label">緑</string>
     <string name="blue_label">青</string>
-    <string name="color_picker_title">色の選択</string>
 
     <string name="ok">OK</string>
     <string name="cancel">キャンセル</string>
@@ -136,4 +135,15 @@
     <string name="tutorial_use_pomodoro">ポモドーロ</string>
     <string name="tutorial_use_hiit">HIIT インターバル</string>
     <string name="tutorial_use_custom">自由に活用</string>
+
+    <string name="more">もっと</string>
+    <string name="more_about">について</string>
+    <string name="more_privacy">プライバシー</string>
+    <string name="more_license">ライセンス</string>
+    <string name="more_tip">開発者を支援</string>
+    <string name="more_open">開く</string>
+    <string name="more_share">アプリを共有</string>
+    <string name="more_share_text">Stop and Goをお試しください - ミニマリストなインターバルタイマー。無料、広告なし、オフライン。https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
+    <string name="more_reset_settings">デフォルト設定にリセット</string>
+    <string name="more_reset_success">設定がデフォルト値にリセットされました</string>
 </resources>

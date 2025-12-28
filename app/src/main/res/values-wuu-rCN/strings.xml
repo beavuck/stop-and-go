@@ -1,20 +1,15 @@
 <resources>
-    <string name="app_name">Stop and Go</string>
     <string name="phase_go">走</string>
     <string name="phase_stop">停</string>
     <string name="cycle_count">轮次: %d</string>
     <string name="go_duration">走阶段时长(秒)</string>
-    <string name="go_duration_hint">1–3600</string>
     <string name="stop_duration">停阶段时长(秒)</string>
-    <string name="stop_duration_hint">1–3600</string>
     <string name="go_growth">走阶段增长倍率</string>
     <string name="go_growth_hint">0.01–100.0</string>
     <string name="stop_growth">停阶段增长倍率</string>
     <string name="stop_growth_hint">0.01–100.0</string>
     <string name="go_color">走阶段颜色</string>
-    <string name="go_color_hint">#5B8394</string>
     <string name="stop_color">停阶段颜色</string>
-    <string name="stop_color_hint">#8B7366</string>
     <string name="go_label">"走"标签(可选)</string>
     <string name="go_label_hint">留空使用默认</string>
     <string name="stop_label">"停"标签(可选)</string>
@@ -25,12 +20,10 @@
     <string name="invalid_input">输入无效</string>
     <string name="reset_timer">重置计时器</string>
     <string name="pick_color">选择颜色</string>
-    <string name="hint_hex_value_display">#000000</string>
     <string name="color_preview">颜色预览</string>
     <string name="red_label">红</string>
     <string name="green_label">绿</string>
     <string name="blue_label">蓝</string>
-    <string name="color_picker_title">选择颜色</string>
     <string name="ok">确定</string>
     <string name="cancel">取消</string>
     <string name="notification_channel_go_name">走阶段</string>
@@ -89,4 +82,15 @@
     <string name="tutorial_use_pomodoro">番茄钟</string>
     <string name="tutorial_use_hiit">高强度间歇训练</string>
     <string name="tutorial_use_custom">其他任何用途</string>
+
+    <string name="more">更多</string>
+    <string name="more_about">关于</string>
+    <string name="more_privacy">隐私</string>
+    <string name="more_license">许可证</string>
+    <string name="more_tip">支持开发者</string>
+    <string name="more_open">打开</string>
+    <string name="more_share">分享应用</string>
+    <string name="more_share_text">试试 Stop and Go - 极简间隔计时器。免费、无广告、离线。https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
+    <string name="more_reset_settings">重置到默认设置</string>
+    <string name="more_reset_success">设置已重置到默认值</string>
 </resources>
