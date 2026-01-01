@@ -1,6 +1,8 @@
 package com.beavuck.stop_and_go.dialogs
 
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.widget.Toast
 import androidx.compose.animation.*
 import androidx.compose.foundation.BorderStroke
@@ -84,6 +86,8 @@ fun MoreDialog(
                     stateRepository = stateRepository,
                     onReset = onReset,
                 )
+
+                AppVersion()
             }
         },
         confirmButton = {
@@ -136,6 +140,36 @@ private fun ResetButton(
     ) {
         Text(stringResource(R.string.more_reset_settings))
     }
+}
+
+@Composable
+private fun AppVersion() {
+    val context = LocalContext.current
+    val versionName = remember {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                context.packageManager
+                    .getPackageInfo(context.packageName, PackageManager.PackageInfoFlags.of(0))
+                    .versionName
+            } else {
+                context.packageManager
+                    .getPackageInfo(context.packageName, 0)
+                    .versionName
+            }
+        } catch (_: PackageManager.NameNotFoundException) {
+            "Unknown"
+        }
+    }
+
+    Text(
+        text = "v$versionName",
+        fontSize = 12.sp,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 8.dp)
+    )
 }
 
 @Composable
