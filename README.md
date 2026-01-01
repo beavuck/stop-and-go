@@ -25,7 +25,7 @@ Free, ad-free, off-network.
 
 ## 📱 Get the app
 
-[Play Store](https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go)
+Get the app form the [Google Play Store](https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go)
 
 ## ⏲️ What it does
 
