@@ -19,17 +19,3 @@ lane :internal do
         json_key: '.secure_files/play-store-credentials.json'
     )
 end
-
-desc "Submit a new Production build to the Google Play store"
-lane :release do
-    upload_to_play_store(
-        package_name: 'com.beavuck.stop_and_go',
-        track: 'production',
-        aab: 'app/build/outputs/bundle/release/app-release.aab',
-        mapping_paths: [
-            'app/build/outputs/mapping/release/mapping.txt',
-            'app/build/outputs/native-debug-symbols/release/native-debug-symbols.zip'
-        ],
-        json_key: '.secure_files/play-store-credentials.json'
-    )
-end
