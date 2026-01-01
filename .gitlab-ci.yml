@@ -12,7 +12,7 @@ stages:
 variables:
   IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/alvrme/alpine-android:android-35-jdk21"
   JACOCO_PATH: "app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
-  GITLAB_CI_VERSION: "1.79.0"
+  GITLAB_CI_VERSION: "1.80.4"
   BUNDLER_VERSION: "2.7.2"
 
 default:
@@ -94,7 +94,7 @@ increment_version:
     - gem install bundler -v $BUNDLER_VERSION -N
     - bundle config set --local path 'vendor/bundle'
     - bundle install
-    - wget https://gitlab.com/gitlab-org/cli/-/releases/v$GITLAB_CI_VERSION/downloads/glab_${GITLAB_CI_VERSION}_linux_amd64.deb
+    - wget "https://gitlab.com/gitlab-org/cli/-/releases/v${GITLAB_CI_VERSION}/downloads/glab_${GITLAB_CI_VERSION}_linux_amd64.deb"
     - apt install ./glab_${GITLAB_CI_VERSION}_linux_amd64.deb
     - glab auth login --hostname $CI_SERVER_FQDN --job-token $CI_JOB_TOKEN
     - glab securefile download --all --output-dir .secure_files/
@@ -162,25 +162,34 @@ build:
   rules:
     - if: "$CI_COMMIT_TAG"
 
-release:
+upload_package:
   stage: deploy
-  image: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/alpine:latest"
-  before_script:
-    - apk add --no-cache curl
-    - wget https://gitlab.com/gitlab-org/cli/-/releases/v$GITLAB_CI_VERSION/downloads/glab_${GITLAB_CI_VERSION}_linux_amd64.deb
-    - apt install ./glab_${GITLAB_CI_VERSION}_linux_amd64.deb
-    - glab auth login --hostname $CI_SERVER_FQDN --job-token $CI_JOB_TOKEN
+  image: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/curlimages/curl:latest"
   script:
     - |
-      glab release create $CI_COMMIT_TAG \
-        --name "Release $CI_COMMIT_TAG" \
-        --notes "Release $CI_COMMIT_TAG" \
-        app/build/outputs/apk/release/app-release.apk#stop-and-go-v${CI_COMMIT_TAG}.apk
+      curl --header "JOB-TOKEN: $CI_JOB_TOKEN" \
+        --upload-file app/build/outputs/apk/release/app-release.apk \
+        "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/stop-and-go/${CI_COMMIT_TAG}/stop-and-go-${CI_COMMIT_TAG}.apk"
   rules:
     - if: "$CI_COMMIT_TAG"
   needs:
     - job: build
       artifacts: true
+
+release:
+  stage: deploy
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  script:
+    - |
+      release-cli create \
+        --name "$CI_COMMIT_TAG" \
+        --description "Details: https://${CI_SERVER_FQDN}/beavuck-services/stop-and-go/-/network/main?ref_type=heads" \
+        --tag-name "$CI_COMMIT_TAG" \
+        --assets-link '{"name":"stop-and-go-'"${CI_COMMIT_TAG}"'.apk","url":"'"${CI_API_V4_URL}"'/projects/'"${CI_PROJECT_ID}"'/packages/generic/stop-and-go/'"${CI_COMMIT_TAG}"'/stop-and-go-'"${CI_COMMIT_TAG}"'.apk","link_type":"package"}'
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - job: upload_package
 
 deploy:
   extends: .fastlane_setup
