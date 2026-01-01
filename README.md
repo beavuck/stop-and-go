@@ -25,7 +25,11 @@ Free, ad-free, off-network.
 
 ## 📱 Get the app
 
-Get the app form the [Google Play Store](https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go)
+In the spirit of free open-source software, the APK is available
+on [GitLab Releases](https://gitlab.com/beavuck-services/stop-and-go/-/releases).
+
+Most users will prefer to get the app straight from
+the [Google Play Store](https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go).
 
 ## ⏲️ What it does
 
@@ -38,17 +42,17 @@ The app walks you through setup and gestures on first launch.
 
 - Custom colors, labels, and durations
 - Growth multipliers (durations can change each cycle)
-- Multilingual (25+ languages)
+- Phase change notifications
+- Multilingual (25+ most widely-spoken languages, corrections and additions welcome)
 
 ## 🔒 Privacy
 
-See [PRIVACY.md](https://gitlab.com/beavuck-services/stop-and-go/-/blob/main/PRIVACY.md?ref_type=heads)
-for details.
+See [PRIVACY.md](https://gitlab.com/beavuck-services/stop-and-go/-/blob/main/PRIVACY.md?ref_type=heads).
 
 ## 📜 License
 
-See [UNLICENSE](https://gitlab.com/beavuck-services/stop-and-go/-/blob/main/UNLICENSE?ref_type=heads)
+See [UNLICENSE](https://gitlab.com/beavuck-services/stop-and-go/-/blob/main/UNLICENSE?ref_type=heads).
 
-## 🗨 Attributions
+## 🗨 Acknowledgements
 
 - Icons by SVG Repo (svgrepo.com)
