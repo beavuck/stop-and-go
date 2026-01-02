@@ -4,6 +4,7 @@ package com.beavuck.stop_and_go.repositories
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.beavuck.stop_and_go.config.DEFAULT_LOCALE
 import com.beavuck.stop_and_go.model.timer.TimerConfig
 
 @Suppress("unused", "RedundantSuppression")
@@ -42,9 +43,9 @@ class ConfigRepository(context: Context) {
     private fun getStringFromSharedPrefs(key: String, default: String): String =
         sharedPreferences.getString(key, default) ?: default
 
-    fun saveLocale(localeTag: String) {
+    fun saveLocale(localeTag: String?) {
         sharedPreferences.edit().apply {
-            putString(KEY_LOCALE, localeTag)
+            putString(KEY_LOCALE, localeTag ?: DEFAULT_LOCALE.code)
             apply()
         }
     }

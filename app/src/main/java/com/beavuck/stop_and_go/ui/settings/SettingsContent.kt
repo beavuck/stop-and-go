@@ -314,6 +314,7 @@ fun SettingsContent(
             onLocaleSelected = { code ->
                 onLocaleChange(code)
                 showLanguagePicker = false
+                onFinish()
             },
             onDismiss = { showLanguagePicker = false }
         )

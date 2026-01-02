@@ -46,8 +46,15 @@ enum class SupportedLocale(val code: String, private val nameResId: Int) {
             return entries.find { it.code == code } ?: DEFAULT_LOCALE
         }
 
-        fun getAllDisplayNames(context: Context): Array<String> {
-            return entries.map { it.getDisplayName(context) }.toTypedArray()
+        fun getSystemLanguageMatch(context: Context): SupportedLocale? {
+            val systemLocale = context.resources.configuration.locales.get(0).toLanguageTag()
+
+            val match = entries.find {
+                it.code == systemLocale
+                        || systemLocale.split("-")[0] == it.code.split("-")[0]
+            }
+
+            return match ?: DEFAULT_LOCALE
         }
     }
 }

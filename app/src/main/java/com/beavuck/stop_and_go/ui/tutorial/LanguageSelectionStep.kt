@@ -9,22 +9,24 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.beavuck.stop_and_go.R
-import com.beavuck.stop_and_go.config.DEFAULT_LOCALE
 import com.beavuck.stop_and_go.config.SupportedLocale
+import com.beavuck.stop_and_go.config.SupportedLocale.Companion.getSystemLanguageMatch
 import com.beavuck.stop_and_go.ui.components.LanguageListWithSearch
 
 @Composable
 fun LanguageSelectionStep(
-    onLanguageSelected: (String) -> Unit,
+    onLanguageSelected: (SupportedLocale?) -> Unit,
     onSkip: () -> Unit
 ) {
-    var selectedLocale by rememberSaveable { mutableStateOf<SupportedLocale?>(null) }
+    val context = LocalContext.current
+    var selectedLocale by rememberSaveable { mutableStateOf(getSystemLanguageMatch(context)) }
 
     Column(
         modifier = Modifier
@@ -61,8 +63,11 @@ fun LanguageSelectionStep(
         Spacer(modifier = Modifier.height(24.dp))
 
         TutorialBottomButtons(
-            onSkip = onSkip,
-            onNext = { onLanguageSelected(selectedLocale?.code ?: DEFAULT_LOCALE.code) }
+            onSkip = {
+                onLanguageSelected(selectedLocale)
+                onSkip()
+            },
+            onNext = { onLanguageSelected(selectedLocale) }
         )
     }
 }

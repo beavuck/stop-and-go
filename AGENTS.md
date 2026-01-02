@@ -58,6 +58,9 @@ Before using Edit or Write tools, verify:
     - L: Liskov Substitution Principle (subtypes must be substitutable for their base types)
     - I: Interface Segregation Principle (prefer many specific interfaces over a single general one)
     - D: Dependency Inversion Principle (depend on abstractions, not on concretions)
+- Avoid boolean parameters. Boolean parameters often indicate a function is doing two different
+  things. Instead, use optional parameters with meaningful types (e.g., `icon: Painter?` instead of
+  `showIcon: Boolean`). This makes the code more flexible, clearer, and easier to extend.
 - Do not use comments. Except if it's exceptionally useful to explain _why_ a thing is done. Never
   use comments to explain _what_ is done -- the code should read clearly on its own.
 - Don't repeat yourself. If two bits of code look alike but are bound to evolve in different ways,

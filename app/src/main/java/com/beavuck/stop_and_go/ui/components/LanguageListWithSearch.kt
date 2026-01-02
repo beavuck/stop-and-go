@@ -1,9 +1,13 @@
 package com.beavuck.stop_and_go.ui.components
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.selection.selectable
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -16,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.config.SupportedLocale
+import kotlinx.coroutines.delay
 
 @Composable
 fun LanguageListWithSearch(
@@ -28,6 +33,17 @@ fun LanguageListWithSearch(
     var searchQuery by remember { mutableStateOf("") }
     val locales = SupportedLocale.entries
     val context = LocalContext.current
+    val listState = rememberLazyListState()
+
+    LaunchedEffect(locales, selectedLocale) {
+        selectedLocale?.let { locale ->
+            val index = locales.indexOf(locale)
+            if (index >= 0) {
+                delay(150)
+                listState.animateScrollToItem(index)
+            }
+        }
+    }
 
     val filteredLocales = remember(searchQuery) {
         if (searchQuery.isBlank()) {
@@ -66,20 +82,26 @@ fun LanguageListWithSearch(
             )
         }
 
-        Column(
-            modifier = Modifier.verticalScroll(rememberScrollState())
+        LazyColumn(
+            state = listState,
+            modifier = Modifier.fillMaxWidth()
         ) {
             if (filteredLocales.isEmpty()) {
-                Text(
-                    text = stringResource(R.string.no_languages_found),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 24.dp),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
+                item {
+                    Text(
+                        text = stringResource(R.string.no_languages_found),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 24.dp),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
             } else {
-                filteredLocales.forEach { locale ->
+                items(
+                    items = filteredLocales,
+                    key = { it.code },
+                ) { locale ->
                     LocaleRadioItem(
                         locale = locale,
                         isSelected = locale == selectedLocale,
