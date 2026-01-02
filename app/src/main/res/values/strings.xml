@@ -70,6 +70,7 @@
     <string name="language_tamil" translatable="false">தமிழ்</string>
     <string name="language_telugu" translatable="false">తెలుగు</string>
     <string name="language_urdu" translatable="false">اردو</string>
+    <string name="language_polish" translatable="false">Polski</string>
     <string name="timer_screen">Timer screen. Single tap to pause or resume. Long press to open settings.</string>
     <string name="timer_paused">Timer paused</string>
     <string name="timer_resumed">Timer resumed</string>

@@ -34,6 +34,7 @@ enum class SupportedLocale(val code: String, private val nameResId: Int) {
     ITALIAN("it", R.string.language_italian),
     HAUSA("ha", R.string.language_hausa),
     GUJARATI("gu", R.string.language_gujarati),
+    POLISH("pl", R.string.language_polish),
     ;
 
     fun getDisplayName(context: Context): String {
