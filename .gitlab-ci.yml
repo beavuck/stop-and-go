@@ -3,17 +3,19 @@
 stages:
   - secure
   - test
-  - update
+  - upgrade
   - build
   - deploy
 
 ########~~~~-- Variables & defaults --~~~~########
 
 variables:
-  IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/alvrme/alpine-android:android-35-jdk21"
-  JACOCO_PATH: "app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
   GITLAB_CI_VERSION: "1.80.4"
   BUNDLER_VERSION: "2.7.2"
+  FABERNOVEL_ANDROID_IMAGE: "api-35-v1.10.1"
+  ALVRME_ANDROID_IMAGE: "android-35-jdk21"
+  IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/alvrme/alpine-android:${ALVRME_ANDROID_IMAGE}"
+  JACOCO_PATH: "app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
 
 default:
   image: $IMAGE
@@ -41,11 +43,11 @@ include:
 
   - component: "$CI_SERVER_FQDN/beavuck-services/ci-cd-catalog/command-runner/command-runner@main"
     inputs:
-      job_name: "update"
-      stage_config: "update"
-      branch_name: "chore/update-dependencies"
+      job_name: "upgrade"
+      stage_config: "upgrade"
+      branch_name: "chore/upgrade-dependencies"
       command: "./gradlew wrapper --gradle-version latest && ./gradlew useLatestVersions"
-      commit_message: "⚙️ Update dependencies automatically"
+      commit_message: "⚙️ Upgrade dependencies automatically"
       image: "$IMAGE"
       script_to_install_deps: "apk add --no-cache bash curl jq git"
       consecutive_command_commits_allowed: true
@@ -53,8 +55,8 @@ include:
   - component: "$CI_SERVER_FQDN/beavuck-services/ci-cd-catalog/command-runner/command-runner@main"
     inputs:
       job_name: "increment_version"
-      stage_config: "update"
-      branch_name: "chore/update-version"
+      stage_config: "upgrade"
+      branch_name: "chore/upgrade-version"
       command: |
         if [ "$IS_INCREMENT_MAJOR" == "true" ]; then
           ./scripts/increment-version.sh major
@@ -73,7 +75,7 @@ find_secrets:
     - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != 'schedule'"
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
 
-update:
+upgrade:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'schedule' && $IS_UPDATE == 'true'"
 
@@ -84,7 +86,7 @@ increment_version:
 ########~~~~-- Job Templates --~~~~########
 
 .fastlane_setup:
-  image: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/fabernovel/android:api-35-v1.10.1"
+  image: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/fabernovel/android:${FABERNOVEL_ANDROID_IMAGE}"
   cache:
     key: gems-cache
     paths:
@@ -95,7 +97,7 @@ increment_version:
     - bundle config set --local path 'vendor/bundle'
     - bundle install
     - wget "https://gitlab.com/gitlab-org/cli/-/releases/v${GITLAB_CI_VERSION}/downloads/glab_${GITLAB_CI_VERSION}_linux_amd64.deb"
-    - apt install ./glab_${GITLAB_CI_VERSION}_linux_amd64.deb
+    - apt install -y ./glab_${GITLAB_CI_VERSION}_linux_amd64.deb
     - glab auth login --hostname $CI_SERVER_FQDN --job-token $CI_JOB_TOKEN
     - glab securefile download --all --output-dir .secure_files/
 

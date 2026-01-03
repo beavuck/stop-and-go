@@ -157,7 +157,7 @@ fun TimerDisplay(
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
-                    painter = painterResource(android.R.drawable.ic_media_pause),
+                    painter = painterResource(R.drawable.pause),
                     contentDescription = stringResource(R.string.timer_paused),
                     tint = textColor,
                     modifier = Modifier

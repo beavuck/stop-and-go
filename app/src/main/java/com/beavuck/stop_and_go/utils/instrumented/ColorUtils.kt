@@ -2,11 +2,11 @@ package com.beavuck.stop_and_go.utils.instrumented
 
 import android.graphics.Color
 import androidx.core.graphics.toColorInt
-import com.beavuck.stop_and_go.model.timer.TimerConstants.COLOR_MASK
-import com.beavuck.stop_and_go.model.timer.TimerConstants.HEX_COLOR_FORMAT
+
 
 object ColorUtils {
-
+    private const val HEX_COLOR_FORMAT = "#%06X"
+    private const val COLOR_MASK = 0xFFFFFF
     private const val LIGHT_TEXT_COLOR = 0xFFE0E0E0.toInt()
     private const val DARK_TEXT_COLOR = 0xFF202020.toInt()
     private const val LUMINANCE_THRESHOLD = 0.5f

@@ -8,8 +8,6 @@ import android.media.RingtoneManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.beavuck.stop_and_go.R
-import com.beavuck.stop_and_go.model.timer.TimerConstants.GO_VIBRATION_PATTERN
-import com.beavuck.stop_and_go.model.timer.TimerConstants.STOP_VIBRATION_PATTERN
 
 class PhaseNotificationManager(private val context: Context) {
     private val notificationManager =
@@ -34,7 +32,7 @@ class PhaseNotificationManager(private val context: Context) {
                 GO_CHANNEL_ID,
                 R.string.notification_channel_go_name,
                 R.string.notification_channel_go_description,
-                GO_VIBRATION_PATTERN,
+                longArrayOf(0, 200, 100, 200),
                 audioAttributes
             )
 
@@ -42,7 +40,7 @@ class PhaseNotificationManager(private val context: Context) {
                 STOP_CHANNEL_ID,
                 R.string.notification_channel_stop_name,
                 R.string.notification_channel_stop_description,
-                STOP_VIBRATION_PATTERN,
+                longArrayOf(0, 768),
                 audioAttributes
             )
         }
@@ -78,10 +76,20 @@ class PhaseNotificationManager(private val context: Context) {
     }
 
     fun notifyStopPhase(customLabel: String = "") {
-        notifyPhase(STOP_CHANNEL_ID, STOP_NOTIFICATION_ID, R.string.notification_stop_title, customLabel)
+        notifyPhase(
+            STOP_CHANNEL_ID,
+            STOP_NOTIFICATION_ID,
+            R.string.notification_stop_title,
+            customLabel
+        )
     }
 
-    private fun notifyPhase(channelId: String, notificationId: Int, titleResId: Int, customLabel: String) {
+    private fun notifyPhase(
+        channelId: String,
+        notificationId: Int,
+        titleResId: Int,
+        customLabel: String
+    ) {
         val title = customLabel.ifBlank {
             context.getString(titleResId)
         }

@@ -40,9 +40,9 @@ android {
         minSdk = 24
         targetSdk = 36
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionCode = 18
+        versionCode = 19
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionName = "1.3.4"
+        versionName = "1.4.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

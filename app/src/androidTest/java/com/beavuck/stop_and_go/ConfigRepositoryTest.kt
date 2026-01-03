@@ -140,8 +140,6 @@ class ConfigRepositoryTest {
     @Test
     fun saveConfig_withCustomColors_persists() {
         val config = TimerConfig(
-            goDuration = 60,
-            stopDuration = 15,
             goColor = "#FF5733",
             stopColor = "#33FF57"
         )

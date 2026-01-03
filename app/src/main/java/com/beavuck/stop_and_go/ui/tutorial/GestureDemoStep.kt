@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
 import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_COLOR
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_DURATION
 
 enum class GestureType {
     TAP, LONG_PRESS, MULTI_TAP
@@ -122,7 +123,7 @@ private fun DemoArea(
 ) {
     var showPauseOverlay by rememberSaveable { mutableStateOf(false) }
     var showSettingsOverlay by rememberSaveable { mutableStateOf(false) }
-    var timerValue by rememberSaveable { mutableIntStateOf(42) }
+    var timerValue by rememberSaveable { mutableIntStateOf(8) }
     var tapCount by remember { mutableIntStateOf(0) }
     var lastTapTime by remember { mutableLongStateOf(0L) }
 
@@ -145,7 +146,7 @@ private fun DemoArea(
                                 if (currentTime - lastTapTime < 500) {
                                     tapCount++
                                     if (tapCount >= 2) {
-                                        timerValue = 60
+                                        timerValue = DEFAULT_GO_DURATION
                                         onGestureDetected()
                                         tapCount = 0
                                     }
@@ -169,7 +170,7 @@ private fun DemoArea(
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = timerValue.toString(),
+            text = stringResource(R.string.timer_seconds, timerValue),
             fontSize = 120.sp,
             color = Color.White,
             fontWeight = FontWeight.Bold,
@@ -184,7 +185,7 @@ private fun DemoArea(
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
-                    painter = painterResource(android.R.drawable.ic_media_pause),
+                    painter = painterResource(R.drawable.pause),
                     contentDescription = null,
                     tint = Color.White,
                     modifier = Modifier

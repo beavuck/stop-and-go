@@ -73,7 +73,7 @@ fun TimerScreen(
         }
 
         onDispose {
-            timerController.cancel()
+            timerController.pause()
             if (!stateRepository.isResetPending()) {
                 val state = phaseManager.getState(secondsRemaining, isPaused)
                 stateRepository.saveState(state)
@@ -87,7 +87,7 @@ fun TimerScreen(
     fun togglePause() {
         isPaused = !isPaused
         if (isPaused) {
-            timerController.cancel()
+            timerController.pause()
             onKeepScreenOnChange(false)
         } else {
             timerController.start(secondsRemaining)
@@ -96,7 +96,7 @@ fun TimerScreen(
     }
 
     fun resetTimer() {
-        timerController.cancel()
+        timerController.pause()
         phaseManager.reset()
         stateRepository.clearState()
         cycleCount = phaseManager.cycleCount
@@ -114,7 +114,7 @@ fun TimerScreen(
             when (event) {
                 Lifecycle.Event.ON_PAUSE -> {
                     if (!isPaused) {
-                        timerController.cancel()
+                        timerController.pause()
                         onKeepScreenOnChange(false)
                     }
                 }

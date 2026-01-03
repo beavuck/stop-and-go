@@ -84,7 +84,9 @@ fun LanguageListWithSearch(
 
         LazyColumn(
             state = listState,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .testTag("languageList")
         ) {
             if (filteredLocales.isEmpty()) {
                 item {

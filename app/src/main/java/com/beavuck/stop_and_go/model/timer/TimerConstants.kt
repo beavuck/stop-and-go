@@ -7,8 +7,8 @@ object TimerConstants {
     const val MAX_GROWTH_MULTIPLIER = 100.0f
 
     const val DEFAULT_IS_GO = true
-    const val DEFAULT_GO_DURATION = 60
-    const val DEFAULT_STOP_DURATION = 15
+    const val DEFAULT_GO_DURATION = 30
+    const val DEFAULT_STOP_DURATION = 10
     const val DEFAULT_GROWTH_MULTIPLIER = 1.0f
     const val DEFAULT_GO_COLOR = "#5B8394"
     const val DEFAULT_STOP_COLOR = "#8B7366"
@@ -17,13 +17,4 @@ object TimerConstants {
     const val MAX_LABEL_LENGTH = 32
 
     const val INITIAL_CYCLE_COUNT = 0
-
-    const val MILLIS_PER_SECOND = 1000L
-    const val TIMER_DISPLAY_OFFSET = 1
-
-    const val HEX_COLOR_FORMAT = "#%06X"
-    const val COLOR_MASK = 0xFFFFFF
-
-    val GO_VIBRATION_PATTERN = longArrayOf(0, 200, 100, 200)
-    val STOP_VIBRATION_PATTERN = longArrayOf(0, 768)
 }

@@ -77,8 +77,10 @@ class SettingsActivityTest {
         composeTestRule.onNodeWithTag("languageButton").performClick()
         composeTestRule.waitForIdle()
 
-        composeTestRule.onNodeWithTag("locale_en").performScrollTo().assertIsDisplayed()
-        composeTestRule.onNodeWithTag("locale_ar").performScrollTo().assertIsDisplayed()
+        composeTestRule.onNodeWithTag("locale_en").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("languageList")
+            .performScrollToNode(hasTestTag("locale_ar"))
+        composeTestRule.onNodeWithTag("locale_ar").assertIsDisplayed()
     }
 
     @Test
@@ -159,24 +161,16 @@ class SettingsActivityTest {
     }
 
     @Test
-    fun languageSelection_updatesTranslationsImmediately() {
-        configRepository.saveLocale(DEFAULT_LOCALE.code)
-        composeTestRule.activityRule.scenario.recreate()
-        composeTestRule.waitForIdle()
-
-        val englishLabel = getLocalizedString(R.string.go_duration, DEFAULT_LOCALE.code)
-        composeTestRule.onNode(hasText(englishLabel)).assertExists()
-
+    fun languageSelection_savesLocaleAndFinishes() {
         composeTestRule.onNodeWithTag("languageButton").performClick()
         composeTestRule.waitForIdle()
 
-        composeTestRule.onNodeWithTag("locale_fr").performScrollTo().performClick()
-        composeTestRule.waitForIdle()
+        composeTestRule.onNodeWithTag("languageList")
+            .performScrollToNode(hasTestTag("locale_fr"))
+        composeTestRule.onNodeWithTag("locale_fr").performClick()
 
-        val frenchLabel = getLocalizedString(R.string.go_duration, SupportedLocale.FRENCH.code)
-        composeTestRule.onNode(hasText(frenchLabel)).assertExists()
-
-        composeTestRule.onNode(hasText(englishLabel)).assertDoesNotExist()
+        val savedLocale = configRepository.loadLocale()
+        assertEquals(SupportedLocale.FRENCH.code, savedLocale)
     }
 
     @Test
@@ -190,12 +184,5 @@ class SettingsActivityTest {
         val savedConfig = configRepository.loadConfig()
         assertEquals("Sprint", savedConfig.goLabel)
         assertEquals("Rest", savedConfig.stopLabel)
-    }
-
-    private fun getLocalizedString(stringRes: Int, localeCode: String): String {
-        val locale = java.util.Locale.forLanguageTag(localeCode)
-        val config = android.content.res.Configuration(context.resources.configuration)
-        config.setLocale(locale)
-        return context.createConfigurationContext(config).getString(stringRes)
     }
 }

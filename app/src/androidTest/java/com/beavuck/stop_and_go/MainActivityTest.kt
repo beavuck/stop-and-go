@@ -332,7 +332,10 @@ class MainActivityTest {
 
         val timerBeforeReset = getTimerValue()
 
-        assertTrue("Timer should have counted down", timerBeforeReset in 56..59)
+        assertTrue(
+            "Timer should have counted down",
+            timerBeforeReset in DEFAULT_GO_DURATION - 4..DEFAULT_GO_DURATION - 1
+        )
 
         tapTimer()
         Thread.sleep(50)
@@ -355,7 +358,7 @@ class MainActivityTest {
 
         assertTrue(
             "Timer should reset to initial duration after triple tap",
-            timerAfterReset in 59..60
+            timerAfterReset in DEFAULT_GO_DURATION - 1..DEFAULT_GO_DURATION
         )
     }
 
@@ -470,7 +473,10 @@ class MainActivityTest {
 
         val timerBeforeReset = getTimerValue()
 
-        assertTrue("Timer should have counted down", timerBeforeReset in 56..59)
+        assertTrue(
+            "Timer should have counted down",
+            timerBeforeReset in DEFAULT_GO_DURATION - 4..DEFAULT_GO_DURATION - 1
+        )
 
         composeTestRule.onNodeWithTag("resetTimerButton").performClick()
         composeTestRule.waitForIdle()
@@ -488,7 +494,7 @@ class MainActivityTest {
 
         assertTrue(
             "Timer should reset to initial duration after clicking reset button",
-            timerAfterReset in 59..60
+            timerAfterReset in DEFAULT_GO_DURATION - 1..DEFAULT_GO_DURATION
         )
     }
 
