@@ -63,7 +63,6 @@
     <string name="error_go_label_length">"चलें" लेबल %d वर्णों से अधिक नहीं होना चाहिए</string>
     <string name="error_stop_label_length">"रुकें" लेबल %d वर्णों से अधिक नहीं होना चाहिए</string>
 
-    <string name="tutorial_welcome">Stop and Go में आपका स्वागत है!</string>
     <string name="tutorial_skip">स्किप</string>
     <string name="tutorial_next">आगे</string>
     <string name="tutorial_progress">कदम %1$d में से %2$d</string>
@@ -71,7 +70,6 @@
 
     <string name="tutorial_language_title">भाषा</string>
     <string name="tutorial_language_description">एक चुनें। बाद में सेटिंग्स में बदल सकते हैं।</string>
-    <string name="tutorial_language_skip">डिफ़ॉल्ट अंग्रेज़ी उपयोग करें</string>
 
     <string name="tutorial_gestures_title">यह कैसे काम करता है</string>
     <string name="tutorial_tap_instruction">रोकने/जारी करने के लिए कहीं भी टैप करें</string>

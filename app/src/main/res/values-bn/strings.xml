@@ -83,7 +83,6 @@
     <string name="error_go_label_length">"চালু" লেবেল %d অক্ষরের বেশি হতে পারবে না</string>
     <string name="error_stop_label_length">"বন্ধ" লেবেল %d অক্ষরের বেশি হতে পারবে না</string>
 
-    <string name="tutorial_welcome">Stop and Go-তে স্বাগতম!</string>
     <string name="tutorial_skip">এড়িয়ে যান</string>
     <string name="tutorial_next">পরবর্তী</string>
     <string name="tutorial_progress">ধাপ %1$d এর %2$d</string>
@@ -92,7 +91,6 @@
 
     <string name="tutorial_language_title">ভাষা</string>
     <string name="tutorial_language_description">একটি বেছে নিন। পরে সেটিংসে পরিবর্তন করতে পারবেন।</string>
-    <string name="tutorial_language_skip">ডিফল্ট ইংরেজি ব্যবহার করুন</string>
 
     <string name="tutorial_gestures_title">কীভাবে ব্যবহার করবেন</string>
     <string name="tutorial_tap_instruction">থামাতে/চালাতে ট্যাপ করুন</string>

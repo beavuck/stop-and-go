@@ -1,0 +1,126 @@
+<resources>
+    <string name="phase_go">ЙТИ</string>
+    <string name="phase_stop">СТОП</string>
+
+    <string name="cycle_count">Цикл: %d</string>
+
+    <string name="go_duration">Тривалість фази ЙТИ (у секундах)</string>
+    <string name="stop_duration">Тривалість фази СТОП (у секундах)</string>
+
+    <string name="go_growth">Множник зростання ЙТИ</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+    <string name="stop_growth">Множник зростання СТОП</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+
+    <string name="go_color">Колір ЙТИ</string>
+    <string name="stop_color">Колір СТОП</string>
+
+    <string name="go_label">Мітка "ЙТИ" (необов\'язково)</string>
+    <string name="go_label_hint">Залиш порожнім, щоб використати стандартну</string>
+    <string name="stop_label">Мітка "СТОП" (необов\'язково)</string>
+    <string name="stop_label_hint">Залиш порожнім, щоб використати стандартну</string>
+
+    <string name="save_settings">Зберегти налаштування</string>
+    <string name="settings">Налаштування</string>
+    <string name="settings_saved">Налаштування успішно збережено</string>
+    <string name="invalid_input">Неправильне значення</string>
+    <string name="reset_timer">Скинути таймер</string>
+
+    <string name="pick_color">Вибрати колір</string>
+    <string name="color_preview">Попередній перегляд кольору</string>
+
+    <string name="red_label">Червоний</string>
+    <string name="green_label">Зелений</string>
+    <string name="blue_label">Синій</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Скасувати</string>
+
+    <string name="notification_channel_go_name">Фаза ЙТИ</string>
+    <string name="notification_channel_go_description">Сповіщення про початок фази ЙТИ</string>
+    <string name="notification_channel_stop_name">Фаза СТОП</string>
+    <string name="notification_channel_stop_description">Сповіщення про початок фази СТОП</string>
+
+    <string name="notification_go_title">Почалася фаза ЙТИ</string>
+    <string name="notification_stop_title">Почалася фаза СТОП</string>
+
+    <string name="language">Мова</string>
+    <string name="search_language">Пошук мови</string>
+    <string name="clear_search">Очистити пошук</string>
+    <string name="no_languages_found">Мови не знайдено</string>
+
+    <string name="timer_screen">Екран таймера. Один дотик - пауза або продовження. Довге натискання - налаштування.</string>
+    <string name="timer_paused">Таймер на паузі</string>
+    <string name="timer_resumed">Таймер продовжено</string>
+
+    <string name="pause">Пауза</string>
+    <string name="resume">Продовжити</string>
+
+    <plurals name="phase_changed">
+        <item quantity="one">%1$s фаза почалася. Залишилась %2$d секунда.</item>
+        <item quantity="few">%1$s фаза почалася. Залишилось %2$d секунди.</item>
+        <item quantity="many">%1$s фаза почалася. Залишилось %2$d секунд.</item>
+        <item quantity="other">%1$s фаза почалася. Залишилось %2$d секунд.</item>
+    </plurals>
+
+    <string name="red_slider">Повзунок червоного компонента кольору</string>
+    <string name="green_slider">Повзунок зеленого компонента кольору</string>
+    <string name="blue_slider">Повзунок синього компонента кольору</string>
+
+    <string name="notification_permission_rationale_title">Увімкнути сповіщення про зміну фаз</string>
+    <string name="notification_permission_rationale_message">Stop and Go може повідомляти тебе, коли таймер перемикається між фазами ЙТИ та СТОП. Це допомагає залишатися зосередженим без постійного перегляду екрана.</string>
+
+    <string name="enable">Увімкнути</string>
+    <string name="not_now">Не зараз</string>
+
+    <string name="error_go_duration_range">Тривалість "ЙТИ" повинна бути між %1$d і %2$d секундами</string>
+    <string name="error_stop_duration_range">Тривалість "СТОП" повинна бути між %1$d і %2$d секундами</string>
+    <string name="error_go_growth_range">Множник зростання "ЙТИ" повинен бути між %1$.2f і %2$.2f</string>
+    <string name="error_stop_growth_range">Множник зростання "СТОП" повинен бути між %1$.2f і %2$.2f</string>
+    <string name="error_go_label_length">Мітка "ЙТИ" не повинна перевищувати %d символів</string>
+    <string name="error_stop_label_length">Мітка "СТОП" не повинна перевищувати %d символів</string>
+
+    <string name="tutorial_skip">Пропустити</string>
+    <string name="tutorial_next">Далі</string>
+    <string name="tutorial_progress">Крок %1$d з %2$d</string>
+
+    <string name="help">Допомога</string>
+
+    <string name="tutorial_language_title">Мова</string>
+    <string name="tutorial_language_description">Вибери одну. Пізніше можна змінити в налаштуваннях.</string>
+
+    <string name="tutorial_gestures_title">Як це працює</string>
+    <string name="tutorial_tap_instruction">Торкнись будь-де, щоб поставити на паузу або продовжити</string>
+    <string name="tutorial_tap_success">На паузі</string>
+
+    <string name="tutorial_long_instruction">Довге натискання відкриває налаштування</string>
+    <string name="tutorial_long_success">Це відкриває налаштування</string>
+
+    <string name="tutorial_multi_instruction">Потрійний дотик - скидання</string>
+    <string name="tutorial_multi_success">Скинуто</string>
+
+    <string name="tutorial_background_title">Таймер працює у фоні</string>
+    <string name="tutorial_background_description">Таймер продовжує працювати, навіть якщо ти закриєш додаток. Ти отримуватимеш сповіщення про зміну фаз.</string>
+
+    <string name="tutorial_creative_title">Приклади</string>
+    <string name="tutorial_creative_description">Ось для чого люди це використовують:</string>
+
+    <string name="tutorial_use_chess">Шаховий годинник</string>
+    <string name="tutorial_use_apnea">Тренування затримки дихання</string>
+    <string name="tutorial_use_pomodoro">Помодоро таймер</string>
+    <string name="tutorial_use_hiit">HIIT інтервали</string>
+    <string name="tutorial_use_custom">Що завгодно</string>
+
+    <string name="more">Більше</string>
+    <string name="more_about">Про додаток</string>
+    <string name="more_privacy">Приватність</string>
+    <string name="more_license">Ліцензія</string>
+    <string name="more_tip">Підтримати розробника</string>
+
+    <string name="more_open">Відкрити</string>
+    <string name="more_share">Поділитися додатком</string>
+    <string name="more_share_text">Спробуй Stop and Go - мінімалістичний інтервальний таймер. Безкоштовно, без реклами, без мережі. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
+
+    <string name="more_reset_settings">Скинути налаштування до стандартних</string>
+    <string name="more_reset_success">Налаштування скинуто до стандартних</string>
+</resources>

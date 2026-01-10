@@ -57,14 +57,12 @@
     <string name="error_stop_growth_range">Pengali pangembangan "Mandheg" kudu antara %1$.2f lan %2$.2f</string>
     <string name="error_go_label_length">Label "Mulai" ora kena luwih saka %d karakter</string>
     <string name="error_stop_label_length">Label "Mandheg" ora kena luwih saka %d karakter</string>
-    <string name="tutorial_welcome">Sugeng rawuh ing Stop and Go!</string>
     <string name="tutorial_skip">Lewati</string>
     <string name="tutorial_next">Sabanjure</string>
     <string name="tutorial_progress">Langkah %1$d saka %2$d</string>
     <string name="help">Bantuan</string>
     <string name="tutorial_language_title">Basa</string>
     <string name="tutorial_language_description">Pilih siji. Sampeyan bisa ngganti mengko ing setelan.</string>
-    <string name="tutorial_language_skip">Gunakake English (default)</string>
     <string name="tutorial_gestures_title">Carane Fungsine</string>
     <string name="tutorial_tap_instruction">Tap sak panggonan kanggo pause/lanjutake</string>
     <string name="tutorial_tap_success">Dijeda</string>

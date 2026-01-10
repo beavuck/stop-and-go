@@ -58,14 +58,12 @@
     <string name="error_stop_growth_range">"રોકો" વૃદ્ધિ ગુણાંક %1$.2f થી %2$.2f વચ્ચે હોવો જોઈએ</string>
     <string name="error_go_label_length">"જાઓ" લેબલ %d અક્ષરો સુધી મર્યાદિત હોવો જોઈએ</string>
     <string name="error_stop_label_length">"રોકો" લેબલ %d અક્ષરો સુધી મર્યાદિત હોવો જોઈએ</string>
-    <string name="tutorial_welcome">Stop and Go માં આપનું સ્વાગત છે!</string>
     <string name="tutorial_skip">સ્કિપ કરો</string>
     <string name="tutorial_next">આગળ</string>
     <string name="tutorial_progress">પગલું %1$d માંથી %2$d</string>
     <string name="help">સહાય</string>
     <string name="tutorial_language_title">ભાષા</string>
     <string name="tutorial_language_description">એક પસંદ કરો. તમે તેને પછી સેટિંગ્સમાં બદલી શકો છો.</string>
-    <string name="tutorial_language_skip">ડિફોલ્ટ English નો ઉપયોગ કરો</string>
     <string name="tutorial_gestures_title">કેવી રીતે કાર્ય કરે છે</string>
     <string name="tutorial_tap_instruction">વિરામ/પુનઃપ્રારંભ માટે ક્યાંય પણ ટૅપ કરો</string>
     <string name="tutorial_tap_success">વિરામ થયો</string>

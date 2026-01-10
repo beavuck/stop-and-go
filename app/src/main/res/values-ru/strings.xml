@@ -104,7 +104,6 @@
         Метка "Стоп" не должна превышать %d символов
     </string>
 
-    <string name="tutorial_welcome">Добро пожаловать в Stop and Go!</string>
     <string name="tutorial_skip">Пропустить</string>
     <string name="tutorial_next">Далее</string>
     <string name="tutorial_progress">Шаг %1$d из %2$d</string>
@@ -115,7 +114,6 @@
     <string name="tutorial_language_description">
         Выберите язык. Это можно изменить позже.
     </string>
-    <string name="tutorial_language_skip">Использовать английский (по умолчанию)</string>
 
     <string name="tutorial_gestures_title">Как работает</string>
     <string name="tutorial_tap_instruction">Нажмите, чтобы поставить на паузу/продолжить</string>

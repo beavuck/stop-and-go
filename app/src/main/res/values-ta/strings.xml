@@ -103,7 +103,6 @@
         "நிறுத்து" குறிச்சொல் %d எழுத்துகளை மீறக்கூடாது
     </string>
 
-    <string name="tutorial_welcome">Stop and Go-க்கு வரவேற்கிறோம்!</string>
     <string name="tutorial_skip">தவிர்</string>
     <string name="tutorial_next">அடுத்து</string>
     <string name="tutorial_progress">படி %1$d / %2$d</string>
@@ -114,8 +113,6 @@
     <string name="tutorial_language_description">
         ஒன்றை தேர்ந்தெடுக்கவும். பின்னர் அமைப்புகளில் மாற்றலாம்.
     </string>
-
-    <string name="tutorial_language_skip">ஆங்கிலத்தை பயன்படுத்தவும் (இயல்புநிலை)</string>
 
     <string name="tutorial_gestures_title">எப்படி வேலை செய்கிறது</string>
     <string name="tutorial_tap_instruction">இடைநிறுத்த அல்லது தொடர எங்கும் தட்டவும்</string>

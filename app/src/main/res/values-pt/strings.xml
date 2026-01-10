@@ -83,7 +83,6 @@
     <string name="error_go_label_length">A etiqueta "Iniciar" não deve exceder %d caracteres</string>
     <string name="error_stop_label_length">A etiqueta "Parar" não deve exceder %d caracteres</string>
 
-    <string name="tutorial_welcome">Bem-vindo ao Stop and Go!</string>
     <string name="tutorial_skip">Saltar</string>
     <string name="tutorial_next">Seguinte</string>
     <string name="tutorial_progress">Passo %1$d de %2$d</string>
@@ -92,7 +91,6 @@
 
     <string name="tutorial_language_title">Idioma</string>
     <string name="tutorial_language_description">Escolha um. Pode mudá-lo depois nas definições.</string>
-    <string name="tutorial_language_skip">Usar inglês (padrão)</string>
 
     <string name="tutorial_gestures_title">Como funciona</string>
     <string name="tutorial_tap_instruction">Toque para pausar/retomar</string>

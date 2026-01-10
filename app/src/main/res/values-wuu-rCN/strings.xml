@@ -58,14 +58,12 @@
     <string name="error_stop_growth_range">"停"增长倍率必须在%1$.2f到%2$.2f之间</string>
     <string name="error_go_label_length">"走"标签不能超过%d个字符</string>
     <string name="error_stop_label_length">"停"标签不能超过%d个字符</string>
-    <string name="tutorial_welcome">欢迎使用Stop and Go！</string>
     <string name="tutorial_skip">跳过</string>
     <string name="tutorial_next">下一步</string>
     <string name="tutorial_progress">第%1$d步，共%2$d步</string>
     <string name="help">帮助</string>
     <string name="tutorial_language_title">语言</string>
     <string name="tutorial_language_description">选择一个语言，可在设置中更改</string>
-    <string name="tutorial_language_skip">使用英语(默认)</string>
     <string name="tutorial_gestures_title">使用方法</string>
     <string name="tutorial_tap_instruction">点击任意位置暂停/继续</string>
     <string name="tutorial_tap_success">已暂停</string>

@@ -60,14 +60,12 @@
     <string name="error_stop_growth_range">Mnożnik wzrostu „Stop" musi wynosić od %1$.2f do %2$.2f</string>
     <string name="error_go_label_length">Etykieta „Start" nie może przekraczać %d znaków</string>
     <string name="error_stop_label_length">Etykieta „Stop" nie może przekraczać %d znaków</string>
-    <string name="tutorial_welcome">Witamy w Stop and Go!</string>
     <string name="tutorial_skip">Pomiń</string>
     <string name="tutorial_next">Dalej</string>
     <string name="tutorial_progress">Krok %1$d z %2$d</string>
     <string name="help">Pomoc</string>
     <string name="tutorial_language_title">Język</string>
     <string name="tutorial_language_description">Wybierz jeden. Możesz go później zmienić w ustawieniach.</string>
-    <string name="tutorial_language_skip">Użyj języka angielskiego (domyślnie)</string>
     <string name="tutorial_gestures_title">Jak to działa</string>
     <string name="tutorial_tap_instruction">Dotknij gdziekolwiek, aby wstrzymać/wznowić</string>
     <string name="tutorial_tap_success">Wstrzymano</string>

@@ -106,7 +106,6 @@
         "STOPP"-Beschriftung darf %d Zeichen nicht ueberschreiten
     </string>
 
-    <string name="tutorial_welcome">Willkommen bei Stop and Go!</string>
     <string name="tutorial_skip">Ueberspringen</string>
     <string name="tutorial_next">Weiter</string>
     <string name="tutorial_progress">Schritt %1$d von %2$d</string>
@@ -117,8 +116,6 @@
     <string name="tutorial_language_description">
         Waehle eine Sprache. Du kannst sie spaeter in den Einstellungen aendern.
     </string>
-
-    <string name="tutorial_language_skip">Englisch verwenden (Standard)</string>
 
     <string name="tutorial_gestures_title">So funktioniert es</string>
     <string name="tutorial_tap_instruction">Einfach tippen zum Pausieren oder Fortsetzen</string>

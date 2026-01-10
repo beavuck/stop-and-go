@@ -57,7 +57,7 @@
     <string name="language_russian" translatable="false">Русский</string>
     <string name="language_turkish" translatable="false">Türkçe</string>
     <string name="language_vietnamese" translatable="false">Tiếng Việt</string>
-    <string name="language_chinese_traditional_hk" translatable="false">繁體中文（香港）</string>
+    <string name="language_chinese_traditional_hk" translatable="false">繁體中文 (香港)</string>
     <string name="language_chinese_wu" translatable="false">吴语</string>
     <string name="language_german" translatable="false">Deutsch</string>
     <string name="language_gujarati" translatable="false">ગુજરાતી</string>
@@ -71,6 +71,10 @@
     <string name="language_telugu" translatable="false">తెలుగు</string>
     <string name="language_urdu" translatable="false">اردو</string>
     <string name="language_polish" translatable="false">Polski</string>
+    <string name="language_swahili" translatable="false">Kiswahili</string>
+    <string name="language_ukrainian" translatable="false">Українська</string>
+    <string name="language_yoruba" translatable="false">Yorùbá</string>
+    <string name="language_chinese_taiwan" translatable="false">繁體中文 (台灣)</string>
     <string name="timer_screen">Timer screen. Single tap to pause or resume. Long press to open settings.</string>
     <string name="timer_paused">Timer paused</string>
     <string name="timer_resumed">Timer resumed</string>
@@ -93,14 +97,12 @@
     <string name="error_stop_growth_range">"Stop" growth multiplier must be between %1$.2f and %2$.2f</string>
     <string name="error_go_label_length">"Go" label must not exceed %d characters</string>
     <string name="error_stop_label_length">"Stop" label must not exceed %d characters</string>
-    <string name="tutorial_welcome">Welcome to Stop and Go!</string>
     <string name="tutorial_skip">Skip</string>
     <string name="tutorial_next">Next</string>
     <string name="tutorial_progress">Step %1$d of %2$d</string>
     <string name="help">Help</string>
     <string name="tutorial_language_title">Language</string>
     <string name="tutorial_language_description">Pick one. You can change it later in settings.</string>
-    <string name="tutorial_language_skip">Use English (default)</string>
     <string name="tutorial_gestures_title">How it works</string>
     <string name="tutorial_tap_instruction">Tap anywhere to pause/resume</string>
     <string name="tutorial_tap_success">Paused</string>

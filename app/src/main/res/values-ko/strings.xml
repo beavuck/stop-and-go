@@ -105,7 +105,6 @@
         "정지" 라벨은 %d자를 초과할 수 없습니다
     </string>
 
-    <string name="tutorial_welcome">Stop and Go에 오신 것을 환영합니다!</string>
     <string name="tutorial_skip">건너뛰기</string>
     <string name="tutorial_next">다음</string>
 
@@ -117,8 +116,6 @@
     <string name="tutorial_language_description">
         하나를 선택하세요. 나중에 설정에서 변경할 수 있습니다.
     </string>
-
-    <string name="tutorial_language_skip">영어 사용 (기본값)</string>
 
     <string name="tutorial_gestures_title">사용 방법</string>
     <string name="tutorial_tap_instruction">어디든 탭하여 일시정지 또는 재개</string>

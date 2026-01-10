@@ -109,7 +109,6 @@
         برچسب "توقف" نباید بیشتر از %d کاراکتر باشد
     </string>
 
-    <string name="tutorial_welcome">به Stop and Go خوش آمدید!</string>
     <string name="tutorial_skip">رد کردن</string>
     <string name="tutorial_next">بعدی</string>
 
@@ -121,8 +120,6 @@
     <string name="tutorial_language_description">
         یکی را انتخاب کنید. بعدا می توانید آن را در تنظیمات تغییر دهید.
     </string>
-
-    <string name="tutorial_language_skip">استفاده از انگلیسی (پیش فرض)</string>
 
     <string name="tutorial_gestures_title">نحوه استفاده</string>
 

@@ -58,14 +58,12 @@
     <string name="error_stop_growth_range">"Dur" büyüme katsayısı %1$.2f ile %2$.2f arasında olmalıdır</string>
     <string name="error_go_label_length">"Başla" etiketi %d karakteri geçmemelidir</string>
     <string name="error_stop_label_length">"Dur" etiketi %d karakteri geçmemelidir</string>
-    <string name="tutorial_welcome">Stop and Go’ya Hoşgeldiniz!</string>
     <string name="tutorial_skip">Atla</string>
     <string name="tutorial_next">İleri</string>
     <string name="tutorial_progress">Adım %1$d / %2$d</string>
     <string name="help">Yardım</string>
     <string name="tutorial_language_title">Dil</string>
     <string name="tutorial_language_description">Bir dil seçin. Daha sonra ayarlardan değiştirebilirsiniz.</string>
-    <string name="tutorial_language_skip">İngilizce (varsayılan) kullan</string>
     <string name="tutorial_gestures_title">Nasıl çalışır</string>
     <string name="tutorial_tap_instruction">Duraklatmak/devam ettirmek için herhangi bir yere dokunun</string>
     <string name="tutorial_tap_success">Duraklatıldı</string>

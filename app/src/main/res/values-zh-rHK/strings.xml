@@ -2,17 +2,17 @@
     <string name="phase_go">走</string>
     <string name="phase_stop">停</string>
     <string name="cycle_count">循環: %d</string>
-    <string name="go_duration">走階段時間（秒）</string>
-    <string name="stop_duration">停階段時間（秒）</string>
+    <string name="go_duration">走階段時間 (秒)</string>
+    <string name="stop_duration">停階段時間 (秒)</string>
     <string name="go_growth">走階段增長倍數</string>
     <string name="go_growth_hint">0.01–100.0</string>
     <string name="stop_growth">停階段增長倍數</string>
     <string name="stop_growth_hint">0.01–100.0</string>
     <string name="go_color">走階段顏色</string>
     <string name="stop_color">停階段顏色</string>
-    <string name="go_label">「走」標籤（可選）</string>
+    <string name="go_label">「走」標籤 (可選)</string>
     <string name="go_label_hint">留空使用預設值</string>
-    <string name="stop_label">「停」標籤（可選）</string>
+    <string name="stop_label">「停」標籤 (可選)</string>
     <string name="stop_label_hint">留空使用預設值</string>
     <string name="save_settings">儲存設定</string>
     <string name="settings">設定</string>
@@ -57,14 +57,12 @@
     <string name="error_stop_growth_range">「停」階段增長倍數必須介乎 %1$.2f 至 %2$.2f</string>
     <string name="error_go_label_length">「走」標籤長度不能超過 %d 個字符</string>
     <string name="error_stop_label_length">「停」標籤長度不能超過 %d 個字符</string>
-    <string name="tutorial_welcome">歡迎使用停同走！</string>
     <string name="tutorial_skip">跳過</string>
     <string name="tutorial_next">下一步</string>
     <string name="tutorial_progress">步驟 %1$d / %2$d</string>
     <string name="help">幫助</string>
     <string name="tutorial_language_title">語言</string>
     <string name="tutorial_language_description">揀一種語言。之後可以喺設定更改。</string>
-    <string name="tutorial_language_skip">使用英文（預設）</string>
     <string name="tutorial_gestures_title">操作方式</string>
     <string name="tutorial_tap_instruction">點擊任意位置暫停/繼續</string>
     <string name="tutorial_tap_success">已暫停</string>
@@ -79,7 +77,7 @@
     <string name="tutorial_use_chess">棋類計時器</string>
     <string name="tutorial_use_apnea">憋氣訓練</string>
     <string name="tutorial_use_pomodoro">番茄鐘</string>
-    <string name="tutorial_use_hiit">高強度間歇訓練（HIIT）</string>
+    <string name="tutorial_use_hiit">高強度間歇訓練 (HIIT)</string>
     <string name="tutorial_use_custom">隨你需要</string>
 
     <string name="more">更多</string>

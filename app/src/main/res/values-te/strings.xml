@@ -109,7 +109,6 @@
         "ఆపు" లేబుల్ %d అక్షరాలను మించకూడదు
     </string>
 
-    <string name="tutorial_welcome">Stop and Go కు స్వాగతం!</string>
     <string name="tutorial_skip">దాటవేయి</string>
     <string name="tutorial_next">తరువాత</string>
 
@@ -121,8 +120,6 @@
     <string name="tutorial_language_description">
         ఒకటి ఎంచుకోండి. తర్వాత సెట్టింగ్స్ లో మార్చవచ్చు.
     </string>
-
-    <string name="tutorial_language_skip">ఇంగ్లీష్ ఉపయోగించండి (డిఫాల్ట్)</string>
 
     <string name="tutorial_gestures_title">ఎలా పనిచేస్తుంది</string>
     <string name="tutorial_tap_instruction">ఆపడానికి లేదా కొనసాగించడానికి ఎక్కడైనా ట్యాప్ చేయండి</string>

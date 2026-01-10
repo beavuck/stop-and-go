@@ -1,0 +1,124 @@
+<resources>
+    <string name="phase_go">開始</string>
+    <string name="phase_stop">停止</string>
+
+    <string name="cycle_count">循環：%d</string>
+
+    <string name="go_duration">開始時長 (秒)</string>
+    <string name="stop_duration">停止時長 (秒)</string>
+
+    <string name="go_growth">開始成長倍率</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+    <string name="stop_growth">停止成長倍率</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+
+    <string name="go_color">開始顏色</string>
+    <string name="stop_color">停止顏色</string>
+
+    <string name="go_label">"開始" 標籤 (選填)</string>
+    <string name="go_label_hint">留空則使用預設值</string>
+    <string name="stop_label">"停止" 標籤 (選填)</string>
+    <string name="stop_label_hint">留空則使用預設值</string>
+
+    <string name="save_settings">儲存設定</string>
+    <string name="settings">設定</string>
+    <string name="settings_saved">設定已成功儲存</string>
+    <string name="invalid_input">輸入無效</string>
+    <string name="reset_timer">重設計時器</string>
+
+    <string name="pick_color">選擇顏色</string>
+    <string name="color_preview">顏色預覽</string>
+    <string name="red_label">紅</string>
+    <string name="green_label">綠</string>
+    <string name="blue_label">藍</string>
+
+    <string name="ok">確定</string>
+    <string name="cancel">取消</string>
+
+    <string name="notification_channel_go_name">開始階段</string>
+    <string name="notification_channel_go_description">開始階段變更通知</string>
+    <string name="notification_channel_stop_name">停止階段</string>
+    <string name="notification_channel_stop_description">停止階段變更通知</string>
+
+    <string name="notification_go_title">開始階段已開始</string>
+    <string name="notification_stop_title">停止階段已開始</string>
+
+    <string name="language">語言</string>
+    <string name="search_language">搜尋語言</string>
+    <string name="clear_search">清除搜尋</string>
+    <string name="no_languages_found">找不到語言</string>
+
+    <string name="timer_screen">計時畫面。點擊一次可暫停或繼續，長按可開啟設定。</string>
+    <string name="timer_paused">計時已暫停</string>
+    <string name="timer_resumed">計時已繼續</string>
+
+    <string name="pause">暫停</string>
+    <string name="resume">繼續</string>
+
+    <plurals name="phase_changed">
+        <item quantity="other">%1$s 階段已開始，剩餘 %2$d 秒。</item>
+    </plurals>
+
+    <string name="red_slider">紅色分量滑桿</string>
+    <string name="green_slider">綠色分量滑桿</string>
+    <string name="blue_slider">藍色分量滑桿</string>
+
+    <string name="notification_permission_rationale_title">啟用階段變更通知</string>
+    <string name="notification_permission_rationale_message">
+        Stop and Go 可在計時器於開始與停止階段切換時通知你，讓你無需一直盯著螢幕也能保持專注。
+    </string>
+
+    <string name="enable">啟用</string>
+    <string name="not_now">稍後再說</string>
+
+    <string name="error_go_duration_range">"開始" 時長必須介於 %1$d 到 %2$d 秒之間</string>
+    <string name="error_stop_duration_range">"停止" 時長必須介於 %1$d 到 %2$d 秒之間</string>
+    <string name="error_go_growth_range">"開始" 成長倍率必須介於 %1$.2f 到 %2$.2f</string>
+    <string name="error_stop_growth_range">"停止" 成長倍率必須介於 %1$.2f 到 %2$.2f</string>
+    <string name="error_go_label_length">"開始" 標籤長度不可超過 %d 個字元</string>
+    <string name="error_stop_label_length">"停止" 標籤長度不可超過 %d 個字元</string>
+
+    <string name="tutorial_skip">略過</string>
+    <string name="tutorial_next">下一步</string>
+    <string name="tutorial_progress">第 %1$d 步，共 %2$d 步</string>
+
+    <string name="help">說明</string>
+
+    <string name="tutorial_language_title">語言</string>
+    <string name="tutorial_language_description">請選擇一種語言，之後可在設定中更改。</string>
+
+    <string name="tutorial_gestures_title">使用方式</string>
+    <string name="tutorial_tap_instruction">點擊任意位置以暫停或繼續</string>
+    <string name="tutorial_tap_success">已暫停</string>
+    <string name="tutorial_long_instruction">長按以開啟設定</string>
+    <string name="tutorial_long_success">已開啟設定</string>
+    <string name="tutorial_multi_instruction">連續點擊三次以重設</string>
+    <string name="tutorial_multi_success">已重設</string>
+
+    <string name="tutorial_background_title">背景持續運作</string>
+    <string name="tutorial_background_description">
+        即使關閉 App，計時器仍會繼續運作，並在階段切換時發送通知。
+    </string>
+
+    <string name="tutorial_creative_title">使用範例</string>
+    <string name="tutorial_creative_description">常見用途包括：</string>
+    <string name="tutorial_use_chess">西洋棋計時器</string>
+    <string name="tutorial_use_apnea">閉氣訓練</string>
+    <string name="tutorial_use_pomodoro">番茄鐘</string>
+    <string name="tutorial_use_hiit">高強度間歇訓練</string>
+    <string name="tutorial_use_custom">任何你需要的用途</string>
+
+    <string name="more">更多</string>
+    <string name="more_about">關於</string>
+    <string name="more_privacy">隱私權</string>
+    <string name="more_license">授權</string>
+    <string name="more_tip">贊助開發者</string>
+    <string name="more_open">開啟</string>
+    <string name="more_share">分享 App</string>
+    <string name="more_share_text">
+        試試 Stop and Go，一款極簡間歇計時器。免費、無廣告、離線使用。
+        https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go
+    </string>
+    <string name="more_reset_settings">重設為預設設定</string>
+    <string name="more_reset_success">設定已還原為預設值</string>
+</resources>

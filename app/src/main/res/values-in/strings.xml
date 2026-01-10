@@ -107,7 +107,6 @@
         Label "Berhenti" tidak boleh lebih dari %d karakter
     </string>
 
-    <string name="tutorial_welcome">Selamat datang di Stop and Go!</string>
     <string name="tutorial_skip">Lewati</string>
     <string name="tutorial_next">Berikutnya</string>
 
@@ -119,8 +118,6 @@
     <string name="tutorial_language_description">
         Pilih satu. Anda dapat mengubahnya nanti di pengaturan.
     </string>
-
-    <string name="tutorial_language_skip">Gunakan Inggris (default)</string>
 
     <string name="tutorial_gestures_title">Cara Kerja</string>
     <string name="tutorial_tap_instruction">Ketuk di mana saja untuk jeda atau lanjutkan</string>

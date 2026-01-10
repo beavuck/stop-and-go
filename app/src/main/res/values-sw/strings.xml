@@ -1,0 +1,106 @@
+<resources>
+    <string name="phase_go">ENDELEA</string>
+    <string name="phase_stop">SIMAMA</string>
+    <string name="cycle_count">Mzunguko: %d</string>
+    <string name="go_duration">Muda wa Endelea (sekunde)</string>
+    <string name="stop_duration">Muda wa Simama (sekunde)</string>
+    <string name="go_growth">Kizidishi cha Ukuaji wa Endelea</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+    <string name="stop_growth">Kizidishi cha Ukuaji wa Simama</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+    <string name="go_color">Rangi ya Endelea</string>
+    <string name="stop_color">Rangi ya Simama</string>
+    <string name="go_label">Lebo ya "Endelea" (hiari)</string>
+    <string name="go_label_hint">Acha tupu kutumia chaguo-msingi</string>
+    <string name="stop_label">Lebo ya "Simama" (hiari)</string>
+    <string name="stop_label_hint">Acha tupu kutumia chaguo-msingi</string>
+    <string name="save_settings">Hifadhi Mipangilio</string>
+    <string name="settings">Mipangilio</string>
+    <string name="settings_saved">Mipangilio imehifadhiwa kikamilifu</string>
+    <string name="invalid_input">Ingizo batili</string>
+    <string name="reset_timer">Weka Kipima Muda Upya</string>
+    <string name="pick_color">Chagua Rangi</string>
+    <string name="color_preview">Hakiki ya Rangi</string>
+    <string name="red_label">Nyekundu</string>
+    <string name="green_label">Kijani</string>
+    <string name="blue_label">Bluu</string>
+    <string name="ok">Sawa</string>
+    <string name="cancel">Ghairi</string>
+
+    <string name="notification_channel_go_name">Awamu ya Endelea</string>
+    <string name="notification_channel_go_description">Arifa za mabadiliko ya awamu ya Endelea</string>
+    <string name="notification_channel_stop_name">Awamu ya Simama</string>
+    <string name="notification_channel_stop_description">Arifa za mabadiliko ya awamu ya Simama</string>
+    <string name="notification_go_title">Awamu ya ENDELEA Imeanza</string>
+    <string name="notification_stop_title">Awamu ya SIMAMA Imeanza</string>
+
+    <string name="language">Lugha</string>
+    <string name="search_language">Tafuta lugha</string>
+    <string name="clear_search">Futa utafutaji</string>
+    <string name="no_languages_found">Hakuna lugha zilizopatikana</string>
+
+    <string name="timer_screen">Skrini ya kipima muda. Gusa mara moja kusitisha au kuendelea. Bonyeza kwa muda mrefu kufungua mipangilio.</string>
+    <string name="timer_paused">Kipima muda kimesitishwa</string>
+    <string name="timer_resumed">Kipima muda kimeendelea</string>
+    <string name="pause">Sitisha</string>
+    <string name="resume">Endelea</string>
+
+    <plurals name="phase_changed">
+        <item quantity="one">%1$s imeanza. Sekunde %2$d zimebaki.</item>
+        <item quantity="other">%1$s imeanza. Sekunde %2$d zimebaki.</item>
+    </plurals>
+
+    <string name="red_slider">Kitelezaji cha rangi nyekundu</string>
+    <string name="green_slider">Kitelezaji cha rangi kijani</string>
+    <string name="blue_slider">Kitelezaji cha rangi bluu</string>
+
+    <string name="notification_permission_rationale_title">Wezesha Arifa za Mabadiliko ya Awamu</string>
+    <string name="notification_permission_rationale_message">Stop and Go inaweza kukutumia arifa kipima muda kinapobadilisha kati ya awamu za ENDELEA na SIMAMA. Hii hukusaidia kuzingatia bila kuangalia skrini mara kwa mara.</string>
+    <string name="enable">Wezesha</string>
+    <string name="not_now">Sio Sasa</string>
+
+    <string name="error_go_duration_range">Muda wa "Endelea" lazima uwe kati ya sekunde %1$d na %2$d</string>
+    <string name="error_stop_duration_range">Muda wa "Simama" lazima uwe kati ya sekunde %1$d na %2$d</string>
+    <string name="error_go_growth_range">Kizidishi cha ukuaji wa "Endelea" lazima kiwe kati ya %1$.2f na %2$.2f</string>
+    <string name="error_stop_growth_range">Kizidishi cha ukuaji wa "Simama" lazima kiwe kati ya %1$.2f na %2$.2f</string>
+    <string name="error_go_label_length">Lebo ya "Endelea" isizidi herufi %d</string>
+    <string name="error_stop_label_length">Lebo ya "Simama" isizidi herufi %d</string>
+
+    <string name="tutorial_skip">Ruka</string>
+    <string name="tutorial_next">Inayofuata</string>
+    <string name="tutorial_progress">Hatua ya %1$d kati ya %2$d</string>
+    <string name="help">Msaada</string>
+
+    <string name="tutorial_language_title">Lugha</string>
+    <string name="tutorial_language_description">Chagua moja. Unaweza kuibadilisha baadaye kwenye mipangilio.</string>
+
+    <string name="tutorial_gestures_title">Jinsi inavyofanya kazi</string>
+    <string name="tutorial_tap_instruction">Gusa popote kusitisha au kuendelea</string>
+    <string name="tutorial_tap_success">Imesitishwa</string>
+    <string name="tutorial_long_instruction">Bonyeza kwa muda mrefu kufungua mipangilio</string>
+    <string name="tutorial_long_success">Hiyo hufungua mipangilio</string>
+    <string name="tutorial_multi_instruction">Gusa mara tatu kuweka upya</string>
+    <string name="tutorial_multi_success">Imewekwa upya</string>
+
+    <string name="tutorial_background_title">Kipima Muda Kinaendelea</string>
+    <string name="tutorial_background_description">Kipima muda kinaendelea hata ukifunga programu. Utapokea arifa awamu zinapobadilika.</string>
+
+    <string name="tutorial_creative_title">Mifano</string>
+    <string name="tutorial_creative_description">Baadhi ya matumizi ya programu hii:</string>
+    <string name="tutorial_use_chess">Saa ya chess</string>
+    <string name="tutorial_use_apnea">Mazoezi ya kushikilia pumzi</string>
+    <string name="tutorial_use_pomodoro">Kipima muda cha Pomodoro</string>
+    <string name="tutorial_use_hiit">Vipindi vya HIIT</string>
+    <string name="tutorial_use_custom">Chochote unachohitaji</string>
+
+    <string name="more">Zaidi</string>
+    <string name="more_about">Kuhusu</string>
+    <string name="more_privacy">Faragha</string>
+    <string name="more_license">Leseni</string>
+    <string name="more_tip">Mpe msanidi mchango</string>
+    <string name="more_open">Fungua</string>
+    <string name="more_share">Shiriki programu</string>
+    <string name="more_share_text">Angalia Stop and Go - kipima muda cha vipindi chenye muundo rahisi. Bure, bila matangazo, bila mtandao. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
+    <string name="more_reset_settings">Rejesha mipangilio chaguo-msingi</string>
+    <string name="more_reset_success">Mipangilio imerejeshwa kwenye chaguo-msingi</string>
+</resources>

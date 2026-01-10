@@ -3,8 +3,8 @@
     <string name="phase_stop">停止</string>
     <string name="cycle_count">サイクル: %d</string>
 
-    <string name="go_duration">「開始」時間（秒）</string>
-    <string name="stop_duration">「停止」時間（秒）</string>
+    <string name="go_duration">「開始」時間 (秒)</string>
+    <string name="stop_duration">「停止」時間 (秒)</string>
 
     <string name="go_growth">「開始」成長倍率</string>
     <string name="go_growth_hint">0.01–100.0</string>
@@ -14,10 +14,10 @@
     <string name="go_color">「開始」カラー</string>
     <string name="stop_color">「停止」カラー</string>
 
-    <string name="go_label">「開始」ラベル（任意）</string>
+    <string name="go_label">「開始」ラベル (任意)</string>
     <string name="go_label_hint">空欄の場合は既定値を使用</string>
 
-    <string name="stop_label">「停止」ラベル（任意）</string>
+    <string name="stop_label">「停止」ラベル (任意)</string>
     <string name="stop_label_hint">空欄の場合は既定値を使用</string>
 
     <string name="save_settings">設定を保存</string>
@@ -101,7 +101,6 @@
         「停止」ラベルは %d 文字以内で入力してください
     </string>
 
-    <string name="tutorial_welcome">Stop and Go へようこそ！</string>
     <string name="tutorial_skip">スキップ</string>
     <string name="tutorial_next">次へ</string>
     <string name="tutorial_progress">%1$d / %2$d</string>
@@ -110,7 +109,6 @@
 
     <string name="tutorial_language_title">言語</string>
     <string name="tutorial_language_description">言語を選択。後で変更できます。</string>
-    <string name="tutorial_language_skip">英語を使用（既定）</string>
 
     <string name="tutorial_gestures_title">操作方法</string>
     <string name="tutorial_tap_instruction">タップで一時停止／再開</string>

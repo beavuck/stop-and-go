@@ -57,14 +57,12 @@
     <string name="error_stop_growth_range">Hệ số tăng "Dừng" phải từ %1$.2f đến %2$.2f</string>
     <string name="error_go_label_length">Nhãn "Bắt đầu" không được quá %d ký tự</string>
     <string name="error_stop_label_length">Nhãn "Dừng" không được quá %d ký tự</string>
-    <string name="tutorial_welcome">Chào mừng đến với Dừng và Đi!</string>
     <string name="tutorial_skip">Bỏ qua</string>
     <string name="tutorial_next">Tiếp</string>
     <string name="tutorial_progress">Bước %1$d trên %2$d</string>
     <string name="help">Trợ giúp</string>
     <string name="tutorial_language_title">Ngôn ngữ</string>
     <string name="tutorial_language_description">Chọn một ngôn ngữ. Bạn có thể thay đổi sau trong cài đặt.</string>
-    <string name="tutorial_language_skip">Dùng tiếng Anh (mặc định)</string>
     <string name="tutorial_gestures_title">Cách hoạt động</string>
     <string name="tutorial_tap_instruction">Chạm vào bất cứ đâu để tạm dừng/tiếp tục</string>
     <string name="tutorial_tap_success">Đã tạm dừng</string>

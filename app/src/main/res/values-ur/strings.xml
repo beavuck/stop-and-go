@@ -88,7 +88,6 @@
     <string name="error_go_label_length">"چلیں" لیبل %d حروف سے زیادہ نہیں ہو سکتا</string>
     <string name="error_stop_label_length">"رکیں" لیبل %d حروف سے زیادہ نہیں ہو سکتا</string>
 
-    <string name="tutorial_welcome">اسٹاپ اینڈ گو میں خوش آمدید!</string>
     <string name="tutorial_skip">چھوڑ دیں</string>
     <string name="tutorial_next">اگلا</string>
     <string name="tutorial_progress">مرحلہ %1$d از %2$d</string>
@@ -97,7 +96,6 @@
 
     <string name="tutorial_language_title">زبان</string>
     <string name="tutorial_language_description">ایک منتخب کریں۔ آپ بعد میں ترتیبات میں بدل سکتے ہیں۔</string>
-    <string name="tutorial_language_skip">انگریزی استعمال کریں (طے شدہ)</string>
 
     <string name="tutorial_gestures_title">یہ کیسے کام کرتا ہے</string>
     <string name="tutorial_tap_instruction">روکنے یا شروع کرنے کے لئے کہیں بھی ٹیپ کریں</string>

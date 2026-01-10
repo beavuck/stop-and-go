@@ -1,0 +1,105 @@
+<resources>
+    <string name="phase_go">LO</string>
+    <string name="phase_stop">DURO</string>
+    <string name="cycle_count">Iyipo: %d</string>
+    <string name="go_duration">Akoko LO (isekondi)</string>
+    <string name="stop_duration">Akoko DURO (isekondi)</string>
+    <string name="go_growth">Ipin idagba LO</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+    <string name="stop_growth">Ipin idagba DURO</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+    <string name="go_color">Awọ LO</string>
+    <string name="stop_color">Awọ DURO</string>
+    <string name="go_label">Aami "LO" (ayan)</string>
+    <string name="go_label_hint">Fi sile ofo lati lo aiyipada</string>
+    <string name="stop_label">Aami "DURO" (ayan)</string>
+    <string name="stop_label_hint">Fi sile ofo lati lo aiyipada</string>
+    <string name="save_settings">Fipamọ Eto</string>
+    <string name="settings">Eto</string>
+    <string name="settings_saved">A ti fipamọ eto daradara</string>
+    <string name="invalid_input">Titẹ sii ko pe</string>
+    <string name="reset_timer">Tun aago bere</string>
+    <string name="pick_color">Yan Awọ</string>
+    <string name="color_preview">Awotẹlẹ Awọ</string>
+    <string name="red_label">Pupa</string>
+    <string name="green_label">Alawọ ewe</string>
+    <string name="blue_label">Buluu</string>
+    <string name="ok">O dara</string>
+    <string name="cancel">Fagilee</string>
+
+    <string name="notification_channel_go_name">Ipele LO</string>
+    <string name="notification_channel_go_description">Awọn ifitonileti fun ayipada ipele LO</string>
+    <string name="notification_channel_stop_name">Ipele DURO</string>
+    <string name="notification_channel_stop_description">Awọn ifitonileti fun ayipada ipele DURO</string>
+    <string name="notification_go_title">Ipele LO ti bere</string>
+    <string name="notification_stop_title">Ipele DURO ti bere</string>
+
+    <string name="language">Ede</string>
+    <string name="search_language">Wa ede</string>
+    <string name="clear_search">Pa wiwa re</string>
+    <string name="no_languages_found">Ko si ede ti a ri</string>
+
+    <string name="timer_screen">Iboju aago. Fọwọkan lẹẹkan lati da duro tabi tun bere. Tẹ gun lati ṣi eto.</string>
+    <string name="timer_paused">Aago ti duro</string>
+    <string name="timer_resumed">Aago ti tun bere</string>
+    <string name="pause">Da duro</string>
+    <string name="resume">Tun bere</string>
+
+    <plurals name="phase_changed">
+        <item quantity="other">%1$s ti bere. %2$d isekondi ku.</item>
+    </plurals>
+
+    <string name="red_slider">Silaida paati awọ pupa</string>
+    <string name="green_slider">Silaida paati awọ alawọ ewe</string>
+    <string name="blue_slider">Silaida paati awọ buluu</string>
+
+    <string name="notification_permission_rationale_title">Mu Ifitonileti Ayipada Ipele ṣiṣẹ</string>
+    <string name="notification_permission_rationale_message">Stop and Go le sọ fun ọ nigbati aago ba yipada laarin LO ati DURO. Eyi ran ọ lọwọ lati wa ni idojukọ laisi wiwo iboju nigbagbogbo.</string>
+    <string name="enable">Mu ṣiṣẹ</string>
+    <string name="not_now">Kii se bayi</string>
+
+    <string name="error_go_duration_range">Akoko "LO" gbodo wa laarin %1$d ati %2$d isekondi</string>
+    <string name="error_stop_duration_range">Akoko "DURO" gbodo wa laarin %1$d ati %2$d isekondi</string>
+    <string name="error_go_growth_range">Ipin idagba "LO" gbodo wa laarin %1$.2f ati %2$.2f</string>
+    <string name="error_stop_growth_range">Ipin idagba "DURO" gbodo wa laarin %1$.2f ati %2$.2f</string>
+    <string name="error_go_label_length">Aami "LO" ko gbodo ju ohun kikọ %d lo</string>
+    <string name="error_stop_label_length">Aami "DURO" ko gbodo ju ohun kikọ %d lo</string>
+
+    <string name="tutorial_skip">Fo</string>
+    <string name="tutorial_next">Itele</string>
+    <string name="tutorial_progress">Igbese %1$d ninu %2$d</string>
+    <string name="help">Iranlọwọ</string>
+
+    <string name="tutorial_language_title">Ede</string>
+    <string name="tutorial_language_description">Yan ọkan. O le yi pada nigbamii ninu eto.</string>
+
+    <string name="tutorial_gestures_title">Bi o se n ṣiṣẹ</string>
+    <string name="tutorial_tap_instruction">Fọwọkan nibikibi lati da duro tabi tun bere</string>
+    <string name="tutorial_tap_success">Ti duro</string>
+    <string name="tutorial_long_instruction">Tẹ gun lati ṣi eto</string>
+    <string name="tutorial_long_success">Eyi ṣi eto</string>
+    <string name="tutorial_multi_instruction">Fọwọkan lẹẹta mẹta lati tun bere</string>
+    <string name="tutorial_multi_success">Tun bere</string>
+
+    <string name="tutorial_background_title">Aago n tẹsiwaju</string>
+    <string name="tutorial_background_description">Aago maa n ṣiṣẹ paapaa nigbati o ba pa app naa. Iwọ yoo gba ifitonileti nigbati ipele ba yipada.</string>
+
+    <string name="tutorial_creative_title">Apeere</string>
+    <string name="tutorial_creative_description">Diẹ ninu ohun ti eniyan n lo fun:</string>
+    <string name="tutorial_use_chess">Aago chess</string>
+    <string name="tutorial_use_apnea">Ikẹkọ mimu ẹmi duro</string>
+    <string name="tutorial_use_pomodoro">Aago pomodoro</string>
+    <string name="tutorial_use_hiit">Akoko HIIT</string>
+    <string name="tutorial_use_custom">Ohun ti o ba nilo</string>
+
+    <string name="more">Siwaju sii</string>
+    <string name="more_about">Nipa</string>
+    <string name="more_privacy">Asiri</string>
+    <string name="more_license">Aṣẹ</string>
+    <string name="more_tip">Fun olupilẹṣẹ ni ẹbun</string>
+    <string name="more_open">Ṣii</string>
+    <string name="more_share">Pin app</string>
+    <string name="more_share_text">Wo Stop and Go - aago akoko minimalist. Ofe, lai ipolowo, lai ayelujara.</string>
+    <string name="more_reset_settings">Da eto pada si aiyipada</string>
+    <string name="more_reset_success">A ti da eto pada si aiyipada</string>
+</resources>

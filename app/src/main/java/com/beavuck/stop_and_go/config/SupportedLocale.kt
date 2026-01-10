@@ -7,6 +7,7 @@ val DEFAULT_LOCALE = SupportedLocale.ENGLISH
 
 @Suppress("unused", "RedundantSuppression")
 enum class SupportedLocale(val code: String, private val nameResId: Int) {
+    // ordered by (approximate) number of speakers
     CHINESE_SIMPLIFIED("zh-CN", R.string.language_chinese_simplified),
     SPANISH("es", R.string.language_spanish),
     ENGLISH("en", R.string.language_english),
@@ -16,8 +17,9 @@ enum class SupportedLocale(val code: String, private val nameResId: Int) {
     RUSSIAN("ru", R.string.language_russian),
     JAPANESE("ja", R.string.language_japanese),
     PUNJABI("pa-PK", R.string.language_punjabi),
+    SWAHILI("sw", R.string.language_swahili),
     VIETNAMESE("vi", R.string.language_vietnamese),
-    CHINESE_TRADITIONAL_HK("zh-HK", R.string.language_chinese_traditional_hk),
+    CHINESE_TRADITIONAL_HK("zh-rHK", R.string.language_chinese_traditional_hk),
     TURKISH("tr", R.string.language_turkish),
     ARABIC("ar", R.string.language_arabic),
     CHINESE_WU_SH("wuu-rCN", R.string.language_chinese_wu),
@@ -32,9 +34,12 @@ enum class SupportedLocale(val code: String, private val nameResId: Int) {
     JAVANESE("jv", R.string.language_javanese),
     IRANIAN_PERSIAN("fa", R.string.language_iranian_persian),
     ITALIAN("it", R.string.language_italian),
-    HAUSA("ha", R.string.language_hausa),
     GUJARATI("gu", R.string.language_gujarati),
+    HAUSA("ha", R.string.language_hausa),
+    YORUBA("yo", R.string.language_yoruba),
+    UKRAINIAN("uk", R.string.language_ukrainian),
     POLISH("pl", R.string.language_polish),
+    CHINESE_TAIWAN("zh-rTW", R.string.language_chinese_taiwan)
     ;
 
     fun getDisplayName(context: Context): String {
@@ -46,8 +51,8 @@ enum class SupportedLocale(val code: String, private val nameResId: Int) {
             return entries.find { it.code == code } ?: DEFAULT_LOCALE
         }
 
-        fun getSystemLanguageMatch(context: Context): SupportedLocale? {
-            val systemLocale = context.resources.configuration.locales.get(0).toLanguageTag()
+        fun getSystemLanguageMatch(context: Context): SupportedLocale {
+            val systemLocale = context.resources.configuration.locales[0].toLanguageTag()
 
             val match = entries.find {
                 it.code == systemLocale

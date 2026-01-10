@@ -89,7 +89,6 @@
     <string name="error_go_label_length">"सुरू" लेबल %d अक्षरांपेक्षा जास्त नसावे</string>
     <string name="error_stop_label_length">"थांबा" लेबल %d अक्षरांपेक्षा जास्त नसावे</string>
 
-    <string name="tutorial_welcome">Stop and Go मध्ये स्वागत आहे!</string>
     <string name="tutorial_skip">वगळा</string>
     <string name="tutorial_next">पुढे</string>
 
@@ -99,7 +98,6 @@
 
     <string name="tutorial_language_title">भाषा</string>
     <string name="tutorial_language_description">एक निवडा. नंतर सेटिंग्जमध्ये बदल करू शकता.</string>
-    <string name="tutorial_language_skip">इंग्रजी वापरा (मूलभूत)</string>
 
     <string name="tutorial_gestures_title">कसे कार्य करते</string>
     <string name="tutorial_tap_instruction">थांबवण्यासाठी किंवा पुन्हा सुरू करण्यासाठी कुठेही टॅप करा</string>

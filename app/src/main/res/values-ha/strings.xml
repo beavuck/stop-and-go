@@ -58,14 +58,12 @@
     <string name="error_stop_growth_range">Mai ninka lokacin "Tsaya" dole ne ya kasance tsakanin %1$.2f da %2$.2f</string>
     <string name="error_go_label_length">Lakabin "Tsafa" bai wuce haruffa %d ba</string>
     <string name="error_stop_label_length">Lakabin "Tsaya" bai wuce haruffa %d ba</string>
-    <string name="tutorial_welcome">Barka da zuwa Stop and Go!</string>
     <string name="tutorial_skip">Tsallake</string>
     <string name="tutorial_next">Na gaba</string>
     <string name="tutorial_progress">Mataki %1$d na %2$d</string>
     <string name="help">Taimako</string>
     <string name="tutorial_language_title">Harshe</string>
     <string name="tutorial_language_description">Zaɓi ɗaya. Za ka iya canza shi daga baya a saituna.</string>
-    <string name="tutorial_language_skip">Amfani da Turanci (tsoho)</string>
     <string name="tutorial_gestures_title">Yadda yake aiki</string>
     <string name="tutorial_tap_instruction">Taɓa ko ina don dakatarwa/ci gaba</string>
     <string name="tutorial_tap_success">An dakatar</string>
