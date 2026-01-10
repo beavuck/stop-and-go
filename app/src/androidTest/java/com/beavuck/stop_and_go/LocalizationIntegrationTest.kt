@@ -46,7 +46,7 @@ class LocalizationIntegrationTest {
     fun tearDown() {
         scenario?.close()
         stateRepository.clearState()
-        configRepository.clearLocale()
+        configRepository.saveLocale(DEFAULT_LOCALE.code)
     }
 
     @Test

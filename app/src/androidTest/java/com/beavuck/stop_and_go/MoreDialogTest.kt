@@ -46,16 +46,16 @@ class MoreDialogTest {
             )
         }
 
-        composeTestRule.onNodeWithText(context.getString(R.string.more_about))
+        composeTestRule.onNodeWithTag("moreAboutTile")
             .performScrollTo()
             .assertIsDisplayed()
-        composeTestRule.onNodeWithText(context.getString(R.string.more_privacy))
+        composeTestRule.onNodeWithTag("morePrivacyTile")
             .performScrollTo()
             .assertIsDisplayed()
-        composeTestRule.onNodeWithText(context.getString(R.string.more_license))
+        composeTestRule.onNodeWithTag("moreLicenseTile")
             .performScrollTo()
             .assertIsDisplayed()
-        composeTestRule.onNodeWithText(context.getString(R.string.more_tip))
+        composeTestRule.onNodeWithTag("moreTipTile")
             .performScrollTo()
             .assertIsDisplayed()
     }
@@ -70,7 +70,7 @@ class MoreDialogTest {
             )
         }
 
-        composeTestRule.onNodeWithText(context.getString(R.string.more_share))
+        composeTestRule.onNodeWithTag("moreShareButton")
             .assertIsDisplayed()
     }
 
@@ -84,7 +84,7 @@ class MoreDialogTest {
             )
         }
 
-        composeTestRule.onNodeWithText(context.getString(R.string.more_reset_settings))
+        composeTestRule.onNodeWithTag("moreResetButton")
             .performScrollTo()
             .assertIsDisplayed()
     }
@@ -101,7 +101,7 @@ class MoreDialogTest {
             )
         }
 
-        composeTestRule.onNodeWithText(context.getString(R.string.ok))
+        composeTestRule.onNodeWithTag("moreOkButton")
             .performClick()
 
         assert(dismissCalled)
@@ -122,14 +122,14 @@ class MoreDialogTest {
         composeTestRule.onNodeWithText(aboutUrl)
             .assertDoesNotExist()
 
-        composeTestRule.onNodeWithText(context.getString(R.string.more_about))
+        composeTestRule.onNodeWithTag("moreAboutTile")
             .performScrollTo()
             .performClick()
 
         composeTestRule.onNodeWithText(aboutUrl)
             .performScrollTo()
             .assertIsDisplayed()
-        composeTestRule.onNodeWithText(context.getString(R.string.more_open))
+        composeTestRule.onNodeWithTag("moreAboutTileOpenButton")
             .performScrollTo()
             .assertIsDisplayed()
     }

@@ -8,7 +8,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.beavuck.stop_and_go.activities.TutorialActivity
 import com.beavuck.stop_and_go.config.DEFAULT_LOCALE
-import com.beavuck.stop_and_go.config.SupportedLocale
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.TutorialRepository
 import org.junit.After
@@ -34,7 +33,6 @@ class TutorialActivityTest {
         configRepository = ConfigRepository(context)
 
         tutorialRepository.resetTutorialCompletionSync()
-        configRepository.saveLocale(DEFAULT_LOCALE.code)
     }
 
     @After
@@ -80,10 +78,10 @@ class TutorialActivityTest {
     }
 
     private fun findSkipButton() =
-        composeTestRule.onNodeWithText(context.getString(R.string.tutorial_skip))
+        composeTestRule.onNodeWithTag("tutorialSkipButton")
 
     private fun findNextButton() =
-        composeTestRule.onNodeWithText(context.getString(R.string.tutorial_next))
+        composeTestRule.onNodeWithTag("tutorialNextButton")
 
     private fun clickSkip() {
         findSkipButton().performClick()
@@ -93,36 +91,6 @@ class TutorialActivityTest {
     private fun clickNext() {
         findNextButton().performClick()
         composeTestRule.waitForIdle()
-    }
-
-    private fun selectLocale(locale: SupportedLocale) {
-        composeTestRule.onNodeWithTag("locale_${locale.code}").performClick()
-        composeTestRule.waitForIdle()
-    }
-
-    private fun navigateToGestureStep() {
-        clickNext()
-        Thread.sleep(300)
-    }
-
-    private fun completeAllGestures() {
-        composeTestRule.onRoot().performTouchInput { click() }
-        composeTestRule.waitForIdle()
-        clickNext()
-
-        composeTestRule.onRoot().performTouchInput { click() }
-        Thread.sleep(50)
-        composeTestRule.onRoot().performTouchInput { click() }
-        Thread.sleep(50)
-        composeTestRule.onRoot().performTouchInput { click() }
-        composeTestRule.waitForIdle()
-        clickNext()
-
-        composeTestRule.onRoot().performTouchInput { longClick() }
-        composeTestRule.waitForIdle()
-        clickNext()
-
-        Thread.sleep(300)
     }
 
     private fun waitForCompletion() {

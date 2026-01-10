@@ -26,11 +26,17 @@ fun TutorialBottomButtons(
             .testTag("tutorialBottomButtons"),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        TextButton(onClick = onSkip) {
+        TextButton(
+            onClick = onSkip,
+            modifier = Modifier.testTag("tutorialSkipButton")
+        ) {
             Text(stringResource(R.string.tutorial_skip))
         }
 
-        Button(onClick = onNext) {
+        Button(
+            onClick = onNext,
+            modifier = Modifier.testTag("tutorialNextButton")
+        ) {
             Text(nextButtonText)
         }
     }

@@ -8,6 +8,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import com.beavuck.stop_and_go.config.SupportedLocale
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 
@@ -22,7 +23,7 @@ fun TutorialScreen(
         mutableIntStateOf(if (configRepository.loadLocale() != null) 1 else 0)
     }
 
-    Surface(modifier = Modifier.fillMaxSize()) {
+    Surface(modifier = Modifier.fillMaxSize().testTag("tutorialScreen")) {
         when (currentStep) {
             0 -> LanguageSelectionStep(
                 onLanguageSelected = { localeCode: SupportedLocale? ->

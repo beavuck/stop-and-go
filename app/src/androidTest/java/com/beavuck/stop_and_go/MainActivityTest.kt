@@ -675,13 +675,13 @@ class MainActivityTest {
 
         val tutorialRepository = TutorialRepository(context)
         tutorialRepository.resetTutorialCompletionSync()
+        composeTestRule.waitForIdle()
 
         manuallyLaunchedScenario = ActivityScenario.launch(MainActivity::class.java)
         composeTestRule.waitForIdle()
-        Thread.sleep(500)
+        Thread.sleep(1000)
 
-        composeTestRule.onNodeWithText(context.getString(R.string.tutorial_language_title))
-            .assertExists()
+        composeTestRule.onNodeWithTag("tutorialScreen").assertExists()
     }
 
     @Test

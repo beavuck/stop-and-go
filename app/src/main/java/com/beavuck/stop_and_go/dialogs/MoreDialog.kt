@@ -15,6 +15,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -55,24 +56,28 @@ fun MoreDialog(
                     title = stringResource(R.string.more_about),
                     url = stringResource(R.string.more_about_url),
                     iconRes = R.drawable.about,
+                    testTag = "moreAboutTile"
                 )
 
                 ExpandableLinkTile(
                     title = stringResource(R.string.more_privacy),
                     url = stringResource(R.string.more_privacy_url),
                     iconRes = R.drawable.privacy,
+                    testTag = "morePrivacyTile"
                 )
 
                 ExpandableLinkTile(
                     title = stringResource(R.string.more_license),
                     url = stringResource(R.string.more_license_url),
                     iconRes = R.drawable.license,
+                    testTag = "moreLicenseTile"
                 )
 
                 ExpandableLinkTile(
                     title = stringResource(R.string.more_tip),
                     url = stringResource(R.string.more_tip_url),
                     iconRes = R.drawable.tip,
+                    testTag = "moreTipTile"
                 )
 
                 HorizontalDivider(
@@ -91,7 +96,10 @@ fun MoreDialog(
             }
         },
         confirmButton = {
-            TextButton(onClick = onDismiss) {
+            TextButton(
+                onClick = onDismiss,
+                modifier = Modifier.testTag("moreOkButton")
+            ) {
                 Text(stringResource(R.string.ok))
             }
         }
@@ -111,7 +119,9 @@ private fun ShareButton() {
             }
             context.startActivity(Intent.createChooser(shareIntent, null))
         },
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
+            .testTag("moreShareButton")
     ) {
         Text(stringResource(R.string.more_share))
     }
@@ -133,7 +143,9 @@ private fun ResetButton(
             onReset?.invoke()
             Toast.makeText(context, resetSuccessMessage, Toast.LENGTH_SHORT).show()
         },
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .testTag("moreResetButton"),
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.error
         )
@@ -173,14 +185,20 @@ private fun AppVersion() {
 }
 
 @Composable
-private fun ExpandableLinkTile(title: String, url: String, iconRes: Int? = null) {
+private fun ExpandableLinkTile(
+    title: String,
+    url: String,
+    iconRes: Int? = null,
+    testTag: String? = null
+) {
     val context = LocalContext.current
     var expanded by remember { mutableStateOf(false) }
 
     Surface(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { expanded = !expanded },
+            .clickable { expanded = !expanded }
+            .then(testTag?.let { Modifier.testTag(it) } ?: Modifier),
         shape = MaterialTheme.shapes.medium,
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.3f)),
         color = MaterialTheme.colorScheme.surface
@@ -231,7 +249,9 @@ private fun ExpandableLinkTile(title: String, url: String, iconRes: Int? = null)
                             val intent = Intent(Intent.ACTION_VIEW, url.toUri())
                             context.startActivity(intent)
                         },
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .then(testTag?.let { Modifier.testTag("${it}OpenButton") } ?: Modifier)
                     ) {
                         Text(stringResource(R.string.more_open))
                     }
