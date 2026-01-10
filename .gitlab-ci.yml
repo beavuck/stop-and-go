@@ -46,7 +46,7 @@ include:
       job_name: "upgrade"
       stage_config: "upgrade"
       branch_name: "chore/upgrade-dependencies"
-      command: "./gradlew wrapper --gradle-version latest && ./gradlew useLatestVersions"
+      command: "./gradlew wrapper --gradle-version latest && ./gradlew useLatestVersions && ./scripts/increment-version.sh patch"
       commit_message: "⚙️ Upgrade dependencies automatically"
       image: "$IMAGE"
       script_to_install_deps: "apk add --no-cache bash curl jq git"
