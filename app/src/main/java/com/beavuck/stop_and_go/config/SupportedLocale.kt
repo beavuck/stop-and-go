@@ -8,7 +8,7 @@ val DEFAULT_LOCALE = SupportedLocale.ENGLISH
 @Suppress("unused", "RedundantSuppression")
 enum class SupportedLocale(val code: String, private val nameResId: Int) {
     // ordered by (approximate) number of speakers
-    CHINESE_SIMPLIFIED("zh-CN", R.string.language_chinese_simplified),
+    MANDARIN("zh-CN", R.string.language_chinese_simplified),
     SPANISH("es", R.string.language_spanish),
     ENGLISH("en", R.string.language_english),
     HINDI("hi", R.string.language_hindi),
@@ -19,10 +19,10 @@ enum class SupportedLocale(val code: String, private val nameResId: Int) {
     PUNJABI("pa-PK", R.string.language_punjabi),
     SWAHILI("sw", R.string.language_swahili),
     VIETNAMESE("vi", R.string.language_vietnamese),
-    CHINESE_TRADITIONAL_HK("zh-rHK", R.string.language_chinese_traditional_hk),
+    CANTONESE("zh-HK", R.string.language_chinese_traditional_hk),
     TURKISH("tr", R.string.language_turkish),
     ARABIC("ar", R.string.language_arabic),
-    CHINESE_WU_SH("wuu-rCN", R.string.language_chinese_wu),
+    WU_CHINESE("wuu-CN", R.string.language_chinese_wu),
     MARATHI("mr", R.string.language_marathi),
     TELUGU("te", R.string.language_telugu),
     KOREAN("ko", R.string.language_korean),
@@ -39,7 +39,7 @@ enum class SupportedLocale(val code: String, private val nameResId: Int) {
     YORUBA("yo", R.string.language_yoruba),
     UKRAINIAN("uk", R.string.language_ukrainian),
     POLISH("pl", R.string.language_polish),
-    CHINESE_TAIWAN("zh-rTW", R.string.language_chinese_taiwan)
+    TAIWANESE_HOKKIEN("zh-TW", R.string.language_chinese_taiwan)
     ;
 
     fun getDisplayName(context: Context): String {
