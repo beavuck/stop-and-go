@@ -3,19 +3,17 @@ package com.beavuck.stop_and_go.activities
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import com.beavuck.stop_and_go.config.DEFAULT_LOCALE
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.TutorialRepository
 import com.beavuck.stop_and_go.config.StopAndGoTheme
 import com.beavuck.stop_and_go.ui.tutorial.TutorialScreen
 
-class TutorialActivity : LocalizedActivity() {
+class TutorialActivity : BeavuckActivity() {
     private lateinit var tutorialRepository: TutorialRepository
     private lateinit var configRepository: ConfigRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
         tutorialRepository = TutorialRepository(this)

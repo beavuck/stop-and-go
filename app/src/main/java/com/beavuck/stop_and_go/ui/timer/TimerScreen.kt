@@ -60,6 +60,7 @@ fun TimerScreen(
     }
 
     // actually used despite IDE warning -- see above
+    @Suppress("AssignedValueIsNeverRead")
     startNextPhase = { timerController.start(phase.durationSeconds) }
 
     DisposableEffect(Unit) {
@@ -127,7 +128,7 @@ fun TimerScreen(
                 }
 
                 else -> {
-                /* no-op */
+                    /* no-op */
                 }
             }
         }

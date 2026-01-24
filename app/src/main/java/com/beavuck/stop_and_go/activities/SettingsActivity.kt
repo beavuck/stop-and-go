@@ -7,15 +7,13 @@ import com.beavuck.stop_and_go.repositories.StateRepository
 import com.beavuck.stop_and_go.repositories.TutorialRepository
 import com.beavuck.stop_and_go.ui.settings.SettingsScreen
 import com.beavuck.stop_and_go.config.StopAndGoTheme
-import com.beavuck.stop_and_go.utils.instrumented.DebugUtils.maybeSetStrictMode
 
-class SettingsActivity : LocalizedActivity() {
+class SettingsActivity : BeavuckActivity() {
     private lateinit var configRepository: ConfigRepository
     private lateinit var stateRepository: StateRepository
     private lateinit var tutorialRepository: TutorialRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        maybeSetStrictMode()
         super.onCreate(savedInstanceState)
 
         configRepository = ConfigRepository(this)

@@ -6,7 +6,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
@@ -19,10 +18,9 @@ import com.beavuck.stop_and_go.repositories.StateRepository
 import com.beavuck.stop_and_go.repositories.TutorialRepository
 import com.beavuck.stop_and_go.config.StopAndGoTheme
 import com.beavuck.stop_and_go.ui.timer.TimerScreen
-import com.beavuck.stop_and_go.utils.instrumented.DebugUtils.maybeSetStrictMode
 import com.beavuck.stop_and_go.utils.instrumented.ScreenManager
 
-class MainActivity : LocalizedActivity() {
+class MainActivity : BeavuckActivity() {
     private lateinit var phaseManager: PhaseManager
     private lateinit var stateRepository: StateRepository
     private lateinit var notificationManager: PhaseNotificationManager
@@ -34,8 +32,6 @@ class MainActivity : LocalizedActivity() {
     ) { }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        enableEdgeToEdge()
-        maybeSetStrictMode()
         super.onCreate(savedInstanceState)
 
         val tutorialRepository = TutorialRepository(this)
