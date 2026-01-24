@@ -1,0 +1,152 @@
+<resources>
+    <string name="phase_go">PORNEȘTE</string>
+    <string name="phase_stop">OPREȘTE</string>
+
+    <string name="cycle_count">Ciclu: %d</string>
+
+    <string name="go_duration">Durata Pornire (secunde)</string>
+    <string name="stop_duration">Durata Oprire (secunde)</string>
+
+    <string name="go_growth">Multiplicator creștere Pornire</string>
+    <string name="go_growth_hint">0.01–100.0</string>
+    <string name="stop_growth">Multiplicator creștere Oprire</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
+
+    <string name="go_color">Culoare Pornire</string>
+    <string name="stop_color">Culoare Oprire</string>
+
+    <string name="go_label">Eticheta "Pornire" (opțional)</string>
+    <string name="go_label_hint">Lasă gol pentru valoarea implicită</string>
+    <string name="stop_label">Eticheta "Oprire" (opțional)</string>
+    <string name="stop_label_hint">Lasă gol pentru valoarea implicită</string>
+
+    <string name="save_settings">Salvează setările</string>
+    <string name="settings">Setări</string>
+    <string name="settings_saved">Setările au fost salvate</string>
+    <string name="invalid_input">Valoare invalidă</string>
+
+    <string name="reset_timer">Resetează cronometrul</string>
+    <string name="pick_color">Alege culoarea</string>
+    <string name="color_preview">Previzualizare culoare</string>
+
+    <string name="red_label">Roșu</string>
+    <string name="green_label">Verde</string>
+    <string name="blue_label">Albastru</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Anulează</string>
+
+    <string name="notification_channel_go_name">Faza Pornire</string>
+    <string name="notification_channel_go_description">Notificări pentru schimbarea fazei Pornire</string>
+    <string name="notification_channel_stop_name">Faza Oprire</string>
+    <string name="notification_channel_stop_description">Notificări pentru schimbarea fazei Oprire</string>
+
+    <string name="notification_go_title">Faza PORNEȘTE a început</string>
+    <string name="notification_stop_title">Faza OPREȘTE a început</string>
+
+    <string name="language">Limbă</string>
+    <string name="search_language">Caută limba</string>
+    <string name="clear_search">Șterge căutarea</string>
+    <string name="no_languages_found">Nu au fost găsite limbi</string>
+
+    <string name="timer_screen">
+        Ecranul cronometrului. Apasă o dată pentru pauză sau reluare. Apăsare lungă pentru setări.
+    </string>
+    <string name="timer_paused">Cronometrul este în pauză</string>
+    <string name="timer_resumed">Cronometrul a fost reluat</string>
+
+    <string name="pause">Pauză</string>
+    <string name="resume">Reia</string>
+
+    <plurals name="phase_changed">
+        <item quantity="one">%1$s a început. Mai rămâne %2$d secundă.</item>
+        <item quantity="few">%1$s a început. Mai rămân %2$d secunde.</item>
+        <item quantity="other">%1$s a început. Mai rămân %2$d de secunde.</item>
+    </plurals>
+
+    <string name="red_slider">Glisor componentă roșie</string>
+    <string name="green_slider">Glisor componentă verde</string>
+    <string name="blue_slider">Glisor componentă albastră</string>
+
+    <string name="notification_permission_rationale_title">
+        Activează notificările de schimbare a fazei
+    </string>
+    <string name="notification_permission_rationale_message">
+        Stop and Go te poate notifica atunci când cronometrul comută între fazele PORNEȘTE și OPREȘTE. Astfel rămâi concentrat fără a urmări constant ecranul.
+    </string>
+
+    <string name="enable">Activează</string>
+    <string name="not_now">Nu acum</string>
+
+    <string name="error_go_duration_range">
+        Durata "Pornire" trebuie să fie între %1$d și %2$d secunde
+    </string>
+    <string name="error_stop_duration_range">
+        Durata "Oprire" trebuie să fie între %1$d și %2$d secunde
+    </string>
+    <string name="error_go_growth_range">
+        Multiplicatorul de creștere "Pornire" trebuie să fie între %1$.2f și %2$.2f
+    </string>
+    <string name="error_stop_growth_range">
+        Multiplicatorul de creștere "Oprire" trebuie să fie între %1$.2f și %2$.2f
+    </string>
+    <string name="error_go_label_length">
+        Eticheta "Pornire" nu trebuie să depășească %d caractere
+    </string>
+    <string name="error_stop_label_length">
+        Eticheta "Oprire" nu trebuie să depășească %d caractere
+    </string>
+
+    <string name="tutorial_skip">Sari peste</string>
+    <string name="tutorial_next">Următorul</string>
+    <string name="tutorial_progress">Pasul %1$d din %2$d</string>
+
+    <string name="help">Ajutor</string>
+
+    <string name="tutorial_language_title">Limbă</string>
+    <string name="tutorial_language_description">
+        Alege una. O poți schimba mai târziu din setări.
+    </string>
+
+    <string name="tutorial_gestures_title">Cum funcționează</string>
+    <string name="tutorial_tap_instruction">Apasă oriunde pentru pauză sau reluare</string>
+    <string name="tutorial_tap_success">Pauză</string>
+
+    <string name="tutorial_long_instruction">Apăsare lungă pentru setări</string>
+    <string name="tutorial_long_success">Aceasta deschide setările</string>
+
+    <string name="tutorial_multi_instruction">Apăsare triplă pentru resetare</string>
+    <string name="tutorial_multi_success">Resetat</string>
+
+    <string name="tutorial_background_title">Cronometrul continuă</string>
+    <string name="tutorial_background_description">
+        Cronometrul continuă chiar și când închizi aplicația. Vei primi notificări când fazele se schimbă.
+    </string>
+
+    <string name="tutorial_creative_title">Exemple</string>
+    <string name="tutorial_creative_description">
+        Câteva moduri în care este folosită aplicația:
+    </string>
+
+    <string name="tutorial_use_chess">Ceas de șah</string>
+    <string name="tutorial_use_apnea">Antrenament de apnee</string>
+    <string name="tutorial_use_pomodoro">Cronometru Pomodoro</string>
+    <string name="tutorial_use_hiit">Intervale HIIT</string>
+    <string name="tutorial_use_custom">Orice ai nevoie</string>
+
+    <string name="more">Mai mult</string>
+    <string name="more_about">Despre</string>
+    <string name="more_privacy">Confidențialitate</string>
+    <string name="more_license">Licență</string>
+
+    <string name="more_tip">Lasă un bacșiș dezvoltatorului</string>
+    <string name="more_open">Deschide</string>
+    <string name="more_share">Distribuie aplicația</string>
+
+    <string name="more_share_text">
+        Încearcă Stop and Go - un cronometru minimalist cu intervale. Gratuit, fără reclame, fără internet.
+    </string>
+
+    <string name="more_reset_settings">Resetează setările implicite</string>
+    <string name="more_reset_success">Setările au fost resetate</string>
+</resources>

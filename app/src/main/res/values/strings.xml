@@ -75,6 +75,7 @@
     <string name="language_ukrainian" translatable="false">Українська</string>
     <string name="language_yoruba" translatable="false">Yorùbá</string>
     <string name="language_chinese_taiwan" translatable="false">繁體中文 (台灣)</string>
+    <string name="language_romanian" translatable="false">Română</string>
     <string name="timer_screen">Timer screen. Single tap to pause or resume. Long press to open settings.</string>
     <string name="timer_paused">Timer paused</string>
     <string name="timer_resumed">Timer resumed</string>

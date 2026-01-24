@@ -39,6 +39,7 @@ enum class SupportedLocale(val code: String, private val nameResId: Int) {
     YORUBA("yo", R.string.language_yoruba),
     UKRAINIAN("uk", R.string.language_ukrainian),
     POLISH("pl", R.string.language_polish),
+    ROMANIAN("ro", R.string.language_romanian),
     TAIWANESE_HOKKIEN("zh-TW", R.string.language_chinese_taiwan)
     ;
 
