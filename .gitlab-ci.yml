@@ -11,7 +11,6 @@ stages:
 
 variables:
   GITLAB_CI_VERSION: "1.87.0"
-  BUNDLER_VERSION: "4.0.7"
   FABERNOVEL_ANDROID_IMAGE: "api-35-v1.11.0"
   ALVRME_ANDROID_IMAGE: "android-35-jdk21"
   IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/alvrme/alpine-android:${ALVRME_ANDROID_IMAGE}"
@@ -93,7 +92,7 @@ increment_version:
       - vendor/bundle
   before_script:
     - apt update -y && apt install -y curl ruby-full build-essential
-    - gem install bundler -v $BUNDLER_VERSION -N
+    - gem install bundler -N
     - bundle config set --local path 'vendor/bundle'
     - bundle install
     - wget "https://gitlab.com/gitlab-org/cli/-/releases/v${GITLAB_CI_VERSION}/downloads/glab_${GITLAB_CI_VERSION}_linux_amd64.deb"
