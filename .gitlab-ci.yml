@@ -10,9 +10,9 @@ stages:
 ########~~~~-- Variables & defaults --~~~~########
 
 variables:
-  GITLAB_CI_VERSION: "1.80.4"
-  BUNDLER_VERSION: "2.7.2"
-  FABERNOVEL_ANDROID_IMAGE: "api-35-v1.10.1"
+  GITLAB_CI_VERSION: "1.87.0"
+  BUNDLER_VERSION: "4.0.7"
+  FABERNOVEL_ANDROID_IMAGE: "api-35-v1.11.0"
   ALVRME_ANDROID_IMAGE: "android-35-jdk21"
   IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/alvrme/alpine-android:${ALVRME_ANDROID_IMAGE}"
   JACOCO_PATH: "app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
