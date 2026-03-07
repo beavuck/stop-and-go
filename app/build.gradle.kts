@@ -125,7 +125,7 @@ dependencies {
     implementation("androidx.activity:activity-compose:$activityVersion")
 
     val junitVersion = "4.13.2"
-    val mockitoVersion = "5.21.0"
+    val mockitoVersion = "5.22.0"
 
     androidTestImplementation(composeBom)
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
