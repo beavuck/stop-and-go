@@ -1,7 +1,3 @@
-# AGENTS.md
-
-This file provides guidance to agents when working with code in this repository.
-
 ## Behavior
 
 Banish the word "perfect" from your vocab. Don't make a show of being confident -- the user values
@@ -110,10 +106,7 @@ Run tests with coverage report
 ./gradlew test jacocoTestReport
 ```
 
-Coverage reports are generated in:
-
-- HTML: `app/build/reports/jacoco/jacocoTestReport/html/index.html`
-- XML: `app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml`
+Coverage report  in: `app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml`
 
 As for instrumented tests, never run the entire suite, but do run individual ones.
 
@@ -123,13 +116,13 @@ To do so, run:
 ./gradlew installDebugAndroidTest
 ```
 
-then
+then, for example:
 
 ```bash
 adb shell am instrument -w -e class com.beavuck.stop_and_go.MainActivityTest#tripleTap_resetsTimerToInitialState com.beavuck.stop_and_go.test/androidx.test.runner.AndroidJUnitRunner
 ```
 
-But make sure to update the class and method names for your needs.
+Make sure to update the class and method names for your needs.
 
 ## Testing
 

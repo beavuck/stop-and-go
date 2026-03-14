@@ -108,9 +108,9 @@ android {
 }
 
 dependencies {
-    val composeBom = platform("androidx.compose:compose-bom:2026.02.01")
-    val activityVersion = "1.12.4"
-    val coreKtxVersion = "1.17.0"
+    val composeBom = platform("androidx.compose:compose-bom:2026.03.00")
+    val activityVersion = "1.13.0"
+    val coreKtxVersion = "1.18.0"
     val appcompatVersion = "1.7.1"
     val materialVersion = "1.13.0"
 
@@ -126,7 +126,7 @@ dependencies {
     implementation("androidx.activity:activity-compose:$activityVersion")
 
     val junitVersion = "4.13.2"
-    val mockitoVersion = "5.22.0"
+    val mockitoVersion = "5.23.0"
 
     androidTestImplementation(composeBom)
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
