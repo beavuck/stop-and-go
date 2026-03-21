@@ -4,8 +4,8 @@ import java.util.Properties
 
 plugins {
     id("com.android.application") version "8.13.2"
-    id("org.jetbrains.kotlin.android") version "2.3.10"
-    id("org.jetbrains.kotlin.plugin.compose") version "2.3.10"
+    id("org.jetbrains.kotlin.android") version "2.3.20"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.3.20"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
     id("com.github.ben-manes.versions") version "0.53.0"
     jacoco
@@ -41,9 +41,9 @@ android {
         minSdk = 24
         targetSdk = 36
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionCode = 24
+        versionCode = 25
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionName = "1.4.5"
+        versionName = "1.4.6"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

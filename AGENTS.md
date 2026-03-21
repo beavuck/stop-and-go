@@ -80,6 +80,10 @@ Before using Edit or Write tools, verify:
 - Follow Kotlin coding conventions and Android best practices.
 - Favor immutability. Use `val` over `var` unless mutability is strictly necessary.
 - Favor composition over inheritance.
+- Use contract functions. A contract function only invokes other functions, to execute some
+  important, high level capability. This means the code must be broken out into enough functions
+  that the contract function can be easily read by someone wanting to understand the main steps in
+  executing this functionality.
 
 ## Project Overview
 
@@ -106,7 +110,7 @@ Run tests with coverage report
 ./gradlew test jacocoTestReport
 ```
 
-Coverage report  in: `app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml`
+Coverage report in: `app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml`
 
 As for instrumented tests, never run the entire suite, but do run individual ones.
 
