@@ -109,7 +109,7 @@ android {
 }
 
 dependencies {
-    val composeBom = platform("androidx.compose:compose-bom:2026.03.00")
+    val composeBom = platform("androidx.compose:compose-bom:2026.03.01")
     val activityVersion = "1.13.0"
     val coreKtxVersion = "1.18.0"
     val appcompatVersion = "1.7.1"
