@@ -1,4 +1,4 @@
-# Stop and Go
+# Stop and Go -- Interval Timer
 
 A minimalist Android interval timer that alternates between two phases.
 

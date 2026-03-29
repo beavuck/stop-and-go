@@ -146,8 +146,10 @@
     <string name="more_license">Lizenz</string>
     <string name="more_tip">Entwickler unterstützen</string>
     <string name="more_open">Öffnen</string>
+    <string name="more_rate">App bewerten</string>
     <string name="more_share">App teilen</string>
     <string name="more_share_text">Probieren Sie Stop and Go - ein minimalistischer Intervall-Timer. Kostenlos, werbefrei, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
     <string name="more_reset_settings">Auf Standardeinstellungen zurücksetzen</string>
     <string name="more_reset_success">Einstellungen auf Standardwerte zurückgesetzt</string>
+    <string name="more_rate_failed">Bewertung der App fehlgeschlagen: Der Play Store wurde möglicherweise nicht gefunden</string>
 </resources>

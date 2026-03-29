@@ -87,8 +87,10 @@
     <string name="more_license">Lasisi</string>
     <string name="more_tip">Tallafa wa mai haɓakawa</string>
     <string name="more_open">Buɗe</string>
+    <string name="more_rate">Ƙimar Aikace-aikace</string>
     <string name="more_share">Raba aikace-aikacen</string>
     <string name="more_share_text">Gwada Stop and Go - masu ƙididdigar tazara mai sauƙi. Kyauta, babu talla, ba tare da yanar gizo ba. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
     <string name="more_reset_settings">Sake saita zuwa saitunan asali</string>
     <string name="more_reset_success">An sake saita saituna zuwa ƙimar asali</string>
+    <string name="more_rate_failed">Kimanta manhajar ta gaza: watakila ba a sami Play Store ba</string>
 </resources>

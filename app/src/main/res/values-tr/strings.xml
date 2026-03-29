@@ -87,8 +87,10 @@
     <string name="more_license">Lisans</string>
     <string name="more_tip">Geliştiriciye destek ol</string>
     <string name="more_open">Aç</string>
+    <string name="more_rate">Uygulamayı değerlendir</string>
     <string name="more_share">Uygulamayı paylaş</string>
     <string name="more_share_text">Stop and Go\'yu deneyin - minimalist aralıklı zamanlayıcı. Ücretsiz, reklamsız, çevrimdışı. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
     <string name="more_reset_settings">Varsayılan ayarlara sıfırla</string>
     <string name="more_reset_success">Ayarlar varsayılan değerlere sıfırlandı</string>
+    <string name="more_rate_failed">Uygulama derecelendirilemedi: Play Store bulunamamış olabilir</string>
 </resources>

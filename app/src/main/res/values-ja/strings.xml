@@ -140,8 +140,10 @@
     <string name="more_license">ライセンス</string>
     <string name="more_tip">開発者を支援</string>
     <string name="more_open">開く</string>
+    <string name="more_rate">アプリを評価する</string>
     <string name="more_share">アプリを共有</string>
     <string name="more_share_text">Stop and Goをお試しください - ミニマリストなインターバルタイマー。無料、広告なし、オフライン。https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
     <string name="more_reset_settings">デフォルト設定にリセット</string>
     <string name="more_reset_success">設定がデフォルト値にリセットされました</string>
+    <string name="more_rate_failed">アプリの評価に失敗しました: Playストアが見つからない可能性があります</string>
 </resources>

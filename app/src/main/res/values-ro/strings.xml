@@ -141,6 +141,7 @@
 
     <string name="more_tip">Lasă un bacșiș dezvoltatorului</string>
     <string name="more_open">Deschide</string>
+    <string name="more_rate">Evaluează aplicația</string>
     <string name="more_share">Distribuie aplicația</string>
 
     <string name="more_share_text">
@@ -149,4 +150,5 @@
 
     <string name="more_reset_settings">Resetează setările implicite</string>
     <string name="more_reset_success">Setările au fost resetate</string>
+    <string name="more_rate_failed">Evaluarea aplicației a eșuat: este posibil ca Play Store să nu fi fost găsit</string>
 </resources>

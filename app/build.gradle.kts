@@ -97,6 +97,7 @@ android {
     testOptions {
         unitTests.all {
             it.jvmArgs("-XX:+EnableDynamicAgentLoading")
+            it.maxParallelForks = (Runtime.getRuntime().availableProcessors() / 2).coerceAtLeast(1)
         }
     }
 
@@ -113,6 +114,7 @@ dependencies {
     val coreKtxVersion = "1.18.0"
     val appcompatVersion = "1.7.1"
     val materialVersion = "1.13.0"
+    val playReviewVersion = "2.0.2"
 
     implementation(composeBom)
     implementation("androidx.core:core-ktx:$coreKtxVersion")
@@ -124,6 +126,7 @@ dependencies {
     implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.activity:activity-compose:$activityVersion")
+    implementation("com.google.android.play:review-ktx:$playReviewVersion")
 
     val junitVersion = "4.13.2"
     val mockitoVersion = "5.23.0"

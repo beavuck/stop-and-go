@@ -87,8 +87,10 @@
     <string name="more_license">Licence</string>
     <string name="more_tip">Soutenir le développeur</string>
     <string name="more_open">Ouvrir</string>
+    <string name="more_rate">Évaluer l\'application</string>
     <string name="more_share">Partager l\'application</string>
     <string name="more_share_text">Découvrez Stop and Go - un minuteur d\'intervalles minimaliste. Gratuit, sans publicité, hors ligne. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
     <string name="more_reset_settings">Réinitialiser les paramètres par défaut</string>
     <string name="more_reset_success">Paramètres réinitialisés aux valeurs par défaut</string>
+    <string name="more_rate_failed">Échec de l\'évaluation de l\'application : le Play Store est peut-être introuvable</string>
 </resources>

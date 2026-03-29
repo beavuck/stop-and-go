@@ -114,6 +114,7 @@
     <string name="more_license">授權</string>
     <string name="more_tip">贊助開發者</string>
     <string name="more_open">開啟</string>
+    <string name="more_rate">為應用程式評分</string>
     <string name="more_share">分享 App</string>
     <string name="more_share_text">
         試試 Stop and Go，一款極簡間歇計時器。免費、無廣告、離線使用。
@@ -121,4 +122,5 @@
     </string>
     <string name="more_reset_settings">重設為預設設定</string>
     <string name="more_reset_success">設定已還原為預設值</string>
+    <string name="more_rate_failed">評分應用程式失敗：可能找不到 Play 商店</string>
 </resources>

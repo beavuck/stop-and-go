@@ -98,8 +98,10 @@
     <string name="more_license">Aṣẹ</string>
     <string name="more_tip">Fun olupilẹṣẹ ni ẹbun</string>
     <string name="more_open">Ṣii</string>
+    <string name="more_rate">Ṣe idiyele app</string>
     <string name="more_share">Pin app</string>
     <string name="more_share_text">Wo Stop and Go - aago akoko minimalist. Ofe, lai ipolowo, lai ayelujara.</string>
     <string name="more_reset_settings">Da eto pada si aiyipada</string>
     <string name="more_reset_success">A ti da eto pada si aiyipada</string>
+    <string name="more_rate_failed">Kò ṣè ṣe láti ṣe ìṣàkóso ìdánilẹ́kọ app: ó ṣeé ṣe kí Play Store má rí</string>
 </resources>

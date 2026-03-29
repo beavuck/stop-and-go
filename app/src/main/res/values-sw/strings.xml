@@ -99,8 +99,10 @@
     <string name="more_license">Leseni</string>
     <string name="more_tip">Mpe msanidi mchango</string>
     <string name="more_open">Fungua</string>
+    <string name="more_rate">Piga kura programu</string>
     <string name="more_share">Shiriki programu</string>
     <string name="more_share_text">Angalia Stop and Go - kipima muda cha vipindi chenye muundo rahisi. Bure, bila matangazo, bila mtandao. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
     <string name="more_reset_settings">Rejesha mipangilio chaguo-msingi</string>
     <string name="more_reset_success">Mipangilio imerejeshwa kwenye chaguo-msingi</string>
+    <string name="more_rate_failed">Imeshindikana kukadiria programu: huenda Play Store haikupatikana</string>
 </resources>

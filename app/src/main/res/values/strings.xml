@@ -130,8 +130,10 @@
     <string name="more_tip">Tip the dev</string>
     <string name="more_tip_url" translatable="false">https://buymeacoffee.com/beavuck.dev</string>
     <string name="more_open">Open</string>
+    <string name="more_rate">Rate app</string>
     <string name="more_share">Share app</string>
     <string name="more_share_text">Check out Stop and Go - a minimalist interval timer. Free, ad-free, off-network. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
     <string name="more_reset_settings">Reset to default settings</string>
     <string name="more_reset_success">Settings reset to defaults</string>
+    <string name="more_rate_failed">Rating the app failed: the Play Store may not have been found</string>
 </resources>

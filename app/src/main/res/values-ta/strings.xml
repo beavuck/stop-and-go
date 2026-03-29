@@ -147,8 +147,10 @@
     <string name="more_license">உரிமம்</string>
     <string name="more_tip">உருவாக்குநரை ஆதரிக்கவும்</string>
     <string name="more_open">திற</string>
+    <string name="more_rate">பயன்பாட்டை மதிப்பிடுங்கள்</string>
     <string name="more_share">பயன்பாட்டைப் பகிர்</string>
     <string name="more_share_text">Stop and Go ஐ முயற்சிக்கவும் - குறைந்தபட்ச இடைவெளி டைமர். இலவசம், விளம்பரமில்லாத, ஆஃப்லைன். https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
     <string name="more_reset_settings">இயல்புநிலை அமைப்புகளுக்கு மீட்டமை</string>
     <string name="more_reset_success">அமைப்புகள் இயல்புநிலை மதிப்புகளுக்கு மீட்டமைக்கப்பட்டன</string>
+    <string name="more_rate_failed">பயன்பாட்டை மதிப்பிடுதல் தோல்வியடைந்தது: Play Store கிடைக்காமல் இருக்கலாம்</string>
 </resources>

@@ -1,5 +1,8 @@
 package com.beavuck.stop_and_go.dialogs
 
+import android.app.Activity
+import android.content.Context
+import android.content.ContextWrapper
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -26,6 +29,7 @@ import androidx.core.net.toUri
 import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
+import com.google.android.play.core.review.ReviewManagerFactory
 
 @Composable
 fun MoreDialog(
@@ -45,6 +49,9 @@ fun MoreDialog(
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 ShareButton()
+
+                // TODO hide the rate button if user already rated the app
+                RateButton()
 
                 HorizontalDivider(
                     modifier = Modifier.padding(vertical = 12.dp),
@@ -125,6 +132,39 @@ private fun ShareButton() {
     ) {
         Text(stringResource(R.string.more_share))
     }
+}
+
+@Composable
+private fun RateButton() {
+    val context = LocalContext.current
+
+    Button(
+        onClick = {
+            // FIXME only works in english (default)
+            val activity = context.findActivity() ?: return@Button
+            val manager = ReviewManagerFactory.create(context)
+            manager.requestReviewFlow().addOnSuccessListener { reviewInfo ->
+                manager.launchReviewFlow(activity, reviewInfo)
+            }.addOnFailureListener { e ->
+                // TODO give e.errorCode
+                Toast.makeText(context, R.string.more_rate_failed, Toast.LENGTH_SHORT).show()
+            }
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .testTag("moreRateButton")
+    ) {
+        Text(stringResource(R.string.more_rate))
+    }
+}
+
+private fun Context.findActivity(): Activity? {
+    var ctx = this
+    while (ctx is ContextWrapper) {
+        if (ctx is Activity) return ctx
+        ctx = ctx.baseContext
+    }
+    return null
 }
 
 @Composable

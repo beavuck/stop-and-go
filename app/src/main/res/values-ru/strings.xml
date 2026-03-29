@@ -144,8 +144,10 @@
     <string name="more_license">Лицензия</string>
     <string name="more_tip">Поддержать разработчика</string>
     <string name="more_open">Открыть</string>
+    <string name="more_rate">Оценить приложение</string>
     <string name="more_share">Поделиться приложением</string>
     <string name="more_share_text">Попробуйте Stop and Go - минималистичный интервальный таймер. Бесплатно, без рекламы, офлайн. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
     <string name="more_reset_settings">Сбросить к настройкам по умолчанию</string>
     <string name="more_reset_success">Настройки сброшены к значениям по умолчанию</string>
+    <string name="more_rate_failed">Не удалось оценить приложение: возможно</string>
 </resources>

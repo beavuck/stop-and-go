@@ -86,8 +86,10 @@
     <string name="more_license">许可证</string>
     <string name="more_tip">支持开发者</string>
     <string name="more_open">打开</string>
+    <string name="more_rate">为应用评分</string>
     <string name="more_share">分享应用</string>
     <string name="more_share_text">试试 Stop and Go - 极简间隔计时器。免费、无广告、离线。https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
     <string name="more_reset_settings">重置为默认设置</string>
     <string name="more_reset_success">设置已重置为默认值</string>
+    <string name="more_rate_failed">应用评分失败：可能找不到 Play 商店</string>
 </resources>

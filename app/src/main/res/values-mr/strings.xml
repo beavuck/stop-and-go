@@ -131,8 +131,10 @@
     <string name="more_license">परवाना</string>
     <string name="more_tip">डेव्हलपरला समर्थन द्या</string>
     <string name="more_open">उघडा</string>
+    <string name="more_rate">अ‍ॅप रेट करा</string>
     <string name="more_share">अॅप शेअर करा</string>
     <string name="more_share_text">Stop and Go वापरून पहा - मिनिमालिस्ट इंटरव्हल टायमर. मोफत, जाहिरात-मुक्त, ऑफलाइन. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
     <string name="more_reset_settings">डीफॉल्ट सेटिंग्जवर रीसेट करा</string>
     <string name="more_reset_success">सेटिंग्ज डीफॉल्ट मूल्यांवर रीसेट झाल्या आहेत</string>
+    <string name="more_rate_failed">अॅपचे मूल्यांकन अयशस्वी झाले: प्ले स्टोअर सापडले नसावे</string>
 </resources>

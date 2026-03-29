@@ -119,8 +119,10 @@
     <string name="more_license">Licença</string>
     <string name="more_tip">Apoiar o desenvolvedor</string>
     <string name="more_open">Abrir</string>
+    <string name="more_rate">Avaliar o aplicativo</string>
     <string name="more_share">Compartilhar app</string>
     <string name="more_share_text">Conheça o Stop and Go - um cronômetro de intervalos minimalista. Gratuito, sem anúncios, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
     <string name="more_reset_settings">Redefinir para configurações padrão</string>
     <string name="more_reset_success">Configurações redefinidas para padrões</string>
+    <string name="more_rate_failed">Falha ao avaliar o aplicativo: a Play Store pode não ter sido encontrada</string>
 </resources>

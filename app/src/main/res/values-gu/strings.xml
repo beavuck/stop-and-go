@@ -87,8 +87,10 @@
     <string name="more_license">લાઇસન્સ</string>
     <string name="more_tip">ડેવલપરને સપોર્ટ કરો</string>
     <string name="more_open">ખોલો</string>
+    <string name="more_rate">એપ રેટ કરો</string>
     <string name="more_share">ઍપ શેર કરો</string>
     <string name="more_share_text">Stop and Go અજમાવો - એક મિનિમલિસ્ટ ઇન્ટરવલ ટાઇમર. મફત, જાહેરાત-મુક્ત, ઑફલાઇન. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
     <string name="more_reset_settings">ડિફૉલ્ટ સેટિંગ્સ પર રીસેટ કરો</string>
     <string name="more_reset_success">સેટિંગ્સ ડિફૉલ્ટ મૂલ્યો પર રીસેટ થઈ ગઈ છે</string>
+    <string name="more_rate_failed">એપનું મૂલ્યાંકન નિષ્ફળ ગયું: પ્લે સ્ટોર કદાચ મળ્યો નથી</string>
 </resources>

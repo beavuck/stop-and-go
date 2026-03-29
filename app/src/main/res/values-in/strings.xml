@@ -153,8 +153,10 @@
     <string name="more_license">Lisensi</string>
     <string name="more_tip">Dukung pengembang</string>
     <string name="more_open">Buka</string>
+    <string name="more_rate">Beri nilai aplikasi</string>
     <string name="more_share">Bagikan aplikasi</string>
     <string name="more_share_text">Coba Stop and Go - pengatur waktu interval minimalis. Gratis, tanpa iklan, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
     <string name="more_reset_settings">Reset ke pengaturan default</string>
     <string name="more_reset_success">Pengaturan direset ke nilai default</string>
+    <string name="more_rate_failed">Gagal memberi rating aplikasi: Play Store mungkin tidak ditemukan</string>
 </resources>

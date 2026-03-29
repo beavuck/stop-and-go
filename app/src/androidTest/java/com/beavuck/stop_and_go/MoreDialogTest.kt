@@ -75,6 +75,20 @@ class MoreDialogTest {
     }
 
     @Test
+    fun moreDialog_displaysRateButton() {
+        composeTestRule.setContent {
+            MoreDialog(
+                configRepository = configRepository,
+                stateRepository = stateRepository,
+                onDismiss = {}
+            )
+        }
+
+        composeTestRule.onNodeWithTag("moreRateButton")
+            .assertIsDisplayed()
+    }
+
+    @Test
     fun moreDialog_displaysResetButton() {
         composeTestRule.setContent {
             MoreDialog(

@@ -155,8 +155,10 @@
     <string name="more_license">లైసెన్స్</string>
     <string name="more_tip">డెవలపర్‌కు మద్దతు ఇవ్వండి</string>
     <string name="more_open">తెరువు</string>
+    <string name="more_rate">యాప్‌ని రేట్ చేయండి</string>
     <string name="more_share">యాప్‌ని షేర్ చేయండి</string>
     <string name="more_share_text">Stop and Go ని ప్రయత్నించండి - మినిమలిస్ట్ ఇంటర్వెల్ టైమర్. ఉచితం, ప్రకటనలు లేవు, ఆఫ్‌లైన్. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
     <string name="more_reset_settings">డిఫాల్ట్ సెట్టింగ్‌లకు రీసెట్ చేయండి</string>
     <string name="more_reset_success">సెట్టింగ్‌లు డిఫాల్ట్ విలువలకు రీసెట్ చేయబడ్డాయి</string>
+    <string name="more_rate_failed">యాప్‌ను రేట్ చేయడం విఫలమైంది: ప్లే స్టోర్ కనుగొనబడకపోవచ్చు</string>
 </resources>
