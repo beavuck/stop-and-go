@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">Stop and Go</string>
     <string name="phase_go">GO</string>
@@ -53,6 +54,7 @@
     <string name="language_japanese" translatable="false">日本語</string>
     <string name="language_javanese" translatable="false">Basa Jawa</string>
     <string name="language_punjabi" translatable="false">ਪੰਜਾਬੀ</string>
+    <string name="language_brazilian_portuguese" translatable="false">Português brasileiro</string>
     <string name="language_portuguese" translatable="false">Português</string>
     <string name="language_russian" translatable="false">Русский</string>
     <string name="language_turkish" translatable="false">Türkçe</string>

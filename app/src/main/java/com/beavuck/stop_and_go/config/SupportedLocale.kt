@@ -12,7 +12,7 @@ enum class SupportedLocale(val code: String, private val nameResId: Int) {
     SPANISH("es", R.string.language_spanish),
     ENGLISH("en", R.string.language_english),
     HINDI("hi", R.string.language_hindi),
-    PORTUGUESE("pt", R.string.language_portuguese),
+    BRAZILIAN_PORTUGUESE("pt-BR", R.string.language_brazilian_portuguese),
     BENGALI("bn", R.string.language_bengali),
     RUSSIAN("ru", R.string.language_russian),
     JAPANESE("ja", R.string.language_japanese),
@@ -40,7 +40,8 @@ enum class SupportedLocale(val code: String, private val nameResId: Int) {
     UKRAINIAN("uk", R.string.language_ukrainian),
     POLISH("pl", R.string.language_polish),
     ROMANIAN("ro", R.string.language_romanian),
-    TAIWANESE_HOKKIEN("zh-TW", R.string.language_chinese_taiwan)
+    TAIWANESE_HOKKIEN("zh-TW", R.string.language_chinese_taiwan),
+    PORTUGUESE("pt", R.string.language_portuguese),
     ;
 
     fun getDisplayName(context: Context): String {
