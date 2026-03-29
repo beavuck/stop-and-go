@@ -36,14 +36,6 @@
     <string name="ok">ٹھیک</string>
     <string name="cancel">منسوخ</string>
 
-    <string name="notification_channel_go_name">شروع فیز</string>
-    <string name="notification_channel_go_description">شروع فیز دیاں نوٹیفکیشنز</string>
-
-    <string name="notification_channel_stop_name">روک فیز</string>
-    <string name="notification_channel_stop_description">روک فیز دیاں نوٹیفکیشنز</string>
-
-    <string name="notification_go_title">شروع فیز شروع ہوگئی</string>
-    <string name="notification_stop_title">روک فیز شروع ہوگئی</string>
 
     <string name="language">زبان</string>
     <string name="search_language">زبان تلاش کرو</string>
@@ -69,16 +61,6 @@
     <string name="green_slider">ہرا کمپوننٹ سلائیڈر</string>
     <string name="blue_slider">نیلا کمپوننٹ سلائیڈر</string>
 
-    <string name="notification_permission_rationale_title">
-        فیز نوٹیفکیشنز فعال کرو
-    </string>
-    <string name="notification_permission_rationale_message">
-        ایپ تہانوں شروع تے روک فیز بدلنے تے نوٹیفائی کرسکدی اے۔
-        اینج تسی سکرین تے نظر رکھن دی لوڑ نہیں۔
-    </string>
-
-    <string name="enable">فعال کرو</string>
-    <string name="not_now">ہن نہیں</string>
 
     <string name="error_go_duration_range">
         "شروع" دا وقت %1$d تے %2$d سیکنڈ دے درمیان ہونا چاہیدا
@@ -140,6 +122,8 @@
     <string name="more_license">ਲਾਇਸੈਂਸ</string>
     <string name="more_tip">ਡਿਵੈਲਪਰ ਦਾ ਸਮਰਥਨ ਕਰੋ</string>
     <string name="more_open">ਖੋਲ੍ਹੋ</string>
+    <string name="sound_enabled">ਆਵਾਜ਼ ਚੇਤਾਵਨੀਆਂ</string>
+    <string name="sound_migration_announcement">Stop and Go ਹੁਣ ਪੜਾਅ ਬਦਲਾਵਾਂ ਲਈ ਅਲਾਰਮ ਸਿਸਟਮ ਵਰਤਦਾ ਹੈ। ਤੁਸੀਂ ਇਸਨੂੰ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਸੰਰਚਿਤ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="more_rate">ਐਪ ਨੂੰ ਰੇਟ ਕਰੋ</string>
     <string name="more_share">ਐਪ ਸਾਂਝੀ ਕਰੋ</string>
     <string name="more_share_text">Stop and Go ਅਜ਼ਮਾਓ - ਇੱਕ ਘੱਟੋ-ਘੱਟ ਅੰਤਰਾਲ ਟਾਈਮਰ। ਮੁਫ਼ਤ, ਇਸ਼ਤਿਹਾਰ-ਮੁਕਤ, ਔਫ਼ਲਾਈਨ। https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

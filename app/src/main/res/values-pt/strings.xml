@@ -38,14 +38,6 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancelar</string>
 
-    <string name="notification_channel_go_name">Fase "Iniciar"</string>
-    <string name="notification_channel_go_description">Notificações para alterações da fase "Iniciar"</string>
-
-    <string name="notification_channel_stop_name">Fase "Parar"</string>
-    <string name="notification_channel_stop_description">Notificações para alterações da fase "Parar"</string>
-
-    <string name="notification_go_title">Fase "Iniciar" iniciada</string>
-    <string name="notification_stop_title">Fase "Parar" iniciada</string>
 
     <string name="language">Idioma</string>
     <string name="search_language">Pesquisar idioma</string>
@@ -69,11 +61,6 @@
     <string name="green_slider">Slider do componente verde</string>
     <string name="blue_slider">Slider do componente azul</string>
 
-    <string name="notification_permission_rationale_title">Ativar notificações de mudança de fase</string>
-    <string name="notification_permission_rationale_message">O Stop and Go pode avisá-lo quando o temporizador muda entre "Iniciar" e "Parar". Assim mantém o foco sem olhar sempre para o ecrã.</string>
-
-    <string name="enable">Ativar</string>
-    <string name="not_now">Agora não</string>
 
     <string name="error_go_duration_range">A duração "Iniciar" deve estar entre %1$d e %2$d segundos</string>
     <string name="error_stop_duration_range">A duração "Parar" deve estar entre %1$d e %2$d segundos</string>
@@ -120,6 +107,8 @@
     <string name="more_license">Licença</string>
     <string name="more_tip">Apoiar o desenvolvedor</string>
     <string name="more_open">Abrir</string>
+    <string name="sound_enabled">Alertas sonoros</string>
+    <string name="sound_migration_announcement">O Stop and Go agora usa o sistema de alarme para alertar sobre mudanças de fase. Você pode configurar isso nas configurações.</string>
     <string name="more_rate">Avaliar o aplicativo</string>
     <string name="more_share">Compartilhar app</string>
     <string name="more_share_text">Conheça o Stop and Go - um cronômetro de intervalos minimalista. Gratuito, sem anúncios, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

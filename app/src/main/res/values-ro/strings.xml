@@ -37,13 +37,6 @@
     <string name="ok">OK</string>
     <string name="cancel">Anulează</string>
 
-    <string name="notification_channel_go_name">Faza Pornire</string>
-    <string name="notification_channel_go_description">Notificări pentru schimbarea fazei Pornire</string>
-    <string name="notification_channel_stop_name">Faza Oprire</string>
-    <string name="notification_channel_stop_description">Notificări pentru schimbarea fazei Oprire</string>
-
-    <string name="notification_go_title">Faza PORNEȘTE a început</string>
-    <string name="notification_stop_title">Faza OPREȘTE a început</string>
 
     <string name="language">Limbă</string>
     <string name="search_language">Caută limba</string>
@@ -69,15 +62,6 @@
     <string name="green_slider">Glisor componentă verde</string>
     <string name="blue_slider">Glisor componentă albastră</string>
 
-    <string name="notification_permission_rationale_title">
-        Activează notificările de schimbare a fazei
-    </string>
-    <string name="notification_permission_rationale_message">
-        Stop and Go te poate notifica atunci când cronometrul comută între fazele PORNEȘTE și OPREȘTE. Astfel rămâi concentrat fără a urmări constant ecranul.
-    </string>
-
-    <string name="enable">Activează</string>
-    <string name="not_now">Nu acum</string>
 
     <string name="error_go_duration_range">
         Durata "Pornire" trebuie să fie între %1$d și %2$d secunde
@@ -142,6 +126,8 @@
 
     <string name="more_tip">Lasă un bacșiș dezvoltatorului</string>
     <string name="more_open">Deschide</string>
+    <string name="sound_enabled">Alerte sonore</string>
+    <string name="sound_migration_announcement">Stop and Go folosește acum sistemul de alarmă pentru a te anunța schimbările de fază. Poți configura asta în setări.</string>
     <string name="more_rate">Evaluează aplicația</string>
     <string name="more_share">Distribuie aplicația</string>
 

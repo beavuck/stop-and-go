@@ -25,12 +25,6 @@
     <string name="blue_label">أزرق</string>
     <string name="ok">موافق</string>
     <string name="cancel">إلغاء</string>
-    <string name="notification_channel_go_name">مرحلة الانطلاق</string>
-    <string name="notification_channel_go_description">إشعارات لتغييرات مرحلة الانطلاق</string>
-    <string name="notification_channel_stop_name">مرحلة التوقف</string>
-    <string name="notification_channel_stop_description">إشعارات لتغييرات مرحلة التوقف</string>
-    <string name="notification_go_title">بدأت مرحلة الانطلاق</string>
-    <string name="notification_stop_title">بدأت مرحلة التوقف</string>
     <string name="language">اللغة</string>
     <string name="search_language">ابحث عن لغة</string>
     <string name="clear_search">مسح البحث</string>
@@ -51,10 +45,6 @@
     <string name="red_slider">شريط تمرير المكون الأحمر</string>
     <string name="green_slider">شريط تمرير المكون الأخضر</string>
     <string name="blue_slider">شريط تمرير المكون الأزرق</string>
-    <string name="notification_permission_rationale_title">تمكين إشعارات تغيير المرحلة</string>
-    <string name="notification_permission_rationale_message">يمكن لتطبيق Stop and Go إشعارك عندما يتبدل المؤقت بين مرحلتي الانطلاق والتوقف. يساعدك هذا على التركيز دون النظر باستمرار إلى الشاشة.</string>
-    <string name="enable">تمكين</string>
-    <string name="not_now">ليس الآن</string>
     <string name="go_label">تسمية "اذهب" (اختياري)</string>
     <string name="go_label_hint">اتركه فارغًا لاستخدام الإعداد الافتراضي.</string>
     <string name="error_go_duration_range">يجب أن تكون مدة "Go" بين %1$d و %2$d ثانية</string>
@@ -92,6 +82,8 @@
     <string name="more_license">الترخيص</string>
     <string name="more_tip">دعم المطور</string>
     <string name="more_open">فتح</string>
+    <string name="sound_enabled">تنبيهات صوتية</string>
+    <string name="sound_migration_announcement">يستخدم تطبيق Stop and Go الآن نظام التنبيه لإعلامك بتغييرات المراحل. يمكنك ضبط ذلك في الإعدادات.</string>
     <string name="more_rate">تقييم التطبيق</string>
     <string name="more_share">مشاركة التطبيق</string>
     <string name="more_share_text">جرب Stop and Go - مؤقت فترات بسيط. مجاني، بدون إعلانات، بلا اتصال. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

@@ -41,14 +41,6 @@
     <string name="ok">확인</string>
     <string name="cancel">취소</string>
 
-    <string name="notification_channel_go_name">시작 단계</string>
-    <string name="notification_channel_go_description">시작 단계 변경 알림</string>
-
-    <string name="notification_channel_stop_name">정지 단계</string>
-    <string name="notification_channel_stop_description">정지 단계 변경 알림</string>
-
-    <string name="notification_go_title">시작 단계 시작됨</string>
-    <string name="notification_stop_title">정지 단계 시작됨</string>
 
     <string name="language">언어</string>
     <string name="search_language">언어 검색</string>
@@ -73,14 +65,6 @@
     <string name="green_slider">초록 색상 조절 슬라이더</string>
     <string name="blue_slider">파랑 색상 조절 슬라이더</string>
 
-    <string name="notification_permission_rationale_title">단계 변경 알림 사용</string>
-    <string name="notification_permission_rationale_message">
-        Stop and Go는 시작과 정지 단계가 전환될 때 알림을 보낼 수 있습니다.
-        화면을 계속 보지 않아도 집중을 유지하는 데 도움이 됩니다.
-    </string>
-
-    <string name="enable">사용</string>
-    <string name="not_now">나중에</string>
 
     <string name="error_go_duration_range">
         "시작" 지속 시간은 %1$d초에서 %2$d초 사이여야 합니다
@@ -150,6 +134,8 @@
     <string name="more_license">라이선스</string>
     <string name="more_tip">개발자 후원</string>
     <string name="more_open">열기</string>
+    <string name="sound_enabled">소리 알림</string>
+    <string name="sound_migration_announcement">Stop and Go는 이제 알람 시스템을 사용하여 페이즈 변경을 알립니다. 설정에서 구성할 수 있습니다.</string>
     <string name="more_rate">앱 평가하기</string>
     <string name="more_share">앱 공유</string>
     <string name="more_share_text">Stop and Go를 사용해 보세요 - 미니멀리스트 인터벌 타이머. 무료, 광고 없음, 오프라인. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

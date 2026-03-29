@@ -41,14 +41,6 @@
     <string name="ok">సరే</string>
     <string name="cancel">రద్దు</string>
 
-    <string name="notification_channel_go_name">వెళ్ళు దశ</string>
-    <string name="notification_channel_go_description">వెళ్ళు దశ మారినప్పుడు నోటిఫికేషన్లు</string>
-
-    <string name="notification_channel_stop_name">ఆపు దశ</string>
-    <string name="notification_channel_stop_description">ఆపు దశ మారినప్పుడు నోటిఫికేషన్లు</string>
-
-    <string name="notification_go_title">వెళ్ళు దశ ప్రారంభమైంది</string>
-    <string name="notification_stop_title">ఆపు దశ ప్రారంభమైంది</string>
 
     <string name="language">భాష</string>
     <string name="search_language">భాష వెతకండి</string>
@@ -74,17 +66,6 @@
     <string name="green_slider">ఆకుపచ్చ రంగు భాగం స్లైడర్</string>
     <string name="blue_slider">నీలం రంగు భాగం స్లైడర్</string>
 
-    <string name="notification_permission_rationale_title">
-        దశ మార్పు నోటిఫికేషన్లు ప్రారంభించండి
-    </string>
-
-    <string name="notification_permission_rationale_message">
-        టైమర్ వెళ్ళు మరియు ఆపు దశల మధ్య మారినప్పుడు Stop and Go మీకు నోటిఫికేషన్ పంపుతుంది.
-        ఇది స్క్రీన్ చూస్తూ ఉండకుండా మీ దృష్టి నిలుపుకోవడానికి సహాయపడుతుంది.
-    </string>
-
-    <string name="enable">ప్రారంభించండి</string>
-    <string name="not_now">ఇప్పుడు కాదు</string>
 
     <string name="error_go_duration_range">
         "వెళ్ళు" వ్యవధి %1$d మరియు %2$d సెకన్ల మధ్య ఉండాలి
@@ -156,6 +137,8 @@
     <string name="more_license">లైసెన్స్</string>
     <string name="more_tip">డెవలపర్‌కు మద్దతు ఇవ్వండి</string>
     <string name="more_open">తెరువు</string>
+    <string name="sound_enabled">సౌండ్ హెచ్చరికలు</string>
+    <string name="sound_migration_announcement">Stop and Go ఇప్పుడు దశల మార్పులను తెలియజేయడానికి అలారమ్ సిస్టమ్‌ను ఉపయోగిస్తుంది. మీరు దీన్ని సెట్టింగ్‌లలో కాన్ఫిగర్ చేయవచ్చు.</string>
     <string name="more_rate">యాప్‌ని రేట్ చేయండి</string>
     <string name="more_share">యాప్‌ని షేర్ చేయండి</string>
     <string name="more_share_text">Stop and Go ని ప్రయత్నించండి - మినిమలిస్ట్ ఇంటర్వెల్ టైమర్. ఉచితం, ప్రకటనలు లేవు, ఆఫ్‌లైన్. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

@@ -28,12 +28,6 @@
     <string name="ok">Sawa</string>
     <string name="cancel">Ghairi</string>
 
-    <string name="notification_channel_go_name">Awamu ya Endelea</string>
-    <string name="notification_channel_go_description">Arifa za mabadiliko ya awamu ya Endelea</string>
-    <string name="notification_channel_stop_name">Awamu ya Simama</string>
-    <string name="notification_channel_stop_description">Arifa za mabadiliko ya awamu ya Simama</string>
-    <string name="notification_go_title">Awamu ya ENDELEA Imeanza</string>
-    <string name="notification_stop_title">Awamu ya SIMAMA Imeanza</string>
 
     <string name="language">Lugha</string>
     <string name="search_language">Tafuta lugha</string>
@@ -55,10 +49,6 @@
     <string name="green_slider">Kitelezaji cha rangi kijani</string>
     <string name="blue_slider">Kitelezaji cha rangi bluu</string>
 
-    <string name="notification_permission_rationale_title">Wezesha Arifa za Mabadiliko ya Awamu</string>
-    <string name="notification_permission_rationale_message">Stop and Go inaweza kukutumia arifa kipima muda kinapobadilisha kati ya awamu za ENDELEA na SIMAMA. Hii hukusaidia kuzingatia bila kuangalia skrini mara kwa mara.</string>
-    <string name="enable">Wezesha</string>
-    <string name="not_now">Sio Sasa</string>
 
     <string name="error_go_duration_range">Muda wa "Endelea" lazima uwe kati ya sekunde %1$d na %2$d</string>
     <string name="error_stop_duration_range">Muda wa "Simama" lazima uwe kati ya sekunde %1$d na %2$d</string>
@@ -100,6 +90,8 @@
     <string name="more_license">Leseni</string>
     <string name="more_tip">Mpe msanidi mchango</string>
     <string name="more_open">Fungua</string>
+    <string name="sound_enabled">Tahadhari za sauti</string>
+    <string name="sound_migration_announcement">Stop and Go sasa inatumia mfumo wa kengele kukuarifu mabadiliko ya awamu. Unaweza kuisanidi katika mipangilio.</string>
     <string name="more_rate">Piga kura programu</string>
     <string name="more_share">Shiriki programu</string>
     <string name="more_share_text">Angalia Stop and Go - kipima muda cha vipindi chenye muundo rahisi. Bure, bila matangazo, bila mtandao. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

@@ -27,12 +27,6 @@
     <string name="blue_label">Biru</string>
     <string name="ok">OK</string>
     <string name="cancel">Batal</string>
-    <string name="notification_channel_go_name">Fase Mulai</string>
-    <string name="notification_channel_go_description">Notifikasi kanggo owah-owahan fase Mulai</string>
-    <string name="notification_channel_stop_name">Fase Mandheg</string>
-    <string name="notification_channel_stop_description">Notifikasi kanggo owah-owahan fase Mandheg</string>
-    <string name="notification_go_title">Fase MULAI Dimulai</string>
-    <string name="notification_stop_title">Fase MANDHEG Dimulai</string>
     <string name="language">Basa</string>
     <string name="search_language">Goleki basa</string>
     <string name="clear_search">Resiki panelusuran</string>
@@ -48,10 +42,6 @@
     <string name="red_slider">Slider komponèn warna abang</string>
     <string name="green_slider">Slider komponèn warna ijo</string>
     <string name="blue_slider">Slider komponèn warna biru</string>
-    <string name="notification_permission_rationale_title">Aktifake Notifikasi Owah-owahan Fase</string>
-    <string name="notification_permission_rationale_message">Stop and Go bisa ngabari sampeyan nalika timer ganti antarane fase MULAI lan MANDHEG. Iki mbantu sampeyan tetep fokus tanpa kudu terus ndeleng layar.</string>
-    <string name="enable">Aktifake</string>
-    <string name="not_now">Ora Saiki</string>
     <string name="error_go_duration_range">Dawane "Mulai" kudu antara %1$d lan %2$d detik</string>
     <string name="error_stop_duration_range">Dawane "Mandheg" kudu antara %1$d lan %2$d detik</string>
     <string name="error_go_growth_range">Pengali pangembangan "Mulai" kudu antara %1$.2f lan %2$.2f</string>
@@ -87,6 +77,8 @@
     <string name="more_license">Lisensi</string>
     <string name="more_tip">Dukung pangembang</string>
     <string name="more_open">Bukak</string>
+    <string name="sound_enabled">Tandha swara</string>
+    <string name="sound_migration_announcement">Stop and Go saiki nggunakake sistem alarm kanggo menehi kabar owah-owahan fase. Sampeyan bisa ngatur iki ing setelan.</string>
     <string name="more_rate">Nilai aplikasi</string>
     <string name="more_share">Enggo bareng aplikasi</string>
     <string name="more_share_text">Cobi Stop and Go - pewaktu interval minimalis. Gratis, tanpa iklan, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

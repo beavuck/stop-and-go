@@ -25,12 +25,6 @@
     <string name="blue_label">蓝色</string>
     <string name="ok">确定</string>
     <string name="cancel">取消</string>
-    <string name="notification_channel_go_name">开始阶段</string>
-    <string name="notification_channel_go_description">开始阶段变化的通知</string>
-    <string name="notification_channel_stop_name">停止阶段</string>
-    <string name="notification_channel_stop_description">停止阶段变化的通知</string>
-    <string name="notification_go_title">开始阶段已启动</string>
-    <string name="notification_stop_title">停止阶段已启动</string>
     <string name="language">语言</string>
     <string name="search_language">搜索语言</string>
     <string name="clear_search">清除搜索</string>
@@ -46,10 +40,6 @@
     <string name="red_slider">红色分量滑块</string>
     <string name="green_slider">绿色分量滑块</string>
     <string name="blue_slider">蓝色分量滑块</string>
-    <string name="notification_permission_rationale_title">启用阶段切换通知</string>
-    <string name="notification_permission_rationale_message">Stop and Go 可以在计时器在开始和停止阶段之间切换时通知您。这有助于您保持专注，而无需不断查看屏幕。</string>
-    <string name="enable">启用</string>
-    <string name="not_now">暂不启用</string>
     <string name="go_label">"开始"标签 (可选)</string>
     <string name="go_label_hint">留空使用默认值。</string>
     <string name="error_go_duration_range">"Go" 的时长必须在 %1$d 到 %2$d 秒之间</string>
@@ -87,6 +77,8 @@
     <string name="more_license">许可证</string>
     <string name="more_tip">支持开发者</string>
     <string name="more_open">打开</string>
+    <string name="sound_enabled">声音提醒</string>
+    <string name="sound_migration_announcement">Stop and Go 现在使用闹钟系统提醒您阶段变更。您可以在设置中进行配置。</string>
     <string name="more_rate">为应用评分</string>
     <string name="more_share">分享应用</string>
     <string name="more_share_text">试试 Stop and Go - 极简间隔计时器。免费、无广告、离线。https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

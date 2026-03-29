@@ -27,12 +27,6 @@
     <string name="blue_label">નિલું</string>
     <string name="ok">બરાબર</string>
     <string name="cancel">રદ કરો</string>
-    <string name="notification_channel_go_name">જાઓ ફેઝ</string>
-    <string name="notification_channel_go_description">જાઓ ફેઝ બદલાવની સૂચનાઓ</string>
-    <string name="notification_channel_stop_name">રોકો ફેઝ</string>
-    <string name="notification_channel_stop_description">રોકો ફેઝ બદલાવની સૂચનાઓ</string>
-    <string name="notification_go_title">જાઓ ફેઝ શરૂ</string>
-    <string name="notification_stop_title">રોકો ફેઝ શરૂ</string>
     <string name="language">ભાષા</string>
     <string name="search_language">ભાષા શોધો</string>
     <string name="clear_search">શોધ સાફ કરો</string>
@@ -49,10 +43,6 @@
     <string name="red_slider">લાલ રંગ ઘટક સ્લાઇડર</string>
     <string name="green_slider">લીલું રંગ ઘટક સ્લાઇડર</string>
     <string name="blue_slider">નિલું રંગ ઘટક સ્લાઇડર</string>
-    <string name="notification_permission_rationale_title">ફેઝ ચેન્જ સૂચનાઓ સક્રિય કરો</string>
-    <string name="notification_permission_rationale_message">જ્યારે ટાઈમર GO અને STOP ફેઝ વચ્ચે બદલાય ત્યારે Stop and Go તમને સૂચિત કરી શકે છે. આ રીતે સ્ક્રીન પર સતત જોતા રહેવું જરૂરી નથી.</string>
-    <string name="enable">સક્રિય કરો</string>
-    <string name="not_now">હમણાં નહીં</string>
     <string name="error_go_duration_range">"જાઓ" સમયગાળો %1$d થી %2$d સેકંડ વચ્ચે હોવો જોઈએ</string>
     <string name="error_stop_duration_range">"રોકો" સમયગાળો %1$d થી %2$d સેકંડ વચ્ચે હોવો જોઈએ</string>
     <string name="error_go_growth_range">"જાઓ" વૃદ્ધિ ગુણાંક %1$.2f થી %2$.2f વચ્ચે હોવો જોઈએ</string>
@@ -88,6 +78,8 @@
     <string name="more_license">લાઇસન્સ</string>
     <string name="more_tip">ડેવલપરને સપોર્ટ કરો</string>
     <string name="more_open">ખોલો</string>
+    <string name="sound_enabled">સાઉન્ડ એલર્ટ</string>
+    <string name="sound_migration_announcement">Stop and Go હવે ફેઝ ફેરફારો માટે અલાર્મ સિસ્ટમ ઉપયોગ કરે છે. તમે સેટિંગ્સમાં આ ગોઠવી શકો છો.</string>
     <string name="more_rate">એપ રેટ કરો</string>
     <string name="more_share">ઍપ શેર કરો</string>
     <string name="more_share_text">Stop and Go અજમાવો - એક મિનિમલિસ્ટ ઇન્ટરવલ ટાઇમર. મફત, જાહેરાત-મુક્ત, ઑફલાઇન. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

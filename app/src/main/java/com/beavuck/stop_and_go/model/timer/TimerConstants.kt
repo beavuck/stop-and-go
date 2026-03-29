@@ -17,4 +17,6 @@ object TimerConstants {
     const val MAX_LABEL_LENGTH = 32
 
     const val INITIAL_CYCLE_COUNT = 0
+
+    const val DEFAULT_SOUND_ENABLED = true
 }

@@ -40,13 +40,6 @@
     <string name="ok">OK</string>
     <string name="cancel">Abbrechen</string>
 
-    <string name="notification_channel_go_name">LOS-Phase</string>
-    <string name="notification_channel_go_description">Benachrichtigungen bei Wechsel zur LOS-Phase</string>
-    <string name="notification_channel_stop_name">STOPP-Phase</string>
-    <string name="notification_channel_stop_description">Benachrichtigungen bei Wechsel zur STOPP-Phase</string>
-
-    <string name="notification_go_title">LOS-Phase gestartet</string>
-    <string name="notification_stop_title">STOPP-Phase gestartet</string>
 
     <string name="language">Sprache</string>
     <string name="search_language">Sprache suchen</string>
@@ -72,16 +65,6 @@
     <string name="green_slider">Schieberegler für Gruenanteil</string>
     <string name="blue_slider">Schieberegler für Blauanteil</string>
 
-    <string name="notification_permission_rationale_title">
-        Benachrichtigungen bei Phasenwechsel aktivieren
-    </string>
-
-    <string name="notification_permission_rationale_message">
-        Stop and Go kann dich benachrichtigen, wenn der Timer zwischen LOS- und STOPP-Phasen wechselt. So bleibst du fokussiert, ohne staendig auf den Bildschirm zu schauen.
-    </string>
-
-    <string name="enable">Aktivieren</string>
-    <string name="not_now">Nicht jetzt</string>
 
     <string name="error_go_duration_range">
         "LOS"-Dauer muss zwischen %1$d und %2$d Sekunden liegen
@@ -147,6 +130,8 @@
     <string name="more_license">Lizenz</string>
     <string name="more_tip">Entwickler unterstützen</string>
     <string name="more_open">Öffnen</string>
+    <string name="sound_enabled">Tonbenachrichtigungen</string>
+    <string name="sound_migration_announcement">Stop and Go verwendet jetzt das Alarmsystem, um dich über Phasenwechsel zu informieren. Du kannst dies in den Einstellungen konfigurieren.</string>
     <string name="more_rate">App bewerten</string>
     <string name="more_share">App teilen</string>
     <string name="more_share_text">Probieren Sie Stop and Go - ein minimalistischer Intervall-Timer. Kostenlos, werbefrei, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

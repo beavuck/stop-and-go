@@ -24,12 +24,6 @@
     <string name="blue_label">Bleu</string>
     <string name="ok">OK</string>
     <string name="cancel">Annuler</string>
-    <string name="notification_channel_go_name">Phase de marche</string>
-    <string name="notification_channel_go_description">Notifications pour les changements de phase de marche</string>
-    <string name="notification_channel_stop_name">Phase d\'arrêt</string>
-    <string name="notification_channel_stop_description">Notifications pour les changements de phase d\'arrêt</string>
-    <string name="notification_go_title">Phase MARCHE commencée</string>
-    <string name="notification_stop_title">Phase ARRÊT commencée</string>
     <string name="language">Langue</string>
     <string name="search_language">Rechercher une langue</string>
     <string name="clear_search">Effacer la recherche</string>
@@ -47,10 +41,6 @@
     <string name="red_slider">Curseur du composant rouge</string>
     <string name="green_slider">Curseur du composant vert</string>
     <string name="blue_slider">Curseur du composant bleu</string>
-    <string name="notification_permission_rationale_title">Activer les notifications de changement de phase</string>
-    <string name="notification_permission_rationale_message">Stop and Go peut vous notifier lorsque le minuteur passe entre les phases ALLEZ et ARRÊT. Cela vous aide à rester concentré sans regarder constamment l\'écran.</string>
-    <string name="enable">Activer</string>
-    <string name="not_now">Pas maintenant</string>
     <string name="go_label">Libellé "Go" (optionnel)</string>
     <string name="go_label_hint">Laissez vide pour utiliser la valeur par défaut.</string>
     <string name="stop_label">Libellé "Stop" (optionnel)</string>
@@ -88,6 +78,8 @@
     <string name="more_license">Licence</string>
     <string name="more_tip">Soutenir le développeur</string>
     <string name="more_open">Ouvrir</string>
+    <string name="sound_enabled">Alertes sonores</string>
+    <string name="sound_migration_announcement">Stop and Go utilise désormais le système d\'alarme pour vous signaler les changements de phase. Vous pouvez le configurer dans les paramètres.</string>
     <string name="more_rate">Évaluer l\'application</string>
     <string name="more_share">Partager l\'application</string>
     <string name="more_share_text">Découvrez Stop and Go - un minuteur d\'intervalles minimaliste. Gratuit, sans publicité, hors ligne. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

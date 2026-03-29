@@ -185,4 +185,26 @@ class SettingsActivityTest {
         assertEquals("Sprint", savedConfig.goLabel)
         assertEquals("Rest", savedConfig.stopLabel)
     }
+
+    @Test
+    fun settingsScreen_displaysSoundToggle() {
+        composeTestRule.onNodeWithTag("soundEnabledToggle")
+            .performScrollTo()
+            .assertIsDisplayed()
+    }
+
+    @Test
+    fun settingsScreen_soundToggle_savesToConfig() {
+        val initialValue = configRepository.loadConfig().soundEnabled
+
+        composeTestRule.onNodeWithTag("soundEnabledToggle")
+            .performScrollTo()
+            .performClick()
+
+        composeTestRule.onNodeWithTag("saveButton").performClick()
+        composeTestRule.waitForIdle()
+
+        val savedConfig = configRepository.loadConfig()
+        assertEquals(!initialValue, savedConfig.soundEnabled)
+    }
 }

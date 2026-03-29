@@ -16,8 +16,8 @@ import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.model.phase.PhaseManager
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_IS_PAUSED
 import com.beavuck.stop_and_go.model.timer.TimerController
-import com.beavuck.stop_and_go.notifications.PhaseNotificationManager
 import com.beavuck.stop_and_go.repositories.StateRepository
+import com.beavuck.stop_and_go.sounds.PhaseSoundPlayer
 import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -26,7 +26,8 @@ import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
 fun TimerScreen(
     phaseManager: PhaseManager,
     stateRepository: StateRepository,
-    notificationManager: PhaseNotificationManager,
+    soundPlayer: PhaseSoundPlayer,
+    soundEnabled: Boolean,
     onNavigateToSettings: () -> Unit,
     onKeepScreenOnChange: (Boolean) -> Unit,
 ) {
@@ -48,10 +49,8 @@ fun TimerScreen(
                 phase = phaseManager.getCurrentPhase()
                 secondsRemaining = phase.durationSeconds
 
-                if (phase.isGo) {
-                    notificationManager.notifyGoPhase(phaseManager.getGoLabel())
-                } else {
-                    notificationManager.notifyStopPhase(phaseManager.getStopLabel())
+                if (soundEnabled) {
+                    if (phase.isGo) soundPlayer.playGoSound() else soundPlayer.playStopSound()
                 }
 
                 startNextPhase?.invoke()

@@ -36,13 +36,6 @@
     <string name="ok">確定</string>
     <string name="cancel">取消</string>
 
-    <string name="notification_channel_go_name">開始階段</string>
-    <string name="notification_channel_go_description">開始階段變更通知</string>
-    <string name="notification_channel_stop_name">停止階段</string>
-    <string name="notification_channel_stop_description">停止階段變更通知</string>
-
-    <string name="notification_go_title">開始階段已開始</string>
-    <string name="notification_stop_title">停止階段已開始</string>
 
     <string name="language">語言</string>
     <string name="search_language">搜尋語言</string>
@@ -64,13 +57,6 @@
     <string name="green_slider">綠色分量滑桿</string>
     <string name="blue_slider">藍色分量滑桿</string>
 
-    <string name="notification_permission_rationale_title">啟用階段變更通知</string>
-    <string name="notification_permission_rationale_message">
-        Stop and Go 可在計時器於開始與停止階段切換時通知你，讓你無需一直盯著螢幕也能保持專注。
-    </string>
-
-    <string name="enable">啟用</string>
-    <string name="not_now">稍後再說</string>
 
     <string name="error_go_duration_range">"開始" 時長必須介於 %1$d 到 %2$d 秒之間</string>
     <string name="error_stop_duration_range">"停止" 時長必須介於 %1$d 到 %2$d 秒之間</string>
@@ -115,6 +101,8 @@
     <string name="more_license">授權</string>
     <string name="more_tip">贊助開發者</string>
     <string name="more_open">開啟</string>
+    <string name="sound_enabled">聲音提醒</string>
+    <string name="sound_migration_announcement">Stop and Go 現在使用鬧鐘系統來提醒您階段變更。您可以在設定中進行配置。</string>
     <string name="more_rate">為應用程式評分</string>
     <string name="more_share">分享 App</string>
     <string name="more_share_text">

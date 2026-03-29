@@ -39,14 +39,6 @@
     <string name="ok">ওকে</string>
     <string name="cancel">বাতিল</string>
 
-    <string name="notification_channel_go_name">"চালু" ধাপ</string>
-    <string name="notification_channel_go_description">"চালু" ধাপ পরিবর্তনের জন্য নোটিফিকেশন</string>
-
-    <string name="notification_channel_stop_name">"বন্ধ" ধাপ</string>
-    <string name="notification_channel_stop_description">"বন্ধ" ধাপ পরিবর্তনের জন্য নোটিফিকেশন</string>
-
-    <string name="notification_go_title">"চালু" ধাপ শুরু হয়েছে</string>
-    <string name="notification_stop_title">"বন্ধ" ধাপ শুরু হয়েছে</string>
 
     <string name="language">ভাষা</string>
     <string name="search_language">ভাষা অনুসন্ধান করুন</string>
@@ -69,11 +61,6 @@
     <string name="green_slider">সবুজ রঙ কম্পোনেন্ট স্লাইডার</string>
     <string name="blue_slider">নীল রঙ কম্পোনেন্ট স্লাইডার</string>
 
-    <string name="notification_permission_rationale_title">ধাপ পরিবর্তনের নোটিফিকেশন চালু করুন</string>
-    <string name="notification_permission_rationale_message">Stop and Go আপনাকে জানাতে পারে যখন টাইমার "চালু" ও "বন্ধ" ধাপের মধ্যে পরিবর্তন করে—ফলে স্ক্রীন দেখেই থাকতে হবে না।</string>
-
-    <string name="enable">চালু করুন</string>
-    <string name="not_now">এখন নয়</string>
 
     <string name="error_go_duration_range">"চালু" সময় %1$d থেকে %2$d সেকেন্ডের মধ্যে হতে হবে</string>
     <string name="error_stop_duration_range">"বন্ধ" সময় %1$d থেকে %2$d সেকেন্ডের মধ্যে হতে হবে</string>
@@ -120,6 +107,8 @@
     <string name="more_license">লাইসেন্স</string>
     <string name="more_tip">ডেভেলপারকে সমর্থন করুন</string>
     <string name="more_open">খুলুন</string>
+    <string name="sound_enabled">শব্দ সতর্কতা</string>
+    <string name="sound_migration_announcement">Stop and Go এখন ফেজ পরিবর্তন জানাতে অ্যালার্ম সিস্টেম ব্যবহার করে। আপনি সেটিংসে এটি কনফিগার করতে পারেন।</string>
     <string name="more_rate">অ্যাপ রেট করুন</string>
     <string name="more_share">অ্যাপ শেয়ার করুন</string>
     <string name="more_share_text">Stop and Go ব্যবহার করুন - একটি মিনিমালিস্ট ইন্টারভাল টাইমার। বিনামূল্যে, বিজ্ঞাপন-মুক্ত, অফলাইন। https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

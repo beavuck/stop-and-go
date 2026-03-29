@@ -27,12 +27,6 @@
     <string name="blue_label">藍色</string>
     <string name="ok">確定</string>
     <string name="cancel">取消</string>
-    <string name="notification_channel_go_name">走階段</string>
-    <string name="notification_channel_go_description">走階段變更通知</string>
-    <string name="notification_channel_stop_name">停階段</string>
-    <string name="notification_channel_stop_description">停階段變更通知</string>
-    <string name="notification_go_title">走階段開始</string>
-    <string name="notification_stop_title">停階段開始</string>
     <string name="language">語言</string>
     <string name="search_language">搜尋語言</string>
     <string name="clear_search">清除搜尋</string>
@@ -48,10 +42,6 @@
     <string name="red_slider">紅色滑動條</string>
     <string name="green_slider">綠色滑動條</string>
     <string name="blue_slider">藍色滑動條</string>
-    <string name="notification_permission_rationale_title">啟用階段變更通知</string>
-    <string name="notification_permission_rationale_message">停同走可以在計時器切換「走」同「停」階段時通知你，幫助你專注而唔洗成日望住屏幕。</string>
-    <string name="enable">啟用</string>
-    <string name="not_now">唔好而家</string>
     <string name="error_go_duration_range">「走」階段時間必須介乎 %1$d 至 %2$d 秒之間</string>
     <string name="error_stop_duration_range">「停」階段時間必須介乎 %1$d 至 %2$d 秒之間</string>
     <string name="error_go_growth_range">「走」階段增長倍數必須介乎 %1$.2f 至 %2$.2f</string>
@@ -87,6 +77,8 @@
     <string name="more_license">許可證</string>
     <string name="more_tip">支持開發者</string>
     <string name="more_open">打開</string>
+    <string name="sound_enabled">聲音提示</string>
+    <string name="sound_migration_announcement">Stop and Go 現在使用鬧鐘系統提醒您階段變更。您可以在設定中進行設定。</string>
     <string name="more_rate">為應用程式評分</string>
     <string name="more_share">分享應用</string>
     <string name="more_share_text">試試 Stop and Go - 極簡間隔計時器。免費、無廣告、離線。https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

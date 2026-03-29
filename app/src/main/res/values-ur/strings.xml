@@ -41,14 +41,6 @@
     <string name="ok">ٹھیک ہے</string>
     <string name="cancel">منسوخ کریں</string>
 
-    <string name="notification_channel_go_name">چلنے کا مرحلہ</string>
-    <string name="notification_channel_go_description">چلنے کے مرحلے میں تبدیلی کی اطلاعات</string>
-
-    <string name="notification_channel_stop_name">رکنے کا مرحلہ</string>
-    <string name="notification_channel_stop_description">رکنے کے مرحلے میں تبدیلی کی اطلاعات</string>
-
-    <string name="notification_go_title">چلنے کا مرحلہ شروع ہو گیا</string>
-    <string name="notification_stop_title">رکنے کا مرحلہ شروع ہو گیا</string>
 
     <string name="language">زبان</string>
     <string name="search_language">زبان تلاش کریں</string>
@@ -71,14 +63,6 @@
     <string name="green_slider">سبز رنگ کے جز کا سلائیڈر</string>
     <string name="blue_slider">نیلے رنگ کے جز کا سلائیڈر</string>
 
-    <string name="notification_permission_rationale_title">مرحلہ تبدیلی کی اطلاعات فعال کریں</string>
-    <string name="notification_permission_rationale_message">
-        اسٹاپ اینڈ گو آپ کو اس وقت اطلاع دے سکتا ہے جب ٹائمر چلنے اور رکنے کے مرحلوں کے درمیان بدلتا ہے۔
-        یہ آپ کو اسکرین دیکھے بغیر توجہ برقرار رکھنے میں مدد دیتا ہے۔
-    </string>
-
-    <string name="enable">فعال کریں</string>
-    <string name="not_now">ابھی نہیں</string>
 
     <string name="error_go_duration_range">"چلیں" کا دورانیہ %1$d اور %2$d سیکنڈ کے درمیان ہونا چاہیے</string>
     <string name="error_stop_duration_range">"رکیں" کا دورانیہ %1$d اور %2$d سیکنڈ کے درمیان ہونا چاہیے</string>
@@ -130,6 +114,8 @@
     <string name="more_license">لائسنس</string>
     <string name="more_tip">ڈیولپر کی حمایت کریں</string>
     <string name="more_open">کھولیں</string>
+    <string name="sound_enabled">صوتی انتباہات</string>
+    <string name="sound_migration_announcement">Stop and Go اب مراحل کی تبدیلیوں کے لیے الارم سسٹم استعمال کرتا ہے۔ آپ اسے ترتیبات میں ترتیب دے سکتے ہیں۔</string>
     <string name="more_rate">ایپ کو ریٹ کریں</string>
     <string name="more_share">ایپ شیئر کریں</string>
     <string name="more_share_text">Stop and Go آزمائیں - ایک منی مالسٹ وقفہ ٹائمر۔ مفت، اشتہارات سے پاک، آف لائن۔ https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

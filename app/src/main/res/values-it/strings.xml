@@ -27,12 +27,6 @@
     <string name="blue_label">Blu</string>
     <string name="ok">OK</string>
     <string name="cancel">Annulla</string>
-    <string name="notification_channel_go_name">Fase Go</string>
-    <string name="notification_channel_go_description">Notifiche per i cambiamenti della fase Go</string>
-    <string name="notification_channel_stop_name">Fase Stop</string>
-    <string name="notification_channel_stop_description">Notifiche per i cambiamenti della fase Stop</string>
-    <string name="notification_go_title">Fase GO iniziata</string>
-    <string name="notification_stop_title">Fase STOP iniziata</string>
     <string name="language">Lingua</string>
     <string name="search_language">Cerca lingua</string>
     <string name="clear_search">Cancella ricerca</string>
@@ -50,10 +44,6 @@
     <string name="red_slider">Slider componente rosso</string>
     <string name="green_slider">Slider componente verde</string>
     <string name="blue_slider">Slider componente blu</string>
-    <string name="notification_permission_rationale_title">Abilita notifiche cambio fase</string>
-    <string name="notification_permission_rationale_message">Stop and Go può notificarti quando il timer cambia tra le fasi GO e STOP. Questo ti aiuta a restare concentrato senza guardare continuamente lo schermo.</string>
-    <string name="enable">Abilita</string>
-    <string name="not_now">Non ora</string>
     <string name="error_go_duration_range">La durata "Go" deve essere tra %1$d e %2$d secondi</string>
     <string name="error_stop_duration_range">La durata "Stop" deve essere tra %1$d e %2$d secondi</string>
     <string name="error_go_growth_range">Il moltiplicatore di crescita "Go" deve essere tra %1$.2f e %2$.2f</string>
@@ -89,6 +79,8 @@
     <string name="more_license">Licenza</string>
     <string name="more_tip">Sostieni lo sviluppatore</string>
     <string name="more_open">Apri</string>
+    <string name="sound_enabled">Avvisi sonori</string>
+    <string name="sound_migration_announcement">Stop and Go ora usa il sistema di allarme per avvisarti dei cambi di fase. Puoi configurarlo nelle impostazioni.</string>
     <string name="more_rate">Valuta l\'app</string>
     <string name="more_share">Condividi app</string>
     <string name="more_share_text">Scopri Stop and Go - un timer a intervalli minimalista. Gratuito, senza pubblicità, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

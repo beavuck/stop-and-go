@@ -19,6 +19,7 @@ tasks.register<JacocoReport>("jacocoTestReport") {
         "**/activities/**/*.*",
         "**/repositories/**/*.*",
         "**/notifications/**/*.*",
+        "**/sounds/**/*.*",
         "**/dialogs/**/*.*",
         "**/ui/**/*.*",
         "**/config/**/*.*",

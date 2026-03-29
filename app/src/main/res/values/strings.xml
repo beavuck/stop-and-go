@@ -34,12 +34,6 @@
     <string name="blue_label">Blue</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
-    <string name="notification_channel_go_name">Go Phase</string>
-    <string name="notification_channel_go_description">Notifications for Go phase changes</string>
-    <string name="notification_channel_stop_name">Stop Phase</string>
-    <string name="notification_channel_stop_description">Notifications for Stop phase changes</string>
-    <string name="notification_go_title">GO Phase Started</string>
-    <string name="notification_stop_title">STOP Phase Started</string>
     <string name="language">Language</string>
     <string name="search_language">Search language</string>
     <string name="clear_search">Clear search</string>
@@ -90,10 +84,6 @@
     <string name="red_slider">Red color component slider</string>
     <string name="green_slider">Green color component slider</string>
     <string name="blue_slider">Blue color component slider</string>
-    <string name="notification_permission_rationale_title">Enable Phase Change Notifications</string>
-    <string name="notification_permission_rationale_message">Stop and Go can notify you when the timer switches between GO and STOP phases. This helps you stay focused without constantly watching the screen.</string>
-    <string name="enable">Enable</string>
-    <string name="not_now">Not Now</string>
     <string name="error_go_duration_range">"Go" duration must be between %1$d and %2$d seconds</string>
     <string name="error_stop_duration_range">"Stop" duration must be between %1$d and %2$d seconds</string>
     <string name="error_go_growth_range">"Go" growth multiplier must be between %1$.2f and %2$.2f</string>
@@ -132,6 +122,8 @@
     <string name="more_tip">Tip the dev</string>
     <string name="more_tip_url" translatable="false">https://buymeacoffee.com/beavuck.dev</string>
     <string name="more_open">Open</string>
+    <string name="sound_enabled">Sound alerts</string>
+    <string name="sound_migration_announcement">Stop and Go now uses the alarm system to alert you to phase changes. You can configure this in settings.</string>
     <string name="more_rate">Rate app</string>
     <string name="more_share">Share app</string>
     <string name="more_share_text">Check out Stop and Go - a minimalist interval timer. Free, ad-free, off-network. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

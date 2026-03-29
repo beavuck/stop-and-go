@@ -11,7 +11,8 @@ data class TimerConfig(
     val goColor: String = TimerConstants.DEFAULT_GO_COLOR,
     val stopColor: String = TimerConstants.DEFAULT_STOP_COLOR,
     val goLabel: String = "",
-    val stopLabel: String = ""
+    val stopLabel: String = "",
+    val soundEnabled: Boolean = TimerConstants.DEFAULT_SOUND_ENABLED
 ) {
     fun validate(context: Context? = null): TimerConfig {
         require(goDuration in TimerConstants.MIN_DURATION_SECONDS..TimerConstants.MAX_DURATION_SECONDS) {
@@ -19,28 +20,32 @@ data class TimerConfig(
                 R.string.error_go_duration_range,
                 TimerConstants.MIN_DURATION_SECONDS,
                 TimerConstants.MAX_DURATION_SECONDS
-            ) ?: "Go duration must be between ${TimerConstants.MIN_DURATION_SECONDS} and ${TimerConstants.MAX_DURATION_SECONDS} seconds"
+            )
+                ?: "Go duration must be between ${TimerConstants.MIN_DURATION_SECONDS} and ${TimerConstants.MAX_DURATION_SECONDS} seconds"
         }
         require(stopDuration in TimerConstants.MIN_DURATION_SECONDS..TimerConstants.MAX_DURATION_SECONDS) {
             context?.getString(
                 R.string.error_stop_duration_range,
                 TimerConstants.MIN_DURATION_SECONDS,
                 TimerConstants.MAX_DURATION_SECONDS
-            ) ?: "Stop duration must be between ${TimerConstants.MIN_DURATION_SECONDS} and ${TimerConstants.MAX_DURATION_SECONDS} seconds"
+            )
+                ?: "Stop duration must be between ${TimerConstants.MIN_DURATION_SECONDS} and ${TimerConstants.MAX_DURATION_SECONDS} seconds"
         }
         require(goDurationGrowth in TimerConstants.MIN_GROWTH_MULTIPLIER..TimerConstants.MAX_GROWTH_MULTIPLIER) {
             context?.getString(
                 R.string.error_go_growth_range,
                 TimerConstants.MIN_GROWTH_MULTIPLIER,
                 TimerConstants.MAX_GROWTH_MULTIPLIER
-            ) ?: "Go growth multiplier must be between ${TimerConstants.MIN_GROWTH_MULTIPLIER} and ${TimerConstants.MAX_GROWTH_MULTIPLIER}"
+            )
+                ?: "Go growth multiplier must be between ${TimerConstants.MIN_GROWTH_MULTIPLIER} and ${TimerConstants.MAX_GROWTH_MULTIPLIER}"
         }
         require(stopDurationGrowth in TimerConstants.MIN_GROWTH_MULTIPLIER..TimerConstants.MAX_GROWTH_MULTIPLIER) {
             context?.getString(
                 R.string.error_stop_growth_range,
                 TimerConstants.MIN_GROWTH_MULTIPLIER,
                 TimerConstants.MAX_GROWTH_MULTIPLIER
-            ) ?: "Stop growth multiplier must be between ${TimerConstants.MIN_GROWTH_MULTIPLIER} and ${TimerConstants.MAX_GROWTH_MULTIPLIER}"
+            )
+                ?: "Stop growth multiplier must be between ${TimerConstants.MIN_GROWTH_MULTIPLIER} and ${TimerConstants.MAX_GROWTH_MULTIPLIER}"
         }
         require(goLabel.length <= TimerConstants.MAX_LABEL_LENGTH) {
             context?.getString(

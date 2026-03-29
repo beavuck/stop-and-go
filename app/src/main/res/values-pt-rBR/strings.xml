@@ -6,9 +6,9 @@
     <string name="go_duration">Duração do Vai (segundos)</string>
     <string name="stop_duration">Duração do Para (segundos)</string>
     <string name="go_growth">Multiplicador de crescimento do Vai</string>
-    <string name="go_growth_hint">0.01-100.0</string>
+    <string name="go_growth_hint">0.01–100.0</string>
     <string name="stop_growth">Multiplicador de crescimento do Para</string>
-    <string name="stop_growth_hint">0.01-100.0</string>
+    <string name="stop_growth_hint">0.01–100.0</string>
     <string name="go_color">Cor do Vai</string>
     <string name="stop_color">Cor do Para</string>
     <string name="go_label">Rótulo do "Vai" (opcional)</string>
@@ -27,12 +27,6 @@
     <string name="blue_label">Azul</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancelar</string>
-    <string name="notification_channel_go_name">Fase Vai</string>
-    <string name="notification_channel_go_description">Notificações para mudanças da fase Vai</string>
-    <string name="notification_channel_stop_name">Fase Para</string>
-    <string name="notification_channel_stop_description">Notificações para mudanças da fase Para</string>
-    <string name="notification_go_title">Fase VAI iniciada</string>
-    <string name="notification_stop_title">Fase PARA iniciada</string>
     <string name="language">Idioma</string>
     <string name="search_language">Buscar idioma</string>
     <string name="clear_search">Limpar busca</string>
@@ -46,15 +40,12 @@
     <plurals name="phase_changed">
         <item quantity="one">Fase %1$s iniciada. %2$d segundo restante.</item>
         <item quantity="other">Fase %1$s iniciada. %2$d segundos restantes.</item>
+        <item quantity="many">Fase %1$s iniciada. %2$d segundos restantes.</item>
     </plurals>
 
     <string name="red_slider">Controle deslizante do componente vermelho</string>
     <string name="green_slider">Controle deslizante do componente verde</string>
     <string name="blue_slider">Controle deslizante do componente azul</string>
-    <string name="notification_permission_rationale_title">Ativar notificações de mudança de fase</string>
-    <string name="notification_permission_rationale_message">Stop and Go pode notificar você quando o temporizador alterna entre as fases VAI e PARA. Isso ajuda você a manter o foco sem precisar olhar a tela constantemente.</string>
-    <string name="enable">Ativar</string>
-    <string name="not_now">Agora não</string>
     <string name="error_go_duration_range">A duração do "Vai" deve estar entre %1$d e %2$d segundos</string>
     <string name="error_stop_duration_range">A duração do "Para" deve estar entre %1$d e %2$d segundos</string>
     <string name="error_go_growth_range">O multiplicador de crescimento do "Vai" deve estar entre %1$.2f e %2$.2f</string>
@@ -89,6 +80,8 @@
     <string name="more_license">Licença</string>
     <string name="more_tip">Apoiar o desenvolvedor</string>
     <string name="more_open">Abrir</string>
+    <string name="sound_enabled">Alertas sonoros</string>
+    <string name="sound_migration_announcement">O Stop and Go agora usa o sistema de alarme para alertar sobre mudanças de fase. Você pode configurar isso nas configurações.</string>
     <string name="more_rate">Avaliar aplicativo</string>
     <string name="more_share">Compartilhar aplicativo</string>
     <string name="more_share_text">Confira Stop and Go - um temporizador de intervalos minimalista. Gratuito, sem anúncios e offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

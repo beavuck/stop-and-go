@@ -27,12 +27,6 @@
     <string name="blue_label">Shudi</string>
     <string name="ok">OK</string>
     <string name="cancel">Soke</string>
-    <string name="notification_channel_go_name">Lokacin Tsafa</string>
-    <string name="notification_channel_go_description">Sanarwa don sauyin lokacin tsafa</string>
-    <string name="notification_channel_stop_name">Lokacin Tsaya</string>
-    <string name="notification_channel_stop_description">Sanarwa don sauyin lokacin tsaya</string>
-    <string name="notification_go_title">Lokacin TSAFA Ya Fara</string>
-    <string name="notification_stop_title">Lokacin TSAYA Ya Fara</string>
     <string name="language">Harshe</string>
     <string name="search_language">Nemo harshe</string>
     <string name="clear_search">Share bincike</string>
@@ -49,10 +43,6 @@
     <string name="red_slider">Latsa sandar launin ja</string>
     <string name="green_slider">Latsa sandar launin kore</string>
     <string name="blue_slider">Latsa sandar launin shudi</string>
-    <string name="notification_permission_rationale_title">Bada izinin Sanarwa Lokacin Sauyin Lokaci</string>
-    <string name="notification_permission_rationale_message">Stop and Go zai sanar da kai lokacin da agogo ya canza tsakanin TSAFA da TSAYA. Wannan yana taimaka maka ka mai da hankali ba tare da kallo allo ba.</string>
-    <string name="enable">Bada izini</string>
-    <string name="not_now">Ba yanzu ba</string>
     <string name="error_go_duration_range">Lokacin "Tsafa" dole ne ya kasance tsakanin %1$d da %2$d sakan</string>
     <string name="error_stop_duration_range">Lokacin "Tsaya" dole ne ya kasance tsakanin %1$d da %2$d sakan</string>
     <string name="error_go_growth_range">Mai ninka lokacin "Tsafa" dole ne ya kasance tsakanin %1$.2f da %2$.2f</string>
@@ -88,6 +78,8 @@
     <string name="more_license">Lasisi</string>
     <string name="more_tip">Tallafa wa mai haɓakawa</string>
     <string name="more_open">Buɗe</string>
+    <string name="sound_enabled">Faɗakarwar sauti</string>
+    <string name="sound_migration_announcement">Stop and Go yanzu yana amfani da tsarin faɗakarwa don sanar da canjin matakai. Zaka iya saita shi a cikin saitunan.</string>
     <string name="more_rate">Ƙimar Aikace-aikace</string>
     <string name="more_share">Raba aikace-aikacen</string>
     <string name="more_share_text">Gwada Stop and Go - masu ƙididdigar tazara mai sauƙi. Kyauta, babu talla, ba tare da yanar gizo ba. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

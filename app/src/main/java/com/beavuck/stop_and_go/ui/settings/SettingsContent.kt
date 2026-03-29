@@ -63,6 +63,7 @@ fun SettingsContent(
     var stopColor by rememberSaveable { mutableStateOf(currentConfig.stopColor) }
     var goLabel by rememberSaveable { mutableStateOf(currentConfig.goLabel) }
     var stopLabel by rememberSaveable { mutableStateOf(currentConfig.stopLabel) }
+    var soundEnabled by rememberSaveable { mutableStateOf(currentConfig.soundEnabled) }
 
     var showGoColorPicker by rememberSaveable { mutableStateOf(false) }
     var showStopColorPicker by rememberSaveable { mutableStateOf(false) }
@@ -82,6 +83,7 @@ fun SettingsContent(
             .let { if (it) stopColor else currentConfig.stopColor },
         goLabel = goLabel.trim(),
         stopLabel = stopLabel.trim(),
+        soundEnabled = soundEnabled,
     )
 
     fun saveSettingsInternal(showToast: Boolean = false, finishAfter: Boolean = false) {
@@ -126,6 +128,7 @@ fun SettingsContent(
         stopColor,
         goLabel,
         stopLabel,
+        soundEnabled,
     ) {
         if (isInitialComposition) {
             isInitialComposition = false
@@ -204,6 +207,22 @@ fun SettingsContent(
                 .imePadding(),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = stringResource(R.string.sound_enabled),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Switch(
+                    checked = soundEnabled,
+                    onCheckedChange = { soundEnabled = it },
+                    modifier = Modifier.testTag("soundEnabledToggle")
+                )
+            }
+
             SettingsField(
                 label = stringResource(R.string.go_duration),
                 value = goDuration,
@@ -336,6 +355,7 @@ fun SettingsContent(
                 stopColor = resetConfig.stopColor
                 goLabel = resetConfig.goLabel
                 stopLabel = resetConfig.stopLabel
+                soundEnabled = resetConfig.soundEnabled
                 showMoreDialog = false
             },
         )

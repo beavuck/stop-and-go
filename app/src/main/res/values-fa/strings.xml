@@ -41,14 +41,6 @@
     <string name="ok">تایید</string>
     <string name="cancel">لغو</string>
 
-    <string name="notification_channel_go_name">مرحله شروع</string>
-    <string name="notification_channel_go_description">اعلان تغییرات مرحله شروع</string>
-
-    <string name="notification_channel_stop_name">مرحله توقف</string>
-    <string name="notification_channel_stop_description">اعلان تغییرات مرحله توقف</string>
-
-    <string name="notification_go_title">مرحله شروع آغاز شد</string>
-    <string name="notification_stop_title">مرحله توقف آغاز شد</string>
 
     <string name="language">زبان</string>
     <string name="search_language">جستجوی زبان</string>
@@ -74,17 +66,6 @@
     <string name="green_slider">نوار تنظیم رنگ سبز</string>
     <string name="blue_slider">نوار تنظیم رنگ آبی</string>
 
-    <string name="notification_permission_rationale_title">
-        فعال سازی اعلان تغییر مرحله
-    </string>
-
-    <string name="notification_permission_rationale_message">
-        Stop and Go می تواند هنگام تغییر بین مراحل شروع و توقف به شما اعلان ارسال کند.
-        این کار کمک می کند بدون نگاه مداوم به صفحه تمرکز خود را حفظ کنید.
-    </string>
-
-    <string name="enable">فعال سازی</string>
-    <string name="not_now">فعلا نه</string>
 
     <string name="error_go_duration_range">
         مدت زمان "شروع" باید بین %1$d و %2$d ثانیه باشد
@@ -155,6 +136,8 @@
     <string name="more_license">مجوز</string>
     <string name="more_tip">حمایت از توسعه‌دهنده</string>
     <string name="more_open">باز کردن</string>
+    <string name="sound_enabled">هشدارهای صوتی</string>
+    <string name="sound_migration_announcement">Stop and Go اکنون از سیستم هشدار برای اطلاع‌رسانی تغییرات فاز استفاده می‌کند. می‌توانید این را در تنظیمات پیکربندی کنید.</string>
     <string name="more_rate">امتیاز دادن به برنامه</string>
     <string name="more_share">اشتراک‌گذاری برنامه</string>
     <string name="more_share_text">Stop and Go را امتحان کنید - یک تایمر فاصله‌ای مینیمالیستی. رایگان، بدون تبلیغات، آفلاین. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

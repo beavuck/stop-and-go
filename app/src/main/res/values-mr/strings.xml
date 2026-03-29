@@ -42,14 +42,6 @@
     <string name="ok">ठीक आहे</string>
     <string name="cancel">रद्द करा</string>
 
-    <string name="notification_channel_go_name">सुरू टप्पा</string>
-    <string name="notification_channel_go_description">सुरू टप्प्यातील बदलांसाठी सूचना</string>
-
-    <string name="notification_channel_stop_name">थांबा टप्पा</string>
-    <string name="notification_channel_stop_description">थांबा टप्प्यातील बदलांसाठी सूचना</string>
-
-    <string name="notification_go_title">सुरू टप्पा सुरू झाला</string>
-    <string name="notification_stop_title">थांबा टप्पा सुरू झाला</string>
 
     <string name="language">भाषा</string>
     <string name="search_language">भाषा शोधा</string>
@@ -72,14 +64,6 @@
     <string name="green_slider">हिरवा रंग घटक स्लायडर</string>
     <string name="blue_slider">निळा रंग घटक स्लायडर</string>
 
-    <string name="notification_permission_rationale_title">टप्पा बदल सूचना सक्षम करा</string>
-    <string name="notification_permission_rationale_message">
-        Stop and Go टायमर सुरूं आणि थांबा टप्प्यांमध्ये बदल झाल्यावर तुम्हाला सूचित करू शकतो.
-        यामुळे स्क्रीन सतत पाहण्याची गरज न पडता लक्ष केंद्रित ठेवता येते.
-    </string>
-
-    <string name="enable">सक्षम करा</string>
-    <string name="not_now">आता नाही</string>
 
     <string name="error_go_duration_range">"सुरू" कालावधी %1$d ते %2$d सेकंदांदरम्यान असावा</string>
     <string name="error_stop_duration_range">"थांबा" कालावधी %1$d ते %2$d सेकंदांदरम्यान असावा</string>
@@ -132,6 +116,8 @@
     <string name="more_license">परवाना</string>
     <string name="more_tip">डेव्हलपरला समर्थन द्या</string>
     <string name="more_open">उघडा</string>
+    <string name="sound_enabled">ध्वनी अलर्ट</string>
+    <string name="sound_migration_announcement">Stop and Go आता फेज बदलांसाठी अलार्म सिस्टम वापरते. तुम्ही सेटिंग्जमध्ये हे कॉन्फिगर करू शकता.</string>
     <string name="more_rate">अ‍ॅप रेट करा</string>
     <string name="more_share">अॅप शेअर करा</string>
     <string name="more_share_text">Stop and Go वापरून पहा - मिनिमालिस्ट इंटरव्हल टायमर. मोफत, जाहिरात-मुक्त, ऑफलाइन. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

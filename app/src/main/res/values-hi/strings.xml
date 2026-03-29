@@ -27,12 +27,6 @@
     <string name="blue_label">नीला</string>
     <string name="ok">ओके</string>
     <string name="cancel">रद्द करें</string>
-    <string name="notification_channel_go_name">"चलें" चरण</string>
-    <string name="notification_channel_go_description">"चलें" चरण बदलने के लिए सूचनाएँ</string>
-    <string name="notification_channel_stop_name">"रुकें" चरण</string>
-    <string name="notification_channel_stop_description">"रुकें" चरण बदलने के लिए सूचनाएँ</string>
-    <string name="notification_go_title">"चलें" चरण शुरू</string>
-    <string name="notification_stop_title">"रुकें" चरण शुरू</string>
     <string name="language">भाषा</string>
     <string name="search_language">भाषा खोजें</string>
     <string name="clear_search">खोज साफ़ करें</string>
@@ -52,10 +46,6 @@
     <string name="green_slider">हरा रंग अवयव स्लाइडर</string>
     <string name="blue_slider">नीला रंग अवयव स्लाइडर</string>
 
-    <string name="notification_permission_rationale_title">चरण-बदल सूचना सक्षम करें</string>
-    <string name="notification_permission_rationale_message">Stop and Go आपको सूचित कर सकता है जब टाइमर "चलें" और "रुकें" के बीच बदलता है। इससे आपको स्क्रीन देखते रहने की ज़रूरत नहीं पड़ेगी।</string>
-    <string name="enable">सक्रिय करें</string>
-    <string name="not_now">अभी नहीं</string>
 
     <string name="error_go_duration_range">"चलें" अवधि %1$d से %2$d सेकंड के बीच होनी चाहिए</string>
     <string name="error_stop_duration_range">"रुकें" अवधि %1$d से %2$d सेकंड के बीच होनी चाहिए</string>
@@ -97,6 +87,8 @@
     <string name="more_license">लाइसेंस</string>
     <string name="more_tip">डेवलपर को सहायता करें</string>
     <string name="more_open">खोलें</string>
+    <string name="sound_enabled">ध्वनि अलर्ट</string>
+    <string name="sound_migration_announcement">Stop and Go अब चरण परिवर्तन के लिए अलार्म सिस्टम का उपयोग करता है। आप इसे सेटिंग्स में कॉन्फ़िगर कर सकते हैं।</string>
     <string name="more_rate">ऐप को रेट करें</string>
     <string name="more_share">ऐप शेयर करें</string>
     <string name="more_share_text">Stop and Go आज़माएं - एक मिनिमलिस्ट इंटरवल टाइमर। मुफ़्त, विज्ञापन-मुक्त, ऑफ़लाइन। https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

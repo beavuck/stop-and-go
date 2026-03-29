@@ -303,4 +303,13 @@ class ConfigRepositoryTest {
         assertEquals("Third", loadedConfig.goLabel)
         assertEquals("Fourth", loadedConfig.stopLabel)
     }
+
+    @Test
+    fun saveAndLoadConfig_soundEnabledFalse_persists() {
+        repository.saveConfig(TimerConfig(soundEnabled = false))
+
+        val loaded = repository.loadConfig()
+
+        assertEquals(false, loaded.soundEnabled)
+    }
 }

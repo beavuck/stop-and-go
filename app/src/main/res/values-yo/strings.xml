@@ -28,12 +28,6 @@
     <string name="ok">O dara</string>
     <string name="cancel">Fagilee</string>
 
-    <string name="notification_channel_go_name">Ipele LO</string>
-    <string name="notification_channel_go_description">Awọn ifitonileti fun ayipada ipele LO</string>
-    <string name="notification_channel_stop_name">Ipele DURO</string>
-    <string name="notification_channel_stop_description">Awọn ifitonileti fun ayipada ipele DURO</string>
-    <string name="notification_go_title">Ipele LO ti bere</string>
-    <string name="notification_stop_title">Ipele DURO ti bere</string>
 
     <string name="language">Ede</string>
     <string name="search_language">Wa ede</string>
@@ -54,10 +48,6 @@
     <string name="green_slider">Silaida paati awọ alawọ ewe</string>
     <string name="blue_slider">Silaida paati awọ buluu</string>
 
-    <string name="notification_permission_rationale_title">Mu Ifitonileti Ayipada Ipele ṣiṣẹ</string>
-    <string name="notification_permission_rationale_message">Stop and Go le sọ fun ọ nigbati aago ba yipada laarin LO ati DURO. Eyi ran ọ lọwọ lati wa ni idojukọ laisi wiwo iboju nigbagbogbo.</string>
-    <string name="enable">Mu ṣiṣẹ</string>
-    <string name="not_now">Kii se bayi</string>
 
     <string name="error_go_duration_range">Akoko "LO" gbodo wa laarin %1$d ati %2$d isekondi</string>
     <string name="error_stop_duration_range">Akoko "DURO" gbodo wa laarin %1$d ati %2$d isekondi</string>
@@ -99,6 +89,8 @@
     <string name="more_license">Aṣẹ</string>
     <string name="more_tip">Fun olupilẹṣẹ ni ẹbun</string>
     <string name="more_open">Ṣii</string>
+    <string name="sound_enabled">Awọn itaniji ohun</string>
+    <string name="sound_migration_announcement">Stop and Go n lo eto itaniji bayi lati sọ fun ọ nipa awọn iyipada ipele. O le ṣeto eyi ninu awọn eto.</string>
     <string name="more_rate">Ṣe idiyele app</string>
     <string name="more_share">Pin app</string>
     <string name="more_share_text">Wo Stop and Go - aago akoko minimalist. Ofe, lai ipolowo, lai ayelujara.</string>

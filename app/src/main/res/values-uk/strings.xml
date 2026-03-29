@@ -37,13 +37,6 @@
     <string name="ok">OK</string>
     <string name="cancel">Скасувати</string>
 
-    <string name="notification_channel_go_name">Фаза ЙТИ</string>
-    <string name="notification_channel_go_description">Сповіщення про початок фази ЙТИ</string>
-    <string name="notification_channel_stop_name">Фаза СТОП</string>
-    <string name="notification_channel_stop_description">Сповіщення про початок фази СТОП</string>
-
-    <string name="notification_go_title">Почалася фаза ЙТИ</string>
-    <string name="notification_stop_title">Почалася фаза СТОП</string>
 
     <string name="language">Мова</string>
     <string name="search_language">Пошук мови</string>
@@ -68,11 +61,6 @@
     <string name="green_slider">Повзунок зеленого компонента кольору</string>
     <string name="blue_slider">Повзунок синього компонента кольору</string>
 
-    <string name="notification_permission_rationale_title">Увімкнути сповіщення про зміну фаз</string>
-    <string name="notification_permission_rationale_message">Stop and Go може повідомляти тебе, коли таймер перемикається між фазами ЙТИ та СТОП. Це допомагає залишатися зосередженим без постійного перегляду екрана.</string>
-
-    <string name="enable">Увімкнути</string>
-    <string name="not_now">Не зараз</string>
 
     <string name="error_go_duration_range">Тривалість "ЙТИ" повинна бути між %1$d і %2$d секундами</string>
     <string name="error_stop_duration_range">Тривалість "СТОП" повинна бути між %1$d і %2$d секундами</string>
@@ -119,6 +107,8 @@
     <string name="more_tip">Підтримати розробника</string>
 
     <string name="more_open">Відкрити</string>
+    <string name="sound_enabled">Звукові сповіщення</string>
+    <string name="sound_migration_announcement">Stop and Go тепер використовує систему будильника для сповіщень про зміну фаз. Ви можете налаштувати це в параметрах.</string>
     <string name="more_rate">Оцінити програму</string>
     <string name="more_share">Поділитися додатком</string>
     <string name="more_share_text">Спробуй Stop and Go - мінімалістичний інтервальний таймер. Безкоштовно, без реклами, без мережі. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

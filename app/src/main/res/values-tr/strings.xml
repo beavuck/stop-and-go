@@ -27,12 +27,6 @@
     <string name="blue_label">Mavi</string>
     <string name="ok">Tamam</string>
     <string name="cancel">İptal</string>
-    <string name="notification_channel_go_name">Başla Fazı</string>
-    <string name="notification_channel_go_description">Başla fazı değişiklikleri için bildirimler</string>
-    <string name="notification_channel_stop_name">Dur Fazı</string>
-    <string name="notification_channel_stop_description">Dur fazı değişiklikleri için bildirimler</string>
-    <string name="notification_go_title">BAŞLA Fazı Başladı</string>
-    <string name="notification_stop_title">DUR Fazı Başladı</string>
     <string name="language">Dil</string>
     <string name="search_language">Dil ara</string>
     <string name="clear_search">Aramayı temizle</string>
@@ -49,10 +43,6 @@
     <string name="red_slider">Kırmızı renk bileşeni kaydırıcısı</string>
     <string name="green_slider">Yeşil renk bileşeni kaydırıcısı</string>
     <string name="blue_slider">Mavi renk bileşeni kaydırıcısı</string>
-    <string name="notification_permission_rationale_title">Faz Değişikliği Bildirimlerini Etkinleştir</string>
-    <string name="notification_permission_rationale_message">Stop and Go, zamanlayıcı BAŞLA ve DUR fazları arasında geçiş yaptığında sizi bilgilendirebilir. Ekranı sürekli izlemeden odaklanmanıza yardımcı olur.</string>
-    <string name="enable">Etkinleştir</string>
-    <string name="not_now">Şimdi Değil</string>
     <string name="error_go_duration_range">"Başla" süresi %1$d ile %2$d saniye arasında olmalıdır</string>
     <string name="error_stop_duration_range">"Dur" süresi %1$d ile %2$d saniye arasında olmalıdır</string>
     <string name="error_go_growth_range">"Başla" büyüme katsayısı %1$.2f ile %2$.2f arasında olmalıdır</string>
@@ -88,6 +78,8 @@
     <string name="more_license">Lisans</string>
     <string name="more_tip">Geliştiriciye destek ol</string>
     <string name="more_open">Aç</string>
+    <string name="sound_enabled">Ses uyarıları</string>
+    <string name="sound_migration_announcement">Stop and Go artık faz değişikliklerini bildirmek için alarm sistemini kullanıyor. Bunu ayarlardan yapılandırabilirsiniz.</string>
     <string name="more_rate">Uygulamayı değerlendir</string>
     <string name="more_share">Uygulamayı paylaş</string>
     <string name="more_share_text">Stop and Go\'yu deneyin - minimalist aralıklı zamanlayıcı. Ücretsiz, reklamsız, çevrimdışı. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>

@@ -40,14 +40,6 @@
     <string name="ok">OK</string>
     <string name="cancel">Batal</string>
 
-    <string name="notification_channel_go_name">Fase Jalan</string>
-    <string name="notification_channel_go_description">Notifikasi untuk perubahan fase Jalan</string>
-
-    <string name="notification_channel_stop_name">Fase Berhenti</string>
-    <string name="notification_channel_stop_description">Notifikasi untuk perubahan fase Berhenti</string>
-
-    <string name="notification_go_title">Fase JALAN Dimulai</string>
-    <string name="notification_stop_title">Fase BERHENTI Dimulai</string>
 
     <string name="language">Bahasa</string>
     <string name="search_language">Cari bahasa</string>
@@ -72,17 +64,6 @@
     <string name="green_slider">Slider komponen warna hijau</string>
     <string name="blue_slider">Slider komponen warna biru</string>
 
-    <string name="notification_permission_rationale_title">
-        Aktifkan Notifikasi Perubahan Fase
-    </string>
-
-    <string name="notification_permission_rationale_message">
-        Stop and Go dapat memberi tahu Anda saat timer berpindah antara fase JALAN dan BERHENTI.
-        Ini membantu Anda tetap fokus tanpa terus melihat layar.
-    </string>
-
-    <string name="enable">Aktifkan</string>
-    <string name="not_now">Nanti</string>
 
     <string name="error_go_duration_range">
         Durasi "Jalan" harus antara %1$d dan %2$d detik
@@ -154,6 +135,8 @@
     <string name="more_license">Lisensi</string>
     <string name="more_tip">Dukung pengembang</string>
     <string name="more_open">Buka</string>
+    <string name="sound_enabled">Peringatan suara</string>
+    <string name="sound_migration_announcement">Stop and Go kini menggunakan sistem alarm untuk memberi tahu perubahan fase. Anda dapat mengonfigurasinya di pengaturan.</string>
     <string name="more_rate">Beri nilai aplikasi</string>
     <string name="more_share">Bagikan aplikasi</string>
     <string name="more_share_text">Coba Stop and Go - pengatur waktu interval minimalis. Gratis, tanpa iklan, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
