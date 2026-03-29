@@ -99,12 +99,6 @@
     <string name="tutorial_multi_instruction">3回タップでリセット</string>
     <string name="tutorial_multi_success">リセットしました</string>
 
-    <string name="tutorial_background_title">バックグラウンドでも動作</string>
-    <string name="tutorial_background_description">
-        アプリを閉じてもタイマーは動作します。
-        フェーズ切替時に通知が届きます。
-    </string>
-
     <string name="tutorial_creative_title">使用例</string>
     <string name="tutorial_creative_description">例えばこんな用途：</string>
     <string name="tutorial_use_chess">チェスクロック</string>

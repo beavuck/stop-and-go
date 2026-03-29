@@ -6,6 +6,7 @@ import android.content.ContextWrapper
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.animation.*
 import androidx.compose.foundation.BorderStroke
@@ -31,6 +32,8 @@ import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
 import com.google.android.play.core.review.ReviewManagerFactory
 
+private const val TAG = "MoreDialog"
+
 @Composable
 fun MoreDialog(
     configRepository: ConfigRepository,
@@ -50,7 +53,6 @@ fun MoreDialog(
             ) {
                 ShareButton()
 
-                // TODO hide the rate button if user already rated the app
                 RateButton()
 
                 HorizontalDivider(
@@ -140,13 +142,12 @@ private fun RateButton() {
 
     Button(
         onClick = {
-            // FIXME only works in english (default)
             val activity = context.findActivity() ?: return@Button
             val manager = ReviewManagerFactory.create(context)
             manager.requestReviewFlow().addOnSuccessListener { reviewInfo ->
                 manager.launchReviewFlow(activity, reviewInfo)
             }.addOnFailureListener { e ->
-                // TODO give e.errorCode
+                Log.e(TAG, "Failed to launch review flow", e)
                 Toast.makeText(context, R.string.more_rate_failed, Toast.LENGTH_SHORT).show()
             }
         },

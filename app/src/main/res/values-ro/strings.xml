@@ -103,11 +103,6 @@
     <string name="tutorial_multi_instruction">Apăsare triplă pentru resetare</string>
     <string name="tutorial_multi_success">Resetat</string>
 
-    <string name="tutorial_background_title">Cronometrul continuă</string>
-    <string name="tutorial_background_description">
-        Cronometrul continuă chiar și când închizi aplicația. Vei primi notificări când fazele se schimbă.
-    </string>
-
     <string name="tutorial_creative_title">Exemple</string>
     <string name="tutorial_creative_description">
         Câteva moduri în care este folosită aplicația:

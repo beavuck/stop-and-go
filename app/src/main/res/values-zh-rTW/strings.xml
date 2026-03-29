@@ -82,11 +82,6 @@
     <string name="tutorial_multi_instruction">連續點擊三次以重設</string>
     <string name="tutorial_multi_success">已重設</string>
 
-    <string name="tutorial_background_title">背景持續運作</string>
-    <string name="tutorial_background_description">
-        即使關閉 App，計時器仍會繼續運作，並在階段切換時發送通知。
-    </string>
-
     <string name="tutorial_creative_title">使用範例</string>
     <string name="tutorial_creative_description">常見用途包括：</string>
     <string name="tutorial_use_chess">西洋棋計時器</string>

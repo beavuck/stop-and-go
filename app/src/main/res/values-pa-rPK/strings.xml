@@ -102,12 +102,6 @@
     <string name="tutorial_multi_instruction">تین واری ٹیپ—ری سیٹ</string>
     <string name="tutorial_multi_success">ری سیٹ ہوگیا</string>
 
-    <string name="tutorial_background_title">بیک گراؤنڈ وچ وی چلدا اے</string>
-    <string name="tutorial_background_description">
-        ایپ بند وی کرو، ٹائمر چلدا رہندا اے۔
-        فیز بدلنے تے نوٹیفکیشن ملے گی۔
-    </string>
-
     <string name="tutorial_creative_title">مثالاں</string>
     <string name="tutorial_creative_description">لوگ اینہوں کیہ لئی ورتدے نیں:</string>
     <string name="tutorial_use_chess">شطرنج ٹائمر</string>

@@ -103,8 +103,6 @@
     <string name="tutorial_long_success">That opens settings</string>
     <string name="tutorial_multi_instruction">Triple-tap to reset</string>
     <string name="tutorial_multi_success">Reset</string>
-    <string name="tutorial_background_title">Timer Keeps Running</string>
-    <string name="tutorial_background_description">The timer continues even when you close the app. You\'ll receive notifications when phases change.</string>
     <string name="tutorial_creative_title">Examples</string>
     <string name="tutorial_creative_description">Some things people use this for:</string>
     <string name="tutorial_use_chess">Chess clock</string>

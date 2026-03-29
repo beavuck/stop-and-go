@@ -88,9 +88,6 @@
     <string name="tutorial_multi_instruction">Потрійний дотик - скидання</string>
     <string name="tutorial_multi_success">Скинуто</string>
 
-    <string name="tutorial_background_title">Таймер працює у фоні</string>
-    <string name="tutorial_background_description">Таймер продовжує працювати, навіть якщо ти закриєш додаток. Ти отримуватимеш сповіщення про зміну фаз.</string>
-
     <string name="tutorial_creative_title">Приклади</string>
     <string name="tutorial_creative_description">Ось для чого люди це використовують:</string>
 

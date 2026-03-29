@@ -90,9 +90,6 @@
     <string name="tutorial_multi_instruction">রিসেট করতে তিনবার ট্যাপ করুন</string>
     <string name="tutorial_multi_success">রিসেট হয়েছে</string>
 
-    <string name="tutorial_background_title">টাইমার চলতেই থাকে</string>
-    <string name="tutorial_background_description">অ্যাপ বন্ধ করলেও টাইমার চলতে থাকে। ধাপ পরিবর্তনের সময় নোটিফিকেশন পাবেন।</string>
-
     <string name="tutorial_creative_title">উদাহরণ</string>
     <string name="tutorial_creative_description">অনেকে এটি ব্যবহার করেন:</string>
     <string name="tutorial_use_chess">চেস ঘড়ি</string>

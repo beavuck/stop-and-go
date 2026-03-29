@@ -63,8 +63,6 @@
     <string name="tutorial_long_success">Le impostazioni si aprono</string>
     <string name="tutorial_multi_instruction">Triplo tap per reimpostare</string>
     <string name="tutorial_multi_success">Reimpostato</string>
-    <string name="tutorial_background_title">Il timer continua a funzionare</string>
-    <string name="tutorial_background_description">Il timer continua anche quando chiudi l\'app. Riceverai notifiche quando cambiano le fasi.</string>
     <string name="tutorial_creative_title">Esempi</string>
     <string name="tutorial_creative_description">Alcune cose per cui le persone lo usano:</string>
     <string name="tutorial_use_chess">Orologio da scacchi</string>

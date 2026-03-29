@@ -90,9 +90,6 @@
     <string name="tutorial_multi_instruction">Toque três vezes para repor</string>
     <string name="tutorial_multi_success">Reposto</string>
 
-    <string name="tutorial_background_title">O temporizador continua ativo</string>
-    <string name="tutorial_background_description">O temporizador continua mesmo ao fechar a app. Receberá notificações quando as fases mudarem.</string>
-
     <string name="tutorial_creative_title">Exemplos</string>
     <string name="tutorial_creative_description">Alguns usos comuns:</string>
     <string name="tutorial_use_chess">Relógio de xadrez</string>

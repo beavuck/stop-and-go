@@ -61,8 +61,6 @@
     <string name="tutorial_long_success">打开设置</string>
     <string name="tutorial_multi_instruction">连点三次重置</string>
     <string name="tutorial_multi_success">已重置</string>
-    <string name="tutorial_background_title">计时器保持运行</string>
-    <string name="tutorial_background_description">即使您关闭应用程序，计时器也会继续运行。当阶段更改时，您将收到通知。</string>
     <string name="tutorial_creative_title">示例</string>
     <string name="tutorial_creative_description">一些用途：</string>
     <string name="tutorial_use_chess">国际象棋时钟</string>

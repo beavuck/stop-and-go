@@ -63,8 +63,6 @@
     <string name="tutorial_long_success">Ouvre les paramètres</string>
     <string name="tutorial_multi_instruction">Triple appui pour réinitialiser</string>
     <string name="tutorial_multi_success">Réinitialisé</string>
-    <string name="tutorial_background_title">Le minuteur continue de fonctionner</string>
-    <string name="tutorial_background_description">Le minuteur continue même lorsque vous fermez l\'application. Vous recevrez des notifications lorsque les phases changent.</string>
     <string name="tutorial_creative_title">Exemples</string>
     <string name="tutorial_creative_description">Quelques usages :</string>
     <string name="tutorial_use_chess">Horloge d\'échecs</string>

@@ -109,11 +109,6 @@
     <string name="tutorial_multi_instruction">Dreimal tippen zum Zuruecksetzen</string>
     <string name="tutorial_multi_success">Zurueckgesetzt</string>
 
-    <string name="tutorial_background_title">Timer laeuft weiter</string>
-    <string name="tutorial_background_description">
-        Der Timer laeuft weiter, auch wenn du die App schließt. Du erhaeltst Benachrichtigungen bei Phasenwechseln.
-    </string>
-
     <string name="tutorial_creative_title">Beispiele</string>
     <string name="tutorial_creative_description">Einige Einsatzmoeglichkeiten:</string>
 

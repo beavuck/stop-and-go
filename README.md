@@ -42,7 +42,7 @@ The app walks you through setup and gestures on first launch.
 
 - Custom colors, labels, and durations
 - Growth multipliers (durations can change each cycle)
-- Phase change notifications
+- Phase change alerts
 - Multilingual (dozens of the most widely-spoken languages -- corrections and additions welcome)
 
 ## 🔒 Privacy

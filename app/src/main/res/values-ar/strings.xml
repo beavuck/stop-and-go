@@ -66,8 +66,6 @@
     <string name="tutorial_long_success">يفتح الإعدادات</string>
     <string name="tutorial_multi_instruction">انقر ثلاث مرات لإعادة التعيين</string>
     <string name="tutorial_multi_success">تمت إعادة التعيين</string>
-    <string name="tutorial_background_title">المؤقت يستمر في العمل</string>
-    <string name="tutorial_background_description">يستمر المؤقت حتى عند إغلاق التطبيق. ستتلقى إشعارات عند تغير المراحل.</string>
     <string name="tutorial_creative_title">أمثلة</string>
     <string name="tutorial_creative_description">بعض الاستخدامات:</string>
     <string name="tutorial_use_chess">ساعة شطرنج</string>

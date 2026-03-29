@@ -104,11 +104,6 @@
     <string name="tutorial_multi_instruction">Тройное касание — сброс</string>
     <string name="tutorial_multi_success">Сброшено</string>
 
-    <string name="tutorial_background_title">Таймер продолжает работать</string>
-    <string name="tutorial_background_description">
-        Таймер работает даже при закрытии приложения. Вы получите уведомления при смене фаз.
-    </string>
-
     <string name="tutorial_creative_title">Примеры</string>
     <string name="tutorial_creative_description">Для чего используют:</string>
     <string name="tutorial_use_chess">Шахматный таймер</string>

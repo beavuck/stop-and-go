@@ -94,12 +94,6 @@
     <string name="tutorial_multi_instruction">रीसेट करण्यासाठी तीन वेळा टॅप करा</string>
     <string name="tutorial_multi_success">रीसेट</string>
 
-    <string name="tutorial_background_title">टायमर सुरूच राहतो</string>
-    <string name="tutorial_background_description">
-        अ‍ॅप बंद केल्यानंतरही टायमर चालू राहतो.
-        टप्पे बदलल्यावर तुम्हाला सूचना मिळतील.
-    </string>
-
     <string name="tutorial_creative_title">उदाहरणे</string>
     <string name="tutorial_creative_description">लोक हे कशासाठी वापरतात:</string>
 

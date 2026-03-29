@@ -114,12 +114,6 @@
     <string name="tutorial_multi_instruction">سه بار لمس برای بازنشانی</string>
     <string name="tutorial_multi_success">بازنشانی شد</string>
 
-    <string name="tutorial_background_title">تایمر ادامه دارد</string>
-    <string name="tutorial_background_description">
-        تایمر حتی پس از بستن برنامه نیز ادامه می یابد.
-        هنگام تغییر مراحل اعلان دریافت خواهید کرد.
-    </string>
-
     <string name="tutorial_creative_title">مثال ها</string>
     <string name="tutorial_creative_description">برخی کاربردهای رایج:</string>
 

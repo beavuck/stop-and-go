@@ -72,9 +72,6 @@
     <string name="tutorial_multi_instruction">Fọwọkan lẹẹta mẹta lati tun bere</string>
     <string name="tutorial_multi_success">Tun bere</string>
 
-    <string name="tutorial_background_title">Aago n tẹsiwaju</string>
-    <string name="tutorial_background_description">Aago maa n ṣiṣẹ paapaa nigbati o ba pa app naa. Iwọ yoo gba ifitonileti nigbati ipele ba yipada.</string>
-
     <string name="tutorial_creative_title">Apeere</string>
     <string name="tutorial_creative_description">Diẹ ninu ohun ti eniyan n lo fun:</string>
     <string name="tutorial_use_chess">Aago chess</string>

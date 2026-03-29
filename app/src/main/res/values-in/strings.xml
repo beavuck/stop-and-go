@@ -111,12 +111,6 @@
     <string name="tutorial_multi_instruction">Ketuk tiga kali untuk mengatur ulang</string>
     <string name="tutorial_multi_success">Diatur ulang</string>
 
-    <string name="tutorial_background_title">Timer Tetap Berjalan</string>
-    <string name="tutorial_background_description">
-        Timer tetap berjalan meskipun Anda menutup aplikasi.
-        Anda akan menerima notifikasi saat fase berubah.
-    </string>
-
     <string name="tutorial_creative_title">Contoh</string>
     <string name="tutorial_creative_description">
         Beberapa hal yang orang gunakan aplikasi ini untuk:

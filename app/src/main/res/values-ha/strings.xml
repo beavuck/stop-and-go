@@ -62,8 +62,6 @@
     <string name="tutorial_long_success">Wannan yana buɗe saituna</string>
     <string name="tutorial_multi_instruction">Taɓa sau uku don sake saita</string>
     <string name="tutorial_multi_success">An sake saita</string>
-    <string name="tutorial_background_title">Agogo Yana Ci Gaba</string>
-    <string name="tutorial_background_description">Agogo zai ci gaba koda ka rufe app. Za ka sami sanarwa lokacin da lokuta suka canza.</string>
     <string name="tutorial_creative_title">Misalai</string>
     <string name="tutorial_creative_description">Wasu abubuwan da mutane ke amfani da wannan don su:</string>
     <string name="tutorial_use_chess">Agogon catur</string>

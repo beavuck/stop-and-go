@@ -112,12 +112,6 @@
     <string name="tutorial_multi_instruction">세 번 탭하여 초기화</string>
     <string name="tutorial_multi_success">초기화됨</string>
 
-    <string name="tutorial_background_title">타이머는 계속 실행됩니다</string>
-    <string name="tutorial_background_description">
-        앱을 닫아도 타이머는 계속 실행됩니다.
-        단계가 바뀌면 알림을 받게 됩니다.
-    </string>
-
     <string name="tutorial_creative_title">사용 예시</string>
     <string name="tutorial_creative_description">이런 용도로 사용됩니다:</string>
 

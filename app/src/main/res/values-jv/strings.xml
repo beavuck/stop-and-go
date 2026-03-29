@@ -61,8 +61,6 @@
     <string name="tutorial_long_success">Iki mbukak setelan</string>
     <string name="tutorial_multi_instruction">Triple-tap kanggo reset</string>
     <string name="tutorial_multi_success">Di-reset</string>
-    <string name="tutorial_background_title">Timer Tetep Mlaku</string>
-    <string name="tutorial_background_description">Timer tetep mlaku sanajan sampeyan nutup aplikasi. Sampeyan bakal nampa notifikasi nalika fase ganti.</string>
     <string name="tutorial_creative_title">Conto Panggunaan</string>
     <string name="tutorial_creative_description">Sawetara panggunaan sing umum:</string>
     <string name="tutorial_use_chess">Jam catur</string>

@@ -63,8 +63,6 @@
     <string name="tutorial_long_success">Abre configuración</string>
     <string name="tutorial_multi_instruction">Triple toque para reiniciar</string>
     <string name="tutorial_multi_success">Reiniciado</string>
-    <string name="tutorial_background_title">El temporizador sigue funcionando</string>
-    <string name="tutorial_background_description">El temporizador continúa incluso cuando cierras la aplicación. Recibirás notificaciones cuando cambien las fases.</string>
     <string name="tutorial_creative_title">Ejemplos</string>
     <string name="tutorial_creative_description">Algunos usos:</string>
     <string name="tutorial_use_chess">Reloj de ajedrez</string>

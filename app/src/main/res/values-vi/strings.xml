@@ -61,8 +61,6 @@
     <string name="tutorial_long_success">Mở cài đặt</string>
     <string name="tutorial_multi_instruction">Chạm ba lần để đặt lại</string>
     <string name="tutorial_multi_success">Đã đặt lại</string>
-    <string name="tutorial_background_title">Đồng hồ tiếp tục chạy</string>
-    <string name="tutorial_background_description">Đồng hồ vẫn chạy ngay cả khi bạn đóng ứng dụng. Bạn sẽ nhận thông báo khi các giai đoạn thay đổi.</string>
     <string name="tutorial_creative_title">Ví dụ</string>
     <string name="tutorial_creative_description">Một số cách người dùng thường sử dụng:</string>
     <string name="tutorial_use_chess">Đồng hồ cờ vua</string>

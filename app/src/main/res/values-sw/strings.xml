@@ -73,9 +73,6 @@
     <string name="tutorial_multi_instruction">Gusa mara tatu kuweka upya</string>
     <string name="tutorial_multi_success">Imewekwa upya</string>
 
-    <string name="tutorial_background_title">Kipima Muda Kinaendelea</string>
-    <string name="tutorial_background_description">Kipima muda kinaendelea hata ukifunga programu. Utapokea arifa awamu zinapobadilika.</string>
-
     <string name="tutorial_creative_title">Mifano</string>
     <string name="tutorial_creative_description">Baadhi ya matumizi ya programu hii:</string>
     <string name="tutorial_use_chess">Saa ya chess</string>

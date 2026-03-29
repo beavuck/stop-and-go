@@ -64,8 +64,6 @@
     <string name="tutorial_long_success">To otwiera ustawienia</string>
     <string name="tutorial_multi_instruction">Potrójne dotknięcie, aby zresetować</string>
     <string name="tutorial_multi_success">Zresetowano</string>
-    <string name="tutorial_background_title">Licznik działa w tle</string>
-    <string name="tutorial_background_description">Licznik czasu kontynuuje pracę nawet po zamknięciu aplikacji. Otrzymasz powiadomienia, gdy fazy się zmienią.</string>
     <string name="tutorial_creative_title">Przykłady</string>
     <string name="tutorial_creative_description">Oto kilka zastosowań tej aplikacji:</string>
     <string name="tutorial_use_chess">Zegar szachowy</string>

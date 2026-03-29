@@ -108,11 +108,6 @@
     <string name="tutorial_multi_instruction">மீட்டமைக்க மூன்று முறை தட்டவும்</string>
     <string name="tutorial_multi_success">மீட்டமைக்கப்பட்டது</string>
 
-    <string name="tutorial_background_title">டைமர் தொடர்ந்து இயங்கும்</string>
-    <string name="tutorial_background_description">
-        செயலியை மூடினாலும் டைமர் இயங்கும். கட்டங்கள் மாறும்போது அறிவிப்புகள் வரும்.
-    </string>
-
     <string name="tutorial_creative_title">உதாரணங்கள்</string>
     <string name="tutorial_creative_description">
         மக்கள் இதை பயன்படுத்தும் சில வழிகள்:

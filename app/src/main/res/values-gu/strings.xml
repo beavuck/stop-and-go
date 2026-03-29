@@ -62,8 +62,6 @@
     <string name="tutorial_long_success">સેટિંગ્સ ખૂલે છે</string>
     <string name="tutorial_multi_instruction">રીસેટ માટે ત્રિપલ-ટૅપ કરો</string>
     <string name="tutorial_multi_success">રીસેટ થયો</string>
-    <string name="tutorial_background_title">ટાઈમર ચાલુ રહે છે</string>
-    <string name="tutorial_background_description">જ્યારે તમે એપ બંધ કરો ત્યારે પણ ટાઈમર ચાલુ રહે છે. ફેઝ બદલાય ત્યારે સૂચનાઓ મળશે.</string>
     <string name="tutorial_creative_title">ઉદાહરણો</string>
     <string name="tutorial_creative_description">લોકો આ માટે શું ઉપયોગ કરે છે:</string>
     <string name="tutorial_use_chess">ચેસ ક્લોક</string>

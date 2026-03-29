@@ -70,9 +70,6 @@
     <string name="tutorial_multi_instruction">रीसेट के लिए तीन बार टैप करें</string>
     <string name="tutorial_multi_success">रीसेट किया गया</string>
 
-    <string name="tutorial_background_title">टाइमर चलता रहता है</string>
-    <string name="tutorial_background_description">ऐप बंद करने पर भी टाइमर चलता रहता है। चरण बदलने पर सूचनाएँ मिलेंगी।</string>
-
     <string name="tutorial_creative_title">उदाहरण</string>
     <string name="tutorial_creative_description">लोग इसका उपयोग इन चीज़ों के लिए करते हैं:</string>
     <string name="tutorial_use_chess">शतरंज घड़ी</string>

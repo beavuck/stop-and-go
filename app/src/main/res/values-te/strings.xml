@@ -113,12 +113,6 @@
     <string name="tutorial_multi_instruction">రీసెట్ చేయడానికి మూడు సార్లు ట్యాప్ చేయండి</string>
     <string name="tutorial_multi_success">రీసెట్ అయింది</string>
 
-    <string name="tutorial_background_title">టైమర్ కొనసాగుతూనే ఉంటుంది</string>
-    <string name="tutorial_background_description">
-        యాప్ మూసినప్పటికీ టైమర్ కొనసాగుతుంది.
-        దశ మారినప్పుడు మీకు నోటిఫికేషన్లు వస్తాయి.
-    </string>
-
     <string name="tutorial_creative_title">ఉదాహరణలు</string>
     <string name="tutorial_creative_description">
         ప్రజలు దీనిని ఉపయోగించే కొన్ని విధాలు:

@@ -65,8 +65,6 @@
     <string name="tutorial_long_success">Isso abre as configurações</string>
     <string name="tutorial_multi_instruction">Toque três vezes para redefinir</string>
     <string name="tutorial_multi_success">Redefinido</string>
-    <string name="tutorial_background_title">O temporizador continua</string>
-    <string name="tutorial_background_description">O temporizador continua mesmo quando você fecha o aplicativo. Você receberá notificações quando as fases mudarem.</string>
     <string name="tutorial_creative_title">Exemplos</string>
     <string name="tutorial_creative_description">Algumas formas de uso:</string>
     <string name="tutorial_use_chess">Relógio de xadrez</string>

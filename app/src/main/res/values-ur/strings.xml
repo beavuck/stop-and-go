@@ -92,12 +92,6 @@
     <string name="tutorial_multi_instruction">دوبارہ شروع کرنے کے لئے تین بار ٹیپ کریں</string>
     <string name="tutorial_multi_success">دوبارہ شروع</string>
 
-    <string name="tutorial_background_title">ٹائمر چلتا رہتا ہے</string>
-    <string name="tutorial_background_description">
-        ایپ بند کرنے کے بعد بھی ٹائمر چلتا رہتا ہے۔
-        مرحلے بدلنے پر آپ کو اطلاعات ملیں گی۔
-    </string>
-
     <string name="tutorial_creative_title">مثالیں</string>
     <string name="tutorial_creative_description">لوگ اسے ان کاموں کے لئے استعمال کرتے ہیں:</string>
 
