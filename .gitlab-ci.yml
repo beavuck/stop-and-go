@@ -10,9 +10,8 @@ stages:
 ########~~~~-- Variables & defaults --~~~~########
 
 variables:
-  GITLAB_CI_VERSION: "1.91.0"
-  FABERNOVEL_ANDROID_IMAGE: "api-35-v1.11.0"
-  ALVRME_ANDROID_IMAGE: "android-35-jdk21"
+  FABERNOVEL_ANDROID_IMAGE: "api-36-v1.11.0"
+  ALVRME_ANDROID_IMAGE: "android-36-jdk21"
   IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/alvrme/alpine-android:${ALVRME_ANDROID_IMAGE}"
   JACOCO_PATH: "app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
 
@@ -95,6 +94,7 @@ increment_version:
     - gem install bundler -N
     - bundle config set --local path 'vendor/bundle'
     - bundle install
+    - GITLAB_CI_VERSION=$(curl --silent "https://gitlab.com/api/v4/projects/34675721/releases?per_page=1" | jq -r '.[0].tag_name' | sed 's/^v//')
     - wget "https://gitlab.com/gitlab-org/cli/-/releases/v${GITLAB_CI_VERSION}/downloads/glab_${GITLAB_CI_VERSION}_linux_amd64.deb"
     - apt install -y ./glab_${GITLAB_CI_VERSION}_linux_amd64.deb
     - glab auth login --hostname $CI_SERVER_FQDN --job-token $CI_JOB_TOKEN
