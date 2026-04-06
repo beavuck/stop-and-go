@@ -110,18 +110,18 @@
     <string name="tutorial_use_hiit">HIIT وقفے</string>
     <string name="tutorial_use_custom">جہڑا مرضی استعمال</string>
 
-    <string name="more">ਹੋਰ</string>
-    <string name="more_about">ਬਾਰੇ</string>
-    <string name="more_privacy">ਨਿੱਜਤਾ</string>
-    <string name="more_license">ਲਾਇਸੈਂਸ</string>
-    <string name="more_tip">ਡਿਵੈਲਪਰ ਦਾ ਸਮਰਥਨ ਕਰੋ</string>
-    <string name="more_open">ਖੋਲ੍ਹੋ</string>
-    <string name="sound_enabled">ਆਵਾਜ਼ ਚੇਤਾਵਨੀਆਂ</string>
-    <string name="sound_migration_announcement">Stop and Go ਹੁਣ ਪੜਾਅ ਬਦਲਾਵਾਂ ਲਈ ਅਲਾਰਮ ਸਿਸਟਮ ਵਰਤਦਾ ਹੈ। ਤੁਸੀਂ ਇਸਨੂੰ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਸੰਰਚਿਤ ਕਰ ਸਕਦੇ ਹੋ।</string>
-    <string name="more_rate">ਐਪ ਨੂੰ ਰੇਟ ਕਰੋ</string>
-    <string name="more_share">ਐਪ ਸਾਂਝੀ ਕਰੋ</string>
-    <string name="more_share_text">Stop and Go ਅਜ਼ਮਾਓ - ਇੱਕ ਘੱਟੋ-ਘੱਟ ਅੰਤਰਾਲ ਟਾਈਮਰ। ਮੁਫ਼ਤ, ਇਸ਼ਤਿਹਾਰ-ਮੁਕਤ, ਔਫ਼ਲਾਈਨ। https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
-    <string name="more_reset_settings">ਡਿਫੌਲਟ ਸੈਟਿੰਗਾਂ ਤੇ ਰੀਸੈੱਟ ਕਰੋ</string>
-    <string name="more_reset_success">ਸੈਟਿੰਗਾਂ ਨੂੰ ਡਿਫੌਲਟ ਮੁੱਲਾਂ ਤੇ ਰੀਸੈੱਟ ਕੀਤਾ ਗਿਆ</string>
+    <string name="more">ہور</string>
+    <string name="more_about">بارے</string>
+    <string name="more_privacy">رازداری</string>
+    <string name="more_license">لائسنس</string>
+    <string name="more_tip">ڈویلپر نوں سپورٹ کرو</string>
+    <string name="more_open">کھولو</string>
+    <string name="sound_enabled">آواز الرٹ</string>
+    <string name="sound_migration_announcement">Stop and Go ہن فیز بدلاؤ واسطے الارم سسٹم ورتدا اے۔ تسیں اینوں سیٹنگز وچ ترتیب دے سکدے اوہ۔</string>
+    <string name="more_rate">ایپ نوں ریٹ کرو</string>
+    <string name="more_share">ایپ شیئر کرو</string>
+    <string name="more_share_text">Stop and Go آزماؤ - اک سادہ interval timer۔ مفت، اشتہار-مکت، آف لائن۔ https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
+    <string name="more_reset_settings">ڈیفالٹ سیٹنگز تے ری سیٹ کرو</string>
+    <string name="more_reset_success">سیٹنگز ڈیفالٹ قیمتاں تے ری سیٹ ہوگئیاں</string>
     <string name="more_rate_failed">ایپ دی ریٹنگ ناکام ہو گئی: ممکن ہے پلے اسٹور نہ لبھیا گیا ہو</string>
 </resources>

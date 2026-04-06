@@ -47,7 +47,7 @@
     <string name="language_hindi" translatable="false">हिन्दी</string>
     <string name="language_japanese" translatable="false">日本語</string>
     <string name="language_javanese" translatable="false">Basa Jawa</string>
-    <string name="language_punjabi" translatable="false">ਪੰਜਾਬੀ</string>
+    <string name="language_western_punjabi" translatable="false">پنجابی (مغربی)</string>
     <string name="language_brazilian_portuguese" translatable="false">Português brasileiro</string>
     <string name="language_portuguese" translatable="false">Português</string>
     <string name="language_russian" translatable="false">Русский</string>
@@ -72,6 +72,18 @@
     <string name="language_yoruba" translatable="false">Yorùbá</string>
     <string name="language_chinese_taiwan" translatable="false">繁體中文 (台灣)</string>
     <string name="language_romanian" translatable="false">Română</string>
+    <string name="language_egyptian_arabic" translatable="false">مصرى</string>
+    <string name="language_algerian_arabic" translatable="false">الجزائرى</string>
+    <string name="language_lebanese_arabic" translatable="false">لبنانى</string>
+    <string name="language_sudanese_arabic" translatable="false">السودانى</string>
+    <string name="language_nigerian_pidgin" translatable="false">Naija Pidgin</string>
+    <string name="language_tagalog" translatable="false">Tagalog</string>
+    <string name="language_amharic" translatable="false">አማርኛ</string>
+    <string name="language_thai" translatable="false">ไทย</string>
+    <string name="language_kannada" translatable="false">ಕನ್ನಡ</string>
+    <string name="language_bhojpuri" translatable="false">भोजपुरी</string>
+    <string name="language_hungarian" translatable="false">Magyar</string>
+    <string name="language_mexican_spanish" translatable="false">Español mexicano</string>
     <string name="timer_screen">Timer screen. Single tap to pause or resume. Long press to open settings.</string>
     <string name="timer_paused">Timer paused</string>
     <string name="timer_resumed">Timer resumed</string>
