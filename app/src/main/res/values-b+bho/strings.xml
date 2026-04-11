@@ -32,6 +32,10 @@
     <string name="clear_search">खोज मिटावऽ</string>
     <string name="no_languages_found">कवनो भाषा ना मिलल</string>
     <string name="timer_screen">टाइमर स्क्रीन। एक बेर दबाव त रुकी/चलि। लंबा दबाव त सेटिंग खुली।</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">टाइमर रुकल बा</string>
     <string name="timer_resumed">टाइमर चलि गइल</string>
     <string name="pause">रुकऽ</string>

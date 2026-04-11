@@ -48,6 +48,10 @@
         டைமர் திரை. ஒற்றை தட்டுதல் இடைநிறுத்த அல்லது தொடர. நீண்ட அழுத்தம் அமைப்புகளை திறக்க.
     </string>
 
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">டைமர் இடைநிறுத்தப்பட்டது</string>
     <string name="timer_resumed">டைமர் தொடரப்பட்டது</string>
     <string name="pause">இடைநிறுத்து</string>

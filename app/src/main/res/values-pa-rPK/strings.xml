@@ -46,6 +46,10 @@
         ٹائمر سکرین۔ ایک ٹیپ نال روک/چلاؤ۔ لانگ پریس نال سیٹنگز کھل دیاں۔
     </string>
 
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">ٹائمر رکا ہویا اے</string>
     <string name="timer_resumed">ٹائمر دوبارہ چل پیا</string>
 

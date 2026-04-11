@@ -32,6 +32,10 @@
     <string name="clear_search">Xóa tìm kiếm</string>
     <string name="no_languages_found">Không tìm thấy ngôn ngữ</string>
     <string name="timer_screen">Màn hình đồng hồ. Chạm một lần để tạm dừng hoặc tiếp tục. Nhấn giữ để mở cài đặt.</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">Đồng hồ tạm dừng</string>
     <string name="timer_resumed">Đồng hồ tiếp tục</string>
     <string name="pause">Tạm dừng</string>

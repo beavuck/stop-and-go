@@ -32,6 +32,10 @@
     <string name="clear_search">Borrar búsqueda</string>
     <string name="no_languages_found">No hay idiomas</string>
     <string name="timer_screen">Pantalla del temporizador. Toca una vez para pausar o continuar. Mantén presionado para abrir la configuración.</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">Temporizador pausado</string>
     <string name="timer_resumed">Temporizador reanudado</string>
     <string name="pause">Pausar</string>

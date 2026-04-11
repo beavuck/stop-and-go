@@ -3,7 +3,9 @@
     <string name="app_name" translatable="false">Stop and Go</string>
     <string name="phase_go">GO</string>
     <string name="phase_stop">STOP</string>
-    <string name="timer_seconds" translatable="false">%d</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
     <string name="cycle_count">Cycle: %d</string>
     <string name="go_duration">Go Duration (seconds)</string>
     <string name="go_duration_hint" translatable="false">1–3600</string>

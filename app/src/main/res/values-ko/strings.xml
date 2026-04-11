@@ -51,6 +51,10 @@
         타이머 화면입니다. 한 번 탭하면 일시정지 또는 재개됩니다. 길게 누르면 설정이 열립니다.
     </string>
 
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">타이머 일시정지됨</string>
     <string name="timer_resumed">타이머 재개됨</string>
 

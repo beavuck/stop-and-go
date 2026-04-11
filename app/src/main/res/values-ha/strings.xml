@@ -32,6 +32,10 @@
     <string name="clear_search">Share bincike</string>
     <string name="no_languages_found">Ba a sami harshe ba</string>
     <string name="timer_screen">Allon agogo. Taɓa sau ɗaya don dakatarwa ko ci gaba. Latsa dogon lokaci don buɗe saituna.</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">Agogo ya dakata</string>
     <string name="timer_resumed">Agogo ya ci gaba</string>
     <string name="pause">Dakatar</string>

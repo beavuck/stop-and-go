@@ -32,6 +32,10 @@
     <string name="clear_search">ಹುಡುಕಾಟ ತೆರವುಗೊಳಿಸಿ</string>
     <string name="no_languages_found">ಭಾಷೆ ಕಂಡುಬಂದಿಲ್ಲ</string>
     <string name="timer_screen">ಟೈಮರ್ ಪರದೆ. ವಿರಾಮ ಅಥವಾ ಮುಂದುವರಿಸಲು ಒಮ್ಮೆ ಟ್ಯಾಪ್ ಮಾಡಿ. ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಲು ದೀರ್ಘ ಒತ್ತಿ.</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">ಟೈಮರ್ ವಿರಾಮಗೊಂಡಿದೆ</string>
     <string name="timer_resumed">ಟೈಮರ್ ಮುಂದುವರಿದಿದೆ</string>
     <string name="pause">ವಿರಾಮ</string>

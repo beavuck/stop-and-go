@@ -29,6 +29,10 @@
     <string name="clear_search">Effacer la recherche</string>
     <string name="no_languages_found">Aucune langue trouvée</string>
     <string name="timer_screen">Écran du minuteur. Appuyez une fois pour mettre en pause ou reprendre. Appuyez longuement pour ouvrir les paramètres.</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">Minuteur en pause</string>
     <string name="timer_resumed">Minuteur repris</string>
     <string name="pause">Pause</string>

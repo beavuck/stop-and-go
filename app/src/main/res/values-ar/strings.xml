@@ -30,6 +30,10 @@
     <string name="clear_search">مسح البحث</string>
     <string name="no_languages_found">لم يتم العثور على لغات</string>
     <string name="timer_screen">شاشة المؤقت. انقر مرة واحدة للإيقاف المؤقت أو الاستئناف. اضغط مطولاً لفتح الإعدادات.</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">المؤقت متوقف مؤقتًا</string>
     <string name="timer_resumed">المؤقت مستأنف</string>
     <string name="pause">إيقاف مؤقت</string>

@@ -50,6 +50,10 @@
         Timer-Bildschirm. Einfach tippen zum Pausieren oder Fortsetzen. Lange druecken, um die Einstellungen zu oeffnen.
     </string>
 
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">Timer pausiert</string>
     <string name="timer_resumed">Timer fortgesetzt</string>
 

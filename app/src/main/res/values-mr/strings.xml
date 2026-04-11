@@ -49,6 +49,10 @@
     <string name="no_languages_found">कोणतीही भाषा सापडली नाही</string>
 
     <string name="timer_screen">टायमर स्क्रीन. थांबवण्यासाठी किंवा पुन्हा सुरू करण्यासाठी एकदा टॅप करा. सेटिंग्ज उघडण्यासाठी दीर्घ दाबा.</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">टायमर थांबवला</string>
     <string name="timer_resumed">टायमर पुन्हा सुरू झाला</string>
 

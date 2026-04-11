@@ -3,9 +3,12 @@ package com.beavuck.stop_and_go.ui.timer
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.BasicText
+import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -23,6 +26,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.model.phase.PhaseState
+import com.beavuck.stop_and_go.utils.TimeFormat
+import com.beavuck.stop_and_go.utils.splitTime
 import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
 
 
@@ -50,7 +55,22 @@ fun TimerDisplay(
     } else {
         stopLabel.ifEmpty { defaultStopLabel }
     }
-    val formattedTime = stringResource(R.string.timer_seconds, secondsRemaining)
+    val timeComponents = splitTime(secondsRemaining)
+    val formattedTime = when (timeComponents.format) {
+        TimeFormat.S -> stringResource(R.string.timer_format_s, timeComponents.seconds)
+        TimeFormat.MS -> stringResource(
+            R.string.timer_format_ms,
+            timeComponents.minutes,
+            timeComponents.seconds
+        )
+
+        TimeFormat.HMS -> stringResource(
+            R.string.timer_format_hms,
+            timeComponents.hours,
+            timeComponents.minutes,
+            timeComponents.seconds
+        )
+    }
     val cycleText = stringResource(R.string.cycle_count, cycleCount + 1)
     val screenDescription = stringResource(R.string.timer_screen)
 
@@ -127,13 +147,19 @@ fun TimerDisplay(
                     .testTag("phaseLabel"),
             )
 
-            Text(
+            BasicText(
                 text = formattedTime,
-                fontSize = 120.sp,
-                fontWeight = FontWeight.Light,
-                textAlign = TextAlign.Center,
-                color = textColor,
-                modifier = Modifier.testTag("timerText")
+                autoSize = TextAutoSize.StepBased(minFontSize = 20.sp, maxFontSize = 120.sp),
+                maxLines = 1,
+                style = TextStyle(
+                    fontWeight = FontWeight.Light,
+                    textAlign = TextAlign.Center,
+                ),
+                color = { textColor },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp)
+                    .testTag("timerText")
             )
         }
 

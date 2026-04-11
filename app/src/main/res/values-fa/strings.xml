@@ -51,6 +51,10 @@
         صفحه تایمر. یک بار لمس برای توقف یا ادامه. لمس طولانی برای باز کردن تنظیمات.
     </string>
 
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">تایمر متوقف شد</string>
     <string name="timer_resumed">تایمر ادامه یافت</string>
 

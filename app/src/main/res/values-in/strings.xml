@@ -50,6 +50,10 @@
         Layar timer. Ketuk sekali untuk jeda atau lanjutkan. Tekan lama untuk membuka pengaturan.
     </string>
 
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">Timer dijeda</string>
     <string name="timer_resumed">Timer dilanjutkan</string>
 

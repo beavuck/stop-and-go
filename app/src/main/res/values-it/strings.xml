@@ -32,6 +32,10 @@
     <string name="clear_search">Cancella ricerca</string>
     <string name="no_languages_found">Nessuna lingua trovata</string>
     <string name="timer_screen">Schermo timer. Tocca una volta per mettere in pausa o riprendere. Tieni premuto per aprire le impostazioni.</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">Timer in pausa</string>
     <string name="timer_resumed">Timer ripreso</string>
     <string name="pause">Pausa</string>

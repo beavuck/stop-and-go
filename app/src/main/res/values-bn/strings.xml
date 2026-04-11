@@ -46,6 +46,10 @@
     <string name="no_languages_found">কোনো ভাষা পাওয়া যায়নি</string>
 
     <string name="timer_screen">টাইমার স্ক্রীন। থামাতে বা চালাতে ট্যাপ করুন। সেটিংস খুলতে দীর্ঘ চাপ দিন।</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">টাইমার বিরতিতে আছে</string>
     <string name="timer_resumed">টাইমার চালু হয়েছে</string>
 

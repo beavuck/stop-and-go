@@ -32,6 +32,10 @@
     <string name="clear_search">清除搜尋</string>
     <string name="no_languages_found">搵唔到語言</string>
     <string name="timer_screen">計時器畫面。單擊暫停或繼續。長按打開設定。</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">計時器已暫停</string>
     <string name="timer_resumed">計時器已繼續</string>
     <string name="pause">暫停</string>

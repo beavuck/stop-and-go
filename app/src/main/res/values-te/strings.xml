@@ -51,6 +51,10 @@
         టైమర్ స్క్రీన్. ఆపడానికి లేదా కొనసాగించడానికి ఒకసారి ట్యాప్ చేయండి. సెట్టింగ్స్ తెరవడానికి లాంగ్ ప్రెస్ చేయండి.
     </string>
 
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">టైమర్ నిలిపివేయబడింది</string>
     <string name="timer_resumed">టైమర్ మళ్లీ ప్రారంభమైంది</string>
 

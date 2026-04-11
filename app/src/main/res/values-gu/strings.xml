@@ -32,6 +32,10 @@
     <string name="clear_search">શોધ સાફ કરો</string>
     <string name="no_languages_found">કોઈ ભાષા મળી નહીં</string>
     <string name="timer_screen">ટાઈમર સ્ક્રીન. એક ટૅપ પર વિરામ/પુનઃપ્રારંભ. લાંબી દબાણ પર સેટિંગ્સ ખોલો.</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">ટાઈમર વિરામ પર છે</string>
     <string name="timer_resumed">ટાઈમર પુનઃપ્રારંભ થયો</string>
     <string name="pause">વિરામ</string>

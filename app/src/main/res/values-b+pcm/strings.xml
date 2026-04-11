@@ -32,6 +32,10 @@
     <string name="clear_search">Clear search</string>
     <string name="no_languages_found">No language dey</string>
     <string name="timer_screen">Timer screen. Tap once make am pause or continue. Long press make settings open.</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">Timer don pause</string>
     <string name="timer_resumed">Timer don continue</string>
     <string name="pause">Pause</string>

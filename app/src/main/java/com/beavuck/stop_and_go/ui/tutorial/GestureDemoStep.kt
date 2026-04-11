@@ -25,6 +25,8 @@ import androidx.core.graphics.toColorInt
 import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_COLOR
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_DURATION
+import com.beavuck.stop_and_go.utils.TimeFormat
+import com.beavuck.stop_and_go.utils.splitTime
 
 enum class GestureType {
     TAP, LONG_PRESS, MULTI_TAP
@@ -156,7 +158,8 @@ private fun DemoArea(
                                 lastTapTime = currentTime
                             }
 
-                            else -> { /* no-op */ }
+                            else -> { /* no-op */
+                            }
                         }
                     },
                     onLongPress = {
@@ -169,8 +172,24 @@ private fun DemoArea(
             },
         contentAlignment = Alignment.Center
     ) {
+        val timeComponents = splitTime(timerValue)
+        val formattedTime = when (timeComponents.format) {
+            TimeFormat.S -> stringResource(R.string.timer_format_s, timeComponents.seconds)
+            TimeFormat.MS -> stringResource(
+                R.string.timer_format_ms,
+                timeComponents.minutes,
+                timeComponents.seconds
+            )
+
+            TimeFormat.HMS -> stringResource(
+                R.string.timer_format_hms,
+                timeComponents.hours,
+                timeComponents.minutes,
+                timeComponents.seconds
+            )
+        }
         Text(
-            text = stringResource(R.string.timer_seconds, timerValue),
+            text = formattedTime,
             fontSize = 120.sp,
             color = Color.White,
             fontWeight = FontWeight.Bold,

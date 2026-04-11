@@ -32,6 +32,10 @@
     <string name="clear_search">Burahin ang paghahanap</string>
     <string name="no_languages_found">Walang wikang nahanap</string>
     <string name="timer_screen">Screen ng timer. Mag-tap nang isang beses para i-pause o ituloy. Mag-long press para buksan ang mga setting.</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">Naka-pause ang timer</string>
     <string name="timer_resumed">Itinuloy ang timer</string>
     <string name="pause">I-pause</string>

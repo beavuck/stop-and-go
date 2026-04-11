@@ -32,6 +32,10 @@
     <string name="clear_search">Resiki panelusuran</string>
     <string name="no_languages_found">Ora ana basa ketemu</string>
     <string name="timer_screen">Layar timer. Tap sak panggonan kanggo pause utawa lanjutake. Tekan dawa kanggo mbukak setelan.</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">Timer dijeda</string>
     <string name="timer_resumed">Timer diterusake</string>
     <string name="pause">Jeda</string>

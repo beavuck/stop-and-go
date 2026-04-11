@@ -35,6 +35,10 @@
     <string name="no_languages_found">Hakuna lugha zilizopatikana</string>
 
     <string name="timer_screen">Skrini ya kipima muda. Gusa mara moja kusitisha au kuendelea. Bonyeza kwa muda mrefu kufungua mipangilio.</string>
+    <string name="timer_format_s">%1$d</string>
+    <string name="timer_format_ms">%1$d:%2$02d</string>
+    <string name="timer_format_hms">%1$d:%2$02d:%3$02d</string>
+
     <string name="timer_paused">Kipima muda kimesitishwa</string>
     <string name="timer_resumed">Kipima muda kimeendelea</string>
     <string name="pause">Sitisha</string>
