@@ -83,6 +83,16 @@ increment_version:
 
 ########~~~~-- Job Templates --~~~~########
 
+.install_glab:
+  before_script:
+    - |
+      GLAB_VERSION=$(curl -fsSL "https://gitlab.com/api/v4/projects/gitlab-org%2Fcli/releases?per_page=1" \
+        | grep -o '"tag_name":"[^"]*"' | head -1 | sed 's/.*:"\(.*\)"/\1/')
+      curl -fsSL "https://gitlab.com/gitlab-org/cli/-/releases/${GLAB_VERSION}/downloads/glab_${GLAB_VERSION#v}_linux_amd64.tar.gz" \
+        -o /tmp/glab.tar.gz
+      tar xzf /tmp/glab.tar.gz -C /tmp/
+      install -m755 /tmp/bin/glab /usr/local/bin/glab
+
 .fastlane_setup:
   image: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/fabernovel/android:${FABERNOVEL_ANDROID_IMAGE}"
   cache:
@@ -91,13 +101,10 @@ increment_version:
       - vendor/bundle
   before_script:
     - apt update -y && apt install -y curl ruby-full build-essential
+    - !reference [ .install_glab, before_script ]
     - gem install bundler -N
     - bundle config set --local path 'vendor/bundle'
     - bundle install
-    - GITLAB_CI_VERSION=$(curl --silent "https://gitlab.com/api/v4/projects/34675721/releases?per_page=1" | jq -r '.[0].tag_name' | sed 's/^v//')
-    - wget "https://gitlab.com/gitlab-org/cli/-/releases/v${GITLAB_CI_VERSION}/downloads/glab_${GITLAB_CI_VERSION}_linux_amd64.deb"
-    - apt install -y ./glab_${GITLAB_CI_VERSION}_linux_amd64.deb
-    - glab auth login --hostname $CI_SERVER_FQDN --job-token $CI_JOB_TOKEN
     - glab securefile download --all --output-dir .secure_files/
 
 ########~~~~-- Jobs --~~~~########
@@ -180,22 +187,15 @@ upload_package:
 
 release_stop_and_go:
   stage: deploy
-  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  image: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/debian:stable-slim"
   before_script:
-    - apk add --no-cache curl git bash
+    - apt update -y && apt install -y curl git
+    - !reference [ .install_glab, before_script ]
   script:
-    - echo "Creating release for tag $CI_COMMIT_TAG"
     - PREV_TAG=$(git describe --tags --abbrev=0 "${CI_COMMIT_TAG}^")
     - RELEASE_DESCRIPTION=$(bash scripts/list_changes.sh "$PREV_TAG" "$CI_COMMIT_TAG")
-  release:
-    name: "$CI_COMMIT_TAG"
-    tag_name: "$CI_COMMIT_TAG"
-    description: "$RELEASE_DESCRIPTION"
-    assets:
-      links:
-        - name: "stop-and-go-${CI_COMMIT_TAG}.apk"
-          url: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/stop-and-go/${CI_COMMIT_TAG}/stop-and-go-${CI_COMMIT_TAG}.apk"
-          link_type: "package"
+    - ASSET_LINK=$(printf '[{"name":"stop-and-go-%s.apk","url":"%s/projects/%s/packages/generic/stop-and-go/%s/stop-and-go-%s.apk","link_type":"package"}]' "$CI_COMMIT_TAG" "$CI_API_V4_URL" "$CI_PROJECT_ID" "$CI_COMMIT_TAG" "$CI_COMMIT_TAG")
+    - glab release create "$CI_COMMIT_TAG" --name "$CI_COMMIT_TAG" --notes "$RELEASE_DESCRIPTION" --assets-links "$ASSET_LINK"
   rules:
     - if: "$CI_COMMIT_TAG"
   needs:
