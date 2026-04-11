@@ -21,6 +21,7 @@ enum class SupportedLocale(val code: String, private val nameResId: Int) {
     ALGERIAN_ARABIC("ar-DZ", R.string.language_algerian_arabic),
     LEBANESE_ARABIC("ar-LB", R.string.language_lebanese_arabic),
     SUDANESE_ARABIC("ar-SD", R.string.language_sudanese_arabic),
+    IRAQI_ARABIC("ar-IQ", R.string.language_iraqi_arabic),
     FRENCH("fr", R.string.language_french), // 334M
     BENGALI("bn", R.string.language_bengali), // 274M
     PORTUGUESE("pt", R.string.language_portuguese),
