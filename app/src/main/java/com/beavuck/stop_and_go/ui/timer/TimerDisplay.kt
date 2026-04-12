@@ -8,7 +8,6 @@ import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -20,15 +19,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.*
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.model.phase.PhaseState
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEBOUNCE_DELAY
 import com.beavuck.stop_and_go.utils.TimeFormat
-import com.beavuck.stop_and_go.utils.splitTime
 import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
+import com.beavuck.stop_and_go.utils.splitTime
 
 
 @Composable
@@ -43,8 +44,8 @@ fun TimerDisplay(
     onLongPress: () -> Unit,
     onTripleTap: () -> Unit = {},
 ) {
-    var tapCount by remember { mutableIntStateOf(0) }
-    var lastTapTime by remember { mutableLongStateOf(0L) }
+    val tapCount = remember { mutableIntStateOf(0) }
+    val lastTapTime = remember { mutableLongStateOf(0L) }
     val backgroundColor = Color(ColorUtils.parseColorSafely(phase.color))
     val textColor = Color(ColorUtils.getContrastingTextColor(backgroundColor.toArgb()))
 
@@ -114,17 +115,17 @@ fun TimerDisplay(
                 detectTapGestures(
                     onTap = {
                         val currentTime = System.currentTimeMillis()
-                        if (currentTime - lastTapTime < 500) {
-                            tapCount++
-                            if (tapCount >= 2) {
+                        if (currentTime - lastTapTime.longValue < DEBOUNCE_DELAY) {
+                            tapCount.intValue++
+                            if (tapCount.intValue >= 2) {
                                 onTripleTap()
-                                tapCount = 0
+                                tapCount.intValue = 0
                             }
                         } else {
-                            tapCount = 0
+                            tapCount.intValue = 0
                             onTap()
                         }
-                        lastTapTime = currentTime
+                        lastTapTime.longValue = currentTime
                     },
                     onLongPress = { onLongPress() }
                 )

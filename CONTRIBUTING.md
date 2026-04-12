@@ -11,6 +11,7 @@ When opening an issue, please follow the relevant template to help us assist you
 [Create a bug report](https://gitlab.com/beavuck-services/stop-and-go/-/issues/new?issuable_template=bug)
 
 Choose the `bug` issue template and provide:
+
 - Clear steps to reproduce
 - Device and Android version
 - Expected vs actual behavior
@@ -21,6 +22,7 @@ Choose the `bug` issue template and provide:
 [Create an enhancement request](https://gitlab.com/beavuck-services/stop-and-go/-/issues/new?issuable_template=enhancement)
 
 Choose the `enhancement` issue template and explain:
+
 - What problem this solves
 - How it would work
 - Why it adds value
@@ -32,6 +34,7 @@ This project practices Test-Driven Development (TDD) and follows SOLID principle
 ### Prerequisites
 
 Before submitting an MR, ensure you understand:
+
 - **TDD workflow**: Write failing tests first, then implementation
 - **SOLID principles**: Single responsibility, dependency inversion, etc.
 - **Kotlin conventions**: Immutability, composition over inheritance
@@ -42,35 +45,42 @@ Before submitting an MR, ensure you understand:
 **Structure**: Separate your work into logical, digestible commits
 
 **Message format**:
+
 ```
 <emoji> <Action> <description>
 ```
 
 Examples:
+
 - `🐛 Fix timer not pausing when screen locked`
 - `✨ Add haptic feedback for phase changes`
 - `♻️ Refactor timer state management`
 - `✅ Add tests for timer pause behavior`
 
 **Rules**:
-- Optional but appreciated: start with a relevant emoji (🐛 fix, ✨ feature, ♻️ refactor, ✅ test, etc.)
+
+- Optional but appreciated: start with a relevant emoji (🐛 fix, ✨ feature, ♻️ refactor, ✅ test,
+  etc.)
 - Use imperative mood ("Add" not "Added")
 - Capitalize first word
 - No ending period
 - Keep under 72 characters
 
 **TDD commit order**:
+
 1. Failing tests
 2. Implementation or fix that makes tests pass
 
 ### Testing Requirements
 
 **Unit Tests** (`app/src/test/`):
+
 - Write tests for all core business logic
 - Run: `./gradlew test jacocoTestReport`
 - Coverage reports: `app/build/reports/jacoco/jacocoTestReport/html/index.html`
 
 **Instrumented Tests** (`app/src/androidTest/`):
+
 - Write tests for Android-specific UI/functionality
 - Run individual tests (not entire suite):
   ```bash
@@ -80,6 +90,7 @@ Examples:
   ```
 
 **Important**:
+
 - Never delete test code without approval
 - Never suppress warnings without approval
 - Test observable effects, not internal implementation
@@ -88,11 +99,13 @@ Examples:
 ### Build Commands
 
 **Standard build** (currently fails due to Lint bug):
+
 ```bash
 ./gradlew build -x lint
 ```
 
 **Run tests with coverage**:
+
 ```bash
 ./gradlew test jacocoTestReport
 ```

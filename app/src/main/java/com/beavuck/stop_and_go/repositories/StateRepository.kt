@@ -36,11 +36,20 @@ class StateRepository(context: Context) {
         return AppState(
             cycleCount = sharedPreferences.getInt(KEY_CYCLE_COUNT, INITIAL_CYCLE_COUNT),
             isGo = sharedPreferences.getBoolean(KEY_IS_GO, DEFAULT_IS_GO),
-            currentGoDuration = sharedPreferences.getInt(KEY_CURRENT_GO_DURATION, DEFAULT_GO_DURATION),
-            currentStopDuration = sharedPreferences.getInt(KEY_CURRENT_STOP_DURATION, DEFAULT_STOP_DURATION),
+            currentGoDuration = sharedPreferences.getInt(
+                KEY_CURRENT_GO_DURATION,
+                DEFAULT_GO_DURATION
+            ),
+            currentStopDuration = sharedPreferences.getInt(
+                KEY_CURRENT_STOP_DURATION,
+                DEFAULT_STOP_DURATION
+            ),
             secondsRemaining = sharedPreferences.getInt(KEY_SECONDS_REMAINING, DEFAULT_GO_DURATION),
             baseGoDuration = sharedPreferences.getInt(KEY_BASE_GO_DURATION, DEFAULT_GO_DURATION),
-            baseStopDuration = sharedPreferences.getInt(KEY_BASE_STOP_DURATION, DEFAULT_STOP_DURATION),
+            baseStopDuration = sharedPreferences.getInt(
+                KEY_BASE_STOP_DURATION,
+                DEFAULT_STOP_DURATION
+            ),
             isPaused = sharedPreferences.getBoolean(KEY_IS_PAUSED, DEFAULT_IS_PAUSED)
         )
     }

@@ -30,7 +30,7 @@ fun LanguageListWithSearch(
     showSearch: Boolean = true,
     itemFontSize: androidx.compose.ui.unit.TextUnit = 16.sp
 ) {
-    var searchQuery by remember { mutableStateOf("") }
+    val searchQuery = remember { mutableStateOf("") }
     val locales = SupportedLocale.entries
     val context = LocalContext.current
     val listState = rememberLazyListState()
@@ -45,13 +45,13 @@ fun LanguageListWithSearch(
         }
     }
 
-    val filteredLocales = remember(searchQuery) {
-        if (searchQuery.isBlank()) {
+    val filteredLocales = remember(searchQuery.value) {
+        if (searchQuery.value.isBlank()) {
             locales
         } else {
             locales.filter { locale ->
                 val displayName = locale.getDisplayName(context)
-                val query = searchQuery.trim()
+                val query = searchQuery.value.trim()
                 displayName.contains(query, ignoreCase = true) ||
                         locale.code.contains(query, ignoreCase = true)
             }
@@ -61,17 +61,17 @@ fun LanguageListWithSearch(
     Column(modifier = modifier) {
         if (showSearch) {
             OutlinedTextField(
-                value = searchQuery,
-                onValueChange = { searchQuery = it },
+                value = searchQuery.value,
+                onValueChange = { searchQuery.value = it },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 16.dp)
                     .testTag("languageSearchField"),
                 placeholder = { Text(stringResource(R.string.search_language)) },
                 trailingIcon = {
-                    if (searchQuery.isNotEmpty()) {
+                    if (searchQuery.value.isNotEmpty()) {
                         TextButton(
-                            onClick = { searchQuery = "" },
+                            onClick = { searchQuery.value = "" },
                             modifier = Modifier.testTag("clearSearchButton")
                         ) {
                             Text(stringResource(R.string.clear_search))

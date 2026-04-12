@@ -26,17 +26,17 @@ import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.activities.TutorialActivity
 import com.beavuck.stop_and_go.config.SupportedLocale
 import com.beavuck.stop_and_go.dialogs.ColorPickerDialog
+import com.beavuck.stop_and_go.dialogs.ConfigPickerDialog
 import com.beavuck.stop_and_go.dialogs.LanguagePickerDialog
 import com.beavuck.stop_and_go.dialogs.MoreDialog
 import com.beavuck.stop_and_go.model.timer.TimerConfig
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEBOUNCE_DELAY
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
 import com.beavuck.stop_and_go.repositories.TutorialRepository
 import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
 import kotlinx.coroutines.delay
 
-
-const val DEBOUNCE_DELAY = 500L
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -49,41 +49,44 @@ fun SettingsContent(
     onFinish: () -> Unit,
 ) {
     val context = LocalContext.current
-    var currentConfig by remember { mutableStateOf(configRepository.loadConfig()) }
+    val currentConfig = remember { mutableStateOf(configRepository.loadConfig()) }
 
     val invalidInputMessage = stringResource(R.string.invalid_input)
     val settingsSavedMessage = stringResource(R.string.settings_saved)
     val resetTimerMessage = stringResource(R.string.reset_timer)
 
-    var goDuration by rememberSaveable { mutableStateOf(currentConfig.goDuration.toString()) }
-    var stopDuration by rememberSaveable { mutableStateOf(currentConfig.stopDuration.toString()) }
-    var goGrowth by rememberSaveable { mutableStateOf(currentConfig.goDurationGrowth.toString()) }
-    var stopGrowth by rememberSaveable { mutableStateOf(currentConfig.stopDurationGrowth.toString()) }
-    var goColor by rememberSaveable { mutableStateOf(currentConfig.goColor) }
-    var stopColor by rememberSaveable { mutableStateOf(currentConfig.stopColor) }
-    var goLabel by rememberSaveable { mutableStateOf(currentConfig.goLabel) }
-    var stopLabel by rememberSaveable { mutableStateOf(currentConfig.stopLabel) }
-    var soundEnabled by rememberSaveable { mutableStateOf(currentConfig.soundEnabled) }
+    val goDuration = rememberSaveable { mutableStateOf(currentConfig.value.goDuration.toString()) }
+    val stopDuration =
+        rememberSaveable { mutableStateOf(currentConfig.value.stopDuration.toString()) }
+    val goGrowth =
+        rememberSaveable { mutableStateOf(currentConfig.value.goDurationGrowth.toString()) }
+    val stopGrowth =
+        rememberSaveable { mutableStateOf(currentConfig.value.stopDurationGrowth.toString()) }
+    val goColor = rememberSaveable { mutableStateOf(currentConfig.value.goColor) }
+    val stopColor = rememberSaveable { mutableStateOf(currentConfig.value.stopColor) }
+    val goLabel = rememberSaveable { mutableStateOf(currentConfig.value.goLabel) }
+    val stopLabel = rememberSaveable { mutableStateOf(currentConfig.value.stopLabel) }
+    val soundEnabled = rememberSaveable { mutableStateOf(currentConfig.value.soundEnabled) }
 
-    var showGoColorPicker by rememberSaveable { mutableStateOf(false) }
-    var showStopColorPicker by rememberSaveable { mutableStateOf(false) }
-    var showLanguagePicker by rememberSaveable { mutableStateOf(false) }
-    var showMoreDialog by rememberSaveable { mutableStateOf(false) }
+    val showGoColorPicker = rememberSaveable { mutableStateOf(false) }
+    val showStopColorPicker = rememberSaveable { mutableStateOf(false) }
+    val showLanguagePicker = rememberSaveable { mutableStateOf(false) }
+    val showMoreDialog = rememberSaveable { mutableStateOf(false) }
+    val showConfigPicker = rememberSaveable { mutableStateOf(false) }
 
-    var isInitialComposition by remember { mutableStateOf(true) }
+    val isInitialComposition = remember { mutableStateOf(true) }
 
     fun buildConfig() = TimerConfig(
-        goDuration = goDuration.toIntOrNull() ?: currentConfig.goDuration,
-        stopDuration = stopDuration.toIntOrNull() ?: currentConfig.stopDuration,
-        goDurationGrowth = goGrowth.toFloatOrNull() ?: currentConfig.goDurationGrowth,
-        stopDurationGrowth = stopGrowth.toFloatOrNull() ?: currentConfig.stopDurationGrowth,
-        goColor = ColorUtils.isValidColorString(goColor)
-            .let { if (it) goColor else currentConfig.goColor },
-        stopColor = ColorUtils.isValidColorString(stopColor)
-            .let { if (it) stopColor else currentConfig.stopColor },
-        goLabel = goLabel.trim(),
-        stopLabel = stopLabel.trim(),
-        soundEnabled = soundEnabled,
+        goDuration = goDuration.value.toIntOrNull() ?: currentConfig.value.goDuration,
+        stopDuration = stopDuration.value.toIntOrNull() ?: currentConfig.value.stopDuration,
+        goDurationGrowth = goGrowth.value.toFloatOrNull() ?: currentConfig.value.goDurationGrowth,
+        stopDurationGrowth = stopGrowth.value.toFloatOrNull()
+            ?: currentConfig.value.stopDurationGrowth,
+        goColor = ColorUtils.isValidColorString(goColor.value).let { if (it) goColor.value else currentConfig.value.goColor },
+        stopColor = ColorUtils.isValidColorString(stopColor.value).let { if (it) stopColor.value else currentConfig.value.stopColor },
+        goLabel = goLabel.value.trim(),
+        stopLabel = stopLabel.value.trim(),
+        soundEnabled = soundEnabled.value,
     )
 
     fun saveSettingsInternal(showToast: Boolean = false, finishAfter: Boolean = false) {
@@ -119,19 +122,35 @@ fun SettingsContent(
         onFinish()
     }
 
+    fun reloadConfig() {
+        isInitialComposition.value = true
+        val reloaded = configRepository.loadConfig()
+        currentConfig.value = reloaded
+        goDuration.value = reloaded.goDuration.toString()
+        stopDuration.value = reloaded.stopDuration.toString()
+        goGrowth.value = reloaded.goDurationGrowth.toString()
+        stopGrowth.value = reloaded.stopDurationGrowth.toString()
+        goColor.value = reloaded.goColor
+        stopColor.value = reloaded.stopColor
+        goLabel.value = reloaded.goLabel
+        stopLabel.value = reloaded.stopLabel
+        soundEnabled.value = reloaded.soundEnabled
+        stateRepository.clearState()
+    }
+
     LaunchedEffect(
-        goDuration,
-        stopDuration,
-        goGrowth,
-        stopGrowth,
-        goColor,
-        stopColor,
-        goLabel,
-        stopLabel,
-        soundEnabled,
+        goDuration.value,
+        stopDuration.value,
+        goGrowth.value,
+        stopGrowth.value,
+        goColor.value,
+        stopColor.value,
+        goLabel.value,
+        stopLabel.value,
+        soundEnabled.value,
     ) {
-        if (isInitialComposition) {
-            isInitialComposition = false
+        if (isInitialComposition.value) {
+            isInitialComposition.value = false
         } else {
             delay(DEBOUNCE_DELAY)
             autoSaveSettings()
@@ -149,7 +168,7 @@ fun SettingsContent(
                         modifier = Modifier.testTag("resetButton")
                     ) {
                         Icon(
-                            painterResource(R.drawable.reset),
+                            painterResource(R.drawable.arrow_rewind),
                             contentDescription = stringResource(R.string.reset_timer)
                         )
                     }
@@ -163,12 +182,21 @@ fun SettingsContent(
                         modifier = Modifier.testTag("helpButton")
                     ) {
                         Icon(
-                            painterResource(R.drawable.help),
+                            painterResource(R.drawable.buoy),
                             contentDescription = stringResource(R.string.help)
                         )
                     }
                     IconButton(
-                        onClick = { showLanguagePicker = true },
+                        onClick = { showConfigPicker.value = true },
+                        modifier = Modifier.testTag("configPickerButton")
+                    ) {
+                        Icon(
+                            painterResource(R.drawable.swap),
+                            contentDescription = stringResource(R.string.config_picker_title)
+                        )
+                    }
+                    IconButton(
+                        onClick = { showLanguagePicker.value = true },
                         modifier = Modifier.testTag("languageButton")
                     ) {
                         Icon(
@@ -186,11 +214,11 @@ fun SettingsContent(
                         )
                     }
                     IconButton(
-                        onClick = { showMoreDialog = true },
+                        onClick = { showMoreDialog.value = true },
                         modifier = Modifier.testTag("moreButton")
                     ) {
                         Icon(
-                            painterResource(R.drawable.more),
+                            painterResource(R.drawable.vertical_dots),
                             contentDescription = stringResource(R.string.more)
                         )
                     }
@@ -217,16 +245,16 @@ fun SettingsContent(
                     style = MaterialTheme.typography.bodyMedium
                 )
                 Switch(
-                    checked = soundEnabled,
-                    onCheckedChange = { soundEnabled = it },
+                    checked = soundEnabled.value,
+                    onCheckedChange = { soundEnabled.value = it },
                     modifier = Modifier.testTag("soundEnabledToggle")
                 )
             }
 
             SettingsField(
                 label = stringResource(R.string.go_duration),
-                value = goDuration,
-                onValueChange = { goDuration = it },
+                value = goDuration.value,
+                onValueChange = { goDuration.value = it },
                 onDone = ::saveSettings,
                 testTag = "goDurationInput",
                 supportingText = stringResource(R.string.go_duration_hint),
@@ -235,8 +263,8 @@ fun SettingsContent(
 
             SettingsField(
                 label = stringResource(R.string.stop_duration),
-                value = stopDuration,
-                onValueChange = { stopDuration = it },
+                value = stopDuration.value,
+                onValueChange = { stopDuration.value = it },
                 onDone = ::saveSettings,
                 testTag = "stopDurationInput",
                 supportingText = stringResource(R.string.stop_duration_hint),
@@ -245,8 +273,8 @@ fun SettingsContent(
 
             SettingsField(
                 label = stringResource(R.string.go_growth),
-                value = goGrowth,
-                onValueChange = { goGrowth = it },
+                value = goGrowth.value,
+                onValueChange = { goGrowth.value = it },
                 onDone = ::saveSettings,
                 testTag = "goGrowthInput",
                 supportingText = stringResource(R.string.go_growth_hint),
@@ -255,8 +283,8 @@ fun SettingsContent(
 
             SettingsField(
                 label = stringResource(R.string.stop_growth),
-                value = stopGrowth,
-                onValueChange = { stopGrowth = it },
+                value = stopGrowth.value,
+                onValueChange = { stopGrowth.value = it },
                 onDone = ::saveSettings,
                 testTag = "stopGrowthInput",
                 supportingText = stringResource(R.string.stop_growth_hint),
@@ -265,9 +293,9 @@ fun SettingsContent(
 
             ColorInputField(
                 label = stringResource(R.string.go_color),
-                color = goColor,
-                onValueChange = { goColor = it },
-                onPickerClick = { showGoColorPicker = true },
+                color = goColor.value,
+                onValueChange = { goColor.value = it },
+                onPickerClick = { showGoColorPicker.value = true },
                 onDone = ::saveSettings,
                 testTag = "goColorInput",
                 buttonTestTag = "goColorButton",
@@ -276,9 +304,9 @@ fun SettingsContent(
 
             ColorInputField(
                 label = stringResource(R.string.stop_color),
-                color = stopColor,
-                onValueChange = { stopColor = it },
-                onPickerClick = { showStopColorPicker = true },
+                color = stopColor.value,
+                onValueChange = { stopColor.value = it },
+                onPickerClick = { showStopColorPicker.value = true },
                 onDone = ::saveSettings,
                 testTag = "stopColorInput",
                 buttonTestTag = "stopColorButton",
@@ -287,8 +315,8 @@ fun SettingsContent(
 
             SettingsField(
                 label = stringResource(R.string.go_label),
-                value = goLabel,
-                onValueChange = { goLabel = it },
+                value = goLabel.value,
+                onValueChange = { goLabel.value = it },
                 onDone = ::saveSettings,
                 testTag = "goLabelInput",
                 supportingText = stringResource(R.string.go_label_hint),
@@ -296,8 +324,8 @@ fun SettingsContent(
 
             SettingsField(
                 label = stringResource(R.string.stop_label),
-                value = stopLabel,
-                onValueChange = { stopLabel = it },
+                value = stopLabel.value,
+                onValueChange = { stopLabel.value = it },
                 onDone = ::saveSettings,
                 testTag = "stopLabelInput",
                 supportingText = stringResource(R.string.stop_label_hint),
@@ -305,58 +333,70 @@ fun SettingsContent(
         }
     }
 
-    if (showGoColorPicker) {
-        ColorPickerDialog(
-            initialColor = goColor,
-            onColorSelected = { color ->
-                goColor = color
-                showGoColorPicker = false
+    if (showConfigPicker.value) {
+        ConfigPickerDialog(
+            configRepository = configRepository,
+            onConfigChanged = {
+                reloadConfig()
+                showConfigPicker.value = false
             },
-            onDismiss = { showGoColorPicker = false }
+            onDismiss = { showConfigPicker.value = false }
         )
     }
 
-    if (showStopColorPicker) {
+
+    if (showGoColorPicker.value) {
         ColorPickerDialog(
-            initialColor = stopColor,
+            initialColor = goColor.value,
             onColorSelected = { color ->
-                stopColor = color
-                showStopColorPicker = false
+                goColor.value = color
+                showGoColorPicker.value = false
             },
-            onDismiss = { showStopColorPicker = false }
+            onDismiss = { showGoColorPicker.value = false }
         )
     }
 
-    if (showLanguagePicker) {
+    if (showStopColorPicker.value) {
+        ColorPickerDialog(
+            initialColor = stopColor.value,
+            onColorSelected = { color ->
+                stopColor.value = color
+                showStopColorPicker.value = false
+            },
+            onDismiss = { showStopColorPicker.value = false }
+        )
+    }
+
+    if (showLanguagePicker.value) {
         LanguagePickerDialog(
             currentLocale = SupportedLocale.fromCode(currentLocale),
             onLocaleSelected = { code ->
                 onLocaleChange(code)
-                showLanguagePicker = false
+                showLanguagePicker.value = false
                 onFinish()
             },
-            onDismiss = { showLanguagePicker = false }
+            onDismiss = { showLanguagePicker.value = false }
         )
     }
 
-    if (showMoreDialog) {
+    if (showMoreDialog.value) {
         MoreDialog(
             configRepository = configRepository,
             stateRepository = stateRepository,
-            onDismiss = { showMoreDialog = false },
+            onDismiss = { showMoreDialog.value = false },
             onReset = {
                 val resetConfig = configRepository.loadConfig()
-                currentConfig = resetConfig
-                goDuration = resetConfig.goDuration.toString()
-                stopDuration = resetConfig.stopDuration.toString()
-                goGrowth = resetConfig.goDurationGrowth.toString()
-                stopGrowth = resetConfig.stopDurationGrowth.toString()
-                goColor = resetConfig.goColor
-                stopColor = resetConfig.stopColor
-                goLabel = resetConfig.goLabel
-                stopLabel = resetConfig.stopLabel
-                soundEnabled = resetConfig.soundEnabled
-                showMoreDialog = false
+                currentConfig.value = resetConfig
+                goDuration.value = resetConfig.goDuration.toString()
+                stopDuration.value = resetConfig.stopDuration.toString()
+                goGrowth.value = resetConfig.goDurationGrowth.toString()
+                stopGrowth.value = resetConfig.stopDurationGrowth.toString()
+                goColor.value = resetConfig.goColor
+                stopColor.value = resetConfig.stopColor
+                goLabel.value = resetConfig.goLabel
+                stopLabel.value = resetConfig.stopLabel
+                soundEnabled.value = resetConfig.soundEnabled
+                showMoreDialog.value = false
             },
         )
     }

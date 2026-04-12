@@ -18,13 +18,13 @@ fun SettingsScreen(
 ) {
     val baseContext = LocalContext.current
     val baseConfig = LocalConfiguration.current
-    var currentLocale by remember { mutableStateOf(configRepository.loadLocale()) }
+    val currentLocale = remember { mutableStateOf(configRepository.loadLocale()) }
 
-    val localizedContext = remember(currentLocale, baseConfig) {
-        if (currentLocale.isNullOrEmpty()) {
+    val localizedContext = remember(currentLocale.value, baseConfig) {
+        if (currentLocale.value.isNullOrEmpty()) {
             baseContext
         } else {
-            val locale = Locale.forLanguageTag(currentLocale!!)
+            val locale = Locale.forLanguageTag(currentLocale.value!!)
             val newConfig = Configuration(baseConfig)
             newConfig.setLocale(locale)
             baseContext.createConfigurationContext(newConfig)
@@ -36,9 +36,9 @@ fun SettingsScreen(
             configRepository = configRepository,
             stateRepository = stateRepository,
             tutorialRepository = tutorialRepository,
-            currentLocale = currentLocale,
+            currentLocale = currentLocale.value,
             onLocaleChange = { newLocale ->
-                currentLocale = newLocale
+                currentLocale.value = newLocale
                 configRepository.saveLocale(newLocale)
             },
             onFinish = onFinish,

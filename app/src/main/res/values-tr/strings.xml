@@ -88,4 +88,20 @@
     <string name="more_reset_settings">Varsayılan ayarlara sıfırla</string>
     <string name="more_reset_success">Ayarlar varsayılan değerlere sıfırlandı</string>
     <string name="more_rate_failed">Uygulama derecelendirilemedi: Play Store bulunamamış olabilir</string>
+
+    <string name="config_picker_title">Yapılandırmalar</string>
+    <string name="config_new">Yeni yapılandırma</string>
+    <string name="config_rename">Yeniden adlandır</string>
+    <string name="config_delete">Sil</string>
+    <string name="config_delete_confirm_title">Yapılandırmayı sil</string>
+    <string name="config_delete_confirm_message">\"%1$s\" silinsin mi?</string>
+    <string name="config_name_hint">Yapılandırma adı</string>
+    <string name="config_default_name">Temel</string>
+    <string name="config_preset_checkers">Dama</string>
+    <string name="config_preset_apnea">Apne</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">Pomodoro</string>
+    <string name="error_config_name_empty">Ad boş olamaz</string>
+    <string name="error_config_name_duplicate">Bu adda zaten bir yapılandırma var</string>
+    <string name="error_config_name_length">Ad %1$d karakteri geçmemelidir</string>
 </resources>

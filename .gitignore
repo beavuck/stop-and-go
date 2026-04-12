@@ -48,3 +48,6 @@ app/release/output.json
 .secure_files/**
 Gemfile.lock
 /vendor/
+plan.md
+review.md
+/dev_notes/

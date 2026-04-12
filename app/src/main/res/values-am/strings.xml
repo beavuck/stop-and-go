@@ -87,4 +87,19 @@
     <string name="more_reset_settings">ወደ ነባሪ ቅንብሮች ዳግም አስጀምር</string>
     <string name="more_reset_success">ቅንብሮች ወደ ነባሪ እሴቶች ዳግም ተጀምረዋል</string>
     <string name="more_rate_failed">የመተግበሪያ ደረጃ አሰጣጥ አልተሳካም: Play Store ላይገኝ ይችላል</string>
+    <string name="config_picker_title">ውቅሮች</string>
+    <string name="config_new">አዲስ ውቅር</string>
+    <string name="config_rename">ስም ለወጥ</string>
+    <string name="config_delete">ሰርዝ</string>
+    <string name="config_delete_confirm_title">ውቅር ሰርዝ</string>
+    <string name="config_delete_confirm_message">\"%1$s\" ሰርዝ?</string>
+    <string name="config_name_hint">የውቅር ስም</string>
+    <string name="config_default_name">መሠረታዊ</string>
+    <string name="config_preset_checkers">ቼከርስ</string>
+    <string name="config_preset_apnea">አፕኒያ</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">ፖሞዶሮ</string>
+    <string name="error_config_name_empty">የውቅር ስም ባዶ መሆን የለበትም</string>
+    <string name="error_config_name_duplicate">ያ ስም ያለው ውቅር አስቀድሞ አለ</string>
+    <string name="error_config_name_length">የውቅር ስም ከ%1$d ቁምፊዎች መብለጥ የለበትም</string>
 </resources>

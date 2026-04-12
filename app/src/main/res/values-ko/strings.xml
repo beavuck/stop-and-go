@@ -140,4 +140,19 @@
     <string name="more_reset_settings">기본 설정으로 재설정</string>
     <string name="more_reset_success">설정이 기본값으로 재설정되었습니다</string>
     <string name="more_rate_failed">앱 평가에 실패했습니다: Play 스토어를 찾을 수 없을 수 있습니다</string>
+    <string name="config_picker_title">설정</string>
+    <string name="config_new">새 설정</string>
+    <string name="config_rename">이름 변경</string>
+    <string name="config_delete">삭제</string>
+    <string name="config_delete_confirm_title">설정 삭제</string>
+    <string name="config_delete_confirm_message">\"%1$s\"을(를) 삭제하시겠습니까?</string>
+    <string name="config_name_hint">설정 이름</string>
+    <string name="config_default_name">기본</string>
+    <string name="config_preset_checkers">체커스</string>
+    <string name="config_preset_apnea">무호흡</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">포모도로</string>
+    <string name="error_config_name_empty">설정 이름은 비워둘 수 없습니다</string>
+    <string name="error_config_name_duplicate">그 이름의 설정이 이미 존재합니다</string>
+    <string name="error_config_name_length">설정 이름은 %1$d자를 초과할 수 없습니다</string>
 </resources>

@@ -87,4 +87,20 @@
     <string name="more_reset_settings">重置為預設設定</string>
     <string name="more_reset_success">設定已重置為預設值</string>
     <string name="more_rate_failed">評分應用程式失敗：可能找不到 Play 商店</string>
+
+    <string name="config_picker_title">設定</string>
+    <string name="config_new">新增設定</string>
+    <string name="config_rename">重新命名</string>
+    <string name="config_delete">刪除</string>
+    <string name="config_delete_confirm_title">刪除設定</string>
+    <string name="config_delete_confirm_message">刪除「%1$s」？</string>
+    <string name="config_name_hint">設定名稱</string>
+    <string name="config_default_name">基本</string>
+    <string name="config_preset_checkers">西洋棋（跳棋）</string>
+    <string name="config_preset_apnea">閉氣</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">番茄鐘</string>
+    <string name="error_config_name_empty">設定名稱不可為空</string>
+    <string name="error_config_name_duplicate">已有相同名稱的設定</string>
+    <string name="error_config_name_length">設定名稱不可超過 %1$d 個字元</string>
 </resources>

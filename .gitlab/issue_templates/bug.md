@@ -30,7 +30,8 @@
 
 - **Device**: (_e.g., Google Pixel 7_)
 - **Android Version**: (_e.g., Android 14_)
-- **App Version**: (_Check in app (settings > more), in play store, or in app info (long press on app icon)_)
+- **App Version**: (_Check in app (settings > more), in play store, or in app info (long press on
+  app icon)_)
 
 ---
 

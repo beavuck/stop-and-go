@@ -26,12 +26,18 @@ fun ColorPickerDialog(
 ) {
     val parsedColor = ColorUtils.parseColorSafely(initialColor)
 
-    var red by rememberSaveable { mutableFloatStateOf(Color.red(parsedColor).toFloat()) }
-    var green by rememberSaveable { mutableFloatStateOf(Color.green(parsedColor).toFloat()) }
-    var blue by rememberSaveable { mutableFloatStateOf(Color.blue(parsedColor).toFloat()) }
+    val red = rememberSaveable { mutableFloatStateOf(Color.red(parsedColor).toFloat()) }
+    val green = rememberSaveable { mutableFloatStateOf(Color.green(parsedColor).toFloat()) }
+    val blue = rememberSaveable { mutableFloatStateOf(Color.blue(parsedColor).toFloat()) }
 
-    val currentColor by remember(red, green, blue) {
-        mutableIntStateOf(Color.rgb(red.toInt(), green.toInt(), blue.toInt()))
+    val currentColor by remember(red.floatValue, green.floatValue, blue.floatValue) {
+        mutableIntStateOf(
+            Color.rgb(
+                red.floatValue.toInt(),
+                green.floatValue.toInt(),
+                blue.floatValue.toInt()
+            )
+        )
     }
 
     AlertDialog(
@@ -69,24 +75,24 @@ fun ColorPickerDialog(
 
                 ColorChannelSlider(
                     label = stringResource(R.string.red_label),
-                    value = red,
-                    onValueChange = { red = it },
+                    value = red.floatValue,
+                    onValueChange = { red.floatValue = it },
                     contentDescription = stringResource(R.string.red_slider),
                     testTag = "redSlider"
                 )
 
                 ColorChannelSlider(
                     label = stringResource(R.string.green_label),
-                    value = green,
-                    onValueChange = { green = it },
+                    value = green.floatValue,
+                    onValueChange = { green.floatValue = it },
                     contentDescription = stringResource(R.string.green_slider),
                     testTag = "greenSlider"
                 )
 
                 ColorChannelSlider(
                     label = stringResource(R.string.blue_label),
-                    value = blue,
-                    onValueChange = { blue = it },
+                    value = blue.floatValue,
+                    onValueChange = { blue.floatValue = it },
                     contentDescription = stringResource(R.string.blue_slider),
                     testTag = "blueSlider"
                 )

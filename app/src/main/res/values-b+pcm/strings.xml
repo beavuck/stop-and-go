@@ -87,4 +87,19 @@
     <string name="more_reset_settings">Reset to default settings</string>
     <string name="more_reset_success">Settings don reset to default values</string>
     <string name="more_rate_failed">App rating fail: Play Store fit not dey</string>
+    <string name="config_picker_title">Configs</string>
+    <string name="config_new">New config</string>
+    <string name="config_rename">Rename</string>
+    <string name="config_delete">Delete</string>
+    <string name="config_delete_confirm_title">Delete config</string>
+    <string name="config_delete_confirm_message">Delete \"%1$s\"?</string>
+    <string name="config_name_hint">Config name</string>
+    <string name="config_default_name">Basic</string>
+    <string name="config_preset_checkers">Checkers</string>
+    <string name="config_preset_apnea">Apnea</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">Pomodoro</string>
+    <string name="error_config_name_empty">Config name no fit empty</string>
+    <string name="error_config_name_duplicate">Config with dat name don dey already</string>
+    <string name="error_config_name_length">Config name no fit pass %1$d characters</string>
 </resources>

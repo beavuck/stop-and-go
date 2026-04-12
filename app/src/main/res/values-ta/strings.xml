@@ -138,4 +138,20 @@
     <string name="more_reset_settings">இயல்புநிலை அமைப்புகளுக்கு மீட்டமை</string>
     <string name="more_reset_success">அமைப்புகள் இயல்புநிலை மதிப்புகளுக்கு மீட்டமைக்கப்பட்டன</string>
     <string name="more_rate_failed">பயன்பாட்டை மதிப்பிடுதல் தோல்வியடைந்தது: Play Store கிடைக்காமல் இருக்கலாம்</string>
+
+    <string name="config_picker_title">அமைப்புகள்</string>
+    <string name="config_new">புதிய அமைப்பு</string>
+    <string name="config_rename">மறுபெயரிடு</string>
+    <string name="config_delete">நீக்கு</string>
+    <string name="config_delete_confirm_title">அமைப்பை நீக்கு</string>
+    <string name="config_delete_confirm_message">\"%1$s\" நீக்கவா?</string>
+    <string name="config_name_hint">அமைப்பின் பெயர்</string>
+    <string name="config_default_name">அடிப்படை</string>
+    <string name="config_preset_checkers">செக்கர்ஸ்</string>
+    <string name="config_preset_apnea">அப்னியா</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">பொமொடோரோ</string>
+    <string name="error_config_name_empty">பெயர் காலியாக இருக்கக்கூடாது</string>
+    <string name="error_config_name_duplicate">இந்த பெயரில் ஏற்கனவே ஒன்று உள்ளது</string>
+    <string name="error_config_name_length">பெயர் %1$d எழுத்துகளை மீறக்கூடாது</string>
 </resources>

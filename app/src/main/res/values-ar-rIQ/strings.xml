@@ -91,4 +91,19 @@
     <string name="more_reset_settings">إعادة الإعدادات الافتراضية</string>
     <string name="more_reset_success">انعملت إعادة الإعدادات للافتراضية</string>
     <string name="more_rate_failed">فشل تقييم التطبيق: يمكن Play Store مو موجود</string>
+    <string name="config_picker_title">الإعدادات</string>
+    <string name="config_new">إعداد جديد</string>
+    <string name="config_rename">إعادة تسمية</string>
+    <string name="config_delete">حذف</string>
+    <string name="config_delete_confirm_title">حذف الإعداد</string>
+    <string name="config_delete_confirm_message">هل تريد حذف \"%1$s\"؟</string>
+    <string name="config_name_hint">اسم الإعداد</string>
+    <string name="config_default_name">أساسي</string>
+    <string name="config_preset_checkers">الداما</string>
+    <string name="config_preset_apnea">حبس النفس</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">بومودورو</string>
+    <string name="error_config_name_empty">يجب ألا يكون اسم الإعداد فارغاً</string>
+    <string name="error_config_name_duplicate">يوجد إعداد بهذا الاسم بالفعل</string>
+    <string name="error_config_name_length">يجب ألا يتجاوز اسم الإعداد %1$d حرفاً</string>
 </resources>

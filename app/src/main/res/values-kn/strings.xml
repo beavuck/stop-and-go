@@ -87,4 +87,19 @@
     <string name="more_reset_settings">ಡಿಫಾಲ್ಟ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಮರುಹೊಂದಿಸಿ</string>
     <string name="more_reset_success">ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಡಿಫಾಲ್ಟ್ ಮೌಲ್ಯಗಳಿಗೆ ಮರುಹೊಂದಿಸಲಾಗಿದೆ</string>
     <string name="more_rate_failed">ಅಪ್ಲಿಕೇಶನ್ ರೇಟಿಂಗ್ ವಿಫಲವಾಗಿದೆ: Play Store ಕಂಡುಬಂದಿಲ್ಲ</string>
+    <string name="config_picker_title">ಕಾನ್ಫಿಗ್‌ಗಳು</string>
+    <string name="config_new">ಹೊಸ ಕಾನ್ಫಿಗ್</string>
+    <string name="config_rename">ಹೆಸರು ಬದಲಾಯಿಸಿ</string>
+    <string name="config_delete">ಅಳಿಸಿ</string>
+    <string name="config_delete_confirm_title">ಕಾನ್ಫಿಗ್ ಅಳಿಸಿ</string>
+    <string name="config_delete_confirm_message">\"%1$s\" ಅಳಿಸಬೇಕೇ?</string>
+    <string name="config_name_hint">ಕಾನ್ಫಿಗ್ ಹೆಸರು</string>
+    <string name="config_default_name">ಮೂಲ</string>
+    <string name="config_preset_checkers">ಚೆಕರ್ಸ್</string>
+    <string name="config_preset_apnea">ಅಪ್ನಿಯಾ</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">ಪೊಮೊಡೊರೊ</string>
+    <string name="error_config_name_empty">ಕಾನ್ಫಿಗ್ ಹೆಸರು ಖಾಲಿ ಇರಬಾರದು</string>
+    <string name="error_config_name_duplicate">ಆ ಹೆಸರಿನ ಕಾನ್ಫಿಗ್ ಈಗಾಗಲೇ ಇದೆ</string>
+    <string name="error_config_name_length">ಕಾನ್ಫಿಗ್ ಹೆಸರು %1$d ಅಕ್ಷರಗಳನ್ನು ಮೀರಬಾರದು</string>
 </resources>

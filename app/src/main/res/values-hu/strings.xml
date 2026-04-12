@@ -87,4 +87,19 @@
     <string name="more_reset_settings">Visszaállítás alapértelmezett beállításokra</string>
     <string name="more_reset_success">Beállítások visszaállítva az alapértelmezett értékekre</string>
     <string name="more_rate_failed">Az alkalmazás értékelése sikertelen: a Play Store nem található</string>
+    <string name="config_picker_title">Konfigurációk</string>
+    <string name="config_new">Új konfiguráció</string>
+    <string name="config_rename">Átnevezés</string>
+    <string name="config_delete">Törlés</string>
+    <string name="config_delete_confirm_title">Konfiguráció törlése</string>
+    <string name="config_delete_confirm_message">Töröljük: \"%1$s\"?</string>
+    <string name="config_name_hint">Konfiguráció neve</string>
+    <string name="config_default_name">Alap</string>
+    <string name="config_preset_checkers">Dáma</string>
+    <string name="config_preset_apnea">Apnoe</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">Pomodoro</string>
+    <string name="error_config_name_empty">A konfiguráció neve nem lehet üres</string>
+    <string name="error_config_name_duplicate">Már létezik konfiguráció ezzel a névvel</string>
+    <string name="error_config_name_length">A konfiguráció neve nem haladhatja meg a %1$d karaktert</string>
 </resources>

@@ -87,4 +87,19 @@
     <string name="more_reset_settings">Reset menyang setelan standar</string>
     <string name="more_reset_success">Setelan wis direset menyang nilai standar</string>
     <string name="more_rate_failed">Gagal menehi rating aplikasi: Play Store bisa uga ora ditemokake</string>
+    <string name="config_picker_title">Konfigurasi</string>
+    <string name="config_new">Konfigurasi anyar</string>
+    <string name="config_rename">Ganti jeneng</string>
+    <string name="config_delete">Busak</string>
+    <string name="config_delete_confirm_title">Busak konfigurasi</string>
+    <string name="config_delete_confirm_message">Busak \"%1$s\"?</string>
+    <string name="config_name_hint">Jeneng konfigurasi</string>
+    <string name="config_default_name">Dhasar</string>
+    <string name="config_preset_checkers">Catur dam</string>
+    <string name="config_preset_apnea">Apnea</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">Pomodoro</string>
+    <string name="error_config_name_empty">Jeneng konfigurasi ora kena kosong</string>
+    <string name="error_config_name_duplicate">Konfigurasi karo jeneng kuwi wis ana</string>
+    <string name="error_config_name_length">Jeneng konfigurasi ora kena ngluwihi %1$d karakter</string>
 </resources>

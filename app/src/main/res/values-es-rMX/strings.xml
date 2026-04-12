@@ -88,4 +88,19 @@
     <string name="more_reset_settings">Restablecer configuración predeterminada</string>
     <string name="more_reset_success">Configuración restablecida a valores predeterminados</string>
     <string name="more_rate_failed">Error al calificar la app: quizás no se encontró Play Store</string>
+    <string name="config_picker_title">Configuraciones</string>
+    <string name="config_new">Nueva configuración</string>
+    <string name="config_rename">Renombrar</string>
+    <string name="config_delete">Eliminar</string>
+    <string name="config_delete_confirm_title">Eliminar configuración</string>
+    <string name="config_delete_confirm_message">¿Eliminar \"%1$s\"?</string>
+    <string name="config_name_hint">Nombre de la configuración</string>
+    <string name="config_default_name">Básico</string>
+    <string name="config_preset_checkers">Damas</string>
+    <string name="config_preset_apnea">Apnea</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">Pomodoro</string>
+    <string name="error_config_name_empty">El nombre de la configuración no puede estar vacío</string>
+    <string name="error_config_name_duplicate">Ya existe una configuración con ese nombre</string>
+    <string name="error_config_name_length">El nombre de la configuración no debe superar %1$d caracteres</string>
 </resources>

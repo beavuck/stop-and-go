@@ -88,4 +88,19 @@
     <string name="more_reset_settings">Réinitialiser les paramètres par défaut</string>
     <string name="more_reset_success">Paramètres réinitialisés aux valeurs par défaut</string>
     <string name="more_rate_failed">Échec de l\'évaluation de l\'application : le Play Store est peut-être introuvable</string>
+    <string name="config_picker_title">Configs</string>
+    <string name="config_new">Nouvelle config</string>
+    <string name="config_rename">Renommer</string>
+    <string name="config_delete">Supprimer</string>
+    <string name="config_delete_confirm_title">Supprimer la config</string>
+    <string name="config_delete_confirm_message">Supprimer \"%1$s\" ?</string>
+    <string name="config_name_hint">Nom de la config</string>
+    <string name="config_default_name">Basique</string>
+    <string name="config_preset_checkers">Dames</string>
+    <string name="config_preset_apnea">Apnée</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">Pomodoro</string>
+    <string name="error_config_name_empty">Le nom de la config ne doit pas être vide</string>
+    <string name="error_config_name_duplicate">Une config avec ce nom existe déjà</string>
+    <string name="error_config_name_length">Le nom de la config ne doit pas dépasser %1$d caractères</string>
 </resources>

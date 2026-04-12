@@ -137,4 +137,19 @@
     <string name="more_reset_settings">Resetează setările implicite</string>
     <string name="more_reset_success">Setările au fost resetate</string>
     <string name="more_rate_failed">Evaluarea aplicației a eșuat: este posibil ca Play Store să nu fi fost găsit</string>
+    <string name="config_picker_title">Configurații</string>
+    <string name="config_new">Configurație nouă</string>
+    <string name="config_rename">Redenumire</string>
+    <string name="config_delete">Ștergere</string>
+    <string name="config_delete_confirm_title">Ștergere configurație</string>
+    <string name="config_delete_confirm_message">Ștergeți \"%1$s\"?</string>
+    <string name="config_name_hint">Numele configurației</string>
+    <string name="config_default_name">De bază</string>
+    <string name="config_preset_checkers">Dame</string>
+    <string name="config_preset_apnea">Apnee</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">Pomodoro</string>
+    <string name="error_config_name_empty">Numele configurației nu poate fi gol</string>
+    <string name="error_config_name_duplicate">Există deja o configurație cu acest nume</string>
+    <string name="error_config_name_length">Numele configurației nu trebuie să depășească %1$d caractere</string>
 </resources>

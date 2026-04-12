@@ -1,5 +1,6 @@
 package com.beavuck.stop_and_go
 
+import android.content.Context
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -26,11 +27,15 @@ class SettingsActivityTest {
     val composeTestRule = createAndroidComposeRule<SettingsActivity>()
 
     private val context = InstrumentationRegistry.getInstrumentation().targetContext
+    private val sharedPreferences by lazy {
+        context.getSharedPreferences(ConfigRepository.PREFS_NAME, Context.MODE_PRIVATE)
+    }
     private lateinit var stateRepository: StateRepository
     private lateinit var configRepository: ConfigRepository
 
     @Before
     fun setup() {
+        sharedPreferences.edit().remove(ConfigRepository.KEY_CONFIGS_JSON).remove(ConfigRepository.KEY_ACTIVE_CONFIG_NAME).commit()
         stateRepository = StateRepository(context)
         configRepository = ConfigRepository(context)
         stateRepository.clearState()
@@ -40,6 +45,7 @@ class SettingsActivityTest {
 
     @After
     fun tearDown() {
+        sharedPreferences.edit().remove(ConfigRepository.KEY_CONFIGS_JSON).remove(ConfigRepository.KEY_ACTIVE_CONFIG_NAME).commit()
         stateRepository.clearState()
         configRepository.saveConfig(TimerConfig())
         configRepository.saveLocale(DEFAULT_LOCALE.code)
@@ -206,5 +212,58 @@ class SettingsActivityTest {
 
         val savedConfig = configRepository.loadConfig()
         assertEquals(!initialValue, savedConfig.soundEnabled)
+    }
+
+    @Test
+    fun settingsScreen_configPickerButton_isDisplayed() {
+        composeTestRule.onNodeWithTag("configPickerButton").assertIsDisplayed()
+    }
+
+    @Test
+    fun settingsScreen_configPickerButton_opensDialog() {
+        composeTestRule.onNodeWithTag("configPickerButton").performClick()
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("configList").assertIsDisplayed()
+    }
+
+    @Test
+    fun settingsScreen_configSwitch_reloadsFormValues() {
+        val defaultName = context.getString(R.string.config_default_name)
+        configRepository.createConfig("Second")
+        configRepository.setActiveConfig("Second")
+        configRepository.saveConfig(TimerConfig(goDuration = 99))
+        configRepository.setActiveConfig(defaultName)
+        composeTestRule.activityRule.scenario.recreate()
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("configPickerButton").performClick()
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("configRow_Second").performClick()
+        composeTestRule.waitUntil(timeoutMillis = 2000) {
+            composeTestRule.onAllNodesWithTag("configList").fetchSemanticsNodes().isEmpty()
+        }
+
+        composeTestRule.onNodeWithTag("goDurationInput").performScrollTo()
+            .assertTextContains("99")
+    }
+
+    @Test
+    fun settingsScreen_configSwitch_clearsTimerState() {
+        val defaultName = context.getString(R.string.config_default_name)
+        configRepository.createConfig("Second")
+        configRepository.setActiveConfig("Second")
+        configRepository.saveConfig(TimerConfig(goDuration = 99))
+        configRepository.setActiveConfig(defaultName)
+        composeTestRule.activityRule.scenario.recreate()
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("configPickerButton").performClick()
+        composeTestRule.waitForIdle()
+        composeTestRule.onNodeWithTag("configRow_Second").performClick()
+        composeTestRule.waitForIdle()
+
+        assertEquals(null, stateRepository.loadState())
     }
 }

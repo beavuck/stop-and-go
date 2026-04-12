@@ -96,4 +96,19 @@
     <string name="more_reset_settings">डिफ़ॉल्ट सेटिंग्स पर रीसेट करें</string>
     <string name="more_reset_success">सेटिंग्स डिफ़ॉल्ट मानों पर रीसेट हो गई हैं</string>
     <string name="more_rate_failed">ऐप को रेट करना विफल रहा: संभव है कि प्ले स्टोर नहीं मिला</string>
+    <string name="config_picker_title">कॉन्फ़िग</string>
+    <string name="config_new">नया कॉन्फ़िग</string>
+    <string name="config_rename">नाम बदलें</string>
+    <string name="config_delete">हटाएं</string>
+    <string name="config_delete_confirm_title">कॉन्फ़िग हटाएं</string>
+    <string name="config_delete_confirm_message">\"%1$s\" हटाएं?</string>
+    <string name="config_name_hint">कॉन्फ़िग का नाम</string>
+    <string name="config_default_name">बेसिक</string>
+    <string name="config_preset_checkers">चेकर्स</string>
+    <string name="config_preset_apnea">अपनिया</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">पोमोडोरो</string>
+    <string name="error_config_name_empty">कॉन्फ़िग का नाम खाली नहीं होना चाहिए</string>
+    <string name="error_config_name_duplicate">उस नाम का कॉन्फ़िग पहले से मौजूद है</string>
+    <string name="error_config_name_length">कॉन्फ़िग का नाम %1$d अक्षरों से अधिक नहीं होना चाहिए</string>
 </resources>

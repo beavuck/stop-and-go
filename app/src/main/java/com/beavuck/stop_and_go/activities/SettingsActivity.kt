@@ -2,11 +2,11 @@ package com.beavuck.stop_and_go.activities
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import com.beavuck.stop_and_go.config.StopAndGoTheme
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
 import com.beavuck.stop_and_go.repositories.TutorialRepository
 import com.beavuck.stop_and_go.ui.settings.SettingsScreen
-import com.beavuck.stop_and_go.config.StopAndGoTheme
 
 class SettingsActivity : BeavuckActivity() {
     private lateinit var configRepository: ConfigRepository

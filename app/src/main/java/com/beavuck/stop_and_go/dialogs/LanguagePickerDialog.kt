@@ -18,15 +18,15 @@ fun LanguagePickerDialog(
     onLocaleSelected: (String) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    var selectedLocale by remember { mutableStateOf(currentLocale) }
+    val selectedLocale = remember { mutableStateOf(currentLocale) }
 
     AlertDialog(
         onDismissRequest = onDismiss,
         text = {
             LanguageListWithSearch(
-                selectedLocale = selectedLocale,
+                selectedLocale = selectedLocale.value,
                 onLocaleSelected = { locale ->
-                    selectedLocale = locale
+                    selectedLocale.value = locale
                     onLocaleSelected(locale.code)
                 }
             )

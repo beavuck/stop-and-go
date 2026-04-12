@@ -128,4 +128,19 @@
     <string name="more_reset_settings">ڈیفالٹ سیٹنگز تے ری سیٹ کرو</string>
     <string name="more_reset_success">سیٹنگز ڈیفالٹ قیمتاں تے ری سیٹ ہوگئیاں</string>
     <string name="more_rate_failed">ایپ دی ریٹنگ ناکام ہو گئی: ممکن ہے پلے اسٹور نہ لبھیا گیا ہو</string>
+    <string name="config_picker_title">ترتیباں</string>
+    <string name="config_new">نویں ترتیب</string>
+    <string name="config_rename">ناں بدلو</string>
+    <string name="config_delete">مٹاؤ</string>
+    <string name="config_delete_confirm_title">ترتیب مٹاؤ</string>
+    <string name="config_delete_confirm_message">\"%1$s\" مٹاؤ?</string>
+    <string name="config_name_hint">ترتیب دا ناں</string>
+    <string name="config_default_name">بنیادی</string>
+    <string name="config_preset_checkers">چیکرز</string>
+    <string name="config_preset_apnea">اپنیا</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">پوموڈورو</string>
+    <string name="error_config_name_empty">ترتیب دا ناں خالی نئیں ہونا چاہیدا</string>
+    <string name="error_config_name_duplicate">اوس ناں دی ترتیب پہلاں توں موجود ہے</string>
+    <string name="error_config_name_length">ترتیب دا ناں %1$d حروف توں ودھ نئیں ہونا چاہیدا</string>
 </resources>

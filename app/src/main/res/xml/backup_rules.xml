@@ -2,7 +2,13 @@
    See https://developer.android.com/guide/topics/data/autobackup
 -->
 <full-backup-content>
-    <include domain="sharedpref" path="stop_and_go_prefs.xml"/>
-    <include domain="sharedpref" path="stop_and_go_state.xml"/>
-    <include domain="sharedpref" path="tutorial_prefs.xml"/>
+    <include
+        domain="sharedpref"
+        path="stop_and_go_prefs.xml" />
+    <include
+        domain="sharedpref"
+        path="stop_and_go_state.xml" />
+    <include
+        domain="sharedpref"
+        path="tutorial_prefs.xml" />
 </full-backup-content>

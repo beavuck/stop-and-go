@@ -120,4 +120,20 @@
     <string name="more_reset_settings">ڈیفالٹ ترتیبات پر ری سیٹ کریں</string>
     <string name="more_reset_success">ترتیبات ڈیفالٹ اقدار پر ری سیٹ ہو گئیں</string>
     <string name="more_rate_failed">ایپ کی درجہ بندی ناکام ہو گئی: ممکن ہے پلے اسٹور نہ ملا ہو</string>
+
+    <string name="config_picker_title">کنفیگریشنز</string>
+    <string name="config_new">نئی کنفیگریشن</string>
+    <string name="config_rename">نام تبدیل کریں</string>
+    <string name="config_delete">حذف کریں</string>
+    <string name="config_delete_confirm_title">کنفیگریشن حذف کریں</string>
+    <string name="config_delete_confirm_message">\"%1$s\" حذف کریں؟</string>
+    <string name="config_name_hint">کنفیگریشن کا نام</string>
+    <string name="config_default_name">بنیادی</string>
+    <string name="config_preset_checkers">ڈاما</string>
+    <string name="config_preset_apnea">اپنیا</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">پومودورو</string>
+    <string name="error_config_name_empty">کنفیگریشن کا نام خالی نہیں ہو سکتا</string>
+    <string name="error_config_name_duplicate">اسی نام کی کنفیگریشن پہلے سے موجود ہے</string>
+    <string name="error_config_name_length">نام %1$d حروف سے زیادہ نہیں ہونا چاہیے</string>
 </resources>

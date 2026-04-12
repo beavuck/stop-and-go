@@ -98,4 +98,20 @@
     <string name="more_reset_settings">Da eto pada si aiyipada</string>
     <string name="more_reset_success">A ti da eto pada si aiyipada</string>
     <string name="more_rate_failed">Kò ṣè ṣe láti ṣe ìṣàkóso ìdánilẹ́kọ app: ó ṣeé ṣe kí Play Store má rí</string>
+
+    <string name="config_picker_title">Àwọn ìtòlẹ́sẹẹsẹ</string>
+    <string name="config_new">Ìtòlẹ́sẹẹsẹ tuntun</string>
+    <string name="config_rename">Tun orúkọ ṣe</string>
+    <string name="config_delete">Pa rẹ</string>
+    <string name="config_delete_confirm_title">Pa ìtòlẹ́sẹẹsẹ</string>
+    <string name="config_delete_confirm_message">Pa \"%1$s\"?</string>
+    <string name="config_name_hint">Orúkọ ìtòlẹ́sẹẹsẹ</string>
+    <string name="config_default_name">Àtẹ̀lẹwọ́</string>
+    <string name="config_preset_checkers">Dámà</string>
+    <string name="config_preset_apnea">Ìdákẹ́ ẹ̀mí</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">Pomodoro</string>
+    <string name="error_config_name_empty">Orúkọ ìtòlẹ́sẹẹsẹ kò gbọ́dọ̀ ṣofo</string>
+    <string name="error_config_name_duplicate">Ìtòlẹ́sẹẹsẹ pẹ̀lú orúkọ yìí ti wà tẹ́lẹ̀</string>
+    <string name="error_config_name_length">Orúkọ kò gbọ́dọ̀ ju %1$d àmi lọ</string>
 </resources>

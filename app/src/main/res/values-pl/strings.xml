@@ -89,4 +89,19 @@
     <string name="more_reset_settings">Przywróć domyślne ustawienia</string>
     <string name="more_reset_success">Ustawienia przywrócone do domyślnych</string>
     <string name="more_rate_failed">Nie udało się ocenić aplikacji: Sklep Play mógł nie zostać znaleziony</string>
+    <string name="config_picker_title">Konfiguracje</string>
+    <string name="config_new">Nowa konfiguracja</string>
+    <string name="config_rename">Zmień nazwę</string>
+    <string name="config_delete">Usuń</string>
+    <string name="config_delete_confirm_title">Usuń konfigurację</string>
+    <string name="config_delete_confirm_message">Usunąć \"%1$s\"?</string>
+    <string name="config_name_hint">Nazwa konfiguracji</string>
+    <string name="config_default_name">Podstawowa</string>
+    <string name="config_preset_checkers">Warcaby</string>
+    <string name="config_preset_apnea">Bezdechy</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">Pomodoro</string>
+    <string name="error_config_name_empty">Nazwa konfiguracji nie może być pusta</string>
+    <string name="error_config_name_duplicate">Konfiguracja o tej nazwie już istnieje</string>
+    <string name="error_config_name_length">Nazwa konfiguracji nie może przekraczać %1$d znaków</string>
 </resources>

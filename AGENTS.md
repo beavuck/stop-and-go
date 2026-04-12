@@ -99,6 +99,8 @@ Before using Edit or Write tools, verify:
 - Consider accessibility and internationalization from the start.
 - Perform minimal changes necessary to implement features or fix bugs. Avoid large refactorings
   unless asked for.
+- Make changes directly to the target files. Do not write helper scripts to automate changes you
+  could make yourself — scripts add indirection, failure modes, and debugging overhead.
 - Never suppress any warnings -- let a human do so if they deem it necessary.
 - Never delete a test -- let a human do so if they deem it necessary.
 - Ensure you use no deprecated methods, APIs, or libraries.

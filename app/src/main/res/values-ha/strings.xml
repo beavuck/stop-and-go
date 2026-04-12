@@ -88,4 +88,19 @@
     <string name="more_reset_settings">Sake saita zuwa saitunan asali</string>
     <string name="more_reset_success">An sake saita saituna zuwa ƙimar asali</string>
     <string name="more_rate_failed">Kimanta manhajar ta gaza: watakila ba a sami Play Store ba</string>
+    <string name="config_picker_title">Tsarin saiti</string>
+    <string name="config_new">Sabon tsari</string>
+    <string name="config_rename">Sake suna</string>
+    <string name="config_delete">Goge</string>
+    <string name="config_delete_confirm_title">Goge tsarin saiti</string>
+    <string name="config_delete_confirm_message">Goge \"%1$s\"?</string>
+    <string name="config_name_hint">Sunan tsari</string>
+    <string name="config_default_name">Asali</string>
+    <string name="config_preset_checkers">Checkers</string>
+    <string name="config_preset_apnea">Apnea</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">Pomodoro</string>
+    <string name="error_config_name_empty">Sunan tsari ba zai iya zama fanko ba</string>
+    <string name="error_config_name_duplicate">Tsari mai wannan suna ya riga ya wanzu</string>
+    <string name="error_config_name_length">Sunan tsari bai kamata ya wuce haruffa %1$d ba</string>
 </resources>

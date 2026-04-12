@@ -2,7 +2,9 @@ package com.beavuck.stop_and_go.model.timer
 
 import android.content.Context
 import com.beavuck.stop_and_go.R
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class TimerConfig(
     val goDuration: Int = TimerConstants.DEFAULT_GO_DURATION,
     val stopDuration: Int = TimerConstants.DEFAULT_STOP_DURATION,
@@ -47,17 +49,19 @@ data class TimerConfig(
             )
                 ?: "Stop growth multiplier must be between ${TimerConstants.MIN_GROWTH_MULTIPLIER} and ${TimerConstants.MAX_GROWTH_MULTIPLIER}"
         }
-        require(goLabel.length <= TimerConstants.MAX_LABEL_LENGTH) {
+        require(goLabel.length <= TimerConstants.BASE_MAX_STRING_INPUT_LENGTH) {
             context?.getString(
                 R.string.error_go_label_length,
-                TimerConstants.MAX_LABEL_LENGTH
-            ) ?: "Go label must not exceed ${TimerConstants.MAX_LABEL_LENGTH} characters"
+                TimerConstants.BASE_MAX_STRING_INPUT_LENGTH
+            )
+                ?: "Go label must not exceed ${TimerConstants.BASE_MAX_STRING_INPUT_LENGTH} characters"
         }
-        require(stopLabel.length <= TimerConstants.MAX_LABEL_LENGTH) {
+        require(stopLabel.length <= TimerConstants.BASE_MAX_STRING_INPUT_LENGTH) {
             context?.getString(
                 R.string.error_stop_label_length,
-                TimerConstants.MAX_LABEL_LENGTH
-            ) ?: "Stop label must not exceed ${TimerConstants.MAX_LABEL_LENGTH} characters"
+                TimerConstants.BASE_MAX_STRING_INPUT_LENGTH
+            )
+                ?: "Stop label must not exceed ${TimerConstants.BASE_MAX_STRING_INPUT_LENGTH} characters"
         }
         return this
     }

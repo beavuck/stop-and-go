@@ -31,26 +31,26 @@ fun TimerScreen(
     onNavigateToSettings: () -> Unit,
     onKeepScreenOnChange: (Boolean) -> Unit,
 ) {
-    var phase by remember { mutableStateOf(phaseManager.getCurrentPhase()) }
-    var cycleCount by remember { mutableIntStateOf(phaseManager.cycleCount) }
-    var secondsRemaining by remember { mutableIntStateOf(phase.durationSeconds) }
-    var isPaused by remember { mutableStateOf(DEFAULT_IS_PAUSED) }
+    val phase = remember { mutableStateOf(phaseManager.getCurrentPhase()) }
+    val cycleCount = remember { mutableIntStateOf(phaseManager.cycleCount) }
+    val secondsRemaining = remember { mutableIntStateOf(phase.value.durationSeconds) }
+    val isPaused = remember { mutableStateOf(DEFAULT_IS_PAUSED) }
 
     var startNextPhase: (() -> Unit)? = null
 
     val timerController = remember {
         TimerController(
             onTickCallback = { remaining ->
-                secondsRemaining = remaining
+                secondsRemaining.intValue = remaining
             },
             onFinishCallback = {
                 phaseManager.advanceToNextPhase()
-                cycleCount = phaseManager.cycleCount
-                phase = phaseManager.getCurrentPhase()
-                secondsRemaining = phase.durationSeconds
+                cycleCount.intValue = phaseManager.cycleCount
+                phase.value = phaseManager.getCurrentPhase()
+                secondsRemaining.intValue = phase.value.durationSeconds
 
                 if (soundEnabled) {
-                    if (phase.isGo) soundPlayer.playGoSound() else soundPlayer.playStopSound()
+                    if (phase.value.isGo) soundPlayer.playGoSound() else soundPlayer.playStopSound()
                 }
 
                 startNextPhase?.invoke()
@@ -60,22 +60,22 @@ fun TimerScreen(
 
     // actually used despite IDE warning -- see above
     @Suppress("AssignedValueIsNeverRead")
-    startNextPhase = { timerController.start(phase.durationSeconds) }
+    startNextPhase = { timerController.start(phase.value.durationSeconds) }
 
     DisposableEffect(Unit) {
         val savedState = stateRepository.loadState()
         if (savedState != null) {
             phaseManager.restoreState(savedState)
-            cycleCount = phaseManager.cycleCount
-            phase = phaseManager.getCurrentPhase()
-            secondsRemaining = savedState.secondsRemaining
-            isPaused = savedState.isPaused
+            cycleCount.intValue = phaseManager.cycleCount
+            phase.value = phaseManager.getCurrentPhase()
+            secondsRemaining.intValue = savedState.secondsRemaining
+            isPaused.value = savedState.isPaused
         }
 
         onDispose {
             timerController.pause()
             if (!stateRepository.isResetPending()) {
-                val state = phaseManager.getState(secondsRemaining, isPaused)
+                val state = phaseManager.getState(secondsRemaining.intValue, isPaused.value)
                 stateRepository.saveState(state)
             } else {
                 stateRepository.setResetPending(false) // now is the time to clear that flag -- any earlier and we might re-save the state before using it to reset
@@ -85,12 +85,12 @@ fun TimerScreen(
     }
 
     fun togglePause() {
-        isPaused = !isPaused
-        if (isPaused) {
+        isPaused.value = !isPaused.value
+        if (isPaused.value) {
             timerController.pause()
             onKeepScreenOnChange(false)
         } else {
-            timerController.start(secondsRemaining)
+            timerController.start(secondsRemaining.intValue)
             onKeepScreenOnChange(true)
         }
     }
@@ -99,11 +99,11 @@ fun TimerScreen(
         timerController.pause()
         phaseManager.reset()
         stateRepository.clearState()
-        cycleCount = phaseManager.cycleCount
-        phase = phaseManager.getCurrentPhase()
-        secondsRemaining = phase.durationSeconds
-        isPaused = false
-        timerController.start(phase.durationSeconds)
+        cycleCount.intValue = phaseManager.cycleCount
+        phase.value = phaseManager.getCurrentPhase()
+        secondsRemaining.intValue = phase.value.durationSeconds
+        isPaused.value = false
+        timerController.start(phase.value.durationSeconds)
         onKeepScreenOnChange(true)
     }
 
@@ -113,15 +113,15 @@ fun TimerScreen(
         val observer = LifecycleEventObserver { _, event ->
             when (event) {
                 Lifecycle.Event.ON_PAUSE -> {
-                    if (!isPaused) {
+                    if (!isPaused.value) {
                         timerController.pause()
                         onKeepScreenOnChange(false)
                     }
                 }
 
                 Lifecycle.Event.ON_RESUME -> {
-                    if (!isPaused) {
-                        timerController.start(secondsRemaining)
+                    if (!isPaused.value) {
+                        timerController.start(secondsRemaining.intValue)
                         onKeepScreenOnChange(true)
                     }
                 }
@@ -137,7 +137,7 @@ fun TimerScreen(
         }
     }
 
-    val backgroundColor = Color(ColorUtils.parseColorSafely(phase.color))
+    val backgroundColor = Color(ColorUtils.parseColorSafely(phase.value.color))
     val iconColor = Color(ColorUtils.getContrastingTextColor(backgroundColor.toArgb()))
 
     Scaffold(
@@ -155,7 +155,7 @@ fun TimerScreen(
                         modifier = Modifier.testTag("resetTimerButton")
                     ) {
                         Icon(
-                            painter = painterResource(R.drawable.reset),
+                            painter = painterResource(R.drawable.arrow_rewind),
                             contentDescription = stringResource(R.string.reset_timer)
                         )
                     }
@@ -164,7 +164,7 @@ fun TimerScreen(
                         modifier = Modifier.testTag("settingsButton")
                     ) {
                         Icon(
-                            painter = painterResource(R.drawable.settings),
+                            painter = painterResource(R.drawable.gear),
                             contentDescription = stringResource(R.string.settings)
                         )
                     }
@@ -174,10 +174,10 @@ fun TimerScreen(
         containerColor = Color.Transparent
     ) {
         TimerDisplay(
-            phase = phase,
-            secondsRemaining = secondsRemaining,
-            cycleCount = cycleCount,
-            isPaused = isPaused,
+            phase = phase.value,
+            secondsRemaining = secondsRemaining.intValue,
+            cycleCount = cycleCount.intValue,
+            isPaused = isPaused.value,
             goLabel = phaseManager.getGoLabel(),
             stopLabel = phaseManager.getStopLabel(),
             onTap = ::togglePause,

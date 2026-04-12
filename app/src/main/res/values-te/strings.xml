@@ -143,4 +143,20 @@
     <string name="more_reset_settings">డిఫాల్ట్ సెట్టింగ్‌లకు రీసెట్ చేయండి</string>
     <string name="more_reset_success">సెట్టింగ్‌లు డిఫాల్ట్ విలువలకు రీసెట్ చేయబడ్డాయి</string>
     <string name="more_rate_failed">యాప్‌ను రేట్ చేయడం విఫలమైంది: ప్లే స్టోర్ కనుగొనబడకపోవచ్చు</string>
+
+    <string name="config_picker_title">కాన్ఫిగ్‌లు</string>
+    <string name="config_new">కొత్త కాన్ఫిగ్</string>
+    <string name="config_rename">పేరు మార్చు</string>
+    <string name="config_delete">తొలగించు</string>
+    <string name="config_delete_confirm_title">కాన్ఫిగ్ తొలగించు</string>
+    <string name="config_delete_confirm_message">\"%1$s\" తొలగించాలా?</string>
+    <string name="config_name_hint">కాన్ఫిగ్ పేరు</string>
+    <string name="config_default_name">ప్రాథమిక</string>
+    <string name="config_preset_checkers">చెక్కర్స్</string>
+    <string name="config_preset_apnea">అప్నియా</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">పొమోడోరో</string>
+    <string name="error_config_name_empty">పేరు ఖాళీగా ఉండకూడదు</string>
+    <string name="error_config_name_duplicate">ఈ పేరుతో ఇప్పటికే ఉంది</string>
+    <string name="error_config_name_length">పేరు %1$d అక్షరాలకంటే ఎక్కువ కాకూడదు</string>
 </resources>

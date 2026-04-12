@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import com.beavuck.stop_and_go.R
+import com.beavuck.stop_and_go.model.timer.TimerConfig
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
 import com.google.android.play.core.review.ReviewManagerFactory
@@ -64,28 +65,28 @@ fun MoreDialog(
                 ExpandableLinkTile(
                     title = stringResource(R.string.more_about),
                     url = stringResource(R.string.more_about_url),
-                    iconRes = R.drawable.about,
+                    iconRes = R.drawable.question_mark,
                     testTag = "moreAboutTile"
                 )
 
                 ExpandableLinkTile(
                     title = stringResource(R.string.more_privacy),
                     url = stringResource(R.string.more_privacy_url),
-                    iconRes = R.drawable.privacy,
+                    iconRes = R.drawable.shield_user,
                     testTag = "morePrivacyTile"
                 )
 
                 ExpandableLinkTile(
                     title = stringResource(R.string.more_license),
                     url = stringResource(R.string.more_license_url),
-                    iconRes = R.drawable.license,
+                    iconRes = R.drawable.parchment,
                     testTag = "moreLicenseTile"
                 )
 
                 ExpandableLinkTile(
                     title = stringResource(R.string.more_tip),
                     url = stringResource(R.string.more_tip_url),
-                    iconRes = R.drawable.tip,
+                    iconRes = R.drawable.coins,
                     testTag = "moreTipTile"
                 )
 
@@ -176,10 +177,9 @@ private fun ResetButton(
 ) {
     val context = LocalContext.current
     val resetSuccessMessage = stringResource(R.string.more_reset_success)
-
     Button(
         onClick = {
-            configRepository.clearConfig()
+            configRepository.initPresets()
             stateRepository.clearState()
             onReset?.invoke()
             Toast.makeText(context, resetSuccessMessage, Toast.LENGTH_SHORT).show()
@@ -233,12 +233,12 @@ private fun ExpandableLinkTile(
     testTag: String? = null
 ) {
     val context = LocalContext.current
-    var expanded by remember { mutableStateOf(false) }
+    val expanded = remember { mutableStateOf(false) }
 
     Surface(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { expanded = !expanded }
+            .clickable { expanded.value = !expanded.value }
             .then(testTag?.let { Modifier.testTag(it) } ?: Modifier),
         shape = MaterialTheme.shapes.medium,
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.3f)),
@@ -269,7 +269,7 @@ private fun ExpandableLinkTile(
             }
 
             AnimatedVisibility(
-                visible = expanded,
+                visible = expanded.value,
                 enter = fadeIn() + expandVertically(),
                 exit = fadeOut() + shrinkVertically()
             ) {

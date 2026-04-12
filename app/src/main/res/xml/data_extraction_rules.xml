@@ -3,13 +3,25 @@
 -->
 <data-extraction-rules>
     <cloud-backup>
-        <include domain="sharedpref" path="stop_and_go_prefs.xml"/>
-        <include domain="sharedpref" path="stop_and_go_state.xml"/>
-        <include domain="sharedpref" path="tutorial_prefs.xml"/>
+        <include
+            domain="sharedpref"
+            path="stop_and_go_prefs.xml" />
+        <include
+            domain="sharedpref"
+            path="stop_and_go_state.xml" />
+        <include
+            domain="sharedpref"
+            path="tutorial_prefs.xml" />
     </cloud-backup>
     <device-transfer>
-        <include domain="sharedpref" path="stop_and_go_prefs.xml"/>
-        <include domain="sharedpref" path="stop_and_go_state.xml"/>
-        <include domain="sharedpref" path="tutorial_prefs.xml"/>
+        <include
+            domain="sharedpref"
+            path="stop_and_go_prefs.xml" />
+        <include
+            domain="sharedpref"
+            path="stop_and_go_state.xml" />
+        <include
+            domain="sharedpref"
+            path="tutorial_prefs.xml" />
     </device-transfer>
 </data-extraction-rules>

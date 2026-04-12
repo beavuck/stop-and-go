@@ -125,4 +125,19 @@
     <string name="more_reset_settings">デフォルト設定にリセット</string>
     <string name="more_reset_success">設定がデフォルト値にリセットされました</string>
     <string name="more_rate_failed">アプリの評価に失敗しました: Playストアが見つからない可能性があります</string>
+    <string name="config_picker_title">設定プリセット</string>
+    <string name="config_new">新しい設定</string>
+    <string name="config_rename">名前を変更</string>
+    <string name="config_delete">削除</string>
+    <string name="config_delete_confirm_title">設定を削除</string>
+    <string name="config_delete_confirm_message">\"%1$s\" を削除しますか?</string>
+    <string name="config_name_hint">設定名</string>
+    <string name="config_default_name">基本</string>
+    <string name="config_preset_checkers">チェッカーズ</string>
+    <string name="config_preset_apnea">アプネア</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">ポモドーロ</string>
+    <string name="error_config_name_empty">設定名を空にすることはできません</string>
+    <string name="error_config_name_duplicate">その名前の設定はすでに存在します</string>
+    <string name="error_config_name_length">設定名は%1$d文字を超えることはできません</string>
 </resources>

@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
 import com.beavuck.stop_and_go.R
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEBOUNCE_DELAY
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_COLOR
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_DURATION
 import com.beavuck.stop_and_go.utils.TimeFormat
@@ -37,8 +38,8 @@ fun GestureDemoStep(
     onComplete: () -> Unit,
     onSkip: () -> Unit
 ) {
-    var currentGesture by rememberSaveable { mutableIntStateOf(0) }
-    var gestureCompleted by rememberSaveable { mutableStateOf(false) }
+    val currentGesture = rememberSaveable { mutableIntStateOf(0) }
+    val gestureCompleted = rememberSaveable { mutableStateOf(false) }
 
     val gestures = listOf(
         GestureType.TAP,
@@ -62,14 +63,14 @@ fun GestureDemoStep(
         )
 
         Text(
-            text = stringResource(R.string.tutorial_progress, currentGesture + 1, 3),
+            text = stringResource(R.string.tutorial_progress, currentGesture.intValue + 1, 3),
             fontSize = 16.sp,
             color = MaterialTheme.colorScheme.secondary,
             modifier = Modifier.padding(bottom = 24.dp)
         )
 
         Text(
-            text = when (gestures[currentGesture]) {
+            text = when (gestures[currentGesture.intValue]) {
                 GestureType.TAP -> stringResource(R.string.tutorial_tap_instruction)
                 GestureType.LONG_PRESS -> stringResource(R.string.tutorial_long_instruction)
                 GestureType.MULTI_TAP -> stringResource(R.string.tutorial_multi_instruction)
@@ -80,17 +81,17 @@ fun GestureDemoStep(
         )
 
         DemoArea(
-            gestureType = gestures[currentGesture],
+            gestureType = gestures[currentGesture.intValue],
             onGestureDetected = {
-                gestureCompleted = true
+                gestureCompleted.value = true
             }
         )
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        if (gestureCompleted) {
+        if (gestureCompleted.value) {
             Text(
-                text = when (gestures[currentGesture]) {
+                text = when (gestures[currentGesture.intValue]) {
                     GestureType.TAP -> stringResource(R.string.tutorial_tap_success)
                     GestureType.LONG_PRESS -> stringResource(R.string.tutorial_long_success)
                     GestureType.MULTI_TAP -> stringResource(R.string.tutorial_multi_success)
@@ -107,9 +108,9 @@ fun GestureDemoStep(
         TutorialBottomButtons(
             onSkip = onSkip,
             onNext = {
-                if (currentGesture < 2) {
-                    currentGesture++
-                    gestureCompleted = false
+                if (currentGesture.intValue < 2) {
+                    currentGesture.intValue++
+                    gestureCompleted.value = false
                 } else {
                     onComplete()
                 }
@@ -123,11 +124,11 @@ private fun DemoArea(
     gestureType: GestureType,
     onGestureDetected: () -> Unit
 ) {
-    var showPauseOverlay by rememberSaveable { mutableStateOf(false) }
-    var showSettingsOverlay by rememberSaveable { mutableStateOf(false) }
-    var timerValue by rememberSaveable { mutableIntStateOf(8) }
-    var tapCount by remember { mutableIntStateOf(0) }
-    var lastTapTime by remember { mutableLongStateOf(0L) }
+    val showPauseOverlay = rememberSaveable { mutableStateOf(false) }
+    val showSettingsOverlay = rememberSaveable { mutableStateOf(false) }
+    val timerValue = rememberSaveable { mutableIntStateOf(8) }
+    val tapCount = remember { mutableIntStateOf(0) }
+    val lastTapTime = remember { mutableLongStateOf(0L) }
 
     Box(
         modifier = Modifier
@@ -139,23 +140,23 @@ private fun DemoArea(
                     onTap = {
                         when (gestureType) {
                             GestureType.TAP -> {
-                                showPauseOverlay = !showPauseOverlay
+                                showPauseOverlay.value = !showPauseOverlay.value
                                 onGestureDetected()
                             }
 
                             GestureType.MULTI_TAP -> {
                                 val currentTime = System.currentTimeMillis()
-                                if (currentTime - lastTapTime < 500) {
-                                    tapCount++
-                                    if (tapCount >= 2) {
-                                        timerValue = DEFAULT_GO_DURATION
+                                if (currentTime - lastTapTime.longValue < DEBOUNCE_DELAY) {
+                                    tapCount.intValue++
+                                    if (tapCount.intValue >= 2) {
+                                        timerValue.intValue = DEFAULT_GO_DURATION
                                         onGestureDetected()
-                                        tapCount = 0
+                                        tapCount.intValue = 0
                                     }
                                 } else {
-                                    tapCount = 0
+                                    tapCount.intValue = 0
                                 }
-                                lastTapTime = currentTime
+                                lastTapTime.longValue = currentTime
                             }
 
                             else -> { /* no-op */
@@ -164,7 +165,7 @@ private fun DemoArea(
                     },
                     onLongPress = {
                         if (gestureType == GestureType.LONG_PRESS) {
-                            showSettingsOverlay = true
+                            showSettingsOverlay.value = true
                             onGestureDetected()
                         }
                     }
@@ -172,7 +173,7 @@ private fun DemoArea(
             },
         contentAlignment = Alignment.Center
     ) {
-        val timeComponents = splitTime(timerValue)
+        val timeComponents = splitTime(timerValue.intValue)
         val formattedTime = when (timeComponents.format) {
             TimeFormat.S -> stringResource(R.string.timer_format_s, timeComponents.seconds)
             TimeFormat.MS -> stringResource(
@@ -193,10 +194,10 @@ private fun DemoArea(
             fontSize = 120.sp,
             color = Color.White,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.alpha(if (showSettingsOverlay) 0.3f else 1f)
+            modifier = Modifier.alpha(if (showSettingsOverlay.value) 0.3f else 1f)
         )
 
-        if (showPauseOverlay && gestureType == GestureType.TAP) {
+        if (showPauseOverlay.value && gestureType == GestureType.TAP) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -214,7 +215,7 @@ private fun DemoArea(
             }
         }
 
-        if (showSettingsOverlay && gestureType == GestureType.LONG_PRESS) {
+        if (showSettingsOverlay.value && gestureType == GestureType.LONG_PRESS) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -222,7 +223,7 @@ private fun DemoArea(
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
-                    painter = painterResource(R.drawable.settings),
+                    painter = painterResource(R.drawable.gear),
                     contentDescription = null,
                     tint = Color.White,
                     modifier = Modifier

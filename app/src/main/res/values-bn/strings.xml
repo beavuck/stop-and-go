@@ -116,4 +116,19 @@
     <string name="more_reset_settings">ডিফল্ট সেটিংসে রিসেট করুন</string>
     <string name="more_reset_success">সেটিংস ডিফল্ট মানগুলিতে রিসেট হয়েছে</string>
     <string name="more_rate_failed">অ্যাপটি রেট করা ব্যর্থ হয়েছে: প্লে স্টোর পাওয়া নাও যেতে পারে</string>
+    <string name="config_picker_title">কনফিগ</string>
+    <string name="config_new">নতুন কনফিগ</string>
+    <string name="config_rename">নাম পরিবর্তন</string>
+    <string name="config_delete">মুছুন</string>
+    <string name="config_delete_confirm_title">কনফিগ মুছুন</string>
+    <string name="config_delete_confirm_message">\"%1$s\" মুছবেন?</string>
+    <string name="config_name_hint">কনফিগের নাম</string>
+    <string name="config_default_name">মৌলিক</string>
+    <string name="config_preset_checkers">চেকার্স</string>
+    <string name="config_preset_apnea">অ্যাপনিয়া</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">পোমোডোরো</string>
+    <string name="error_config_name_empty">কনফিগের নাম খালি হতে পারবে না</string>
+    <string name="error_config_name_duplicate">সেই নামের কনফিগ ইতিমধ্যে আছে</string>
+    <string name="error_config_name_length">কনফিগের নাম %1$d অক্ষরের বেশি হতে পারবে না</string>
 </resources>

@@ -3,10 +3,8 @@ package com.beavuck.stop_and_go.ui.tutorial
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import com.beavuck.stop_and_go.config.SupportedLocale
@@ -19,23 +17,27 @@ fun TutorialScreen(
     onSkip: () -> Unit,
     onLanguageChanged: () -> Unit
 ) {
-    var currentStep by rememberSaveable {
+    val currentStep = rememberSaveable {
         mutableIntStateOf(if (configRepository.loadLocale() != null) 1 else 0)
     }
 
-    Surface(modifier = Modifier.fillMaxSize().testTag("tutorialScreen")) {
-        when (currentStep) {
+    Surface(
+        modifier = Modifier
+            .fillMaxSize()
+            .testTag("tutorialScreen")
+    ) {
+        when (currentStep.intValue) {
             0 -> LanguageSelectionStep(
                 onLanguageSelected = { localeCode: SupportedLocale? ->
                     configRepository.saveLocale(localeCode?.code)
-                    currentStep++
+                    currentStep.intValue++
                     onLanguageChanged()
                 },
                 onSkip = { onSkip() }
             )
 
             1 -> GestureDemoStep(
-                onComplete = { currentStep++ },
+                onComplete = { currentStep.intValue++ },
                 onSkip = { onSkip() }
             )
 

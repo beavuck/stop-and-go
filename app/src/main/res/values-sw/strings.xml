@@ -99,4 +99,20 @@
     <string name="more_reset_settings">Rejesha mipangilio chaguo-msingi</string>
     <string name="more_reset_success">Mipangilio imerejeshwa kwenye chaguo-msingi</string>
     <string name="more_rate_failed">Imeshindikana kukadiria programu: huenda Play Store haikupatikana</string>
+
+    <string name="config_picker_title">Mipangilio</string>
+    <string name="config_new">Mpangilio mpya</string>
+    <string name="config_rename">Badilisha jina</string>
+    <string name="config_delete">Futa</string>
+    <string name="config_delete_confirm_title">Futa mpangilio</string>
+    <string name="config_delete_confirm_message">Futa \"%1$s\"?</string>
+    <string name="config_name_hint">Jina la mpangilio</string>
+    <string name="config_default_name">Msingi</string>
+    <string name="config_preset_checkers">Draughts</string>
+    <string name="config_preset_apnea">Apnea</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">Pomodoro</string>
+    <string name="error_config_name_empty">Jina la mpangilio haliwezi kuwa tupu</string>
+    <string name="error_config_name_duplicate">Mpangilio wenye jina hili tayari upo</string>
+    <string name="error_config_name_length">Jina lisizidi herufi %1$d</string>
 </resources>

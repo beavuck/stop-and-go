@@ -4,9 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import com.beavuck.stop_and_go.config.DEFAULT_LOCALE
+import com.beavuck.stop_and_go.config.StopAndGoTheme
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.TutorialRepository
-import com.beavuck.stop_and_go.config.StopAndGoTheme
 import com.beavuck.stop_and_go.ui.tutorial.TutorialScreen
 
 class TutorialActivity : BeavuckActivity() {

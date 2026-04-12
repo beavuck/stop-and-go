@@ -89,4 +89,19 @@
     <string name="more_share_text">Confira Stop and Go - um temporizador de intervalos minimalista. Gratuito, sem anúncios e offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
     <string name="more_reset_settings">Redefinir para configurações padrão</string>
     <string name="more_reset_success">Configurações redefinidas para o padrão</string>
+    <string name="config_picker_title">Configurações</string>
+    <string name="config_new">Nova configuração</string>
+    <string name="config_rename">Renomear</string>
+    <string name="config_delete">Excluir</string>
+    <string name="config_delete_confirm_title">Excluir configuração</string>
+    <string name="config_delete_confirm_message">Excluir \"%1$s\"?</string>
+    <string name="config_name_hint">Nome da configuração</string>
+    <string name="config_default_name">Básico</string>
+    <string name="config_preset_checkers">Damas</string>
+    <string name="config_preset_apnea">Apneia</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">Pomodoro</string>
+    <string name="error_config_name_empty">O nome da configuração não pode estar vazio</string>
+    <string name="error_config_name_duplicate">Já existe uma configuração com esse nome</string>
+    <string name="error_config_name_length">O nome da configuração não deve exceder %1$d caracteres</string>
 </resources>

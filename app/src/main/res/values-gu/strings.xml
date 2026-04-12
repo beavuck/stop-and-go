@@ -88,4 +88,19 @@
     <string name="more_reset_settings">ડિફૉલ્ટ સેટિંગ્સ પર રીસેટ કરો</string>
     <string name="more_reset_success">સેટિંગ્સ ડિફૉલ્ટ મૂલ્યો પર રીસેટ થઈ ગઈ છે</string>
     <string name="more_rate_failed">એપનું મૂલ્યાંકન નિષ્ફળ ગયું: પ્લે સ્ટોર કદાચ મળ્યો નથી</string>
+    <string name="config_picker_title">ગોઠવણી</string>
+    <string name="config_new">નવી ગોઠવણી</string>
+    <string name="config_rename">નામ બદલો</string>
+    <string name="config_delete">કાઢી નાખો</string>
+    <string name="config_delete_confirm_title">ગોઠવણી કાઢો</string>
+    <string name="config_delete_confirm_message">\"%1$s\" કાઢી નાખો?</string>
+    <string name="config_name_hint">ગોઠવણીનું નામ</string>
+    <string name="config_default_name">સાદી</string>
+    <string name="config_preset_checkers">ચેકર્સ</string>
+    <string name="config_preset_apnea">એપ્નિયા</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">પોમોડોરો</string>
+    <string name="error_config_name_empty">ગોઠવણીનું નામ ખાલી ન હોવું જોઈએ</string>
+    <string name="error_config_name_duplicate">તે નામ સાથે ગોઠવણી પહેલેથી છે</string>
+    <string name="error_config_name_length">ગોઠવણીનું નામ %1$d અક્ષરોથી વધુ ન હોવું જોઈએ</string>
 </resources>

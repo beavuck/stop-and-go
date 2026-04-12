@@ -87,4 +87,20 @@
     <string name="more_reset_settings">Đặt lại về cài đặt mặc định</string>
     <string name="more_reset_success">Đã đặt lại cài đặt về giá trị mặc định</string>
     <string name="more_rate_failed">Đánh giá ứng dụng thất bại: có thể không tìm thấy Play Store</string>
+
+    <string name="config_picker_title">Cấu hình</string>
+    <string name="config_new">Cấu hình mới</string>
+    <string name="config_rename">Đổi tên</string>
+    <string name="config_delete">Xóa</string>
+    <string name="config_delete_confirm_title">Xóa cấu hình</string>
+    <string name="config_delete_confirm_message">Xóa \"%1$s\"?</string>
+    <string name="config_name_hint">Tên cấu hình</string>
+    <string name="config_default_name">Cơ bản</string>
+    <string name="config_preset_checkers">Cờ đam</string>
+    <string name="config_preset_apnea">Ngưng thở</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">Pomodoro</string>
+    <string name="error_config_name_empty">Tên không được để trống</string>
+    <string name="error_config_name_duplicate">Tên này đã tồn tại</string>
+    <string name="error_config_name_length">Tên không vượt quá %1$d ký tự</string>
 </resources>

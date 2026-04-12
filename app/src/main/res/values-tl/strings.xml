@@ -87,4 +87,20 @@
     <string name="more_reset_settings">I-reset sa default na mga setting</string>
     <string name="more_reset_success">Na-reset ang mga setting sa default na mga halaga</string>
     <string name="more_rate_failed">Nabigo ang pag-rate ng app: maaaring hindi mahanap ang Play Store</string>
+
+    <string name="config_picker_title">Mga config</string>
+    <string name="config_new">Bagong config</string>
+    <string name="config_rename">Palitan ang pangalan</string>
+    <string name="config_delete">Tanggalin</string>
+    <string name="config_delete_confirm_title">Tanggalin ang config</string>
+    <string name="config_delete_confirm_message">Tanggalin ang \"%1$s\"?</string>
+    <string name="config_name_hint">Pangalan ng config</string>
+    <string name="config_default_name">Pangunahing</string>
+    <string name="config_preset_checkers">Dama</string>
+    <string name="config_preset_apnea">Apnea</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">Pomodoro</string>
+    <string name="error_config_name_empty">Hindi maaaring walang laman ang pangalan</string>
+    <string name="error_config_name_duplicate">May ganitong pangalan na</string>
+    <string name="error_config_name_length">Hindi dapat lumampas sa %1$d karakter</string>
 </resources>

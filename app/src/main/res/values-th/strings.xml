@@ -86,4 +86,20 @@
     <string name="more_reset_settings">รีเซ็ตเป็นค่าเริ่มต้น</string>
     <string name="more_reset_success">รีเซ็ตการตั้งค่าเป็นค่าเริ่มต้นแล้ว</string>
     <string name="more_rate_failed">การให้คะแนนแอปล้มเหลว: อาจไม่พบ Play Store</string>
+
+    <string name="config_picker_title">การตั้งค่า</string>
+    <string name="config_new">สร้างใหม่</string>
+    <string name="config_rename">เปลี่ยนชื่อ</string>
+    <string name="config_delete">ลบ</string>
+    <string name="config_delete_confirm_title">ลบการตั้งค่า</string>
+    <string name="config_delete_confirm_message">ลบ \"%1$s\"?</string>
+    <string name="config_name_hint">ชื่อการตั้งค่า</string>
+    <string name="config_default_name">พื้นฐาน</string>
+    <string name="config_preset_checkers">หมากฮอส</string>
+    <string name="config_preset_apnea">หยุดหายใจ</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">โพโมโดโร</string>
+    <string name="error_config_name_empty">ห้ามเว้นชื่อว่าง</string>
+    <string name="error_config_name_duplicate">มีชื่อนี้อยู่แล้ว</string>
+    <string name="error_config_name_length">ชื่อต้องไม่เกิน %1$d ตัวอักษร</string>
 </resources>

@@ -12,11 +12,12 @@ object TimerConstants {
     const val DEFAULT_GROWTH_MULTIPLIER = 1.0f
     const val DEFAULT_GO_COLOR = "#5B8394"
     const val DEFAULT_STOP_COLOR = "#8B7366"
+    const val DEFAULT_SOUND_ENABLED = true
     const val DEFAULT_IS_PAUSED = true
 
-    const val MAX_LABEL_LENGTH = 32
+    const val DEBOUNCE_DELAY = 500L
+
+    const val BASE_MAX_STRING_INPUT_LENGTH = 32
 
     const val INITIAL_CYCLE_COUNT = 0
-
-    const val DEFAULT_SOUND_ENABLED = true
 }

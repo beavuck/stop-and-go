@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.beavuck.stop_and_go.model.timer.TimerConfig
+import com.beavuck.stop_and_go.model.timer.TimerConstants.BASE_MAX_STRING_INPUT_LENGTH
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_COLOR
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_DURATION
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GROWTH_MULTIPLIER
@@ -13,6 +14,7 @@ import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_STOP_DURATION
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import org.junit.After
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertThrows
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -26,7 +28,8 @@ class ConfigRepositoryTest {
     @Before
     fun setup() {
         context = ApplicationProvider.getApplicationContext()
-        sharedPreferences = context.getSharedPreferences("stop_and_go_prefs", Context.MODE_PRIVATE)
+        sharedPreferences =
+            context.getSharedPreferences(ConfigRepository.PREFS_NAME, Context.MODE_PRIVATE)
         sharedPreferences.edit().clear().commit()
         repository = ConfigRepository(context)
     }
@@ -259,6 +262,164 @@ class ConfigRepositoryTest {
 
         assertEquals("Sprint", loadedConfig.goLabel)
         assertEquals("Walk", loadedConfig.stopLabel)
+    }
+
+    @Test
+    fun listConfigs_MaybeBootstrap_returnsDefaultOnFirstAccess() {
+        val configs = repository.listConfigs()
+
+        assertEquals(ConfigRepository.PRESET_COUNT, configs.size)
+        assertEquals(context.getString(R.string.config_default_name), configs[0].name)
+    }
+
+    @Suppress("DEPRECATION")
+    @Test
+    fun listConfigs_MaybeBootstrap_migratesLegacyConfigToDefault() {
+        sharedPreferences.edit().apply {
+            putInt(ConfigRepository.KEY_LEGACY_GO_DURATION, 120)
+            putInt(ConfigRepository.KEY_LEGACY_STOP_DURATION, 60)
+            putFloat(ConfigRepository.KEY_LEGACY_GO_GROWTH, 1.5f)
+            putFloat(ConfigRepository.KEY_LEGACY_STOP_GROWTH, 0.8f)
+            putString(ConfigRepository.KEY_LEGACY_GO_COLOR, "#AABBCC")
+            putString(ConfigRepository.KEY_LEGACY_STOP_COLOR, "#112233")
+            putString(ConfigRepository.KEY_LEGACY_GO_LABEL, "Work")
+            putString(ConfigRepository.KEY_LEGACY_STOP_LABEL, "Rest")
+            putBoolean(ConfigRepository.KEY_LEGACY_SOUND_ENABLED, false)
+            commit()
+        }
+        val freshRepo = ConfigRepository(context)
+
+        val configs = freshRepo.listConfigs()
+
+        assertEquals(ConfigRepository.PRESET_COUNT, configs.size)
+        assertEquals(context.getString(R.string.config_default_name), configs[0].name)
+        assertEquals(120, configs[0].config.goDuration)
+        assertEquals(60, configs[0].config.stopDuration)
+        assertEquals("#AABBCC", configs[0].config.goColor)
+        assertEquals("Work", configs[0].config.goLabel)
+        assertEquals(false, configs[0].config.soundEnabled)
+    }
+
+    @Suppress("DEPRECATION")
+    @Test
+    fun listConfigs_MaybeBootstrap_migratesLegacyConfig_removesLegacyKeys() {
+        sharedPreferences.edit().putInt(ConfigRepository.KEY_LEGACY_GO_DURATION, 99).commit()
+        val freshRepo = ConfigRepository(context)
+        freshRepo.listConfigs()
+
+        assertEquals(false, sharedPreferences.contains(ConfigRepository.KEY_LEGACY_GO_DURATION))
+    }
+
+    @Test
+    fun createConfig_addsWithDefaults() {
+        repository.bootstrap()
+        repository.createConfig("Custom")
+
+        val configs = repository.listConfigs()
+
+        assertEquals(ConfigRepository.PRESET_COUNT + 1, configs.size)
+        val custom = configs.first { it.name == "Custom" }
+        assertEquals(TimerConfig(), custom.config)
+    }
+
+    @Test
+    fun createConfig_rejectsDuplicate() {
+        repository.bootstrap()
+
+        assertThrows(IllegalArgumentException::class.java) {
+            repository.createConfig(context.getString(R.string.config_default_name))
+        }
+    }
+
+    @Test
+    fun createConfig_rejectsEmpty() {
+        repository.bootstrap()
+
+        assertThrows(IllegalArgumentException::class.java) {
+            repository.createConfig("   ")
+        }
+    }
+
+    @Test
+    fun createConfig_rejectsTooLong() {
+        repository.bootstrap()
+
+        assertThrows(IllegalArgumentException::class.java) {
+            repository.createConfig("a".repeat(BASE_MAX_STRING_INPUT_LENGTH + 1))
+        }
+    }
+
+    @Test
+    fun renameConfig_updatesName() {
+        repository.bootstrap()
+        repository.createConfig("Old")
+        repository.renameConfig("Old", "New")
+
+        val configs = repository.listConfigs()
+
+        assertEquals(true, configs.any { it.name == "New" })
+        assertEquals(false, configs.any { it.name == "Old" })
+    }
+
+    @Test
+    fun renameConfig_updatesActiveNameWhenRenamingActive() {
+        repository.bootstrap()
+        val defaultName = context.getString(R.string.config_default_name)
+        repository.renameConfig(defaultName, "Renamed")
+
+        assertEquals("Renamed", repository.getActiveConfigName())
+    }
+
+    @Test
+    fun deleteConfig_rejectsWhenActive() {
+        repository.bootstrap()
+        val defaultName = context.getString(R.string.config_default_name)
+
+        assertThrows(IllegalStateException::class.java) {
+            repository.deleteConfig(defaultName)
+        }
+    }
+
+    @Test
+    fun deleteConfig_removesInactiveConfig() {
+        repository.bootstrap()
+        repository.createConfig("Temp")
+        repository.deleteConfig("Temp")
+
+        val configs = repository.listConfigs()
+
+        assertEquals(false, configs.any { it.name == "Temp" })
+    }
+
+    @Test
+    fun setActiveConfig_updatesActive() {
+        repository.bootstrap()
+        repository.createConfig("Other")
+        repository.setActiveConfig("Other")
+
+        assertEquals("Other", repository.getActiveConfigName())
+    }
+
+    @Test
+    fun setActiveConfig_throwsWhenNameNotFound() {
+        repository.bootstrap()
+
+        assertThrows(IllegalArgumentException::class.java) {
+            repository.setActiveConfig("Nonexistent")
+        }
+    }
+
+    @Test
+    fun saveConfig_updatesOnlyActive() {
+        repository.bootstrap()
+        repository.createConfig("Second")
+        repository.setActiveConfig("Second")
+        repository.saveConfig(TimerConfig(goDuration = 999))
+        repository.setActiveConfig(context.getString(R.string.config_default_name))
+
+        val defaultConfig = repository.loadConfig()
+
+        assertEquals(DEFAULT_GO_DURATION, defaultConfig.goDuration)
     }
 
     @Test

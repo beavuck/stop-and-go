@@ -117,4 +117,20 @@
     <string name="more_reset_settings">Скинути налаштування до стандартних</string>
     <string name="more_reset_success">Налаштування скинуто до стандартних</string>
     <string name="more_rate_failed">Не вдалося оцінити застосунок: можливо</string>
+
+    <string name="config_picker_title">Конфігурації</string>
+    <string name="config_new">Нова конфігурація</string>
+    <string name="config_rename">Перейменувати</string>
+    <string name="config_delete">Видалити</string>
+    <string name="config_delete_confirm_title">Видалити конфігурацію</string>
+    <string name="config_delete_confirm_message">Видалити \"%1$s\"?</string>
+    <string name="config_name_hint">Назва конфігурації</string>
+    <string name="config_default_name">Базова</string>
+    <string name="config_preset_checkers">Шашки</string>
+    <string name="config_preset_apnea">Апное</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">Помодоро</string>
+    <string name="error_config_name_empty">Назва конфігурації не може бути порожньою</string>
+    <string name="error_config_name_duplicate">Конфігурація з такою назвою вже існує</string>
+    <string name="error_config_name_length">Назва конфігурації не повинна перевищувати %1$d символів</string>
 </resources>

@@ -122,4 +122,19 @@
     <string name="more_reset_settings">डीफॉल्ट सेटिंग्जवर रीसेट करा</string>
     <string name="more_reset_success">सेटिंग्ज डीफॉल्ट मूल्यांवर रीसेट झाल्या आहेत</string>
     <string name="more_rate_failed">अॅपचे मूल्यांकन अयशस्वी झाले: प्ले स्टोअर सापडले नसावे</string>
+    <string name="config_picker_title">कॉन्फिग</string>
+    <string name="config_new">नवीन कॉन्फिग</string>
+    <string name="config_rename">नाव बदला</string>
+    <string name="config_delete">हटवा</string>
+    <string name="config_delete_confirm_title">कॉन्फिग हटवा</string>
+    <string name="config_delete_confirm_message">\"%1$s\" हटवायचे?</string>
+    <string name="config_name_hint">कॉन्फिगचे नाव</string>
+    <string name="config_default_name">मूळ</string>
+    <string name="config_preset_checkers">चेकर्स</string>
+    <string name="config_preset_apnea">अपनिया</string>
+    <string name="config_preset_hiit">HIIT</string>
+    <string name="config_preset_pomodoro">पोमोडोरो</string>
+    <string name="error_config_name_empty">कॉन्फिगचे नाव रिकामे असू नये</string>
+    <string name="error_config_name_duplicate">त्या नावाचा कॉन्फिग आधीच अस्तित्वात आहे</string>
+    <string name="error_config_name_length">कॉन्फिगचे नाव %1$d अक्षरांपेक्षा जास्त असू नये</string>
 </resources>
