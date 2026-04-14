@@ -157,4 +157,7 @@
     <string name="error_config_name_empty">نام پیکربندی نباید خالی باشد</string>
     <string name="error_config_name_duplicate">پیکربندی با این نام از قبل وجود دارد</string>
     <string name="error_config_name_length">نام پیکربندی نباید از %1$d کاراکتر تجاوز کند</string>
+    <string name="tutorial_swipe_instruction">برای رفتن به مرحله بعدی به بالا بکشید</string>
+    <string name="tutorial_swipe_success">به مرحله بعدی رفت</string>
+    <string name="next_phase">رفتن به مرحله بعدی</string>
 </resources>

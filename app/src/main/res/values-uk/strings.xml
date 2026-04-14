@@ -133,4 +133,7 @@
     <string name="error_config_name_empty">Назва конфігурації не може бути порожньою</string>
     <string name="error_config_name_duplicate">Конфігурація з такою назвою вже існує</string>
     <string name="error_config_name_length">Назва конфігурації не повинна перевищувати %1$d символів</string>
+    <string name="tutorial_swipe_instruction">Проведіть вгору, щоб перейти до наступної фази</string>
+    <string name="tutorial_swipe_success">Перейшло до наступної фази</string>
+    <string name="next_phase">Перейти до наступної фази</string>
 </resources>

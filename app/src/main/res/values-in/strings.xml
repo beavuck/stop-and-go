@@ -156,4 +156,7 @@
     <string name="error_config_name_empty">Nama konfigurasi tidak boleh kosong</string>
     <string name="error_config_name_duplicate">Konfigurasi dengan nama itu sudah ada</string>
     <string name="error_config_name_length">Nama konfigurasi tidak boleh melebihi %1$d karakter</string>
+    <string name="tutorial_swipe_instruction">Gesek ke atas untuk melompat ke fase berikutnya</string>
+    <string name="tutorial_swipe_success">Dilompat ke fase berikutnya</string>
+    <string name="next_phase">Lompat ke fase berikutnya</string>
 </resources>

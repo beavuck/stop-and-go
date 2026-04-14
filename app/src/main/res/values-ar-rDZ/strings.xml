@@ -106,4 +106,7 @@
     <string name="error_config_name_empty">يجب ألا يكون اسم الإعداد فارغاً</string>
     <string name="error_config_name_duplicate">يوجد إعداد بهذا الاسم بالفعل</string>
     <string name="error_config_name_length">يجب ألا يتجاوز اسم الإعداد %1$d حرفاً</string>
+    <string name="tutorial_swipe_instruction">مرر لأعلى للانتقال إلى المرحلة التالية</string>
+    <string name="tutorial_swipe_success">تم الانتقال إلى المرحلة التالية</string>
+    <string name="next_phase">الانتقال إلى المرحلة التالية</string>
 </resources>

@@ -103,4 +103,7 @@
     <string name="error_config_name_empty">ગોઠવણીનું નામ ખાલી ન હોવું જોઈએ</string>
     <string name="error_config_name_duplicate">તે નામ સાથે ગોઠવણી પહેલેથી છે</string>
     <string name="error_config_name_length">ગોઠવણીનું નામ %1$d અક્ષરોથી વધુ ન હોવું જોઈએ</string>
+    <string name="tutorial_swipe_instruction">આગળના તબક્કામાં જવા માટે ઉપર સ્વાઇપ કરો</string>
+    <string name="tutorial_swipe_success">આગળના તબક્કામાં ગઈ</string>
+    <string name="next_phase">આગળના તબક્કામાં જાઓ</string>
 </resources>

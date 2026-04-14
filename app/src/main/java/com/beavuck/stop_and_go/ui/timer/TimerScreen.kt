@@ -84,6 +84,17 @@ fun TimerScreen(
         }
     }
 
+    fun skipToNextPhase() {
+        timerController.pause()
+        phaseManager.advanceToNextPhase()
+        cycleCount.intValue = phaseManager.cycleCount
+        phase.value = phaseManager.getCurrentPhase()
+        secondsRemaining.intValue = phase.value.durationSeconds
+        if (!isPaused.value) {
+            timerController.start(phase.value.durationSeconds)
+        }
+    }
+
     fun togglePause() {
         isPaused.value = !isPaused.value
         if (isPaused.value) {
@@ -151,6 +162,15 @@ fun TimerScreen(
                 ),
                 actions = {
                     IconButton(
+                        onClick = ::skipToNextPhase,
+                        modifier = Modifier.testTag("nextPhaseButton")
+                    ) {
+                        Icon(
+                            painter = painterResource(R.drawable.next),
+                            contentDescription = stringResource(R.string.next_phase)
+                        )
+                    }
+                    IconButton(
                         onClick = ::resetTimer,
                         modifier = Modifier.testTag("resetTimerButton")
                     ) {
@@ -182,7 +202,8 @@ fun TimerScreen(
             stopLabel = phaseManager.getStopLabel(),
             onTap = ::togglePause,
             onLongPress = onNavigateToSettings,
-            onTripleTap = ::resetTimer
+            onTripleTap = ::resetTimer,
+            onSwipeUp = ::skipToNextPhase
         )
     }
 }

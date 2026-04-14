@@ -111,4 +111,7 @@
     <string name="error_config_name_empty">कॉन्फ़िग का नाम खाली नहीं होना चाहिए</string>
     <string name="error_config_name_duplicate">उस नाम का कॉन्फ़िग पहले से मौजूद है</string>
     <string name="error_config_name_length">कॉन्फ़िग का नाम %1$d अक्षरों से अधिक नहीं होना चाहिए</string>
+    <string name="tutorial_swipe_instruction">अगले चरण पर जाने के लिए ऊपर स्वाइप करें</string>
+    <string name="tutorial_swipe_success">अगले चरण पर चला गया</string>
+    <string name="next_phase">अगले चरण पर जाएं</string>
 </resources>

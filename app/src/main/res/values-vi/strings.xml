@@ -103,4 +103,7 @@
     <string name="error_config_name_empty">Tên không được để trống</string>
     <string name="error_config_name_duplicate">Tên này đã tồn tại</string>
     <string name="error_config_name_length">Tên không vượt quá %1$d ký tự</string>
+    <string name="tutorial_swipe_instruction">Vuốt lên để bỏ qua sang giai đoạn tiếp theo</string>
+    <string name="tutorial_swipe_success">Đã bỏ qua sang giai đoạn tiếp theo</string>
+    <string name="next_phase">Bỏ qua sang giai đoạn tiếp theo</string>
 </resources>

@@ -173,7 +173,8 @@ unit-tested.
 ### Testing Guidelines
 
 - Never delete test code without user approval (see Critical Rules above)
-- When a test fails: diagnose the root cause, propose solutions, let the user decide
+- When a test fails: gather facts first (ask if it's flaky, if it passes alone, what the failure
+  mode is) before theorizing root causes — do not speculate on unverified assumptions
 - Test code should also be of high quality: let it use reusable logical units of testing code, and
   let it be clear and concise
 - Compose UI tests: Use `performScrollTo()` before assertions on elements that may be off-screen

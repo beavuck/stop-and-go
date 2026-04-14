@@ -6,7 +6,6 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.beavuck.stop_and_go.activities.SettingsActivity
-import com.beavuck.stop_and_go.config.AppState
 import com.beavuck.stop_and_go.config.DEFAULT_LOCALE
 import com.beavuck.stop_and_go.config.SupportedLocale
 import com.beavuck.stop_and_go.model.timer.TimerConfig
@@ -53,9 +52,11 @@ class SettingsActivityTest {
 
     @Test
     fun settingsScreen_displaysActionButtons() {
-        composeTestRule.onNodeWithTag("saveButton").assertIsDisplayed()
-        composeTestRule.onNodeWithTag("resetButton").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("helpButton").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("configPickerButton").assertIsDisplayed()
         composeTestRule.onNodeWithTag("languageButton").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("saveButton").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("moreButton").assertIsDisplayed()
     }
 
     @Test
@@ -102,24 +103,6 @@ class SettingsActivityTest {
 
         val savedState = stateRepository.loadState()
         assertEquals(null, savedState)
-    }
-
-    @Test
-    fun resetButton_clearsStateAndFinishes() {
-        val testState = AppState(
-            cycleCount = 5,
-            isGo = false,
-            currentGoDuration = 100,
-            currentStopDuration = 50,
-            secondsRemaining = 25
-        )
-        stateRepository.saveState(testState)
-
-        composeTestRule.onNodeWithTag("resetButton").performClick()
-        composeTestRule.waitForIdle()
-
-        val clearedState = stateRepository.loadState()
-        assertEquals(null, clearedState)
     }
 
     @Test

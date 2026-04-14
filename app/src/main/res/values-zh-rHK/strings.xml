@@ -103,4 +103,7 @@
     <string name="error_config_name_empty">設定名稱不可為空</string>
     <string name="error_config_name_duplicate">已有相同名稱的設定</string>
     <string name="error_config_name_length">設定名稱不可超過 %1$d 個字元</string>
+    <string name="tutorial_swipe_instruction">向上滑動以跳至下一階段</string>
+    <string name="tutorial_swipe_success">已跳至下一階段</string>
+    <string name="next_phase">跳至下一階段</string>
 </resources>

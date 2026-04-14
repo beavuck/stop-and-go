@@ -11,6 +11,7 @@ import com.beavuck.stop_and_go.activities.MainActivity
 import com.beavuck.stop_and_go.config.AppState
 import com.beavuck.stop_and_go.model.timer.TimerConfig
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_DURATION
+import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_STOP_DURATION
 import com.beavuck.stop_and_go.model.timer.TimerConstants.INITIAL_CYCLE_COUNT
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
@@ -667,6 +668,89 @@ class MainActivityTest {
     private fun assertTimerRunning() {
         composeTestRule.onNodeWithTag("pauseIcon").assertDoesNotExist()
         composeTestRule.onNodeWithTag("pauseOverlay").assertDoesNotExist()
+    }
+
+    @Test
+    fun topAppBar_nextButton_isDisplayed() {
+        composeTestRule.onNodeWithTag("nextPhaseButton").assertIsDisplayed()
+    }
+
+    @Test
+    fun topAppBar_nextButton_whileInGoPhase_transitionsToStopPhase() {
+        composeTestRule.onNodeWithTag("nextPhaseButton").performClick()
+        composeTestRule.waitForIdle()
+
+        val expectedLabel = context.getString(R.string.phase_stop)
+        composeTestRule.onNodeWithTag("phaseLabel").assertTextEquals(expectedLabel)
+    }
+
+    @Test
+    fun topAppBar_nextButton_whileInStopPhase_transitionsToGoAndIncrementsCycleCount() {
+        val stopPhaseState = AppState(
+            cycleCount = 0,
+            isGo = false,
+            secondsRemaining = 10,
+        )
+        launchWithState(stopPhaseState)
+
+        composeTestRule.onNodeWithTag("nextPhaseButton").performClick()
+        composeTestRule.waitForIdle()
+
+        val expectedLabel = context.getString(R.string.phase_go)
+        composeTestRule.onNodeWithTag("phaseLabel").assertTextEquals(expectedLabel)
+
+        val expectedCycle = context.getString(R.string.cycle_count, 2)
+        composeTestRule.onNodeWithTag("cycleCount").assertTextEquals(expectedCycle)
+    }
+
+    @Test
+    fun topAppBar_nextButton_whileRunning_showsNewPhaseAtFullDurationAndKeepsRunning() {
+        tapTimer()
+        composeTestRule.waitForIdle()
+        Thread.sleep(1500)
+
+        composeTestRule.onNodeWithTag("nextPhaseButton").performClick()
+        composeTestRule.waitForIdle()
+
+        val expectedLabel = context.getString(R.string.phase_stop)
+        composeTestRule.onNodeWithTag("phaseLabel").assertTextEquals(expectedLabel)
+
+        assertTrue(
+            "Timer should show full Stop duration after skip",
+            getTimerValue() in DEFAULT_STOP_DURATION - 1..DEFAULT_STOP_DURATION
+        )
+
+        composeTestRule.onNodeWithTag("pauseIcon").assertDoesNotExist()
+    }
+
+    @Test
+    fun topAppBar_nextButton_whenPaused_transitionsToNextPhaseAndStaysPaused() {
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("nextPhaseButton").performClick()
+        composeTestRule.waitForIdle()
+
+        val expectedLabel = context.getString(R.string.phase_stop)
+        composeTestRule.onNodeWithTag("phaseLabel").assertTextEquals(expectedLabel)
+
+        composeTestRule.onNodeWithTag("pauseIcon").assertIsDisplayed()
+
+        assertTrue(
+            "Timer should show full Stop duration when staying paused after skip",
+            getTimerValue() in DEFAULT_STOP_DURATION - 1..DEFAULT_STOP_DURATION
+        )
+    }
+
+    @Test
+    fun swipeUp_whileRunning_transitionsFromGoToStop() {
+        tapTimer()
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("timerDisplay").performTouchInput { swipeUp() }
+        composeTestRule.waitForIdle()
+
+        val expectedLabel = context.getString(R.string.phase_stop)
+        composeTestRule.onNodeWithTag("phaseLabel").assertTextEquals(expectedLabel)
     }
 
     @Test

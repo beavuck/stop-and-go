@@ -103,4 +103,7 @@
     <string name="error_config_name_empty">配置名称不能为空</string>
     <string name="error_config_name_duplicate">已存在同名配置</string>
     <string name="error_config_name_length">配置名称不能超过 %1$d 个字符</string>
+    <string name="tutorial_swipe_instruction">向上滑动跳到下一阶段</string>
+    <string name="tutorial_swipe_success">已跳到下一阶段</string>
+    <string name="next_phase">跳到下一阶段</string>
 </resources>

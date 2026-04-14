@@ -159,4 +159,7 @@
     <string name="error_config_name_empty">పేరు ఖాళీగా ఉండకూడదు</string>
     <string name="error_config_name_duplicate">ఈ పేరుతో ఇప్పటికే ఉంది</string>
     <string name="error_config_name_length">పేరు %1$d అక్షరాలకంటే ఎక్కువ కాకూడదు</string>
+    <string name="tutorial_swipe_instruction">తదుపరి దశకు వెళ్ళడానికి పైకి స్వైప్ చేయండి</string>
+    <string name="tutorial_swipe_success">తదుపరి దశకు వెళ్ళింది</string>
+    <string name="next_phase">తదుపరి దశకు వెళ్ళండి</string>
 </resources>

@@ -103,4 +103,7 @@
     <string name="error_config_name_empty">Sunan tsari ba zai iya zama fanko ba</string>
     <string name="error_config_name_duplicate">Tsari mai wannan suna ya riga ya wanzu</string>
     <string name="error_config_name_length">Sunan tsari bai kamata ya wuce haruffa %1$d ba</string>
+    <string name="tutorial_swipe_instruction">Ka soke sama don tsallake zuwa matakin gaba</string>
+    <string name="tutorial_swipe_success">An tsallake zuwa matakin gaba</string>
+    <string name="next_phase">Tsallake zuwa matakin gaba</string>
 </resources>

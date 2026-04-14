@@ -127,4 +127,7 @@
     <string name="error_config_name_empty">名稱袂使是空的</string>
     <string name="error_config_name_duplicate">已經有仝名的設定</string>
     <string name="error_config_name_length">名稱袂使超過 %1$d 個字元</string>
+    <string name="tutorial_swipe_instruction">向上滑動以跳至下一階段</string>
+    <string name="tutorial_swipe_success">已跳至下一階段</string>
+    <string name="next_phase">跳至下一階段</string>
 </resources>

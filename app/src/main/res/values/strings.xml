@@ -119,6 +119,9 @@
     <string name="tutorial_long_success">That opens settings</string>
     <string name="tutorial_multi_instruction">Triple-tap to reset</string>
     <string name="tutorial_multi_success">Reset</string>
+    <string name="tutorial_swipe_instruction">Swipe up to skip to next phase</string>
+    <string name="tutorial_swipe_success">Skipped to next phase</string>
+    <string name="next_phase">Skip to next phase</string>
     <string name="tutorial_creative_title">Examples</string>
     <string name="tutorial_creative_description">Some things people use this for:</string>
     <string name="tutorial_use_chess">Chess clock</string>

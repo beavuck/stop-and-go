@@ -143,4 +143,7 @@
     <string name="error_config_name_empty">ترتیب دا ناں خالی نئیں ہونا چاہیدا</string>
     <string name="error_config_name_duplicate">اوس ناں دی ترتیب پہلاں توں موجود ہے</string>
     <string name="error_config_name_length">ترتیب دا ناں %1$d حروف توں ودھ نئیں ہونا چاہیدا</string>
+    <string name="tutorial_swipe_instruction">اگلے مرحلے پر جانے کے لیے اوپر سوائپ کریں</string>
+    <string name="tutorial_swipe_success">اگلے مرحلے پر چلا گیا</string>
+    <string name="next_phase">اگلے مرحلے پر جائیں</string>
 </resources>

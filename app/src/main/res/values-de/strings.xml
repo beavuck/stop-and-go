@@ -152,4 +152,7 @@
     <string name="error_config_name_empty">Der Konfigurationsname darf nicht leer sein</string>
     <string name="error_config_name_duplicate">Eine Konfiguration mit diesem Namen existiert bereits</string>
     <string name="error_config_name_length">Der Konfigurationsname darf %1$d Zeichen nicht überschreiten</string>
+    <string name="tutorial_swipe_instruction">Nach oben wischen, um zur nächsten Phase zu springen</string>
+    <string name="tutorial_swipe_success">Zur nächsten Phase gesprungen</string>
+    <string name="next_phase">Zur nächsten Phase springen</string>
 </resources>

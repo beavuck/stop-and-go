@@ -136,4 +136,7 @@
     <string name="error_config_name_empty">کنفیگریشن کا نام خالی نہیں ہو سکتا</string>
     <string name="error_config_name_duplicate">اسی نام کی کنفیگریشن پہلے سے موجود ہے</string>
     <string name="error_config_name_length">نام %1$d حروف سے زیادہ نہیں ہونا چاہیے</string>
+    <string name="tutorial_swipe_instruction">اگلے مرحلے پر جانے کے لیے اوپر سوائپ کریں</string>
+    <string name="tutorial_swipe_success">اگلے مرحلے پر چلا گیا</string>
+    <string name="next_phase">اگلے مرحلے پر جائیں</string>
 </resources>

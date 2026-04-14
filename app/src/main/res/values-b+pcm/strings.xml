@@ -102,4 +102,7 @@
     <string name="error_config_name_empty">Config name no fit empty</string>
     <string name="error_config_name_duplicate">Config with dat name don dey already</string>
     <string name="error_config_name_length">Config name no fit pass %1$d characters</string>
+    <string name="tutorial_swipe_instruction">Swipe up to skip go next phase</string>
+    <string name="tutorial_swipe_success">Don skip go next phase</string>
+    <string name="next_phase">Skip go next phase</string>
 </resources>

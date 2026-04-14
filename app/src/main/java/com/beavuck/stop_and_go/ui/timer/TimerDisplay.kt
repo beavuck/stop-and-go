@@ -2,6 +2,7 @@ package com.beavuck.stop_and_go.ui.timer
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.gestures.detectVerticalDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.foundation.text.TextAutoSize
@@ -14,6 +15,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.input.pointer.PointerInputChange
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
@@ -27,10 +29,10 @@ import androidx.compose.ui.unit.sp
 import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.model.phase.PhaseState
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEBOUNCE_DELAY
+import com.beavuck.stop_and_go.model.timer.TimerConstants.SWIPE_UP_THRESHOLD_PX
 import com.beavuck.stop_and_go.utils.TimeFormat
 import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
 import com.beavuck.stop_and_go.utils.splitTime
-
 
 @Composable
 fun TimerDisplay(
@@ -43,6 +45,7 @@ fun TimerDisplay(
     onTap: () -> Unit,
     onLongPress: () -> Unit,
     onTripleTap: () -> Unit = {},
+    onSwipeUp: () -> Unit = {},
 ) {
     val tapCount = remember { mutableIntStateOf(0) }
     val lastTapTime = remember { mutableLongStateOf(0L) }
@@ -128,6 +131,25 @@ fun TimerDisplay(
                         lastTapTime.longValue = currentTime
                     },
                     onLongPress = { onLongPress() }
+                )
+            }
+            .pointerInput("swipeUp") {
+                var totalDrag = 0f
+                var triggered = false
+                detectVerticalDragGestures(
+                    onDragStart = { totalDrag = 0f; triggered = false },
+                    onDragEnd = { totalDrag = 0f; triggered = false },
+                    onDragCancel = { totalDrag = 0f; triggered = false },
+                    onVerticalDrag = { change: PointerInputChange, dragAmount: Float ->
+                        if (!triggered) {
+                            totalDrag += dragAmount
+                            if (totalDrag < -SWIPE_UP_THRESHOLD_PX) {
+                                triggered = true
+                                change.consume()
+                                onSwipeUp()
+                            }
+                        }
+                    }
                 )
             }
             .testTag("timerDisplay"),

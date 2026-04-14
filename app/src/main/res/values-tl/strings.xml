@@ -103,4 +103,7 @@
     <string name="error_config_name_empty">Hindi maaaring walang laman ang pangalan</string>
     <string name="error_config_name_duplicate">May ganitong pangalan na</string>
     <string name="error_config_name_length">Hindi dapat lumampas sa %1$d karakter</string>
+    <string name="tutorial_swipe_instruction">Mag-swipe pataas para lumipat sa susunod na yugto</string>
+    <string name="tutorial_swipe_success">Lumipat sa susunod na yugto</string>
+    <string name="next_phase">Lumipat sa susunod na yugto</string>
 </resources>

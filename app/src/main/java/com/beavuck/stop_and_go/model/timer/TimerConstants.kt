@@ -20,4 +20,6 @@ object TimerConstants {
     const val BASE_MAX_STRING_INPUT_LENGTH = 32
 
     const val INITIAL_CYCLE_COUNT = 0
+
+    const val SWIPE_UP_THRESHOLD_PX = 80f
 }

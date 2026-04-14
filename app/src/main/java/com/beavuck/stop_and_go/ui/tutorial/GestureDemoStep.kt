@@ -2,6 +2,7 @@ package com.beavuck.stop_and_go.ui.tutorial
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.gestures.detectVerticalDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -14,7 +15,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.PointerInputChange
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -26,11 +29,12 @@ import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEBOUNCE_DELAY
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_COLOR
 import com.beavuck.stop_and_go.model.timer.TimerConstants.DEFAULT_GO_DURATION
+import com.beavuck.stop_and_go.model.timer.TimerConstants.SWIPE_UP_THRESHOLD_PX
 import com.beavuck.stop_and_go.utils.TimeFormat
 import com.beavuck.stop_and_go.utils.splitTime
 
 enum class GestureType {
-    TAP, LONG_PRESS, MULTI_TAP
+    TAP, SWIPE_UP, MULTI_TAP, LONG_PRESS
 }
 
 @Composable
@@ -43,6 +47,7 @@ fun GestureDemoStep(
 
     val gestures = listOf(
         GestureType.TAP,
+        GestureType.SWIPE_UP,
         GestureType.MULTI_TAP,
         GestureType.LONG_PRESS
     )
@@ -63,7 +68,7 @@ fun GestureDemoStep(
         )
 
         Text(
-            text = stringResource(R.string.tutorial_progress, currentGesture.intValue + 1, 3),
+            text = stringResource(R.string.tutorial_progress, currentGesture.intValue + 1, 4),
             fontSize = 16.sp,
             color = MaterialTheme.colorScheme.secondary,
             modifier = Modifier.padding(bottom = 24.dp)
@@ -72,8 +77,9 @@ fun GestureDemoStep(
         Text(
             text = when (gestures[currentGesture.intValue]) {
                 GestureType.TAP -> stringResource(R.string.tutorial_tap_instruction)
-                GestureType.LONG_PRESS -> stringResource(R.string.tutorial_long_instruction)
+                GestureType.SWIPE_UP -> stringResource(R.string.tutorial_swipe_instruction)
                 GestureType.MULTI_TAP -> stringResource(R.string.tutorial_multi_instruction)
+                GestureType.LONG_PRESS -> stringResource(R.string.tutorial_long_instruction)
             },
             fontSize = 18.sp,
             textAlign = TextAlign.Center,
@@ -93,8 +99,9 @@ fun GestureDemoStep(
             Text(
                 text = when (gestures[currentGesture.intValue]) {
                     GestureType.TAP -> stringResource(R.string.tutorial_tap_success)
-                    GestureType.LONG_PRESS -> stringResource(R.string.tutorial_long_success)
+                    GestureType.SWIPE_UP -> stringResource(R.string.tutorial_swipe_success)
                     GestureType.MULTI_TAP -> stringResource(R.string.tutorial_multi_success)
+                    GestureType.LONG_PRESS -> stringResource(R.string.tutorial_long_success)
                 },
                 fontSize = 18.sp,
                 color = MaterialTheme.colorScheme.primary,
@@ -108,7 +115,7 @@ fun GestureDemoStep(
         TutorialBottomButtons(
             onSkip = onSkip,
             onNext = {
-                if (currentGesture.intValue < 2) {
+                if (currentGesture.intValue < 3) {
                     currentGesture.intValue++
                     gestureCompleted.value = false
                 } else {
@@ -126,6 +133,7 @@ private fun DemoArea(
 ) {
     val showPauseOverlay = rememberSaveable { mutableStateOf(false) }
     val showSettingsOverlay = rememberSaveable { mutableStateOf(false) }
+    val showSwipeOverlay = rememberSaveable { mutableStateOf(false) }
     val timerValue = rememberSaveable { mutableIntStateOf(8) }
     val tapCount = remember { mutableIntStateOf(0) }
     val lastTapTime = remember { mutableLongStateOf(0L) }
@@ -170,7 +178,30 @@ private fun DemoArea(
                         }
                     }
                 )
-            },
+            }
+            .pointerInput(gestureType) {
+                if (gestureType == GestureType.SWIPE_UP) {
+                    var totalDrag = 0f
+                    var triggered = false
+                    detectVerticalDragGestures(
+                        onDragStart = { totalDrag = 0f; triggered = false },
+                        onDragEnd = { totalDrag = 0f; triggered = false },
+                        onDragCancel = { totalDrag = 0f; triggered = false },
+                        onVerticalDrag = { change: PointerInputChange, dragAmount: Float ->
+                            if (!triggered) {
+                                totalDrag += dragAmount
+                                if (totalDrag < -SWIPE_UP_THRESHOLD_PX) {
+                                    triggered = true
+                                    change.consume()
+                                    showSwipeOverlay.value = true
+                                    onGestureDetected()
+                                }
+                            }
+                        }
+                    )
+                }
+            }
+            .testTag("gestureDemoArea"),
         contentAlignment = Alignment.Center
     ) {
         val timeComponents = splitTime(timerValue.intValue)
@@ -224,6 +255,24 @@ private fun DemoArea(
             ) {
                 Icon(
                     painter = painterResource(R.drawable.gear),
+                    contentDescription = null,
+                    tint = Color.White,
+                    modifier = Modifier
+                        .size(64.dp)
+                        .alpha(0.8f)
+                )
+            }
+        }
+
+        if (showSwipeOverlay.value && gestureType == GestureType.SWIPE_UP) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color(0xFF4CAF50).copy(alpha = 0.5f)),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.next),
                     contentDescription = null,
                     tint = Color.White,
                     modifier = Modifier

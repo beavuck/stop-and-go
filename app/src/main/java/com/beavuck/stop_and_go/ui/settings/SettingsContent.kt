@@ -53,7 +53,6 @@ fun SettingsContent(
 
     val invalidInputMessage = stringResource(R.string.invalid_input)
     val settingsSavedMessage = stringResource(R.string.settings_saved)
-    val resetTimerMessage = stringResource(R.string.reset_timer)
 
     val goDuration = rememberSaveable { mutableStateOf(currentConfig.value.goDuration.toString()) }
     val stopDuration =
@@ -116,12 +115,6 @@ fun SettingsContent(
 
     fun saveSettings() = saveSettingsInternal(showToast = true, finishAfter = true)
 
-    fun resetTimer() {
-        Toast.makeText(context, resetTimerMessage, Toast.LENGTH_SHORT).show()
-        stateRepository.clearState()
-        onFinish()
-    }
-
     fun reloadConfig() {
         isInitialComposition.value = true
         val reloaded = configRepository.loadConfig()
@@ -163,15 +156,6 @@ fun SettingsContent(
             TopAppBar(
                 title = { },
                 actions = {
-                    IconButton(
-                        onClick = { resetTimer() },
-                        modifier = Modifier.testTag("resetButton")
-                    ) {
-                        Icon(
-                            painterResource(R.drawable.arrow_rewind),
-                            contentDescription = stringResource(R.string.reset_timer)
-                        )
-                    }
                     IconButton(
                         onClick = {
                             tutorialRepository.resetTutorialCompletion()

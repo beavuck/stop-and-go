@@ -131,4 +131,7 @@
     <string name="error_config_name_empty">কনফিগের নাম খালি হতে পারবে না</string>
     <string name="error_config_name_duplicate">সেই নামের কনফিগ ইতিমধ্যে আছে</string>
     <string name="error_config_name_length">কনফিগের নাম %1$d অক্ষরের বেশি হতে পারবে না</string>
+    <string name="tutorial_swipe_instruction">পরবর্তী ধাপে যেতে উপরে সোয়াইপ করুন</string>
+    <string name="tutorial_swipe_success">পরবর্তী ধাপে চলে গেছে</string>
+    <string name="next_phase">পরবর্তী ধাপে যান</string>
 </resources>

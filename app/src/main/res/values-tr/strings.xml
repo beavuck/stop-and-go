@@ -104,4 +104,7 @@
     <string name="error_config_name_empty">Ad boş olamaz</string>
     <string name="error_config_name_duplicate">Bu adda zaten bir yapılandırma var</string>
     <string name="error_config_name_length">Ad %1$d karakteri geçmemelidir</string>
+    <string name="tutorial_swipe_instruction">Sonraki aşamaya geçmek için yukarı kaydırın</string>
+    <string name="tutorial_swipe_success">Sonraki aşamaya geçildi</string>
+    <string name="next_phase">Sonraki aşamaya geç</string>
 </resources>

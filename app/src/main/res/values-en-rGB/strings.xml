@@ -101,4 +101,7 @@
     <string name="error_config_name_empty">Config name must not be empty</string>
     <string name="error_config_name_duplicate">A config with that name already exists</string>
     <string name="error_config_name_length">Config name must not exceed %1$d characters</string>
+    <string name="tutorial_swipe_instruction">Swipe up to skip to next phase</string>
+    <string name="tutorial_swipe_success">Skipped to next phase</string>
+    <string name="next_phase">Skip to next phase</string>
 </resources>

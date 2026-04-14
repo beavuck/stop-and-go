@@ -114,4 +114,7 @@
     <string name="error_config_name_empty">Orúkọ ìtòlẹ́sẹẹsẹ kò gbọ́dọ̀ ṣofo</string>
     <string name="error_config_name_duplicate">Ìtòlẹ́sẹẹsẹ pẹ̀lú orúkọ yìí ti wà tẹ́lẹ̀</string>
     <string name="error_config_name_length">Orúkọ kò gbọ́dọ̀ ju %1$d àmi lọ</string>
+    <string name="tutorial_swipe_instruction">Fa soke lati fo si ipele ti o tẹle</string>
+    <string name="tutorial_swipe_success">Ti fo si ipele ti o tẹle</string>
+    <string name="next_phase">Fo si ipele ti o tẹle</string>
 </resources>

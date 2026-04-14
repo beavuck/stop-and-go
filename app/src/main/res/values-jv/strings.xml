@@ -102,4 +102,7 @@
     <string name="error_config_name_empty">Jeneng konfigurasi ora kena kosong</string>
     <string name="error_config_name_duplicate">Konfigurasi karo jeneng kuwi wis ana</string>
     <string name="error_config_name_length">Jeneng konfigurasi ora kena ngluwihi %1$d karakter</string>
+    <string name="tutorial_swipe_instruction">Geser munggah kanggo loncat menyang fase sabanjure</string>
+    <string name="tutorial_swipe_success">Wis loncat menyang fase sabanjure</string>
+    <string name="next_phase">Loncat menyang fase sabanjure</string>
 </resources>

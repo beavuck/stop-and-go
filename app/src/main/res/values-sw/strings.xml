@@ -115,4 +115,7 @@
     <string name="error_config_name_empty">Jina la mpangilio haliwezi kuwa tupu</string>
     <string name="error_config_name_duplicate">Mpangilio wenye jina hili tayari upo</string>
     <string name="error_config_name_length">Jina lisizidi herufi %1$d</string>
+    <string name="tutorial_swipe_instruction">Buruza juu ili kuruka kwenye awamu inayofuata</string>
+    <string name="tutorial_swipe_success">Imejump kwenye awamu inayofuata</string>
+    <string name="next_phase">Ruka kwenye awamu inayofuata</string>
 </resources>

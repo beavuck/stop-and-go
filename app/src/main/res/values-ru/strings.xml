@@ -145,4 +145,7 @@
     <string name="error_config_name_empty">Название конфигурации не может быть пустым</string>
     <string name="error_config_name_duplicate">Конфигурация с таким названием уже существует</string>
     <string name="error_config_name_length">Название конфигурации не должно превышать %1$d символов</string>
+    <string name="tutorial_swipe_instruction">Проведите вверх, чтобы перейти к следующей фазе</string>
+    <string name="tutorial_swipe_success">Переход к следующей фазе</string>
+    <string name="next_phase">Перейти к следующей фазе</string>
 </resources>

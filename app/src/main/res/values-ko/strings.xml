@@ -155,4 +155,7 @@
     <string name="error_config_name_empty">설정 이름은 비워둘 수 없습니다</string>
     <string name="error_config_name_duplicate">그 이름의 설정이 이미 존재합니다</string>
     <string name="error_config_name_length">설정 이름은 %1$d자를 초과할 수 없습니다</string>
+    <string name="tutorial_swipe_instruction">다음 단계로 건너뛰려면 위로 스와이프</string>
+    <string name="tutorial_swipe_success">다음 단계로 건너뛰었습니다</string>
+    <string name="next_phase">다음 단계로 건너뛰기</string>
 </resources>

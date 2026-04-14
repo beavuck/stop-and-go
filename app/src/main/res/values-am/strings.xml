@@ -102,4 +102,7 @@
     <string name="error_config_name_empty">የውቅር ስም ባዶ መሆን የለበትም</string>
     <string name="error_config_name_duplicate">ያ ስም ያለው ውቅር አስቀድሞ አለ</string>
     <string name="error_config_name_length">የውቅር ስም ከ%1$d ቁምፊዎች መብለጥ የለበትም</string>
+    <string name="tutorial_swipe_instruction">ወደሚቀጥለው ደረጃ ለመዝለል ወደ ላይ አንሸራትቱ</string>
+    <string name="tutorial_swipe_success">ወደሚቀጥለው ደረጃ ዘሏል</string>
+    <string name="next_phase">ወደሚቀጥለው ደረጃ ዝለል</string>
 </resources>

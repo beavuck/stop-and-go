@@ -102,4 +102,7 @@
     <string name="error_config_name_empty">कॉन्फिग के नाम खाली ना होखे के चाहीं</string>
     <string name="error_config_name_duplicate">ओह नाम से कॉन्फिग पहिलेहीं बा</string>
     <string name="error_config_name_length">कॉन्फिग के नाम %1$d अक्षर से ज्यादा ना होखे के चाहीं</string>
+    <string name="tutorial_swipe_instruction">अगिला चरण पर जाए खातिर ऊपर स्वाइप करीं</string>
+    <string name="tutorial_swipe_success">अगिला चरण पर चल गइल</string>
+    <string name="next_phase">अगिला चरण पर जाईं</string>
 </resources>

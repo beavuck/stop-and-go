@@ -102,4 +102,7 @@
     <string name="error_config_name_empty">ห้ามเว้นชื่อว่าง</string>
     <string name="error_config_name_duplicate">มีชื่อนี้อยู่แล้ว</string>
     <string name="error_config_name_length">ชื่อต้องไม่เกิน %1$d ตัวอักษร</string>
+    <string name="tutorial_swipe_instruction">ปัดขึ้นเพื่อข้ามไปยังเฟสถัดไป</string>
+    <string name="tutorial_swipe_success">ข้ามไปยังเฟสถัดไปแล้ว</string>
+    <string name="next_phase">ข้ามไปยังเฟสถัดไป</string>
 </resources>

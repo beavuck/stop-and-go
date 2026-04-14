@@ -154,4 +154,7 @@
     <string name="error_config_name_empty">பெயர் காலியாக இருக்கக்கூடாது</string>
     <string name="error_config_name_duplicate">இந்த பெயரில் ஏற்கனவே ஒன்று உள்ளது</string>
     <string name="error_config_name_length">பெயர் %1$d எழுத்துகளை மீறக்கூடாது</string>
+    <string name="tutorial_swipe_instruction">அடுத்த கட்டத்திற்கு தவிர்க்க மேல்நோக்கி ஸ்வைப் செய்யுங்கள்</string>
+    <string name="tutorial_swipe_success">அடுத்த கட்டத்திற்கு தவிர்க்கப்பட்டது</string>
+    <string name="next_phase">அடுத்த கட்டத்திற்கு தவிர்</string>
 </resources>

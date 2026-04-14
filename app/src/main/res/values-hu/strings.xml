@@ -102,4 +102,7 @@
     <string name="error_config_name_empty">A konfiguráció neve nem lehet üres</string>
     <string name="error_config_name_duplicate">Már létezik konfiguráció ezzel a névvel</string>
     <string name="error_config_name_length">A konfiguráció neve nem haladhatja meg a %1$d karaktert</string>
+    <string name="tutorial_swipe_instruction">Húzza felfelé a következő fázisra ugráshoz</string>
+    <string name="tutorial_swipe_success">Ugrott a következő fázisra</string>
+    <string name="next_phase">Ugrás a következő fázisra</string>
 </resources>

@@ -152,4 +152,7 @@
     <string name="error_config_name_empty">Numele configurației nu poate fi gol</string>
     <string name="error_config_name_duplicate">Există deja o configurație cu acest nume</string>
     <string name="error_config_name_length">Numele configurației nu trebuie să depășească %1$d caractere</string>
+    <string name="tutorial_swipe_instruction">Glisați în sus pentru a trece la faza următoare</string>
+    <string name="tutorial_swipe_success">Trecut la faza următoare</string>
+    <string name="next_phase">Treceți la faza următoare</string>
 </resources>

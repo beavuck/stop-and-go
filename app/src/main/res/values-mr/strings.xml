@@ -137,4 +137,7 @@
     <string name="error_config_name_empty">कॉन्फिगचे नाव रिकामे असू नये</string>
     <string name="error_config_name_duplicate">त्या नावाचा कॉन्फिग आधीच अस्तित्वात आहे</string>
     <string name="error_config_name_length">कॉन्फिगचे नाव %1$d अक्षरांपेक्षा जास्त असू नये</string>
+    <string name="tutorial_swipe_instruction">पुढील टप्प्यावर जाण्यासाठी वर स्वाइप करा</string>
+    <string name="tutorial_swipe_success">पुढील टप्प्यावर गेले</string>
+    <string name="next_phase">पुढील टप्प्यावर जा</string>
 </resources>

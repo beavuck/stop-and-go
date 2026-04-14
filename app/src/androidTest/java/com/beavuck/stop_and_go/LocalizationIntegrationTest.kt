@@ -50,13 +50,13 @@ class LocalizationIntegrationTest {
     }
 
     @Test
-    fun selectingNonDefaultLocale_doesNotShowDefault() {
-        val defaultConfig = context.resources.configuration
-        defaultConfig.setLocale(Locale.forLanguageTag(DEFAULT_LOCALE.code))
-        val defaultContext = context.createConfigurationContext(defaultConfig)
-        val defaultLabel = defaultContext.getString(R.string.phase_go)
-
+    fun selectingLocale_showsCorrectLocalizedLabel() {
         SupportedLocale.entries.forEach { locale ->
+            val localeConfig = android.content.res.Configuration(context.resources.configuration)
+            localeConfig.setLocale(Locale.forLanguageTag(locale.code))
+            val localeContext = context.createConfigurationContext(localeConfig)
+            val expectedLabel = localeContext.getString(R.string.phase_go)
+
             configRepository.saveLocale(locale.code)
             scenario = ActivityScenario.launch(MainActivity::class.java)
             composeTestRule.waitForIdle()
@@ -66,13 +66,11 @@ class LocalizationIntegrationTest {
                 .config[SemanticsProperties.Text]
                 .first().text
 
-            if (locale == DEFAULT_LOCALE) {
-                assertEquals(defaultLabel, label)
-            } else {
-                assert(
-                    label != defaultLabel
-                ) { "Locale ${locale.code} showed default locale text" }
-            }
+            assertEquals(
+                "Locale ${locale.code} should show '$expectedLabel' but showed '$label'",
+                expectedLabel,
+                label
+            )
 
             scenario?.close()
             scenario = null

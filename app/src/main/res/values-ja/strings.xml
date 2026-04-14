@@ -140,4 +140,7 @@
     <string name="error_config_name_empty">設定名を空にすることはできません</string>
     <string name="error_config_name_duplicate">その名前の設定はすでに存在します</string>
     <string name="error_config_name_length">設定名は%1$d文字を超えることはできません</string>
+    <string name="tutorial_swipe_instruction">次のフェーズにスキップするには上にスワイプ</string>
+    <string name="tutorial_swipe_success">次のフェーズにスキップしました</string>
+    <string name="next_phase">次のフェーズへスキップ</string>
 </resources>

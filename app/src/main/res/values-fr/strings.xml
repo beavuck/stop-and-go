@@ -103,4 +103,7 @@
     <string name="error_config_name_empty">Le nom de la config ne doit pas être vide</string>
     <string name="error_config_name_duplicate">Une config avec ce nom existe déjà</string>
     <string name="error_config_name_length">Le nom de la config ne doit pas dépasser %1$d caractères</string>
+    <string name="tutorial_swipe_instruction">Balayez vers le haut pour passer à la phase suivante</string>
+    <string name="tutorial_swipe_success">Passé à la phase suivante</string>
+    <string name="next_phase">Passer à la phase suivante</string>
 </resources>

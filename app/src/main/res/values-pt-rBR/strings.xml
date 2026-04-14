@@ -104,4 +104,7 @@
     <string name="error_config_name_empty">O nome da configuração não pode estar vazio</string>
     <string name="error_config_name_duplicate">Já existe uma configuração com esse nome</string>
     <string name="error_config_name_length">O nome da configuração não deve exceder %1$d caracteres</string>
+    <string name="tutorial_swipe_instruction">Deslize para cima para pular para a próxima fase</string>
+    <string name="tutorial_swipe_success">Pulado para a próxima fase</string>
+    <string name="next_phase">Pular para a próxima fase</string>
 </resources>

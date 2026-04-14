@@ -102,4 +102,7 @@
     <string name="error_config_name_empty">ಕಾನ್ಫಿಗ್ ಹೆಸರು ಖಾಲಿ ಇರಬಾರದು</string>
     <string name="error_config_name_duplicate">ಆ ಹೆಸರಿನ ಕಾನ್ಫಿಗ್ ಈಗಾಗಲೇ ಇದೆ</string>
     <string name="error_config_name_length">ಕಾನ್ಫಿಗ್ ಹೆಸರು %1$d ಅಕ್ಷರಗಳನ್ನು ಮೀರಬಾರದು</string>
+    <string name="tutorial_swipe_instruction">ಮುಂದಿನ ಹಂತಕ್ಕೆ ಹೋಗಲು ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ</string>
+    <string name="tutorial_swipe_success">ಮುಂದಿನ ಹಂತಕ್ಕೆ ಹೋಯಿತು</string>
+    <string name="next_phase">ಮುಂದಿನ ಹಂತಕ್ಕೆ ಹೋಗಿ</string>
 </resources>
