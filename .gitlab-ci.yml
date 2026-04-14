@@ -93,12 +93,29 @@ increment_version:
       tar xzf /tmp/glab.tar.gz -C /tmp/
       install -m755 /tmp/bin/glab /usr/local/bin/glab
 
+.gradle_cache:
+  cache:
+    - key:
+        files:
+          - gradle/wrapper/gradle-wrapper.properties
+      paths:
+        - .gradle
+        - /root/.gradle/caches
+        - /root/.gradle/wrapper/dists
+
 .fastlane_setup:
   image: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/fabernovel/android:${FABERNOVEL_ANDROID_IMAGE}"
   cache:
-    key: gems-cache
-    paths:
-      - vendor/bundle
+    - key: gems-cache
+      paths:
+        - vendor/bundle
+    - key:
+        files:
+          - gradle/wrapper/gradle-wrapper.properties
+      paths:
+        - .gradle
+        - /root/.gradle/caches
+        - /root/.gradle/wrapper/dists
   before_script:
     - apt update -y && apt install -y curl ruby-full build-essential
     - !reference [ .install_glab, before_script ]
@@ -110,6 +127,7 @@ increment_version:
 ########~~~~-- Jobs --~~~~########
 
 run_unit_tests:
+  extends: .gradle_cache
   stage: test
   script: ./gradlew test jacocoTestReport
   artifacts:
