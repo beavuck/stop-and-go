@@ -33,8 +33,8 @@ the [Google Play Store](https://play.google.com/store/apps/details?id=com.beavuc
 
 ## ⏲️ What it does
 
-The screen alternates between two phases. Configure the durations, colors, and labels. Use it for
-interval training, pomodoro, meditation, or whatever you need.
+The screen alternates between two phases. Configure the durations, growth multipliers, colors, and
+labels. Use it for HIIT, tabata, apnea, checkers, pomodoro, or whatever you need.
 
 The app walks you through setup and gestures on first launch.
 

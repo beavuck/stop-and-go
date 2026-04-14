@@ -9,6 +9,7 @@ val DEFAULT_LOCALE = SupportedLocale.ENGLISH
 enum class SupportedLocale(val code: String, private val nameResId: Int) {
     // ordered by (approximate) number of speakers, then grouped by language, as of what wikipedia said in 2026
     ENGLISH("en", R.string.language_english), // 1.5B
+    BRITISH_ENGLISH("en-GB", R.string.language_british_english), // 1.5B
     MANDARIN("zh-CN", R.string.language_chinese_simplified), // 1.2B
     YUE_CHINESE("zh-HK", R.string.language_chinese_traditional_hk),
     WU_CHINESE("wuu-CN", R.string.language_chinese_wu),
