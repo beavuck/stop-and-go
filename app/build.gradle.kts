@@ -4,11 +4,11 @@ import java.util.Properties
 
 plugins {
     id("com.android.application") version "8.13.2"
-    id("org.jetbrains.kotlin.android") version "2.3.20"
-    id("org.jetbrains.kotlin.plugin.compose") version "2.3.20"
-    kotlin("plugin.serialization") version "2.3.20"
+    id("org.jetbrains.kotlin.android") version "2.3.21"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.3.21"
+    kotlin("plugin.serialization") version "2.3.21"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
-    id("com.github.ben-manes.versions") version "0.53.0"
+    id("com.github.ben-manes.versions") version "0.54.0"
     jacoco
 }
 
@@ -110,7 +110,7 @@ android {
 }
 
 dependencies {
-    val composeBom = platform("androidx.compose:compose-bom:2026.03.01")
+    val composeBom = platform("androidx.compose:compose-bom:2026.04.01")
     val activityVersion = "1.13.0"
     val coreKtxVersion = "1.18.0"
     val appcompatVersion = "1.7.1"
