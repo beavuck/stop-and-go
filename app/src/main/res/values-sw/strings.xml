@@ -92,7 +92,6 @@
     <string name="more_tip">Mpe msanidi mchango</string>
     <string name="more_open">Fungua</string>
     <string name="sound_enabled">Tahadhari za sauti</string>
-    <string name="sound_migration_announcement">Stop and Go sasa inatumia mfumo wa kengele kukuarifu mabadiliko ya awamu. Unaweza kuisanidi katika mipangilio.</string>
     <string name="more_rate">Piga kura programu</string>
     <string name="more_share">Shiriki programu</string>
     <string name="more_share_text">Angalia Stop and Go - kipima muda cha vipindi chenye muundo rahisi. Bure, bila matangazo, bila mtandao. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -106,7 +105,6 @@
     <string name="config_delete">Futa</string>
     <string name="config_delete_confirm_title">Futa mpangilio</string>
     <string name="config_delete_confirm_message">Futa \"%1$s\"?</string>
-    <string name="config_name_hint">Jina la mpangilio</string>
     <string name="config_default_name">Msingi</string>
     <string name="config_preset_checkers">Draughts</string>
     <string name="config_preset_apnea">Apnea</string>

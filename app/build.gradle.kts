@@ -1,12 +1,10 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.util.Properties
 
 plugins {
-    id("com.android.application") version "8.13.2"
-    id("org.jetbrains.kotlin.android") version "2.3.21"
-    id("org.jetbrains.kotlin.plugin.compose") version "2.3.21"
-    kotlin("plugin.serialization") version "2.3.21"
+    id("com.android.application") version "9.2.1"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.4.0"
+    kotlin("plugin.serialization") version "2.4.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
     id("com.github.ben-manes.versions") version "0.54.0"
     jacoco
@@ -19,7 +17,6 @@ if (keystorePropertiesFile.exists()) {
 }
 
 val javaVersion = JavaVersion.VERSION_21
-val jvmVersion = JvmTarget.JVM_21
 
 java {
     toolchain {
@@ -30,7 +27,7 @@ java {
 android {
     val packagePath = "com.beavuck.stop_and_go"
     namespace = packagePath
-    compileSdk = 36
+    compileSdk = 37
     ndkVersion = "27.3.13750724"
 
     bundle {
@@ -43,11 +40,10 @@ android {
     defaultConfig {
         applicationId = packagePath
         minSdk = 24
-        targetSdk = 36
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionCode = 33
+        versionCode = 34
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionName = "1.9.3"
+        versionName = "1.9.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -83,12 +79,6 @@ android {
         targetCompatibility = javaVersion
     }
 
-    kotlin {
-        compilerOptions {
-            jvmTarget = jvmVersion
-        }
-    }
-
     buildTypes.configureEach {
         enableUnitTestCoverage = true
     }
@@ -115,7 +105,7 @@ android {
 dependencies {
     val composeBom = platform("androidx.compose:compose-bom:2026.05.01")
     val activityVersion = "1.13.0"
-    val coreKtxVersion = "1.18.0"
+    val coreKtxVersion = "1.19.0"
     val appcompatVersion = "1.7.1"
     val materialVersion = "1.14.0"
     val playReviewVersion = "2.0.2"
@@ -136,16 +126,58 @@ dependencies {
 
     val junitVersion = "4.13.2"
     val mockitoVersion = "5.23.0"
+    val testServicesVersion = "1.6.0"
 
     androidTestImplementation(composeBom)
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    androidTestUtil("androidx.test.services:test-services:$testServicesVersion")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     testImplementation("junit:junit:$junitVersion")
     testImplementation("org.mockito:mockito-core:$mockitoVersion")
 }
 
-apply(from = "gradle/jacoco.gradle.kts")
+tasks.register<JacocoReport>("jacocoTestReport") {
+    group = "verification"
+    description = "Generates Jacoco code coverage report for debug unit tests."
+    dependsOn("testDebugUnitTest")
+
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+
+    val toExclude = listOf(
+        "**/R.class",
+        "**/R$*.class",
+        "**/BuildConfig.*",
+        "**/Manifest*.*",
+        "**/*Test*.*",
+        "**/*Constants.*",
+        "**/*Config.*",
+        "**/model/timer/**/*.*",
+        "**/instrumented/**/*.*",
+        "**/activities/**/*.*",
+        "**/repositories/**/*.*",
+        "**/sounds/**/*.*",
+        "**/dialogs/**/*.*",
+        "**/ui/**/*.*",
+        "**/config/**/*.*",
+        "android/**/*.*"
+    )
+
+    val debugTree = fileTree("${project.layout.buildDirectory.get()}/tmp/kotlin-classes/debug") {
+        exclude(toExclude)
+    }
+
+    val mainSrc = "${project.projectDir}/src/main/java"
+
+    sourceDirectories.setFrom(files(mainSrc))
+    classDirectories.setFrom(files(debugTree))
+    executionData.setFrom(fileTree(project.layout.buildDirectory.get()) {
+        include("outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec")
+    })
+}
 
 fun isNonStable(version: String): Boolean {
     val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { version.uppercase().contains(it) }

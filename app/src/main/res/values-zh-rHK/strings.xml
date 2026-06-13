@@ -80,7 +80,6 @@
     <string name="more_tip">支持開發者</string>
     <string name="more_open">打開</string>
     <string name="sound_enabled">聲音提示</string>
-    <string name="sound_migration_announcement">Stop and Go 現在使用鬧鐘系統提醒您階段變更。您可以在設定中進行設定。</string>
     <string name="more_rate">為應用程式評分</string>
     <string name="more_share">分享應用</string>
     <string name="more_share_text">試試 Stop and Go - 極簡間隔計時器。免費、無廣告、離線。https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -94,7 +93,6 @@
     <string name="config_delete">刪除</string>
     <string name="config_delete_confirm_title">刪除設定</string>
     <string name="config_delete_confirm_message">刪除「%1$s」？</string>
-    <string name="config_name_hint">設定名稱</string>
     <string name="config_default_name">基本</string>
     <string name="config_preset_checkers">西洋棋（跳棋）</string>
     <string name="config_preset_apnea">閉氣</string>

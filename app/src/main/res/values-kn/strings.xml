@@ -80,7 +80,6 @@
     <string name="more_tip">ಡೆವಲಪರ್ ಬೆಂಬಲಿಸಿ</string>
     <string name="more_open">ತೆರೆ</string>
     <string name="sound_enabled">ಧ್ವನಿ ಎಚ್ಚರಿಕೆಗಳು</string>
-    <string name="sound_migration_announcement">Stop and Go ಈಗ ಹಂತ ಬದಲಾವಣೆಗಳನ್ನು ತಿಳಿಸಲು ಅಲಾರಂ ಸಿಸ್ಟಮ್ ಬಳಸುತ್ತದೆ. ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಕಾನ್ಫಿಗರ್ ಮಾಡಬಹುದು.</string>
     <string name="more_rate">ಅಪ್ಲಿಕೇಶನ್ ರೇಟ್ ಮಾಡಿ</string>
     <string name="more_share">ಅಪ್ಲಿಕೇಶನ್ ಹಂಚಿಕೊಳ್ಳಿ</string>
     <string name="more_share_text">Stop and Go ಪ್ರಯತ್ನಿಸಿ - ಸರಳ interval timer. ಉಚಿತ, ಜಾಹೀರಾತು ಇಲ್ಲ, ಆಫ್‌ಲೈನ್. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -93,7 +92,6 @@
     <string name="config_delete">ಅಳಿಸಿ</string>
     <string name="config_delete_confirm_title">ಕಾನ್ಫಿಗ್ ಅಳಿಸಿ</string>
     <string name="config_delete_confirm_message">\"%1$s\" ಅಳಿಸಬೇಕೇ?</string>
-    <string name="config_name_hint">ಕಾನ್ಫಿಗ್ ಹೆಸರು</string>
     <string name="config_default_name">ಮೂಲ</string>
     <string name="config_preset_checkers">ಚೆಕರ್ಸ್</string>
     <string name="config_preset_apnea">ಅಪ್ನಿಯಾ</string>

@@ -80,7 +80,6 @@
     <string name="more_tip">Suportahan ang developer</string>
     <string name="more_open">Buksan</string>
     <string name="sound_enabled">Mga sound alert</string>
-    <string name="sound_migration_announcement">Gumagamit na ngayon ang Stop and Go ng alarm system para abisuhan ka ng pagbabago ng phase. Maaari mo itong i-configure sa mga setting.</string>
     <string name="more_rate">I-rate ang app</string>
     <string name="more_share">Ibahagi ang app</string>
     <string name="more_share_text">Subukan ang Stop and Go - simpleng interval timer. Libre, walang ads, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -94,7 +93,6 @@
     <string name="config_delete">Tanggalin</string>
     <string name="config_delete_confirm_title">Tanggalin ang config</string>
     <string name="config_delete_confirm_message">Tanggalin ang \"%1$s\"?</string>
-    <string name="config_name_hint">Pangalan ng config</string>
     <string name="config_default_name">Pangunahing</string>
     <string name="config_preset_checkers">Dama</string>
     <string name="config_preset_apnea">Apnea</string>

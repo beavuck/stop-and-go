@@ -123,7 +123,6 @@
     <string name="more_tip">Поддержать разработчика</string>
     <string name="more_open">Открыть</string>
     <string name="sound_enabled">Звуковые оповещения</string>
-    <string name="sound_migration_announcement">Stop and Go теперь использует систему будильника для уведомлений о смене фаз. Вы можете настроить это в параметрах.</string>
     <string name="more_rate">Оценить приложение</string>
     <string name="more_share">Поделиться приложением</string>
     <string name="more_share_text">Попробуйте Stop and Go - минималистичный интервальный таймер. Бесплатно, без рекламы, офлайн. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -136,7 +135,6 @@
     <string name="config_delete">Удалить</string>
     <string name="config_delete_confirm_title">Удалить конфигурацию</string>
     <string name="config_delete_confirm_message">Удалить \"%1$s\"?</string>
-    <string name="config_name_hint">Название конфигурации</string>
     <string name="config_default_name">Базовая</string>
     <string name="config_preset_checkers">Шашки</string>
     <string name="config_preset_apnea">Апноэ</string>

@@ -81,7 +81,6 @@
     <string name="more_tip">ડેવલપરને સપોર્ટ કરો</string>
     <string name="more_open">ખોલો</string>
     <string name="sound_enabled">સાઉન્ડ એલર્ટ</string>
-    <string name="sound_migration_announcement">Stop and Go હવે ફેઝ ફેરફારો માટે અલાર્મ સિસ્ટમ ઉપયોગ કરે છે. તમે સેટિંગ્સમાં આ ગોઠવી શકો છો.</string>
     <string name="more_rate">એપ રેટ કરો</string>
     <string name="more_share">ઍપ શેર કરો</string>
     <string name="more_share_text">Stop and Go અજમાવો - એક મિનિમલિસ્ટ ઇન્ટરવલ ટાઇમર. મફત, જાહેરાત-મુક્ત, ઑફલાઇન. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -94,7 +93,6 @@
     <string name="config_delete">કાઢી નાખો</string>
     <string name="config_delete_confirm_title">ગોઠવણી કાઢો</string>
     <string name="config_delete_confirm_message">\"%1$s\" કાઢી નાખો?</string>
-    <string name="config_name_hint">ગોઠવણીનું નામ</string>
     <string name="config_default_name">સાદી</string>
     <string name="config_preset_checkers">ચેકર્સ</string>
     <string name="config_preset_apnea">એપ્નિયા</string>

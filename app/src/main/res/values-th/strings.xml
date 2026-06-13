@@ -79,7 +79,6 @@
     <string name="more_tip">สนับสนุนนักพัฒนา</string>
     <string name="more_open">เปิด</string>
     <string name="sound_enabled">การแจ้งเตือนด้วยเสียง</string>
-    <string name="sound_migration_announcement">Stop and Go ใช้ระบบสัญญาณเตือนเพื่อแจ้งการเปลี่ยนเฟสแล้ว ปรับได้ในการตั้งค่า</string>
     <string name="more_rate">ให้คะแนนแอป</string>
     <string name="more_share">แชร์แอป</string>
     <string name="more_share_text">ลอง Stop and Go - ตัวจับเวลาช่วงที่เรียบง่าย ฟรี ไม่มีโฆษณา ออฟไลน์ https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -93,7 +92,6 @@
     <string name="config_delete">ลบ</string>
     <string name="config_delete_confirm_title">ลบการตั้งค่า</string>
     <string name="config_delete_confirm_message">ลบ \"%1$s\"?</string>
-    <string name="config_name_hint">ชื่อการตั้งค่า</string>
     <string name="config_default_name">พื้นฐาน</string>
     <string name="config_preset_checkers">หมากฮอส</string>
     <string name="config_preset_apnea">หยุดหายใจ</string>

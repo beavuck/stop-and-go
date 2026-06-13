@@ -80,7 +80,6 @@
     <string name="more_tip">Fejlesztő támogatása</string>
     <string name="more_open">Megnyitás</string>
     <string name="sound_enabled">Hangjelzések</string>
-    <string name="sound_migration_announcement">A Stop and Go mostantól riasztási rendszert használ a fázisváltások jelzésére. A beállításokban konfigurálható.</string>
     <string name="more_rate">Alkalmazás értékelése</string>
     <string name="more_share">Alkalmazás megosztása</string>
     <string name="more_share_text">Próbáld ki a Stop and Go-t – egyszerű intervallum-időzítő. Ingyenes, reklám nélkül, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -93,7 +92,6 @@
     <string name="config_delete">Törlés</string>
     <string name="config_delete_confirm_title">Konfiguráció törlése</string>
     <string name="config_delete_confirm_message">Töröljük: \"%1$s\"?</string>
-    <string name="config_name_hint">Konfiguráció neve</string>
     <string name="config_default_name">Alap</string>
     <string name="config_preset_checkers">Dáma</string>
     <string name="config_preset_apnea">Apnoe</string>

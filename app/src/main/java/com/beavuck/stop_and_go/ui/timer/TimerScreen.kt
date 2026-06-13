@@ -58,8 +58,6 @@ fun TimerScreen(
         )
     }
 
-    // actually used despite IDE warning -- see above
-    @Suppress("AssignedValueIsNeverRead")
     startNextPhase = { timerController.start(phase.value.durationSeconds) }
 
     DisposableEffect(Unit) {
@@ -78,7 +76,7 @@ fun TimerScreen(
                 val state = phaseManager.getState(secondsRemaining.intValue, isPaused.value)
                 stateRepository.saveState(state)
             } else {
-                stateRepository.setResetPending(false) // now is the time to clear that flag -- any earlier and we might re-save the state before using it to reset
+                stateRepository.setResetPending(false) // now is the time to clear that flag -- any earlier, and we might re-save the state before using it to reset
             }
             onKeepScreenOnChange(false)
         }

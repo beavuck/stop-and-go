@@ -115,7 +115,6 @@
     <string name="more_tip">डेव्हलपरला समर्थन द्या</string>
     <string name="more_open">उघडा</string>
     <string name="sound_enabled">ध्वनी अलर्ट</string>
-    <string name="sound_migration_announcement">Stop and Go आता फेज बदलांसाठी अलार्म सिस्टम वापरते. तुम्ही सेटिंग्जमध्ये हे कॉन्फिगर करू शकता.</string>
     <string name="more_rate">अ‍ॅप रेट करा</string>
     <string name="more_share">अॅप शेअर करा</string>
     <string name="more_share_text">Stop and Go वापरून पहा - मिनिमालिस्ट इंटरव्हल टायमर. मोफत, जाहिरात-मुक्त, ऑफलाइन. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -128,7 +127,6 @@
     <string name="config_delete">हटवा</string>
     <string name="config_delete_confirm_title">कॉन्फिग हटवा</string>
     <string name="config_delete_confirm_message">\"%1$s\" हटवायचे?</string>
-    <string name="config_name_hint">कॉन्फिगचे नाव</string>
     <string name="config_default_name">मूळ</string>
     <string name="config_preset_checkers">चेकर्स</string>
     <string name="config_preset_apnea">अपनिया</string>

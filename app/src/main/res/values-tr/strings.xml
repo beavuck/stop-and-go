@@ -81,7 +81,6 @@
     <string name="more_tip">Geliştiriciye destek ol</string>
     <string name="more_open">Aç</string>
     <string name="sound_enabled">Ses uyarıları</string>
-    <string name="sound_migration_announcement">Stop and Go artık faz değişikliklerini bildirmek için alarm sistemini kullanıyor. Bunu ayarlardan yapılandırabilirsiniz.</string>
     <string name="more_rate">Uygulamayı değerlendir</string>
     <string name="more_share">Uygulamayı paylaş</string>
     <string name="more_share_text">Stop and Go\'yu deneyin - minimalist aralıklı zamanlayıcı. Ücretsiz, reklamsız, çevrimdışı. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -95,7 +94,6 @@
     <string name="config_delete">Sil</string>
     <string name="config_delete_confirm_title">Yapılandırmayı sil</string>
     <string name="config_delete_confirm_message">\"%1$s\" silinsin mi?</string>
-    <string name="config_name_hint">Yapılandırma adı</string>
     <string name="config_default_name">Temel</string>
     <string name="config_preset_checkers">Dama</string>
     <string name="config_preset_apnea">Apne</string>

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress GrazieInspectionRunner -->
 <resources>
     <string name="phase_go">Go</string>
     <string name="phase_stop">Stop</string>
@@ -80,7 +81,6 @@
     <string name="more_tip">Support the developer</string>
     <string name="more_open">Open</string>
     <string name="sound_enabled">Sound alerts</string>
-    <string name="sound_migration_announcement">Stop and Go don start to use alarm system make e tell you when phase don change. You fit set am inside settings.</string>
     <string name="more_rate">Rate the app</string>
     <string name="more_share">Share the app</string>
     <string name="more_share_text">Try Stop and Go - simple interval timer. Free, no ads, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -93,7 +93,6 @@
     <string name="config_delete">Delete</string>
     <string name="config_delete_confirm_title">Delete config</string>
     <string name="config_delete_confirm_message">Delete \"%1$s\"?</string>
-    <string name="config_name_hint">Config name</string>
     <string name="config_default_name">Basic</string>
     <string name="config_preset_checkers">Checkers</string>
     <string name="config_preset_apnea">Apnea</string>

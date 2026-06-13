@@ -3,7 +3,7 @@ package com.beavuck.stop_and_go
 import android.graphics.Color
 import androidx.compose.ui.semantics.SemanticsProperties
 import androidx.compose.ui.test.*
-import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.junit4.v2.createAndroidComposeRule
 import androidx.test.core.app.ActivityScenario
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -335,7 +335,7 @@ class MainActivityTest {
 
         assertTrue(
             "Timer should have counted down",
-            timerBeforeReset in DEFAULT_GO_DURATION - 4..DEFAULT_GO_DURATION - 1
+            timerBeforeReset in DEFAULT_GO_DURATION - 4..<DEFAULT_GO_DURATION
         )
 
         tapTimer()
@@ -476,7 +476,7 @@ class MainActivityTest {
 
         assertTrue(
             "Timer should have counted down",
-            timerBeforeReset in DEFAULT_GO_DURATION - 4..DEFAULT_GO_DURATION - 1
+            timerBeforeReset in DEFAULT_GO_DURATION - 4..<DEFAULT_GO_DURATION
         )
 
         composeTestRule.onNodeWithTag("resetTimerButton").performClick()

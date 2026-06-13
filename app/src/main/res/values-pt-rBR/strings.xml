@@ -44,7 +44,6 @@
     <plurals name="phase_changed">
         <item quantity="one">Fase %1$s iniciada. %2$d segundo restante.</item>
         <item quantity="other">Fase %1$s iniciada. %2$d segundos restantes.</item>
-        <item quantity="many">Fase %1$s iniciada. %2$d segundos restantes.</item>
     </plurals>
 
     <string name="red_slider">Controle deslizante do componente vermelho</string>
@@ -83,7 +82,6 @@
     <string name="more_tip">Apoiar o desenvolvedor</string>
     <string name="more_open">Abrir</string>
     <string name="sound_enabled">Alertas sonoros</string>
-    <string name="sound_migration_announcement">O Stop and Go agora usa o sistema de alarme para alertar sobre mudanças de fase. Você pode configurar isso nas configurações.</string>
     <string name="more_rate">Avaliar aplicativo</string>
     <string name="more_share">Compartilhar aplicativo</string>
     <string name="more_share_text">Confira Stop and Go - um temporizador de intervalos minimalista. Gratuito, sem anúncios e offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -95,7 +93,6 @@
     <string name="config_delete">Excluir</string>
     <string name="config_delete_confirm_title">Excluir configuração</string>
     <string name="config_delete_confirm_message">Excluir \"%1$s\"?</string>
-    <string name="config_name_hint">Nome da configuração</string>
     <string name="config_default_name">Básico</string>
     <string name="config_preset_checkers">Damas</string>
     <string name="config_preset_apnea">Apneia</string>

@@ -109,7 +109,6 @@
     <string name="more_tip">ডেভেলপারকে সমর্থন করুন</string>
     <string name="more_open">খুলুন</string>
     <string name="sound_enabled">শব্দ সতর্কতা</string>
-    <string name="sound_migration_announcement">Stop and Go এখন ফেজ পরিবর্তন জানাতে অ্যালার্ম সিস্টেম ব্যবহার করে। আপনি সেটিংসে এটি কনফিগার করতে পারেন।</string>
     <string name="more_rate">অ্যাপ রেট করুন</string>
     <string name="more_share">অ্যাপ শেয়ার করুন</string>
     <string name="more_share_text">Stop and Go ব্যবহার করুন - একটি মিনিমালিস্ট ইন্টারভাল টাইমার। বিনামূল্যে, বিজ্ঞাপন-মুক্ত, অফলাইন। https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -122,7 +121,6 @@
     <string name="config_delete">মুছুন</string>
     <string name="config_delete_confirm_title">কনফিগ মুছুন</string>
     <string name="config_delete_confirm_message">\"%1$s\" মুছবেন?</string>
-    <string name="config_name_hint">কনফিগের নাম</string>
     <string name="config_default_name">মৌলিক</string>
     <string name="config_preset_checkers">চেকার্স</string>
     <string name="config_preset_apnea">অ্যাপনিয়া</string>

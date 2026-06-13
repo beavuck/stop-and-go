@@ -130,7 +130,6 @@
     <string name="more_tip">Entwickler unterstützen</string>
     <string name="more_open">Öffnen</string>
     <string name="sound_enabled">Tonbenachrichtigungen</string>
-    <string name="sound_migration_announcement">Stop and Go verwendet jetzt das Alarmsystem, um dich über Phasenwechsel zu informieren. Du kannst dies in den Einstellungen konfigurieren.</string>
     <string name="more_rate">App bewerten</string>
     <string name="more_share">App teilen</string>
     <string name="more_share_text">Probieren Sie Stop and Go - ein minimalistischer Intervall-Timer. Kostenlos, werbefrei, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -143,7 +142,6 @@
     <string name="config_delete">Löschen</string>
     <string name="config_delete_confirm_title">Konfiguration löschen</string>
     <string name="config_delete_confirm_message">\"%1$s\" löschen?</string>
-    <string name="config_name_hint">Konfigurationsname</string>
     <string name="config_default_name">Einfach</string>
     <string name="config_preset_checkers">Dame</string>
     <string name="config_preset_apnea">Apnoe</string>

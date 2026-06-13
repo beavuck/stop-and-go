@@ -80,7 +80,6 @@
     <string name="more_tip">Ủng hộ nhà phát triển</string>
     <string name="more_open">Mở</string>
     <string name="sound_enabled">Cảnh báo âm thanh</string>
-    <string name="sound_migration_announcement">Stop and Go giờ đây sử dụng hệ thống báo thức để thông báo về thay đổi giai đoạn. Bạn có thể cấu hình trong cài đặt.</string>
     <string name="more_rate">Đánh giá ứng dụng</string>
     <string name="more_share">Chia sẻ ứng dụng</string>
     <string name="more_share_text">Thử Stop and Go - bộ đếm thời gian khoảng tối giản. Miễn phí, không quảng cáo, ngoại tuyến. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -94,7 +93,6 @@
     <string name="config_delete">Xóa</string>
     <string name="config_delete_confirm_title">Xóa cấu hình</string>
     <string name="config_delete_confirm_message">Xóa \"%1$s\"?</string>
-    <string name="config_name_hint">Tên cấu hình</string>
     <string name="config_default_name">Cơ bản</string>
     <string name="config_preset_checkers">Cờ đam</string>
     <string name="config_preset_apnea">Ngưng thở</string>

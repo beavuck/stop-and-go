@@ -84,7 +84,6 @@
     <string name="more_tip">دعم المطور</string>
     <string name="more_open">افتح</string>
     <string name="sound_enabled">تنبيهات صوتية</string>
-    <string name="sound_migration_announcement">Stop and Go هسه يستخدم نظام الإنذار للإشعار بتغيير المراحل. تكدر تضبطه من الإعدادات.</string>
     <string name="more_rate">قيّم التطبيق</string>
     <string name="more_share">شارك التطبيق</string>
     <string name="more_share_text">جرب Stop and Go - موقت فترات بسيط. مجاني، بدون إعلانات، بلا نت. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -97,7 +96,6 @@
     <string name="config_delete">حذف</string>
     <string name="config_delete_confirm_title">حذف الإعداد</string>
     <string name="config_delete_confirm_message">هل تريد حذف \"%1$s\"؟</string>
-    <string name="config_name_hint">اسم الإعداد</string>
     <string name="config_default_name">أساسي</string>
     <string name="config_preset_checkers">الداما</string>
     <string name="config_preset_apnea">حبس النفس</string>

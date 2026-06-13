@@ -131,7 +131,6 @@
     <string name="more_tip">உருவாக்குநரை ஆதரிக்கவும்</string>
     <string name="more_open">திற</string>
     <string name="sound_enabled">ஒலி எச்சரிக்கைகள்</string>
-    <string name="sound_migration_announcement">Stop and Go இப்போது கட்ட மாற்றங்களை அறிவிக்க அலாரம் சிஸ்டத்தை பயன்படுத்துகிறது. இதை அமைப்புகளில் கட்டமைக்கலாம்.</string>
     <string name="more_rate">பயன்பாட்டை மதிப்பிடுங்கள்</string>
     <string name="more_share">பயன்பாட்டைப் பகிர்</string>
     <string name="more_share_text">Stop and Go ஐ முயற்சிக்கவும் - குறைந்தபட்ச இடைவெளி டைமர். இலவசம், விளம்பரமில்லாத, ஆஃப்லைன். https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -145,7 +144,6 @@
     <string name="config_delete">நீக்கு</string>
     <string name="config_delete_confirm_title">அமைப்பை நீக்கு</string>
     <string name="config_delete_confirm_message">\"%1$s\" நீக்கவா?</string>
-    <string name="config_name_hint">அமைப்பின் பெயர்</string>
     <string name="config_default_name">அடிப்படை</string>
     <string name="config_preset_checkers">செக்கர்ஸ்</string>
     <string name="config_preset_apnea">அப்னியா</string>

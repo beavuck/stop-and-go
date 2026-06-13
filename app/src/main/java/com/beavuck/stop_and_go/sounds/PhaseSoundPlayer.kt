@@ -3,7 +3,7 @@ package com.beavuck.stop_and_go.sounds
 import android.media.AudioManager
 import android.media.ToneGenerator
 
-class PhaseSoundPlayer() {
+class PhaseSoundPlayer {
     private val toneGenerator = try {
         ToneGenerator(AudioManager.STREAM_ALARM, TONE_VOLUME_PERCENT)
     } catch (_: RuntimeException) {

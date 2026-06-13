@@ -113,7 +113,6 @@
     <string name="more_tip">ڈیولپر کی حمایت کریں</string>
     <string name="more_open">کھولیں</string>
     <string name="sound_enabled">صوتی انتباہات</string>
-    <string name="sound_migration_announcement">Stop and Go اب مراحل کی تبدیلیوں کے لیے الارم سسٹم استعمال کرتا ہے۔ آپ اسے ترتیبات میں ترتیب دے سکتے ہیں۔</string>
     <string name="more_rate">ایپ کو ریٹ کریں</string>
     <string name="more_share">ایپ شیئر کریں</string>
     <string name="more_share_text">Stop and Go آزمائیں - ایک منی مالسٹ وقفہ ٹائمر۔ مفت، اشتہارات سے پاک، آف لائن۔ https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -127,7 +126,6 @@
     <string name="config_delete">حذف کریں</string>
     <string name="config_delete_confirm_title">کنفیگریشن حذف کریں</string>
     <string name="config_delete_confirm_message">\"%1$s\" حذف کریں؟</string>
-    <string name="config_name_hint">کنفیگریشن کا نام</string>
     <string name="config_default_name">بنیادی</string>
     <string name="config_preset_checkers">ڈاما</string>
     <string name="config_preset_apnea">اپنیا</string>

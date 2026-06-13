@@ -36,6 +36,7 @@ import com.beavuck.stop_and_go.repositories.StateRepository
 import com.beavuck.stop_and_go.repositories.TutorialRepository
 import com.beavuck.stop_and_go.utils.instrumented.ColorUtils
 import kotlinx.coroutines.delay
+import kotlin.time.Duration.Companion.milliseconds
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -145,7 +146,7 @@ fun SettingsContent(
         if (isInitialComposition.value) {
             isInitialComposition.value = false
         } else {
-            delay(DEBOUNCE_DELAY)
+            delay(DEBOUNCE_DELAY.milliseconds)
             autoSaveSettings()
         }
     }

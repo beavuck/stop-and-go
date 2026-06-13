@@ -89,7 +89,6 @@
     <string name="more_tip">डेवलपर को सहायता करें</string>
     <string name="more_open">खोलें</string>
     <string name="sound_enabled">ध्वनि अलर्ट</string>
-    <string name="sound_migration_announcement">Stop and Go अब चरण परिवर्तन के लिए अलार्म सिस्टम का उपयोग करता है। आप इसे सेटिंग्स में कॉन्फ़िगर कर सकते हैं।</string>
     <string name="more_rate">ऐप को रेट करें</string>
     <string name="more_share">ऐप शेयर करें</string>
     <string name="more_share_text">Stop and Go आज़माएं - एक मिनिमलिस्ट इंटरवल टाइमर। मुफ़्त, विज्ञापन-मुक्त, ऑफ़लाइन। https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -102,7 +101,6 @@
     <string name="config_delete">हटाएं</string>
     <string name="config_delete_confirm_title">कॉन्फ़िग हटाएं</string>
     <string name="config_delete_confirm_message">\"%1$s\" हटाएं?</string>
-    <string name="config_name_hint">कॉन्फ़िग का नाम</string>
     <string name="config_default_name">बेसिक</string>
     <string name="config_preset_checkers">चेकर्स</string>
     <string name="config_preset_apnea">अपनिया</string>

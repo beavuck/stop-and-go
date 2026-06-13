@@ -81,7 +81,6 @@
     <string name="more_tip">支持开发者</string>
     <string name="more_open">打开</string>
     <string name="sound_enabled">声音提示</string>
-    <string name="sound_migration_announcement">Stop and Go 现在用闹钟系统通知侬阶段变化。侬可以在设置里配置。</string>
     <string name="more_rate">给应用评分</string>
     <string name="more_share">分享应用</string>
     <string name="more_share_text">试试 Stop and Go - 极简间隔计时器。免费、无广告、离线。https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -95,7 +94,6 @@
     <string name="config_delete">删除</string>
     <string name="config_delete_confirm_title">删除配置</string>
     <string name="config_delete_confirm_message">删除\"%1$s\"？</string>
-    <string name="config_name_hint">配置名称</string>
     <string name="config_default_name">基础</string>
     <string name="config_preset_checkers">跳棋</string>
     <string name="config_preset_apnea">屏息</string>

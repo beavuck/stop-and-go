@@ -91,7 +91,6 @@
     <string name="more_tip">Fun olupilẹṣẹ ni ẹbun</string>
     <string name="more_open">Ṣii</string>
     <string name="sound_enabled">Awọn itaniji ohun</string>
-    <string name="sound_migration_announcement">Stop and Go n lo eto itaniji bayi lati sọ fun ọ nipa awọn iyipada ipele. O le ṣeto eyi ninu awọn eto.</string>
     <string name="more_rate">Ṣe idiyele app</string>
     <string name="more_share">Pin app</string>
     <string name="more_share_text">Wo Stop and Go - aago akoko minimalist. Ofe, lai ipolowo, lai ayelujara.</string>
@@ -105,7 +104,6 @@
     <string name="config_delete">Pa rẹ</string>
     <string name="config_delete_confirm_title">Pa ìtòlẹ́sẹẹsẹ</string>
     <string name="config_delete_confirm_message">Pa \"%1$s\"?</string>
-    <string name="config_name_hint">Orúkọ ìtòlẹ́sẹẹsẹ</string>
     <string name="config_default_name">Àtẹ̀lẹwọ́</string>
     <string name="config_preset_checkers">Dámà</string>
     <string name="config_preset_apnea">Ìdákẹ́ ẹ̀mí</string>

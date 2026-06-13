@@ -80,7 +80,6 @@
     <string name="more_tip">Dukung pangembang</string>
     <string name="more_open">Bukak</string>
     <string name="sound_enabled">Tandha swara</string>
-    <string name="sound_migration_announcement">Stop and Go saiki nggunakake sistem alarm kanggo menehi kabar owah-owahan fase. Sampeyan bisa ngatur iki ing setelan.</string>
     <string name="more_rate">Nilai aplikasi</string>
     <string name="more_share">Enggo bareng aplikasi</string>
     <string name="more_share_text">Cobi Stop and Go - pewaktu interval minimalis. Gratis, tanpa iklan, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -93,7 +92,6 @@
     <string name="config_delete">Busak</string>
     <string name="config_delete_confirm_title">Busak konfigurasi</string>
     <string name="config_delete_confirm_message">Busak \"%1$s\"?</string>
-    <string name="config_name_hint">Jeneng konfigurasi</string>
     <string name="config_default_name">Dhasar</string>
     <string name="config_preset_checkers">Catur dam</string>
     <string name="config_preset_apnea">Apnea</string>

@@ -40,7 +40,6 @@
     <plurals name="phase_changed">
         <item quantity="one">Phase %1$s commencée. %2$d seconde restante.</item>
         <item quantity="other">Phase %1$s commencée. %2$d secondes restantes.</item>
-        <item quantity="many">Phase %1$s commencée. %2$d de secondes restantes.</item>
     </plurals>
     <string name="red_slider">Curseur du composant rouge</string>
     <string name="green_slider">Curseur du composant vert</string>
@@ -81,7 +80,6 @@
     <string name="more_tip">Soutenir le développeur</string>
     <string name="more_open">Ouvrir</string>
     <string name="sound_enabled">Alertes sonores</string>
-    <string name="sound_migration_announcement">Stop and Go utilise désormais le système d\'alarme pour vous signaler les changements de phase. Vous pouvez le configurer dans les paramètres.</string>
     <string name="more_rate">Évaluer l\'application</string>
     <string name="more_share">Partager l\'application</string>
     <string name="more_share_text">Découvrez Stop and Go - un minuteur d\'intervalles minimaliste. Gratuit, sans publicité, hors ligne. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -94,7 +92,6 @@
     <string name="config_delete">Supprimer</string>
     <string name="config_delete_confirm_title">Supprimer la config</string>
     <string name="config_delete_confirm_message">Supprimer \"%1$s\" ?</string>
-    <string name="config_name_hint">Nom de la config</string>
     <string name="config_default_name">Basique</string>
     <string name="config_preset_checkers">Dames</string>
     <string name="config_preset_apnea">Apnée</string>

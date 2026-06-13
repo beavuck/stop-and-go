@@ -22,6 +22,7 @@ import androidx.compose.ui.res.stringResource
 import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.model.timer.NamedConfig
 import com.beavuck.stop_and_go.repositories.ConfigRepository
+import kotlin.time.Duration.Companion.milliseconds
 
 @Composable
 fun ConfigPickerDialog(
@@ -38,7 +39,7 @@ fun ConfigPickerDialog(
         configRepository.setActiveConfig(config.name)
         activeConfigName.value = config.name
         scope.launch {
-            delay(DEBOUNCE_DELAY)
+            delay(DEBOUNCE_DELAY.milliseconds)
             onConfigChanged()
             onDismiss()
         }

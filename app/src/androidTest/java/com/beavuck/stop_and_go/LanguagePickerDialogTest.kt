@@ -2,7 +2,7 @@ package com.beavuck.stop_and_go
 
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.*
-import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.junit4.v2.createAndroidComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.beavuck.stop_and_go.config.SupportedLocale
@@ -221,7 +221,7 @@ class LanguagePickerDialogTest {
         }
 
         composeTestRule.onNodeWithTag("languageSearchField")
-            .performTextInput("xyz123notfound")
+            .performTextInput("xyz123not_found")
 
         composeTestRule.onNodeWithText(context.getString(R.string.no_languages_found))
             .assertIsDisplayed()

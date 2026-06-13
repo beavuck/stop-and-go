@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.sp
 import com.beavuck.stop_and_go.R
 import com.beavuck.stop_and_go.config.SupportedLocale
 import kotlinx.coroutines.delay
+import kotlin.time.Duration.Companion.milliseconds
 
 @Composable
 fun LanguageListWithSearch(
@@ -39,7 +40,7 @@ fun LanguageListWithSearch(
         selectedLocale?.let { locale ->
             val index = locales.indexOf(locale)
             if (index >= 0) {
-                delay(150)
+                delay(150.milliseconds)
                 listState.animateScrollToItem(index)
             }
         }

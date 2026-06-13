@@ -141,7 +141,6 @@
     <string name="more_tip_url" translatable="false">https://buymeacoffee.com/beavuck.dev</string>
     <string name="more_open">Open</string>
     <string name="sound_enabled">Sound alerts</string>
-    <string name="sound_migration_announcement">Stop and Go now uses the alarm system to alert you to phase changes. You can configure this in settings.</string>
     <string name="more_rate">Rate app</string>
     <string name="more_share">Share app</string>
     <string name="more_share_text">Check out Stop and Go - a minimalist interval timer. Free, ad-free, off-network. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -154,7 +153,6 @@
     <string name="config_delete">Delete</string>
     <string name="config_delete_confirm_title">Delete config</string>
     <string name="config_delete_confirm_message">Delete \"%1$s\"?</string>
-    <string name="config_name_hint">Config name</string>
     <string name="config_default_name">Basic</string>
     <string name="config_preset_checkers">Checkers</string>
     <string name="config_preset_apnea">Apnea</string>

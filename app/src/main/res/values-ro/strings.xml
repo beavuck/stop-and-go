@@ -126,7 +126,6 @@
     <string name="more_tip">Lasă un bacșiș dezvoltatorului</string>
     <string name="more_open">Deschide</string>
     <string name="sound_enabled">Alerte sonore</string>
-    <string name="sound_migration_announcement">Stop and Go folosește acum sistemul de alarmă pentru a te anunța schimbările de fază. Poți configura asta în setări.</string>
     <string name="more_rate">Evaluează aplicația</string>
     <string name="more_share">Distribuie aplicația</string>
 
@@ -143,7 +142,6 @@
     <string name="config_delete">Ștergere</string>
     <string name="config_delete_confirm_title">Ștergere configurație</string>
     <string name="config_delete_confirm_message">Ștergeți \"%1$s\"?</string>
-    <string name="config_name_hint">Numele configurației</string>
     <string name="config_default_name">De bază</string>
     <string name="config_preset_checkers">Dame</string>
     <string name="config_preset_apnea">Apnee</string>

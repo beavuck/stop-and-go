@@ -80,7 +80,6 @@
     <string name="more_tip">ገንቢውን ደግፍ</string>
     <string name="more_open">ክፈት</string>
     <string name="sound_enabled">የድምፅ ማንቂያዎች</string>
-    <string name="sound_migration_announcement">Stop and Go አሁን የደረጃ ለውጦችን ለማሳወቅ የማንቂያ ስርዓት ይጠቀማል። ከቅንብሮች ማዋቀር ይቻላል።</string>
     <string name="more_rate">መተግበሪያውን ምደብ</string>
     <string name="more_share">መተግበሪያውን አጋራ</string>
     <string name="more_share_text">Stop and Go ሞክር - ቀላል interval timer። ነፃ፣ ማስታወቂያ የለም፣ ኦፍላይን። https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -93,7 +92,6 @@
     <string name="config_delete">ሰርዝ</string>
     <string name="config_delete_confirm_title">ውቅር ሰርዝ</string>
     <string name="config_delete_confirm_message">\"%1$s\" ሰርዝ?</string>
-    <string name="config_name_hint">የውቅር ስም</string>
     <string name="config_default_name">መሠረታዊ</string>
     <string name="config_preset_checkers">ቼከርስ</string>
     <string name="config_preset_apnea">አፕኒያ</string>

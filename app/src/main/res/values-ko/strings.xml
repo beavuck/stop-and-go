@@ -133,7 +133,6 @@
     <string name="more_tip">개발자 후원</string>
     <string name="more_open">열기</string>
     <string name="sound_enabled">소리 알림</string>
-    <string name="sound_migration_announcement">Stop and Go는 이제 알람 시스템을 사용하여 페이즈 변경을 알립니다. 설정에서 구성할 수 있습니다.</string>
     <string name="more_rate">앱 평가하기</string>
     <string name="more_share">앱 공유</string>
     <string name="more_share_text">Stop and Go를 사용해 보세요 - 미니멀리스트 인터벌 타이머. 무료, 광고 없음, 오프라인. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -146,7 +145,6 @@
     <string name="config_delete">삭제</string>
     <string name="config_delete_confirm_title">설정 삭제</string>
     <string name="config_delete_confirm_message">\"%1$s\"을(를) 삭제하시겠습니까?</string>
-    <string name="config_name_hint">설정 이름</string>
     <string name="config_default_name">기본</string>
     <string name="config_preset_checkers">체커스</string>
     <string name="config_preset_apnea">무호흡</string>

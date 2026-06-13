@@ -5,9 +5,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.mutableStateOf
 import com.beavuck.stop_and_go.config.StopAndGoTheme
-import com.beavuck.stop_and_go.dialogs.SoundMigrationDialog
 import com.beavuck.stop_and_go.model.phase.PhaseManager
-import com.beavuck.stop_and_go.repositories.AnnouncementsRepository
 import com.beavuck.stop_and_go.repositories.ConfigRepository
 import com.beavuck.stop_and_go.repositories.StateRepository
 import com.beavuck.stop_and_go.repositories.TutorialRepository
@@ -22,7 +20,6 @@ class MainActivity : BeavuckActivity() {
     private lateinit var screenManager: ScreenManager
     private var currentLocaleTag: String? = null
     private val soundEnabled = mutableStateOf(false)
-    private val showSoundMigrationDialog = mutableStateOf(false)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,13 +39,6 @@ class MainActivity : BeavuckActivity() {
         soundEnabled.value = configRepository.loadConfig().soundEnabled
         initializePhaseManager()
 
-        // (2026-10): Remove this block (sound migration announcement)
-        val announcementsRepository = AnnouncementsRepository(this)
-        if (announcementsRepository.shouldShowSoundMigrationAnnouncement()) {
-            showSoundMigrationDialog.value = true
-            announcementsRepository.markSoundMigrationAnnouncementShown()
-        }
-
         setContent {
             StopAndGoTheme {
                 TimerScreen(
@@ -61,10 +51,6 @@ class MainActivity : BeavuckActivity() {
                         screenManager.setKeepScreenOn(keepOn)
                     }
                 )
-
-                if (showSoundMigrationDialog.value) {
-                    SoundMigrationDialog(onDismiss = { showSoundMigrationDialog.value = false })
-                }
             }
         }
     }

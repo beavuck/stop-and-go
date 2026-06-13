@@ -134,7 +134,6 @@
     <string name="more_tip">Dukung pengembang</string>
     <string name="more_open">Buka</string>
     <string name="sound_enabled">Peringatan suara</string>
-    <string name="sound_migration_announcement">Stop and Go kini menggunakan sistem alarm untuk memberi tahu perubahan fase. Anda dapat mengonfigurasinya di pengaturan.</string>
     <string name="more_rate">Beri nilai aplikasi</string>
     <string name="more_share">Bagikan aplikasi</string>
     <string name="more_share_text">Coba Stop and Go - pengatur waktu interval minimalis. Gratis, tanpa iklan, offline. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -147,7 +146,6 @@
     <string name="config_delete">Hapus</string>
     <string name="config_delete_confirm_title">Hapus konfigurasi</string>
     <string name="config_delete_confirm_message">Hapus \"%1$s\"?</string>
-    <string name="config_name_hint">Nama konfigurasi</string>
     <string name="config_default_name">Dasar</string>
     <string name="config_preset_checkers">Catur dam</string>
     <string name="config_preset_apnea">Apnea</string>

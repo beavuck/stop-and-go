@@ -81,7 +81,6 @@
     <string name="more_tip">Tallafa wa mai haɓakawa</string>
     <string name="more_open">Buɗe</string>
     <string name="sound_enabled">Faɗakarwar sauti</string>
-    <string name="sound_migration_announcement">Stop and Go yanzu yana amfani da tsarin faɗakarwa don sanar da canjin matakai. Zaka iya saita shi a cikin saitunan.</string>
     <string name="more_rate">Ƙimar Aikace-aikace</string>
     <string name="more_share">Raba aikace-aikacen</string>
     <string name="more_share_text">Gwada Stop and Go - masu ƙididdigar tazara mai sauƙi. Kyauta, babu talla, ba tare da yanar gizo ba. https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -94,7 +93,6 @@
     <string name="config_delete">Goge</string>
     <string name="config_delete_confirm_title">Goge tsarin saiti</string>
     <string name="config_delete_confirm_message">Goge \"%1$s\"?</string>
-    <string name="config_name_hint">Sunan tsari</string>
     <string name="config_default_name">Asali</string>
     <string name="config_preset_checkers">Checkers</string>
     <string name="config_preset_apnea">Apnea</string>

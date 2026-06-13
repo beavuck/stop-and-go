@@ -80,7 +80,6 @@
     <string name="more_tip">डेवलपर के सहयोग करऽ</string>
     <string name="more_open">खोलऽ</string>
     <string name="sound_enabled">ध्वनि अलर्ट</string>
-    <string name="sound_migration_announcement">Stop and Go अब फेज बदलाव के जानकारी देवे बदे अलार्म सिस्टम के उपयोग करेला। सेटिंग में बदलल जा सकेला।</string>
     <string name="more_rate">ऐप के रेट करऽ</string>
     <string name="more_share">ऐप शेयर करऽ</string>
     <string name="more_share_text">Stop and Go आजमाव - सरल interval timer। मुफ्त, बिना विज्ञापन, ऑफलाइन। https://play.google.com/store/apps/details?id=com.beavuck.stop_and_go</string>
@@ -93,7 +92,6 @@
     <string name="config_delete">मिटावऽ</string>
     <string name="config_delete_confirm_title">कॉन्फिग मिटावऽ</string>
     <string name="config_delete_confirm_message">\"%1$s\" मिटाईं?</string>
-    <string name="config_name_hint">कॉन्फिग के नाम</string>
     <string name="config_default_name">बेसिक</string>
     <string name="config_preset_checkers">चेकर्स</string>
     <string name="config_preset_apnea">अपनिया</string>
