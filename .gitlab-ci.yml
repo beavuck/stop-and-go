@@ -34,11 +34,6 @@ workflow:
 ########~~~~-- Includes --~~~~########
 
 include:
-  - component: "$CI_SERVER_FQDN/beavuck-services/ci-cd-catalog/secret-finder/secret-finder@main"
-    inputs:
-      job_name: "find_secrets"
-      stage_config: "secure"
-
   - component: "$CI_SERVER_FQDN/beavuck-services/ci-cd-catalog/command-runner/command-runner@main"
     inputs:
       job_name: "upgrade"
@@ -67,11 +62,6 @@ include:
       image: "$IMAGE"
       script_to_install_deps: "apk add --no-cache bash curl jq git"
       consecutive_command_commits_allowed: no
-
-find_secrets:
-  rules:
-    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != 'schedule'"
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
 
 upgrade:
   rules:
@@ -125,6 +115,14 @@ increment_version:
     - glab securefile download --all --output-dir .secure_files/
 
 ########~~~~-- Jobs --~~~~########
+
+find_secrets:
+  image: ${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/gitguardian/ggshield:latest
+  stage: secure
+  script: ggshield secret scan ci
+  rules:
+    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != 'schedule'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
 
 run_unit_tests:
   extends: .gradle_cache
