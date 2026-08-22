@@ -6,7 +6,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose") version "2.4.10"
     kotlin("plugin.serialization") version "2.4.10"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
-    id("com.github.ben-manes.versions") version "0.60.0"
+    id("com.github.ben-manes.versions") version "0.61.0"
     jacoco
 }
 
@@ -41,9 +41,9 @@ android {
         applicationId = packagePath
         minSdk = 24
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionCode = 36
+        versionCode = 37
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionName = "1.9.6"
+        versionName = "1.9.7"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -103,10 +103,10 @@ android {
 }
 
 dependencies {
-    val composeBom = platform("androidx.compose:compose-bom:2026.06.01")
+    val composeBom = platform("androidx.compose:compose-bom:2026.08.00")
     val activityVersion = "1.13.0"
     val coreKtxVersion = "1.19.0"
-    val appcompatVersion = "1.7.1"
+    val appcompatVersion = "1.8.0"
     val materialVersion = "1.14.0"
     val playReviewVersion = "2.0.2"
     val kotlinxSerializationVersion = "1.11.0"
