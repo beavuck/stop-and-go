@@ -3,10 +3,10 @@ import java.util.Properties
 
 plugins {
     id("com.android.application") version "9.2.1"
-    id("org.jetbrains.kotlin.plugin.compose") version "2.4.10"
-    kotlin("plugin.serialization") version "2.4.10"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.4.20"
+    kotlin("plugin.serialization") version "2.4.20"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
-    id("com.github.ben-manes.versions") version "0.61.0"
+    id("com.github.ben-manes.versions") version "0.64.0"
     jacoco
 }
 
@@ -41,9 +41,9 @@ android {
         applicationId = packagePath
         minSdk = 24
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionCode = 37
+        versionCode = 38
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionName = "1.9.7"
+        versionName = "1.9.8"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -103,7 +103,7 @@ android {
 }
 
 dependencies {
-    val composeBom = platform("androidx.compose:compose-bom:2026.08.00")
+    val composeBom = platform("androidx.compose:compose-bom:2026.09.00")
     val activityVersion = "1.13.0"
     val coreKtxVersion = "1.19.0"
     val appcompatVersion = "1.8.0"
