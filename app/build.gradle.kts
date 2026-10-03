@@ -41,9 +41,9 @@ android {
         applicationId = packagePath
         minSdk = 24
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionCode = 38
+        versionCode = 39
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionName = "1.9.8"
+        versionName = "1.9.9"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -105,7 +105,7 @@ android {
 dependencies {
     val composeBom = platform("androidx.compose:compose-bom:2026.09.00")
     val activityVersion = "1.13.0"
-    val coreKtxVersion = "1.19.0"
+    val coreKtxVersion = "1.19.1"
     val appcompatVersion = "1.8.0"
     val materialVersion = "1.14.0"
     val playReviewVersion = "2.0.2"
@@ -125,7 +125,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinxSerializationVersion")
 
     val junitVersion = "4.13.2"
-    val mockitoVersion = "5.23.0"
+    val mockitoVersion = "5.24.0"
     val testServicesVersion = "1.6.0"
 
     androidTestImplementation(composeBom)
