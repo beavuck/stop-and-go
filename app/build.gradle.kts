@@ -3,10 +3,10 @@ import java.util.Properties
 
 plugins {
     id("com.android.application") version "9.2.1"
-    id("org.jetbrains.kotlin.plugin.compose") version "2.4.20"
-    kotlin("plugin.serialization") version "2.4.20"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.4.21"
+    kotlin("plugin.serialization") version "2.4.21"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
-    id("com.github.ben-manes.versions") version "0.64.0"
+    id("com.github.ben-manes.versions") version "0.66.0"
     jacoco
 }
 
@@ -41,9 +41,9 @@ android {
         applicationId = packagePath
         minSdk = 24
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionCode = 39
+        versionCode = 40
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionName = "1.9.9"
+        versionName = "1.9.10"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
