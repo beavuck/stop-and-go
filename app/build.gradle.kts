@@ -2,7 +2,7 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import java.util.Properties
 
 plugins {
-    id("com.android.application") version "9.2.1"
+    id("com.android.application") version "9.4.1"
     id("org.jetbrains.kotlin.plugin.compose") version "2.4.21"
     kotlin("plugin.serialization") version "2.4.21"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
