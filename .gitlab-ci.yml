@@ -10,8 +10,7 @@ stages:
 ########~~~~-- Variables & defaults --~~~~########
 
 variables:
-  FABERNOVEL_ANDROID_IMAGE: "api-36-v1.11.0"
-  ALVRME_ANDROID_IMAGE: "android-36-jdk21"
+  ALVRME_ANDROID_IMAGE: "android-37.1-jdk21"
   IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/alvrme/alpine-android:${ALVRME_ANDROID_IMAGE}"
   JACOCO_PATH: "app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
 
@@ -94,7 +93,6 @@ increment_version:
         - /root/.gradle/wrapper/dists
 
 .fastlane_setup:
-  image: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/fabernovel/android:${FABERNOVEL_ANDROID_IMAGE}"
   cache:
     - key: gems-cache
       paths:
@@ -107,7 +105,7 @@ increment_version:
         - /root/.gradle/caches
         - /root/.gradle/wrapper/dists
   before_script:
-    - apt update -y && apt install -y curl ruby-full build-essential
+    - apk add --no-cache bash curl git ruby-full build-base
     - !reference [ .install_glab, before_script ]
     - gem install bundler -N
     - bundle config set --local path 'vendor/bundle'
