@@ -2,7 +2,7 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import java.util.Properties
 
 plugins {
-    id("com.android.application") version "9.4.1"
+    id("com.android.application") version "9.5.2"
     id("org.jetbrains.kotlin.plugin.compose") version "2.4.21"
     kotlin("plugin.serialization") version "2.4.21"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
@@ -27,7 +27,11 @@ java {
 android {
     val packagePath = "com.beavuck.stop_and_go"
     namespace = packagePath
-    compileSdk = 37
+    compileSdk {
+        version = release(37) {
+            minorApiLevel = 1
+        }
+    }
     ndkVersion = "27.3.13750724"
 
     bundle {
@@ -41,9 +45,9 @@ android {
         applicationId = packagePath
         minSdk = 24
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionCode = 41
+        versionCode = 42
         // don't update manually, use the dedicated gitlab job instead ("scheduled" manual job)
-        versionName = "1.9.11"
+        versionName = "1.9.12"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -103,7 +107,7 @@ android {
 }
 
 dependencies {
-    val composeBom = platform("androidx.compose:compose-bom:2026.09.00")
+    val composeBom = platform("androidx.compose:compose-bom:2026.11.01")
     val activityVersion = "1.13.0"
     val coreKtxVersion = "1.19.1"
     val appcompatVersion = "1.8.0"
