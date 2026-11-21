@@ -13,9 +13,12 @@ variables:
   ALVRME_ANDROID_IMAGE: "android-37.1-jdk21"
   IMAGE: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/alvrme/alpine-android:${ALVRME_ANDROID_IMAGE}"
   JACOCO_PATH: "app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
+  UPGRADE_PACKAGES: "apk upgrade --no-cache"
+  INSTALL_DEPS: "apk add --no-cache bash curl jq git"
+  GRADLE_USER_HOME: "${CI_PROJECT_DIR}/.gradle"
 
 default:
-  image: $IMAGE
+  image: "$IMAGE"
   interruptible: true
 
 ########~~~~-- Workflows --~~~~########
@@ -41,7 +44,7 @@ include:
       command: "./gradlew wrapper --gradle-version latest && ./gradlew useLatestVersions  --no-parallel && ./scripts/increment_version.sh patch"
       commit_message: "⚙️ Upgrade dependencies automatically"
       image: "$IMAGE"
-      script_to_install_deps: "apk add --no-cache bash curl jq git"
+      script_to_install_deps: "$UPGRADE_PACKAGES && $INSTALL_DEPS"
       consecutive_command_commits_allowed: true
 
   - component: "$CI_SERVER_FQDN/beavuck-services/ci-cd-catalog/command-runner/command-runner@main"
@@ -59,7 +62,7 @@ include:
         fi
       commit_message: "🔖 Increment version"
       image: "$IMAGE"
-      script_to_install_deps: "apk add --no-cache bash curl jq git"
+      script_to_install_deps: "$UPGRADE_PACKAGES && $INSTALL_DEPS"
       consecutive_command_commits_allowed: no
 
 upgrade:
@@ -82,31 +85,41 @@ increment_version:
       tar xzf /tmp/glab.tar.gz -C /tmp/
       install -m755 /tmp/bin/glab /usr/local/bin/glab
 
+.upgrade_packages:
+  before_script:
+    - "$UPGRADE_PACKAGES"
+
+.install_deps:
+  before_script:
+    - "$INSTALL_DEPS"
+
 .gradle_cache:
   cache:
     - key:
         files:
           - gradle/wrapper/gradle-wrapper.properties
       paths:
-        - .gradle
-        - /root/.gradle/caches
-        - /root/.gradle/wrapper/dists
+        - .gradle/caches
+        - .gradle/wrapper
 
 .fastlane_setup:
   cache:
-    - key: gems-cache-alpaquita
+    - key:
+        prefix: gems
+        files:
+          - Gemfile.lock
       paths:
         - vendor/bundle
     - key:
         files:
           - gradle/wrapper/gradle-wrapper.properties
       paths:
-        - .gradle
-        - /root/.gradle/caches
-        - /root/.gradle/wrapper/dists
+        - .gradle/caches
+        - .gradle/wrapper
   before_script:
-    - apk upgrade --no-cache
-    - apk add --no-cache bash curl git ruby-full ruby-dev build-base annobin
+    - !reference [ .upgrade_packages, before_script ]
+    - !reference [ .install_deps, before_script ]
+    - apk add --no-cache ruby-full ruby-dev build-base annobin
     - !reference [ .install_glab, before_script ]
     - gem install bundler -N
     - bundle config set --local path 'vendor/bundle'
@@ -116,7 +129,7 @@ increment_version:
 ########~~~~-- Jobs --~~~~########
 
 find_secrets:
-  image: ${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/gitguardian/ggshield:latest
+  image: "${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/gitguardian/ggshield:latest"
   stage: secure
   script: ggshield secret scan ci
   rules:
@@ -124,14 +137,14 @@ find_secrets:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
 
 run_unit_tests:
-  extends: .gradle_cache
+  extends: [ .gradle_cache, .upgrade_packages ]
   stage: test
   script: ./gradlew test jacocoTestReport
   artifacts:
     reports:
       coverage_report:
         coverage_format: jacoco
-        path: $JACOCO_PATH
+        path: "$JACOCO_PATH"
     paths:
       - app/build/reports/jacoco/
     expire_in: 1 week
