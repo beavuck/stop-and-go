@@ -105,6 +105,7 @@ increment_version:
         - /root/.gradle/caches
         - /root/.gradle/wrapper/dists
   before_script:
+    - apk upgrade --no-cache
     - apk add --no-cache bash curl git ruby-full build-base
     - !reference [ .install_glab, before_script ]
     - gem install bundler -N
