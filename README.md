@@ -21,8 +21,6 @@ Free, ad-free, off-network.
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=beavuck-services_stop-and-go&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=beavuck-services_stop-and-go)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=beavuck-services_stop-and-go&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=beavuck-services_stop-and-go)
 
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=beavuck-services_stop-and-go&metric=coverage)](https://sonarcloud.io/summary/new_code?id=beavuck-services_stop-and-go)
-
 ## 📱 Get the app
 
 In the spirit of free open-source software, the APK is available
